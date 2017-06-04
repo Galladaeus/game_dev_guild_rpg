@@ -1,0 +1,39 @@
+local iso_ground = require "town/ground.isometric_basic_ground"
+
+function init(self)
+
+-- Basic info to calculate map
+local tilewidth = iso_ground.tilewidth
+local tileheight = iso_ground.tileheight
+local mapwidth = iso_ground.width
+local mapheight = iso_ground.height
+local mapsize = vmath.vector3(tilewidth * mapwidth, tileheight * mapheight, 0) -- Total size of map, needed to calculate collision borders
+local pos = vmath.vector3(0, 0, 0) -- Start of isometric grid
+local screenpos = vmath.vector3(0, 0, 0) -- Top left of grid for isometric grid
+
+-- Data of what to draw, make sure to label different animations 1, 2, 3...
+local drawData = iso_ground.layers[1].data
+local drawDataIterator = 1
+
+--for i, p in ipairs(drawData) do -- Print tile numbers to console
+--    print(p)
+--	end
+
+-- Table to contain tile's
+self.tile_map = {}
+
+--Draw the tiles
+	for i = 1, mapwidth do
+		for j = 1, mapheight do
+			self.tile_map = factory.create("#tile_factory", screenpos, nil, { image = hash(drawData[drawDataIterator]) })
+			drawDataIterator = drawDataIterator + 1
+			screenpos.x = screenpos.x + (tilewidth/2)
+			screenpos.y = screenpos.y - (tileheight/2)
+			-- screenpos.z = screenpos.z + .00001 -- Since map is drawn from top left - down there is no need to touch z-axis
+		end
+		screenpos.x = (pos.x) - (tilewidth/2) * i
+		screenpos.y = (pos.y) - (tileheight/2) * i
+		-- screenpos.z = screenpos.z + .00001 * i
+	end
+end
+

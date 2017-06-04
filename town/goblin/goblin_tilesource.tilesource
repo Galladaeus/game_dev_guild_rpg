@@ -1,0 +1,55 @@
+image: "/main/images/goblin.png"
+tile_width: 65
+tile_height: 65
+tile_margin: 0
+tile_spacing: 0
+collision: ""
+material_tag: "tile"
+collision_groups: "default"
+animations {
+  id: "idle"
+  start_tile: 1
+  end_tile: 2
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 2
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "walk_down"
+  start_tile: 1
+  end_tile: 7
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 7
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "walk_left"
+  start_tile: 31
+  end_tile: 37
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 7
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "walk_right"
+  start_tile: 11
+  end_tile: 18
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 7
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "walk_up"
+  start_tile: 21
+  end_tile: 28
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 7
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+extrude_borders: 0
+inner_padding: 0

@@ -11,11 +11,21 @@ game_binding = /input/game.input_bindingc
 [display]
 width = 1280
 height = 720
-high_dpi = 1
+high_dpi = 0
 
 [physics]
 scale = 0.02
 
 [script]
 shared_state = 1
+
+[sprite]
+max_count = 4096
+subpixels = 1
+
+[resource]
+max_resources = 5096
+
+[collection]
+max_instances = 4096
 
