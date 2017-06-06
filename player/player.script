@@ -17,7 +17,7 @@ end
 local function play_animation(self, anim)
 	-- Don't collide animations
 	if self.anim ~= anim then
-		-- Code for spine model, need to change for a sprite atlas
+		-- Code for spine model, need to change for a sprite atlas/ tilesource
 		spine.play("#spinemodel", anim, go.PLAYBACK_LOOP_FORWARD, 0.1)
 		self.anim = anim
 	end
@@ -25,7 +25,7 @@ end
 
 local function update_animations(self)
 	-- Can use to flip a sprite around to make sure correct direction
-	-- is being faced, not usable with spine
+	-- is being faced, not usable with spine yet
 	-- sprite.set_hflip("#sprite", self.move_input < 0)
 	
 	-- Check if player isn't moving
@@ -42,6 +42,7 @@ function update(self, dt)
     pos = pos + self.vel * dt 
     go.set_position(pos) 
     update_animations(self)
+    
     self.vel.x = 0 
     self.vel.y = 0
     self.inrangeofnpc = false
@@ -49,10 +50,14 @@ end
 
 function on_message(self, message_id, message, sender)
 	-- print(sender)
-	if message_id == hash("collision_response") then
-		if message.group == hash("npc") then
-	 	--print(sender)
-	 	self.inrangeofnpc = true
+	if message_id == hash("contact_point_response") then
+		if message.group == hash("npc") then -- TODO Should use collision response for npc, seperate later
+	 		--print(sender)
+	 		self.inrangeofnpc = true
+	 	elseif message.group == hash("border") then
+	 		local newpos = go.get_position() + message.normal * message.distance	-- Seperate player and collision so player cannot enter
+	 		go.set_position(newpos)
+	 		-- pprint("Hit border")
 	 	end
 	end
 end
@@ -66,7 +71,8 @@ function on_input(self, action_id, action)
         self.vel.x = -300 
     elseif action_id == hash(input_right) then
         self.vel.x = 300
-    elseif (action_id == hash(input_action) and self.inrangeofnpc == true and self.wait == false) then
+    elseif (action_id == hash(input_action) and self.inrangeofnpc == true and action.pressed) then	-- action.pressed prevents button from being pushed multiple times in one press
     	msg.post("goblin#script", "chat")
+    	print("sent")
     end
 end

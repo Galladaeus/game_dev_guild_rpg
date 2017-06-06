@@ -14,7 +14,7 @@ components {
   }
 }
 embedded_components {
-  id: "chatbox"
+  id: "player_collision"
   type: "collisionobject"
   data: "collision_shape: \"\"\n"
   "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
@@ -23,6 +23,7 @@ embedded_components {
   "restitution: 0.5\n"
   "group: \"player\"\n"
   "mask: \"npc\"\n"
+  "mask: \"border\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"

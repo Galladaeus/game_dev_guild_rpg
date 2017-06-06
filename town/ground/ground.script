@@ -19,13 +19,17 @@ local drawDataIterator = 1
 --    print(p)
 --	end
 
--- Table to contain tile's
+-- Table to contain tile's and collision border
 self.tile_map = {}
+self.border = {}
 
 --Draw the tiles
 	for i = 1, mapwidth do
 		for j = 1, mapheight do
 			self.tile_map = factory.create("#tile_factory", screenpos, nil, { image = hash(drawData[drawDataIterator]) })
+				if i == mapwidth or j == mapheight or i == 1 or j == 1 then	-- Very crude border, need to refactor
+					self.border = factory.create("#border_factory", screenpos)
+				end
 			drawDataIterator = drawDataIterator + 1
 			screenpos.x = screenpos.x + (tilewidth/2)
 			screenpos.y = screenpos.y - (tileheight/2)
