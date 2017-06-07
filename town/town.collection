@@ -60,6 +60,26 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "testGUI"
+  prototype: "/testGUI.go"
+  position {
+    x: 54.284065
+    y: -183.74013
+    z: 0.15
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "ground"
