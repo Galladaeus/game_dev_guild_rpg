@@ -1,0 +1,42 @@
+-- TODO Completely refactor conversation system
+local conversationTable = {}
+local textNode
+local textIterator = 2 -- Contains number of text messages left to send to convo box
+
+function init(self)
+    textNode = gui.get_node("testtext")
+    gui.set_enabled(textNode, false)
+end
+
+function on_message(self, message_id, message, sender)
+	conversationTable = message	-- Should be in its own message for conversations
+    if message_id == hash("guimessage") then
+    	-- pprint(conversationTable)
+    	pprint(textLeft)
+    	
+    	msg.post(".", "acquire_input_focus")
+    	gui.set_enabled(textNode, true)
+    end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("mouse_press") and action.pressed then	
+		local x = action.x
+		local y = action.y
+		local button = gui.get_node("convoButton")	
+		if gui.pick_node(button, x, y) then
+			if (textIterator == 5) then	-- Check if conversation has reached end of text
+				msg.post(".", "release_input_focus")
+				gui.set_enabled(textNode, false)	 
+				textIterator = 2
+			else
+				gui.set_text(textNode, conversationTable[textIterator])
+				textIterator = textIterator + 1
+				pprint(textIterator)
+			end
+		end
+	end
+	-- As long as input is being listened to "true" it will consume input and
+	-- controls are disabled for player
+    return true
+end

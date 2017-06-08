@@ -37,8 +37,7 @@ local function update_animations(self)
 end
 
 function update(self, dt)
-    msg.post("testGUI#gui", "guimessage")
-	-- msg.post("camera", "look_at")
+	-- msg.post("camera", "look_at") Camera is childed to player, this can be used as part of persp camera
     local pos = go.get_position() 
     pos = pos + self.vel * dt 
     go.set_position(pos) 

@@ -1,23 +1,14 @@
 function init(self)
-  	local messagerecieved = false
 end
 
 function update(self, dt)
-	if messagereceived == false then
-	label.set_text("#speechbubble", "...")
-	end
-	messagereceived = false
 end
 
 function on_message(self, message_id, message, sender)
 	messagereceived = true
+	local conversationTable = {3, "Hello", "I need your help", "Will you help me?"}
 	if message_id == hash("chat") then
-		local random = math.random()
-		if (random <= .5) then
-			label.set_text("#speechbubble", "I'm gonna get you!")
-		else
-			label.set_text("#speechbubble", "I can't move!")
-		end
+		msg.post("testGUI#gui", "guimessage", conversationTable)
+		pprint(go.get_id())
 	end
-	
 end

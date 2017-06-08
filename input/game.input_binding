@@ -18,3 +18,7 @@ key_trigger {
   input: KEY_F
   action: "action"
 }
+mouse_trigger {
+  input: MOUSE_BUTTON_1
+  action: "mouse_press"
+}
