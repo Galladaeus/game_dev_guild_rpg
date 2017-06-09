@@ -6,9 +6,25 @@ end
 
 function on_message(self, message_id, message, sender)
 	messagereceived = true
-	local conversationTable = {3, "Hello", "I need your help", "Will you help me?"}
+	
+	local conversationTable = {
+		-- numberOfDialog = 2,	-- Number of sentences that NPC will say outside of greeting, not needed currently
+		npcGreeting = {
+			"Hello"
+		},
+		npcDialog = {
+			"I need your help",
+			"Will you help me?",
+			"PlayerChoice"
+			},
+		playerChoice = {
+			"Ribbit",
+			"..."
+		}
+	}
 	if message_id == hash("chat") then
-		msg.post("testGUI#gui", "guimessage", conversationTable)
+		msg.post("conversationUI#gui", "NPCConversation", conversationTable)
 		pprint(go.get_id())
 	end
 end
+

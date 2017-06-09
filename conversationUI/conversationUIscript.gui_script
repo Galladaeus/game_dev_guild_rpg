@@ -1,0 +1,72 @@
+-- TODO Completely refactor conversation system
+local conversationTable = {}
+local dialogUI
+local playerChoice1
+local playerChoice2
+
+local textIterator = 1 -- Contains number of text messages left to send to convo box
+
+function init(self)
+    dialogUI = gui.get_node("conversationUI")
+    playerChoice1 = gui.get_node("player_choice_1")
+    playerChoice2 = gui.get_node("player_choice_2")
+    gui.set_enabled(dialogUI, false)
+   
+end
+
+function closeUI()
+	msg.post(".", "release_input_focus")
+	gui.set_enabled(dialogUI, false)	 
+	textIterator = 1
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("NPCConversation") then
+    	-- Set up text in UIDialog
+  	    conversationTable = message
+    	pprint(conversationTable)
+    	gui.set_text(gui.get_node("testtext"), conversationTable.npcGreeting[1])
+    	-- Disappear the choice buttons 
+    	gui.set_enabled(playerChoice1, false)
+    	gui.set_enabled(playerChoice2, false)
+    	-- Show dialogUI and take put input on top of input stack, set on_input to true to eat all input
+    	msg.post(".", "acquire_input_focus")
+    	gui.set_enabled(dialogUI, true)
+    	gui.set_enabled(gui.get_node("convoButton"), true)
+    end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("mouse_press") and action.pressed then	
+		-- data to read button press
+		local x = action.x
+		local y = action.y
+		local continueButton = gui.get_node("convoButton")	
+		if gui.pick_node(continueButton, x, y) then
+			if (conversationTable.npcDialog[textIterator] ~= nil) then	-- Check if conversation has reached end of text
+				if (conversationTable.npcDialog[textIterator] == "PlayerChoice") then
+					-- Set up buttons to give options to player
+					gui.set_enabled(gui.get_node("convoButton"), false)
+					gui.set_enabled(playerChoice1, true)
+					gui.set_text(gui.get_node("choice1"), conversationTable.playerChoice[1])
+    				gui.set_enabled(playerChoice2, true)
+    				gui.set_text(gui.get_node("choice2"), conversationTable.playerChoice[2])
+				else
+					gui.set_text(gui.get_node("testtext"), conversationTable.npcDialog[textIterator])
+					textIterator = textIterator + 1
+					-- pprint(textIterator)
+				end
+			else
+				closeUI()
+			end
+		elseif gui.pick_node(playerChoice1, x, y) then
+    		closeUI()
+    	elseif gui.pick_node(playerChoice2, x, y) then
+    		closeUI()	
+    	end
+	end
+
+	-- As long as input is being listened to i.e. "true" it will consume input and
+	-- controls are disabled for player character
+    return true
+end
