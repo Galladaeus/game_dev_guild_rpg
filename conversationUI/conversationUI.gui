@@ -12,77 +12,22 @@ textures {
   texture: "/player/player.atlas"
 }
 background_color {
+  x: 0.0
+  y: 0.0
+  z: 0.0
   w: 1.0
-}
-nodes {
-  position {
-    x: 138.76643
-    y: 661.4252
-    w: 1.0
-  }
-  rotation {
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  id: "box"
-  inherit_alpha: true
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: 1015.0265
-    y: -11.417621
-    w: 1.0
-  }
-  rotation {
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    w: 1.0
-  }
-  color {
-    y: 1.0
-    z: 0.2509804
-    w: 1.0
-  }
-  blend_mode: BLEND_MODE_ADD
-  id: "box1"
-  xanchor: XANCHOR_LEFT
-  parent: "box"
-  inherit_alpha: true
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 637.37616
     y: 364.64572
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -94,24 +39,49 @@ nodes {
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: ""
   id: "conversationUI"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
   layer: "background"
   inherit_alpha: true
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
   alpha: 0.5
+  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: -63.858395
     y: -30.674234
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -123,6 +93,7 @@ nodes {
   size {
     x: 1.0
     y: 1.0
+    z: 0.0
     w: 1.0
   }
   color {
@@ -132,20 +103,36 @@ nodes {
     w: 1.0
   }
   type: TYPE_SPINE
+  blend_mode: BLEND_MODE_ALPHA
   id: "player"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
   parent: "conversationUI"
   layer: "textbox"
+  inherit_alpha: false
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
   size_mode: SIZE_MODE_AUTO
   spine_scene: "player"
   spine_default_animation: "idle_right"
+  spine_skin: ""
 }
 nodes {
   position {
     x: 63.248093
     y: -13.237443
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -157,6 +144,7 @@ nodes {
   size {
     x: 65.0
     y: 65.0
+    z: 0.0
     w: 1.0
   }
   color {
@@ -165,19 +153,41 @@ nodes {
     z: 1.0
     w: 1.0
   }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
   texture: "goblin_tilesource/idle"
   id: "NPC"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
   parent: "conversationUI"
   layer: "textbox"
+  inherit_alpha: false
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 1.008194
     y: -33.935726
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -189,26 +199,48 @@ nodes {
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_PIE
+  blend_mode: BLEND_MODE_ALPHA
+  texture: ""
   id: "pie"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
   parent: "conversationUI"
   layer: "textbox"
+  inherit_alpha: false
   outerBounds: PIEBOUNDS_RECTANGLE
+  innerRadius: 0.0
   perimeterVertices: 8
+  pieFillAngle: 360.0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 0.72129226
     y: -31.288502
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -220,6 +252,7 @@ nodes {
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
@@ -229,9 +262,13 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
   text: "This is where conversation text will go"
   font: "system_font"
-  id: "testtext"
+  id: "npcText"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -244,17 +281,33 @@ nodes {
     z: 1.0
     w: 1.0
   }
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
   parent: "conversationUI"
   layer: "text"
+  inherit_alpha: false
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  template_node_child: false
+  text_leading: 1.0
+  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 62.909416
     y: -37.269047
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -266,6 +319,7 @@ nodes {
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
@@ -274,18 +328,41 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  id: "convoButton"
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: ""
+  id: "hubButton"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
   parent: "conversationUI"
   layer: "textbox"
+  inherit_alpha: false
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 0.46318662
     y: -0.80588156
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -297,15 +374,23 @@ nodes {
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_TEXT
-  text: "CONTINUE"
+  blend_mode: BLEND_MODE_ALPHA
+  text: "BACK"
   font: "system_font"
-  id: "convoButtonText"
+  id: "hubButtonText"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -318,17 +403,33 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  parent: "convoButton"
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
+  parent: "hubButton"
   layer: "text"
+  inherit_alpha: false
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  template_node_child: false
+  text_leading: 1.0
+  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: -16.017736
+    x: -54.405426
     y: -37.399307
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -340,6 +441,7 @@ nodes {
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
@@ -348,18 +450,41 @@ nodes {
     z: 1.0
     w: 1.0
   }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: ""
   id: "player_choice_1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
   parent: "conversationUI"
   layer: "textbox"
+  inherit_alpha: false
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 0.6872313
     y: -5.5879474
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -371,16 +496,27 @@ nodes {
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
   text: "choice1"
   font: "system_font"
   id: "choice1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
   outline {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   shadow {
@@ -389,17 +525,33 @@ nodes {
     z: 1.0
     w: 1.0
   }
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
   parent: "player_choice_1"
   layer: "text"
+  inherit_alpha: false
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  template_node_child: false
+  text_leading: 1.0
+  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: 17.983692
+    x: -24.613174
     y: -37.399307
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -411,6 +563,7 @@ nodes {
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
@@ -419,18 +572,41 @@ nodes {
     z: 1.0
     w: 1.0
   }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: ""
   id: "player_choice_2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
   parent: "conversationUI"
   layer: "textbox"
+  inherit_alpha: false
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 0.6872313
     y: -5.5879474
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
@@ -442,16 +618,27 @@ nodes {
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
   text: "choice2"
   font: "system_font"
   id: "choice2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
   outline {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   shadow {
@@ -460,28 +647,45 @@ nodes {
     z: 1.0
     w: 1.0
   }
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
   parent: "player_choice_2"
   layer: "text"
+  inherit_alpha: false
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  template_node_child: false
+  text_leading: 1.0
+  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: 138.56087
-    y: 592.839
+    x: 4.177593
+    y: -37.399307
+    z: 0.0
     w: 1.0
   }
   rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   scale {
-    x: 1.0
-    y: 1.0
+    x: 0.10867561
+    y: 0.025670294
     z: 1.0
     w: 1.0
   }
   size {
     x: 200.0
     y: 100.0
+    z: 0.0
     w: 1.0
   }
   color {
@@ -490,14 +694,73 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  type: TYPE_TEXT
-  text: "Hello"
-  font: "system_font"
-  id: "helloText"
-  outline {
-    x: 1.0
-    y: 1.0
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: ""
+  id: "player_choice_3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "conversationUI"
+  layer: "textbox"
+  inherit_alpha: false
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 0.6872313
+    y: -5.5879474
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.91169834
+    y: 3.1712716
     z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
+  text: "choice3"
+  font: "system_font"
+  id: "choice3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  outline {
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   shadow {
@@ -506,8 +769,142 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  line_break: true
-  inherit_alpha: true
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
+  parent: "player_choice_3"
+  layer: "text"
+  inherit_alpha: false
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  template_node_child: false
+  text_leading: 1.0
+  text_tracking: 0.0
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 34.315296
+    y: -37.399307
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.10867561
+    y: 0.025670294
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: ""
+  id: "player_choice_4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "conversationUI"
+  layer: "textbox"
+  inherit_alpha: false
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 0.6872313
+    y: -5.5879474
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.91169834
+    y: 3.1712716
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
+  text: "choice4"
+  font: "system_font"
+  id: "choice4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  outline {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
+  parent: "player_choice_4"
+  layer: "text"
+  inherit_alpha: false
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  template_node_child: false
+  text_leading: 1.0
+  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 layers {
@@ -519,7 +916,9 @@ layers {
 layers {
   name: "text"
 }
+material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
+max_nodes: 512
 spine_scenes {
   name: "player"
   spine_scene: "/player/player.spinescene"

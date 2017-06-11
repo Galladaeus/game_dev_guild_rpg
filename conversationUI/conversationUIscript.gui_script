@@ -3,6 +3,9 @@ local conversationTable = {}
 local dialogUI
 local playerChoice1
 local playerChoice2
+local playerChoice3
+local playerChoice4
+local npcText
 
 local textIterator = 1 -- Contains number of text messages left to send to convo box
 
@@ -10,30 +13,70 @@ function init(self)
     dialogUI = gui.get_node("conversationUI")
     playerChoice1 = gui.get_node("player_choice_1")
     playerChoice2 = gui.get_node("player_choice_2")
+    playerChoice3 = gui.get_node("player_choice_3")
+    playerChoice4 = gui.get_node("player_choice_4")
+    npcText = gui.get_node("npcText")
     gui.set_enabled(dialogUI, false)
-   
 end
 
-function closeUI()
+local function closeUI()
 	msg.post(".", "release_input_focus")
 	gui.set_enabled(dialogUI, false)	 
 	textIterator = 1
 end
 
+local function disableChoiceButtons()
+	gui.set_enabled(playerChoice1, false)
+	gui.set_enabled(playerChoice2, false)
+	gui.set_enabled(playerChoice3, false)
+	gui.set_enabled(playerChoice4, false)
+end
+
+local function showPlayerChoices(conversationTable)	-- Called to reset to start of conversation
+	disableChoiceButtons()
+	textIterator = 1
+    local choiceIterator = 1
+    local nodeIterator = 1
+    while conversationTable.playerChoice[choiceIterator] do
+    	gui.set_enabled(gui.get_node("player_choice_"..nodeIterator), true)
+		gui.set_text(gui.get_node("choice"..nodeIterator), conversationTable.playerChoice[choiceIterator])
+		nodeIterator = nodeIterator + 1
+		choiceIterator = 2 + choiceIterator
+   	end
+end
+
+local function playNPCtext(conversationTable, textChoice, textIterator)
+	gui.set_text(gui.get_node("hubButtonText"), "Return")
+ 	disableChoiceButtons()
+	if (conversationTable.playerChoice[2*textChoice][textIterator] ~= nil) then
+		gui.set_enabled(gui.get_node("player_choice_"..textChoice), true)
+		gui.set_text(gui.get_node("choice"..textChoice),"Continue")
+  		gui.set_text(gui.get_node("npcText"), conversationTable.playerChoice[2*textChoice][textIterator])
+  	elseif(conversationTable.playerChoice[2*textChoice].playerAnswer ~= nil) then
+  		gui.set_enabled(gui.get_node("player_choice_1"), true)
+  		gui.set_text(gui.get_node("choice1"), conversationTable.playerChoice[2*textChoice].playerAnswer[1])
+  		gui.set_enabled(gui.get_node("player_choice_2"), true)
+  		gui.set_text(gui.get_node("choice2"), conversationTable.playerChoice[2*textChoice].playerAnswer[2])
+  	else 
+  		closeUI()
+  	end
+end
+
 function on_message(self, message_id, message, sender)
     if message_id == hash("NPCConversation") then
-    	-- Set up text in UIDialog
+		-- Get conversation data from NPC go
   	    conversationTable = message
-    	pprint(conversationTable)
-    	gui.set_text(gui.get_node("testtext"), conversationTable.npcGreeting[1])
-    	-- Disappear the choice buttons 
-    	gui.set_enabled(playerChoice1, false)
-    	gui.set_enabled(playerChoice2, false)
-    	-- Show dialogUI and take put input on top of input stack, set on_input to true to eat all input
+    	-- pprint(conversationTable)
+    	-- Show dialogUI and take put input on top of input stack, set on_input to return true to eat all input
     	msg.post(".", "acquire_input_focus")
+    	
+    	-- Set up dialogUI to be ready for player input
+    	gui.set_text(gui.get_node("npcText"), conversationTable.npcGreeting[1])
     	gui.set_enabled(dialogUI, true)
-    	gui.set_enabled(gui.get_node("convoButton"), true)
-    end
+    	gui.set_text(gui.get_node("hubButtonText"), "GoodBye")
+    	-- Set up initial player choices
+		showPlayerChoices(conversationTable)
+	end
 end
 
 function on_input(self, action_id, action)
@@ -41,28 +84,37 @@ function on_input(self, action_id, action)
 		-- data to read button press
 		local x = action.x
 		local y = action.y
-		local continueButton = gui.get_node("convoButton")	
-		if gui.pick_node(continueButton, x, y) then
-			if (conversationTable.npcDialog[textIterator] ~= nil) then	-- Check if conversation has reached end of text
-				if (conversationTable.npcDialog[textIterator] == "PlayerChoice") then
-					-- Set up buttons to give options to player
-					gui.set_enabled(gui.get_node("convoButton"), false)
-					gui.set_enabled(playerChoice1, true)
-					gui.set_text(gui.get_node("choice1"), conversationTable.playerChoice[1])
-    				gui.set_enabled(playerChoice2, true)
-    				gui.set_text(gui.get_node("choice2"), conversationTable.playerChoice[2])
-				else
-					gui.set_text(gui.get_node("testtext"), conversationTable.npcDialog[textIterator])
-					textIterator = textIterator + 1
-					-- pprint(textIterator)
-				end
+		local returnButton = gui.get_node("hubButton")	
+		local returnButtonText = gui.get_node("hubButtonText")
+		
+		if gui.pick_node(returnButton, x, y) then
+			if gui.get_text(returnButtonText) == "GoodBye" then
+				closeUI()
 			else
+				gui.set_text(npcText, conversationTable.hubReturn)
+				showPlayerChoices(conversationTable)
+				gui.set_text(returnButtonText, "GoodBye")
+			end			
+		elseif gui.pick_node(playerChoice1, x, y) then
+			if gui.get_text(gui.get_node("choice1")) == conversationTable.questGiven.questTable.questAnswer[1] then
+				pprint("Quest Accepted")
+				-- Send quest to log
 				closeUI()
 			end
-		elseif gui.pick_node(playerChoice1, x, y) then
-    		closeUI()
-    	elseif gui.pick_node(playerChoice2, x, y) then
-    		closeUI()	
+			playNPCtext(conversationTable, 1, textIterator)
+			textIterator = textIterator + 1			
+   		elseif gui.pick_node(playerChoice2, x, y) then
+   			if gui.get_text(gui.get_node("choice2")) == conversationTable.questGiven.questTable.questAnswer[2] then
+   				closeUI()
+   			end
+			playNPCtext(conversationTable, 2, textIterator)
+			textIterator = textIterator + 1			
+ 	    elseif gui.pick_node(playerChoice3, x, y) then
+			playNPCtext(conversationTable, 3, textIterator)
+			textIterator = textIterator + 1			
+    	elseif gui.pick_node(playerChoice4, x, y) then
+			playNPCtext(conversationTable, 4, textIterator)
+			textIterator = textIterator + 1
     	end
 	end
 

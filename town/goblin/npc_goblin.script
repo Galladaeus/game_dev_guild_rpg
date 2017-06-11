@@ -8,18 +8,50 @@ function on_message(self, message_id, message, sender)
 	messagereceived = true
 	
 	local conversationTable = {
-		-- numberOfDialog = 2,	-- Number of sentences that NPC will say outside of greeting, not needed currently
-		npcGreeting = {
+		npcGreeting = {		-- First thing NPC says to player
 			"Hello"
 		},
-		npcDialog = {
-			"I need your help",
-			"Will you help me?",
-			"PlayerChoice"
+		hubReturn = 		-- What the NPC will say when player says "lets talk about something else"
+			"Ok what do you want to talk about?",
+		playerChoice = {	-- What can you ask the NPC about? MAX 4 options
+			"Do you have a quest?",
+			{
+				"Yes I need help with some rats",		-- Create a table after the choice to input npc conversation
+				"They are infesting my house",
+				"Can you help me?",
+				playerAnswer = {
+					"Yeah I got you bruh",
+					"Nah, not this time"
+				}
 			},
-		playerChoice = {
-			"Ribbit",
-			"..."
+			"Who are you?",
+			{
+				"I am nobody, who are you?",
+				"Who am I?",
+				playerAnswer = nil
+			},
+			"Where are we?",
+			{
+				"Who knows?",
+				playerAnswer = nil
+			},
+			"Where are you?",
+			{
+				"I am here.",
+				playerAnswer = nil
+			}
+		},
+		questGiven = {
+			true,
+			questTable = {
+				questDescription = {
+				"Kill 7 rats"
+				},
+				questAnswer = {
+				"Yeah I got you bruh",		-- Affirmative (Make sure this matches quest player response)
+				"Nah, not this time"		-- Thats a negative ghost rider
+				}
+			}
 		}
 	}
 	if message_id == hash("chat") then
