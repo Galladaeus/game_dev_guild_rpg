@@ -1,0 +1,60 @@
+local questDescription
+local questTitle
+local questGiverTitle
+
+function init(self)
+	gui.set_enabled(gui.get_node("questLog"), false)
+	gui.set_enabled(gui.get_node("questDescriptionBox"), false)
+	
+	questDescription = gui.get_node("questDescription")
+	questTitle = gui.get_node("questTitle")
+	questGiverTitle = gui.get_node("questGiverTitle")
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+    -- Add update code here
+    -- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("openQuestLog") then
+    	gui.set_enabled(gui.get_node("questLog"), true)
+    	msg.post(".", "acquire_input_focus")
+    elseif message_id == hash("questData") then	-- Receive questdata from conversationUIscript if quest is accepted
+    	local questTable = message				-- place into table and update data in questlog
+    	pprint(questTable)						
+    	gui.set_text(questDescription, questTable.questData.questDescription[1])	-- TODO place all quest data into a single node that can be deleted
+    	gui.set_text(questTitle, questTable.questData.questTitle[1])				-- once the quest is completed or moved to a quests completed area
+    	gui.set_text(questGiverTitle, questTable.questData.questGiver[1])
+    	gui.set_text(gui.get_node("testQuest"), questTable.questData.questTitle[1])
+    end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("mouse_press") and action.pressed then
+		local x = action.x
+		local y = action.y -- TODO INPUT COMMANDS TO MAIN MENU BUTTONS
+				
+		if gui.pick_node(gui.get_node("testQuest"), x, y) then   
+			gui.set_enabled(gui.get_node("questDescriptionBox"), true)
+			
+		elseif gui.pick_node(gui.get_node("backButton"), x, y) then	-- exit out of questLog, go back to main menu
+			gui.set_enabled(gui.get_node("questDescriptionBox"), false)
+			gui.set_enabled(gui.get_node("questLog"), false)
+			msg.post(".", "release_input_focus")
+			msg.post("playerMenu", "menuButton")
+		end
+	end
+	
+	return true
+end
+
+function on_reload(self)
+    -- Add input-handling code here
+    -- Remove this function if not needed
+end

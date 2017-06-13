@@ -41,13 +41,19 @@ function on_message(self, message_id, message, sender)
 				playerAnswer = nil
 			}
 		},
-		questGiven = {
+		questTable = {
 			true,
-			questTable = {
+			questData = {
+				questTitle = {
+				"RatKiller"
+				},
+				questGiver = { 
+				"Goblin"
+				},
 				questDescription = {
 				"Kill 7 rats"
 				},
-				questAnswer = {
+				questAnswer = {				-- Convoluted positioning should refactor
 				"Yeah I got you bruh",		-- Affirmative (Make sure this matches quest player response)
 				"Nah, not this time"		-- Thats a negative ghost rider
 				}
