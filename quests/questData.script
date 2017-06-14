@@ -1,0 +1,16 @@
+local questTable = {
+numberOfQuests = 0	 --Is this even needed?
+}	-- Table to hold all current quest data once game starts
+
+function init(self)
+    -- Add initialization code here
+    -- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("newQuest") then
+    	table.insert(questTable, message)
+    	questTable.numberOfQuests = numberOfQuests + 1
+    	pprint(questTable)
+    end
+end

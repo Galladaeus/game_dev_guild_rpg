@@ -1,4 +1,4 @@
-script: "/questLog/questLogScript.gui_script"
+script: "/quests/questLogScript.gui_script"
 fonts {
   name: "system_font"
   font: "/builtins/fonts/system_font.font"
@@ -8,22 +8,15 @@ textures {
   texture: "/town/goblin/goblin_tilesource.tilesource"
 }
 background_color {
-  x: 0.0
-  y: 0.0
-  z: 0.0
   w: 1.0
 }
 nodes {
   position {
     x: 640.0
     y: 360.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -35,49 +28,22 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: ""
   id: "questLog"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   layer: "background"
-  inherit_alpha: false
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 0.5
-  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: -73.2611
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -89,7 +55,6 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -98,41 +63,18 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: ""
   id: "questListBox"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   parent: "questLog"
   layer: "questBoxes"
-  inherit_alpha: false
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 0.7
-  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: 0.0
     y: 43.19121
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -144,23 +86,15 @@ nodes {
   size {
     x: 100.0
     y: 50.0
-    z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "QUEST LIST"
   font: "system_font"
   id: "questListText"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -173,33 +107,15 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
   parent: "questListBox"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -211,7 +127,6 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -220,41 +135,18 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: ""
   id: "questListHolder"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   parent: "questListBox"
   layer: "questBoxes"
-  inherit_alpha: false
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 0.0
-  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: 0.0
     y: 31.175352
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -266,23 +158,15 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "testQuest"
   font: "system_font"
   id: "testQuest"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -295,33 +179,16 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
   parent: "questListHolder"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 26.650503
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -333,7 +200,6 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -342,41 +208,19 @@ nodes {
     z: 0.5019608
     w: 1.0
   }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: ""
   id: "questDescriptionBox"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   parent: "questLog"
   layer: "questBoxes"
-  inherit_alpha: false
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 0.5
-  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: -44.716335
     y: 41.567135
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -388,7 +232,6 @@ nodes {
   size {
     x: 50.0
     y: 25.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -398,13 +241,9 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "QUEST:"
   font: "system_font"
   id: "questWord"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -417,33 +256,17 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
   parent: "questDescriptionBox"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 4.104398
     y: 41.847996
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -455,7 +278,6 @@ nodes {
   size {
     x: 50.0
     y: 25.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -465,13 +287,9 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "questTitle"
   font: "system_font"
   id: "questTitle"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -484,33 +302,17 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
   parent: "questDescriptionBox"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: -26.570576
     y: 31.175352
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -522,7 +324,6 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -532,12 +333,9 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "questDescription"
   font: "system_font"
   id: "questDescription"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
   pivot: PIVOT_N
   outline {
     x: 1.0
@@ -551,33 +349,17 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
   parent: "questDescriptionBox"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 70.854866
     y: -0.14042951
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -589,7 +371,6 @@ nodes {
   size {
     x: 65.0
     y: 65.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -598,41 +379,19 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
   texture: "goblin_tilesource/idle"
   id: "questGiver"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   parent: "questDescriptionBox"
   layer: "text"
-  inherit_alpha: false
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: 71.934975
     y: 21.345285
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -644,7 +403,6 @@ nodes {
   size {
     x: 50.0
     y: 25.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -654,13 +412,9 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "questGiver"
   font: "system_font"
   id: "questGiverTitle"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -673,33 +427,17 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
   parent: "questDescriptionBox"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
     x: -73.81378
     y: -45.19078
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -711,7 +449,6 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -721,13 +458,9 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "BACK"
   font: "system_font"
   id: "backButton"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -740,20 +473,8 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
   parent: "questLog"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
   size_mode: SIZE_MODE_AUTO
 }
 layers {
@@ -765,6 +486,4 @@ layers {
 layers {
   name: "text"
 }
-material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
-max_nodes: 512

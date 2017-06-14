@@ -1,4 +1,18 @@
 name: "main"
+instances {
+  id: "questData"
+  prototype: "/quests/questData.go"
+  position {
+    x: 1035.0609
+    y: 383.09363
+    z: 0.15
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 collection_instances {
   id: "town"
   collection: "/town/town.collection"
