@@ -1,0 +1,38 @@
+function init(self)
+	msg.post("loader#town", "load")
+	msg.post(".", "acquire_input_focus")
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+    -- Add update code here
+    -- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("startBattle") then
+    	msg.post("loader#battle", "load")	-- When collection is done loading, the proxy will send a "proxy_loaded" message
+    end
+    if message_id == hash("proxy_loaded") then 	-- Once collection is loaded, initialize and enable collection
+    	msg.post(sender, "init")	-- init recursively initializes all objects in collection			
+    	msg.post(sender, "enable")	-- enable recursively enables all the objects contained in the collection
+    	-- you only need to send enable if you dont need control over the init phase
+    end
+    if message_id == hash("unloadTown") then
+    	msg.post("loader#town", "unload")
+    end
+end
+
+function on_input(self, action_id, action)
+    -- Add input-handling code here
+    -- Remove this function if not needed
+end
+
+function on_reload(self)
+    -- Add reload-handling code here
+    -- Remove this function if not needed
+end

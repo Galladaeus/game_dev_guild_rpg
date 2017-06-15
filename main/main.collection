@@ -1,5 +1,25 @@
 name: "main"
 instances {
+  id: "loader"
+  prototype: "/main/loader/loader.go"
+  position {
+    x: 1035.0609
+    y: 383.09363
+    z: 0.15
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
   id: "questData"
   prototype: "/quests/questData.go"
   position {
@@ -7,18 +27,16 @@ instances {
     y: 383.09363
     z: 0.15
   }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
   scale3 {
     x: 1.0
     y: 1.0
     z: 1.0
   }
 }
-collection_instances {
-  id: "town"
-  collection: "/town/town.collection"
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
+scale_along_z: 0

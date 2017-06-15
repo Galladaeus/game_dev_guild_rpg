@@ -32,7 +32,7 @@ function on_message(self, message_id, message, sender)
     	gui.set_text(questTitle, questTable.questData.questTitle[1])				-- once the quest is completed or moved to a quests completed area
     	gui.set_text(questGiverTitle, questTable.questData.questGiver[1])			-- send msg from questData.go once quest is completed
     	gui.set_text(gui.get_node("testQuest"), questTable.questData.questTitle[1])
-    	msg.post("/questData", "newQuest", questTable.questData)
+    	msg.post("main:/questData", "newQuest", questTable.questData)
     end
 end
 

@@ -1,4 +1,4 @@
-name: "default"
+name: "town"
 instances {
   id: "conversationUI"
   prototype: "/conversationUI/conversationUIgo.go"
@@ -6,6 +6,12 @@ instances {
     x: 54.284065
     y: -183.74013
     z: 0.15
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
   }
   scale3 {
     x: 1.0
@@ -20,6 +26,12 @@ instances {
     x: 146.33972
     y: -189.72914
     z: 0.1
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
   }
   scale3 {
     x: 2.0
@@ -36,6 +48,12 @@ instances {
     y: -227.4746
     z: 0.2
   }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
   scale3 {
     x: 1.0
     y: 1.0
@@ -48,6 +66,13 @@ instances {
   position {
     x: -609.28595
     y: -373.14044
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
   }
   scale3 {
     x: 1.0
@@ -63,6 +88,12 @@ instances {
     y: 140.16487
     z: 0.15
   }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
   scale3 {
     x: 1.0
     y: 1.0
@@ -76,6 +107,12 @@ instances {
     x: 614.72797
     y: 140.16487
     z: 0.15
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
   }
   scale3 {
     x: 1.0
@@ -91,15 +128,82 @@ instances {
     y: 302.11737
     z: 0.15
   }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
   scale3 {
     x: 1.0
     y: 1.0
     z: 1.0
   }
 }
+scale_along_z: 0
 embedded_instances {
   id: "ground"
-  data: "components {\n  id: \"script\"\n  component: \"/town/ground/ground.script\"\n  position {\n    x: 0.0\n    y: 0.0\n    z: 0.0\n  }\n  rotation {\n    x: 0.0\n    y: 0.0\n    z: 0.0\n    w: 1.0\n  }\n}\nembedded_components {\n  id: \"border_factory\"\n  type: \"factory\"\n  data: \"prototype: \\\"/town/ground/border_collision.go\\\"\\n\"\n  position {\n    x: 0.0\n    y: 0.0\n    z: 0.0\n  }\n  rotation {\n    x: 0.0\n    y: 0.0\n    z: 0.0\n    w: 1.0\n  }\n}\nembedded_components {\n  id: \"tile_factory\"\n  type: \"factory\"\n  data: \"prototype: \\\"/town/ground/tile.go\\\"\\n\"\n  position {\n    x: 0.0\n    y: 0.0\n    z: 0.0\n  }\n  rotation {\n    x: 0.0\n    y: 0.0\n    z: 0.0\n    w: 1.0\n  }\n}\n"
+  data: "components {\n"
+  "  id: \"script\"\n"
+  "  component: \"/town/ground/ground.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"border_factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/town/ground/border_collision.go\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"tile_factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/town/ground/tile.go\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
   scale3 {
     x: 1.0
     y: 1.0

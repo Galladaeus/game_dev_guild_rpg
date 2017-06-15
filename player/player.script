@@ -74,5 +74,8 @@ function on_input(self, action_id, action)
     elseif (action_id == hash(input_action) and self.inrangeofnpc == true and action.pressed) then	-- action.pressed prevents button from being pushed multiple times in one press
     	msg.post("goblin#script", "chat")
     	print("sent")
+    elseif action_id == hash("f1_press") and action.pressed then
+    	msg.post("main:/loader", "startBattle")
+    	msg.post("main:/loader", "unloadTown")
     end
 end
