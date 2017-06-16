@@ -1,0 +1,13 @@
+local strength = 10
+local agility = 10
+local speed = 10
+
+function init(self)
+    -- Add initialization code here
+    -- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+    -- Add message-handling code here
+    -- Remove this function if not needed
+end

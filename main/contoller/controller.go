@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/main/loader/loader.script"
+  component: "/main/contoller/controller.script"
   position {
     x: 0.0
     y: 0.0
@@ -16,9 +16,7 @@ components {
 embedded_components {
   id: "battle"
   type: "collectionproxy"
-  data: "collection: \"/battle/battle.collection\"\n"
-  "exclude: false\n"
-  ""
+  data: "collection: \"/battle/battle.collection\"\nexclude: false\n"
   position {
     x: 0.0
     y: 0.0
@@ -34,9 +32,7 @@ embedded_components {
 embedded_components {
   id: "town"
   type: "collectionproxy"
-  data: "collection: \"/town/town.collection\"\n"
-  "exclude: false\n"
-  ""
+  data: "collection: \"/town/town.collection\"\nexclude: false\n"
   position {
     x: 0.0
     y: 0.0

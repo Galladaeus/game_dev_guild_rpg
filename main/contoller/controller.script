@@ -1,5 +1,5 @@
 function init(self)
-	msg.post("loader#town", "load")
+	msg.post("#town", "load")
 	msg.post(".", "acquire_input_focus")
 end
 
@@ -15,7 +15,7 @@ end
 
 function on_message(self, message_id, message, sender)
     if message_id == hash("startBattle") then
-    	msg.post("loader#battle", "load")	-- When collection is done loading, the proxy will send a "proxy_loaded" message
+    	msg.post("controller#battle", "load")	-- When collection is done loading, the proxy will send a "proxy_loaded" message
     end
     if message_id == hash("proxy_loaded") then 	-- Once collection is loaded, initialize and enable collection
     	msg.post(sender, "init")	-- init recursively initializes all objects in collection			
@@ -23,7 +23,7 @@ function on_message(self, message_id, message, sender)
     	-- you only need to send enable if you dont need control over the init phase
     end
     if message_id == hash("unloadTown") then
-    	msg.post("loader#town", "unload")
+    	msg.post("controller#town", "unload")
     end
 end
 

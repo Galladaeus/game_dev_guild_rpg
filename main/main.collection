@@ -1,11 +1,71 @@
 name: "main"
 instances {
-  id: "loader"
-  prototype: "/main/loader/loader.go"
+  id: "controller"
+  prototype: "/main/contoller/controller.go"
   position {
     x: 1035.0609
     y: 383.09363
     z: 0.15
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "conversationUI"
+  prototype: "/conversationUI/conversationUIgo.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "playerHUD"
+  prototype: "/player/playerHUD/playerHUD.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "playerMenu"
+  prototype: "/playerMenu/playerMenu.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
   }
   rotation {
     x: 0.0
@@ -26,6 +86,46 @@ instances {
     x: 1035.0609
     y: 383.09363
     z: 0.15
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "questLog"
+  prototype: "/quests/questLog.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "save_handler"
+  prototype: "/main/saveHandler/save_handler.go"
+  position {
+    x: 640.0
+    y: 360.0
+    z: 0.0
   }
   rotation {
     x: 0.0

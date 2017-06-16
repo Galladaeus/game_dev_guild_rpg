@@ -61,7 +61,7 @@ function on_message(self, message_id, message, sender)
 		}
 	}
 	if message_id == hash("chat") then
-		msg.post("conversationUI#gui", "NPCConversation", conversationTable)
+		msg.post("main:/conversationUI#gui", "NPCConversation", conversationTable)
 		pprint(go.get_id())
 	end
 end

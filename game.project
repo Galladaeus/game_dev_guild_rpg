@@ -29,3 +29,6 @@ max_resources = 5096
 [collection]
 max_instances = 4096
 
+[particle_fx]
+max_count = 1024
+

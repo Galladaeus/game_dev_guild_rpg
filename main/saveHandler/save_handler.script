@@ -1,0 +1,28 @@
+local saveData = require "main/saveHandler/save_data"
+local save_file = sys.get_save_file("testGame", "saveFile")
+
+local function save_game(self)
+	sys.save(save_file, saveData)
+end
+
+local function load_game(self)
+	local saveData = sys.load(save_file)
+end
+
+function init(self)
+	pprint(saveData)
+end
+
+function final(self)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("save") then
+		save_game(self)
+		pprint(save_file)
+	elseif message_id == hash("load") then
+		--Load game data
+		load_game(self)
+		pprint(saveData)
+	end
+end
