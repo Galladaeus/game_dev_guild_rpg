@@ -16,7 +16,11 @@ components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/town/ground/ground_tiles.tilesource\"\ndefault_animation: \"1\"\n"
+  data: "tile_set: \"/town/ground/ground_tiles.tilesource\"\n"
+  "default_animation: \"1\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
   position {
     x: 0.0
     y: 0.0

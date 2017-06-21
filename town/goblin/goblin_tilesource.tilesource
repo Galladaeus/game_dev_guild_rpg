@@ -1,4 +1,4 @@
-image: "/main/images/goblin.png"
+image: "/town/town_images/goblin.png"
 tile_width: 65
 tile_height: 65
 tile_margin: 0

@@ -1,4 +1,4 @@
-image: "/main/images/basic_ground_tiles.png"
+image: "/town/town_images/basic_ground_tiles.png"
 tile_width: 128
 tile_height: 128
 tile_margin: 0

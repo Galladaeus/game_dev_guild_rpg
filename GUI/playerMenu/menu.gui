@@ -1,15 +1,7 @@
-script: "/conversationUI/conversationUIscript.gui_script"
+script: "/GUI/playerMenu/playerMenuScript.gui_script"
 fonts {
   name: "system_font"
   font: "/builtins/fonts/system_font.font"
-}
-textures {
-  name: "goblin_tilesource"
-  texture: "/town/goblin/goblin_tilesource.tilesource"
-}
-textures {
-  name: "player"
-  texture: "/player/player.atlas"
 }
 background_color {
   x: 0.0
@@ -19,8 +11,8 @@ background_color {
 }
 nodes {
   position {
-    x: 637.37616
-    y: 364.64572
+    x: 640.0
+    y: 360.0
     z: 0.0
     w: 1.0
   }
@@ -32,7 +24,7 @@ nodes {
   }
   scale {
     x: 6.3975344
-    y: 7.2926025
+    y: 7.156986
     z: 1.0
     w: 1.0
   }
@@ -51,12 +43,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "conversationUI"
+  id: "menuBackground"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  layer: "background"
+  layer: "menuWindow"
   inherit_alpha: true
   slice9 {
     x: 0.0
@@ -73,8 +65,8 @@ nodes {
 }
 nodes {
   position {
-    x: -63.858395
-    y: -30.674234
+    x: 0.24442156
+    y: 23.951305
     z: 0.0
     w: 1.0
   }
@@ -85,234 +77,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.5
-    y: 0.5
-    z: 0.5
-    w: 1.0
-  }
-  size {
-    x: 1.0
-    y: 1.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_SPINE
-  blend_mode: BLEND_MODE_ALPHA
-  id: "player"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "conversationUI"
-  layer: "textbox"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
-  size_mode: SIZE_MODE_AUTO
-  spine_scene: "player"
-  spine_default_animation: "idle_right"
-  spine_skin: ""
-}
-nodes {
-  position {
-    x: 63.248093
-    y: -13.237443
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 65.0
-    y: 65.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "goblin_tilesource/idle"
-  id: "NPC"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "conversationUI"
-  layer: "textbox"
-  inherit_alpha: false
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: 1.008194
-    y: -33.935726
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 0.7440349
-    y: 0.15897182
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_PIE
-  blend_mode: BLEND_MODE_ALPHA
-  texture: ""
-  id: "pie"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "conversationUI"
-  layer: "textbox"
-  inherit_alpha: false
-  outerBounds: PIEBOUNDS_RECTANGLE
-  innerRadius: 0.0
-  perimeterVertices: 8
-  pieFillAngle: 360.0
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: 0.72129226
-    y: -31.288502
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 0.2321047
-    y: 0.2321047
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "This is where conversation text will go"
-  font: "system_font"
-  id: "npcText"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "conversationUI"
-  layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: 62.909416
-    y: -37.269047
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 0.1
-    y: 0.027797326
+    x: 0.26767123
+    y: 0.077265956
     z: 1.0
     w: 1.0
   }
@@ -331,13 +97,13 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "hubButton"
+  id: "resumeButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "conversationUI"
-  layer: "textbox"
+  parent: "menuBackground"
+  layer: "button"
   inherit_alpha: false
   slice9 {
     x: 0.0
@@ -354,8 +120,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.46318662
-    y: -0.80588156
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -366,8 +132,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.0
-    y: 2.4891338
+    x: 2.0
+    y: 4.0
     z: 1.0
     w: 1.0
   }
@@ -385,9 +151,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "BACK"
+  text: "RESUME"
   font: "system_font"
-  id: "hubButtonText"
+  id: "resumeButtonText"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -405,24 +171,20 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "hubButton"
+  parent: "resumeButton"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: -54.405426
-    y: -37.399307
+    x: 0.24442156
+    y: 11.388731
     z: 0.0
     w: 1.0
   }
@@ -433,8 +195,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.10867561
-    y: 0.025670294
+    x: 0.26767123
+    y: 0.077265956
     z: 1.0
     w: 1.0
   }
@@ -453,13 +215,13 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "player_choice_1"
+  id: "questlogButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "conversationUI"
-  layer: "textbox"
+  parent: "menuBackground"
+  layer: "button"
   inherit_alpha: false
   slice9 {
     x: 0.0
@@ -476,8 +238,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.6872313
-    y: -5.5879474
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -488,8 +250,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.91169834
-    y: 3.1712716
+    x: 2.0
+    y: 4.0
     z: 1.0
     w: 1.0
   }
@@ -507,16 +269,16 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "choice1"
+  text: "QUEST LOG"
   font: "system_font"
-  id: "choice1"
+  id: "questlogButtonText"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   outline {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   shadow {
@@ -527,24 +289,20 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "player_choice_1"
+  parent: "questlogButton"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: -24.613174
-    y: -37.399307
+    x: 0.24442156
+    y: -0.6779547
     z: 0.0
     w: 1.0
   }
@@ -555,8 +313,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.10867561
-    y: 0.025670294
+    x: 0.26767123
+    y: 0.077265956
     z: 1.0
     w: 1.0
   }
@@ -575,13 +333,13 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "player_choice_2"
+  id: "optionsButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "conversationUI"
-  layer: "textbox"
+  parent: "menuBackground"
+  layer: "button"
   inherit_alpha: false
   slice9 {
     x: 0.0
@@ -598,8 +356,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.6872313
-    y: -5.5879474
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -610,8 +368,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.91169834
-    y: 3.1712716
+    x: 2.0
+    y: 4.0
     z: 1.0
     w: 1.0
   }
@@ -629,16 +387,16 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "choice2"
+  text: "OPTIONS"
   font: "system_font"
-  id: "choice2"
+  id: "optionsButtonText"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   outline {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   shadow {
@@ -649,24 +407,20 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "player_choice_2"
+  parent: "optionsButton"
   layer: "text"
   inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: 4.177593
-    y: -37.399307
+    x: 0.24442156
+    y: -36.68224
     z: 0.0
     w: 1.0
   }
@@ -677,8 +431,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.10867561
-    y: 0.025670294
+    x: 0.26767123
+    y: 0.077265956
     z: 1.0
     w: 1.0
   }
@@ -697,13 +451,13 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "player_choice_3"
+  id: "loadButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "conversationUI"
-  layer: "textbox"
+  parent: "menuBackground"
+  layer: "button"
   inherit_alpha: false
   slice9 {
     x: 0.0
@@ -720,8 +474,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.6872313
-    y: -5.5879474
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -732,8 +486,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.91169834
-    y: 3.1712716
+    x: 2.0
+    y: 4.0
     z: 1.0
     w: 1.0
   }
@@ -751,16 +505,16 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "choice3"
+  text: "LOAD"
   font: "system_font"
-  id: "choice3"
+  id: "loadButtonText"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   outline {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   shadow {
@@ -771,24 +525,20 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "player_choice_3"
+  parent: "loadButton"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: 34.315296
-    y: -37.399307
+    x: 0.24442156
+    y: -12.579343
     z: 0.0
     w: 1.0
   }
@@ -799,8 +549,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.10867561
-    y: 0.025670294
+    x: 0.26767123
+    y: 0.077265956
     z: 1.0
     w: 1.0
   }
@@ -819,13 +569,13 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "player_choice_4"
+  id: "saveButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "conversationUI"
-  layer: "textbox"
+  parent: "menuBackground"
+  layer: "button"
   inherit_alpha: false
   slice9 {
     x: 0.0
@@ -842,8 +592,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.6872313
-    y: -5.5879474
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -854,8 +604,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.91169834
-    y: 3.1712716
+    x: 2.0
+    y: 4.0
     z: 1.0
     w: 1.0
   }
@@ -873,16 +623,16 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "choice4"
+  text: "SAVE"
   font: "system_font"
-  id: "choice4"
+  id: "saveButtonText"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   outline {
-    x: 0.0
-    y: 0.0
-    z: 0.0
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   shadow {
@@ -893,25 +643,142 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "player_choice_4"
+  parent: "saveButton"
   layer: "text"
-  inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+}
+nodes {
+  position {
+    x: 0.24442156
+    y: -25.14192
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.26767123
+    y: 0.077265956
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: ""
+  id: "quitButton"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "menuBackground"
+  layer: "button"
+  inherit_alpha: false
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
   size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 2.0
+    y: 4.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
+  text: "QUIT"
+  font: "system_font"
+  id: "quitButtonText"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
+  parent: "quitButton"
+  layer: "text"
+  inherit_alpha: true
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  template_node_child: false
+  text_leading: 1.0
+  text_tracking: 0.0
 }
 layers {
-  name: "background"
+  name: "screen"
 }
 layers {
-  name: "textbox"
+  name: "menuWindow"
+}
+layers {
+  name: "button"
 }
 layers {
   name: "text"
@@ -919,7 +786,3 @@ layers {
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
 max_nodes: 512
-spine_scenes {
-  name: "player"
-  spine_scene: "/player/player.spinescene"
-}

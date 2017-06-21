@@ -1,6 +1,6 @@
 components {
   id: "gui"
-  component: "/conversationUI/conversationUI.gui"
+  component: "/GUI/playerHUD/playerHUD.gui"
   position {
     x: 0.0
     y: 0.0

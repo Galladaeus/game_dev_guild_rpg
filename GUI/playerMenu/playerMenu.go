@@ -1,6 +1,6 @@
 components {
-  id: "script"
-  component: "/main/saveHandler/save_handler.script"
+  id: "gui"
+  component: "/GUI/playerMenu/menu.gui"
   position {
     x: 0.0
     y: 0.0

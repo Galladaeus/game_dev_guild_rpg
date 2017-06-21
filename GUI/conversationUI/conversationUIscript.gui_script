@@ -51,15 +51,15 @@ local function playNPCtext(conversationTable, textChoice, textIterator)
 	if (conversationTable.playerChoice[2*textChoice][textIterator] ~= nil) then
 		gui.set_enabled(gui.get_node("player_choice_"..textChoice), true)
 		gui.set_text(gui.get_node("choice"..textChoice),"Continue")
-  		gui.set_text(gui.get_node("npcText"), conversationTable.playerChoice[2*textChoice][textIterator])
-  	elseif(conversationTable.playerChoice[2*textChoice].playerAnswer ~= nil) then
-  		gui.set_enabled(gui.get_node("player_choice_1"), true)
-  		gui.set_text(gui.get_node("choice1"), conversationTable.playerChoice[2*textChoice].playerAnswer[1])
-  		gui.set_enabled(gui.get_node("player_choice_2"), true)
-  		gui.set_text(gui.get_node("choice2"), conversationTable.playerChoice[2*textChoice].playerAnswer[2])
-  	else 
-  		closeUI()
-  	end
+    	gui.set_text(gui.get_node("npcText"), conversationTable.playerChoice[2*textChoice][textIterator])
+	elseif(conversationTable.playerChoice[2*textChoice].playerAnswer ~= nil) then
+		gui.set_enabled(gui.get_node("player_choice_1"), true)
+		gui.set_text(gui.get_node("choice1"), conversationTable.playerChoice[2*textChoice].playerAnswer[1])
+		gui.set_enabled(gui.get_node("player_choice_2"), true)
+		gui.set_text(gui.get_node("choice2"), conversationTable.playerChoice[2*textChoice].playerAnswer[2])
+	else 
+		closeUI()
+	end
 end
 
 function on_message(self, message_id, message, sender)
@@ -98,19 +98,20 @@ function on_input(self, action_id, action)
 		elseif gui.pick_node(playerChoice1, x, y) then
 			if gui.get_text(gui.get_node("choice1")) == conversationTable.questTable.questData.questAnswer[1] then
 				pprint("Quest Accepted")
+				-- PLAYER ACCEPTS QUEST; Send quest table to log and questData
 				msg.post("questLog", "questData", conversationTable.questTable)
-				-- Send quest to log
+				msg.post("main:/questData", "newQuest", conversationTable.questTable.questData)
 				closeUI()
 			end
 			playNPCtext(conversationTable, 1, textIterator)
 			textIterator = textIterator + 1			
-   		elseif gui.pick_node(playerChoice2, x, y) then
+   	 elseif gui.pick_node(playerChoice2, x, y) then
    			if gui.get_text(gui.get_node("choice2")) == conversationTable.questTable.questData.questAnswer[2] then
    				closeUI()
    			end
 			playNPCtext(conversationTable, 2, textIterator)
 			textIterator = textIterator + 1			
- 	    elseif gui.pick_node(playerChoice3, x, y) then
+ 	   elseif gui.pick_node(playerChoice3, x, y) then
 			playNPCtext(conversationTable, 3, textIterator)
 			textIterator = textIterator + 1			
     	elseif gui.pick_node(playerChoice4, x, y) then

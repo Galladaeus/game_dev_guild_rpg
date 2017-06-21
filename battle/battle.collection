@@ -42,7 +42,7 @@ instances {
 }
 instances {
   id: "camera"
-  prototype: "/town/camera.go"
+  prototype: "/main/camera/camera.go"
   position {
     x: -609.28595
     y: -373.14044

@@ -21,7 +21,7 @@ instances {
 }
 instances {
   id: "conversationUI"
-  prototype: "/conversationUI/conversationUIgo.go"
+  prototype: "/GUI/conversationUI/conversationUIgo.go"
   position {
     x: 0.0
     y: 0.0
@@ -41,7 +41,7 @@ instances {
 }
 instances {
   id: "playerHUD"
-  prototype: "/player/playerHUD/playerHUD.go"
+  prototype: "/GUI/playerHUD/playerHUD.go"
   position {
     x: 0.0
     y: 0.0
@@ -61,7 +61,7 @@ instances {
 }
 instances {
   id: "playerMenu"
-  prototype: "/playerMenu/playerMenu.go"
+  prototype: "/GUI/playerMenu/playerMenu.go"
   position {
     x: 0.0
     y: 0.0
@@ -121,7 +121,7 @@ instances {
 }
 instances {
   id: "save_handler"
-  prototype: "/main/saveHandler/save_handler.go"
+  prototype: "/saveSystem/saveHandler/save_handler.go"
   position {
     x: 640.0
     y: 360.0
