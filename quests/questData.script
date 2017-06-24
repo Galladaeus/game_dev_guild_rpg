@@ -1,16 +1,18 @@
-local questTable = {
+local questLog = {
+	questData = {}
 }	-- Table to hold all current quest data once game starts
 
 function on_message(self, message_id, message, sender)
-    if message_id == hash("newQuest") then		-- Have load file send a message here when implemented
-    	table.insert(questTable, message)
-    	-- pprint(questTable)
+    if message_id == hash("questData") then			-- Have load file send a message here when implemented
+    	questLog.questData = message				
+    	-- pprint(questLog)
     elseif message_id == hash("requestQuestData") then
-    	msg.post(sender, "questTable", questTable)
+    	msg.post(sender, "questLog", questLog)
     elseif message_id == hash("loadQuestData") then
-    	table.insert(questTable, message)
-    	pprint(questTable)
-    	questTable = message
-    	msg.post("questLog", "questData", questTable)	-- TODO Is data matching? Currently questLog can only reads one quest at a time
+    	local saveData = message
+    	-- pprint(saveData)
+    	questLog = saveData
+    	-- pprint(questLog)
+    	-- TODO loaded data placed into questLog
     end
 end

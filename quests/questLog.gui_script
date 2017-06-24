@@ -2,7 +2,7 @@ local questDescription
 local questTitle
 local questGiverTitle
 
-local function populateQuestTable(self, questTable)
+local function populateQuestTable(self, questTable) -- Function to use when loading quest data?
 	i = 0
 end
 
@@ -19,12 +19,12 @@ function on_message(self, message_id, message, sender)
     if message_id == hash("openQuestLog") then
     	gui.set_enabled(gui.get_node("questLog"), true)
     	msg.post(".", "acquire_input_focus")
-    elseif message_id == hash("questData") then	-- Receive questdata from conversationUIscript if quest is accepted
-    	local questTable = message				 -- place into table and update data in questlog					
-    	gui.set_text(questDescription, questTable.questData.questDescription[1])	-- TODO place all quest data into a single node that can be deleted
-    	gui.set_text(questTitle, questTable.questData.questTitle[1])				-- once the quest is completed or moved to a quests completed area
-    	gui.set_text(questGiverTitle, questTable.questData.questGiver[1])			-- send msg from questData.go once quest is completed
-    	gui.set_text(gui.get_node("testQuest"), questTable.questData.questTitle[1])	-- ALSO need to make it so it can read more than one quest if loading or put into different message
+    elseif message_id == hash("questData") then	-- Receive questdata from conversationUIscript when a quest is accepted
+    	local questData = message				 -- place into table and update data in questlog					
+    	gui.set_text(questDescription, questData.questDescription[1])		-- TODO place all quest data into a single node that can be deleted
+    	gui.set_text(questTitle, questData.questTitle[1])					-- once the quest is completed or moved to a quests completed area
+    	gui.set_text(questGiverTitle, questData.questGiver[1])				-- send msg from questData.go once quest is completed
+    	gui.set_text(gui.get_node("testQuest"), questData.questTitle[1])	-- ALSO need to make it so it can read more than one quest if loading or put into different message
     end
 end
 

@@ -52,17 +52,18 @@ function on_message(self, message_id, message, sender)
 				},
 				questDescription = {
 				"Kill 7 rats"
-				},
-				questAnswer = {				-- Convoluted positioning should refactor
-				"Yeah I got you bruh",		-- Affirmative (Make sure this matches quest player response)
-				"Nah, not this time"		-- Thats a negative ghost rider
 				}
+			},
+			questAnswer = {	-- Text for player accepting quest or rejecting
+			"Yeah I got you bruh",
+			"Nah, not this time"
 			}
 		}
 	}
 	if message_id == hash("chat") then
 		msg.post("main:/conversationUI#gui", "NPCConversation", conversationTable)
-		pprint(go.get_id())
+		-- pprint(go.get_id())
+		-- pprint(conversationTable.questTable)
 	end
 end
 
