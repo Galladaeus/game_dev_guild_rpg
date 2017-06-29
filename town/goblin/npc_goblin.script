@@ -1,7 +1,21 @@
+local function move()
+	i = 0
+end
+
 function init(self)
+	self.vel = vmath.vector3()
+	self.anim = nil
+	self.yPos = 0
 end
 
 function update(self, dt)
+	local pos = go.get_position()
+	self.vel.y = 200
+	if (self.yPos <= 600) then
+		pos = pos + self.vel * dt
+		go.set_position(pos)
+	end
+	self.yPos = self.yPos + 10
 end
 
 function on_message(self, message_id, message, sender)

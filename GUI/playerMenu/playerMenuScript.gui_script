@@ -70,6 +70,8 @@ function on_input(self, action_id, action)
 			msg.post("save_handler", "save")
 		elseif gui.pick_node(gui.get_node("loadButton"), x, y) then
 			msg.post("save_handler", "load")
+		elseif gui.pick_node(gui.get_node("quitButton"), x, y) then	-- TODO add a 'are you sure' popup
+			os.exit()
 		end
 	end
 	
