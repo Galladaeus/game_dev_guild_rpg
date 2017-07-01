@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/player/player.script"
+  component: "/battle/playerAttack.script"
   position {
     x: 0.0
     y: 0.0
@@ -14,22 +14,41 @@ components {
   }
 }
 embedded_components {
-  id: "player_collision"
+  id: "sprite"
+  type: "sprite"
+  data: "tile_set: \"/battle/dungeon_images/attack_animation.atlas\"\n"
+  "default_animation: \"testSlash\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+embedded_components {
+  id: "attackBox"
   type: "collisionobject"
   data: "collision_shape: \"\"\n"
   "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
   "mass: 0.0\n"
   "friction: 0.1\n"
   "restitution: 0.5\n"
-  "group: \"player\"\n"
-  "mask: \"npc\"\n"
-  "mask: \"border\"\n"
+  "group: \"attack\"\n"
+  "mask: \"enemy\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"
   "    position {\n"
-  "      x: 10.60288\n"
-  "      y: 29.07241\n"
+  "      x: 111.111\n"
+  "      y: 141.14\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -41,51 +60,13 @@ embedded_components {
   "    index: 0\n"
   "    count: 3\n"
   "  }\n"
-  "  data: 39.30043\n"
-  "  data: 37.02024\n"
+  "  data: 398.9105\n"
+  "  data: 148.579\n"
   "  data: 10.0\n"
   "}\n"
   "linear_damping: 0.0\n"
   "angular_damping: 0.0\n"
   "locked_rotation: false\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-}
-embedded_components {
-  id: "spinemodel"
-  type: "spinemodel"
-  data: "spine_scene: \"/player/player.spinescene\"\n"
-  "default_animation: \"idle_right\"\n"
-  "skin: \"\"\n"
-  "blend_mode: BLEND_MODE_ALPHA\n"
-  "material: \"/builtins/materials/spine.material\"\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-}
-embedded_components {
-  id: "attackFactory"
-  type: "factory"
-  data: "prototype: \"/battle/playerAttack.go\"\n"
   ""
   position {
     x: 0.0
