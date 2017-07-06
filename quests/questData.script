@@ -1,10 +1,22 @@
-local questLog = {
-	questData = {}
-}	-- Table to hold all current quest data once game starts
+numberOfQuests = 0
+local questData = {}	-- Table to hold temp data for incoming message
+local questLog = {}
+
+local function handleQuest(self, questData)
+    	if questData.questType.qType == "killQuest" then
+    		numberOfQuests = numberOfQuests + 1
+    		
+    		self.questLog = questData
+    		self.enemiesToKill = questLog.questData.questType.numberToKill
+    	end
+end
 
 function on_message(self, message_id, message, sender)
     if message_id == hash("questData") then			-- Have load file send a message here when implemented
     	questLog.questData = message
+    	
+
+    	
     	msg.post("questLog", "questData", questLog.questData)
     elseif message_id == hash("requestQuestData") then
     	msg.post(sender, "questLog", questLog)

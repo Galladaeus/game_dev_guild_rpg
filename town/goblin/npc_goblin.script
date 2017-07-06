@@ -45,7 +45,7 @@ local conversationTable = {
 				"Kill 7 rats"
 			},
 			questType = {
-				"killQuest",
+				qType = "killQuest",
 				enemyType = "Rat",
 				numberToKill = 7
 			}		

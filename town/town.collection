@@ -3,8 +3,8 @@ instances {
   id: "goblin"
   prototype: "/town/goblin/goblin.go"
   position {
-    x: 146.33972
-    y: -189.72914
+    x: -133.369
+    y: -255.467
     z: 0.1
   }
   rotation {
@@ -24,8 +24,8 @@ instances {
   prototype: "/player/player.go"
   children: "camera"
   position {
-    x: -76.13061
-    y: -227.4746
+    x: -299.124
+    y: -227.475
     z: 0.2
   }
   rotation {
@@ -64,25 +64,8 @@ scale_along_z: 0
 embedded_instances {
   id: "ground"
   data: "components {\n"
-  "  id: \"script\"\n"
+  "  id: \"ground\"\n"
   "  component: \"/town/ground/ground.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"border_factory\"\n"
-  "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/town/ground/border_collision.go\\\"\\n"
-  "\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"
