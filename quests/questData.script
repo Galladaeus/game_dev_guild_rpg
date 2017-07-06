@@ -4,15 +4,13 @@ local questLog = {
 
 function on_message(self, message_id, message, sender)
     if message_id == hash("questData") then			-- Have load file send a message here when implemented
-    	questLog.questData = message				
-    	-- pprint(questLog)
+    	questLog.questData = message
+    	msg.post("questLog", "questData", questLog.questData)
     elseif message_id == hash("requestQuestData") then
     	msg.post(sender, "questLog", questLog)
     elseif message_id == hash("loadQuestData") then
     	local saveData = message
-    	-- pprint(saveData)
     	questLog = saveData
-    	-- pprint(questLog)
     	-- TODO loaded data placed into questLog
     end
 end

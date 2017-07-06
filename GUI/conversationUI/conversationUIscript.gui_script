@@ -6,6 +6,7 @@ local playerChoice2
 local playerChoice3
 local playerChoice4
 local npcText
+local npcURL
 
 local textIterator = 1 -- Contains number of text messages left to send to convo box
 
@@ -67,8 +68,8 @@ end
 function on_message(self, message_id, message, sender)
     if message_id == hash("NPCConversation") then
 		-- Get conversation data from NPC go
-  	    conversationTable = message
-    	-- pprint(conversationTable)
+  	  conversationTable = message
+    	
     	-- Show dialogUI and take put input on top of input stack, set on_input to return true to eat all input
     	msg.post(".", "acquire_input_focus")
     	
@@ -76,8 +77,13 @@ function on_message(self, message_id, message, sender)
     	gui.set_text(gui.get_node("npcText"), conversationTable.npcGreeting[1])
     	gui.set_enabled(dialogUI, true)
     	gui.set_text(gui.get_node("hubButtonText"), "GoodBye")
+    	
     	-- Set up initial player choices
 		showPlayerChoices(conversationTable)
+		
+		-- Get NPCAdress to send messages to
+		npcURL = sender
+		print(npcURL)
 	end
 end
 
@@ -101,8 +107,9 @@ function on_input(self, action_id, action)
 			if gui.get_text(gui.get_node("choice1")) == conversationTable.questTable.questAnswer[1] then
 				pprint("Quest Accepted")
 				-- PLAYER ACCEPTS QUEST; Send quest table to log and questData
-				msg.post("questLog", "questData", conversationTable.questTable.questData)
 				msg.post("main:/questData", "questData", conversationTable.questTable.questData)
+				-- let NPC know quest has been accepted
+				msg.post(npcURL, "quest_accepted")
 				closeUI()
 			end
 			textIterator = playNPCtext(conversationTable, 1, textIterator)			

@@ -243,7 +243,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 31.175352
+    y: 33.928
     z: 0.0
     w: 1.0
   }
@@ -273,9 +273,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "testQuest"
+  text: ""
   font: "system_font"
-  id: "testQuest"
+  id: "firstQuest"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
