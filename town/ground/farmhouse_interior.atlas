@@ -1,0 +1,12 @@
+images {
+  image: "/town/town_images/inside_lvl1.png"
+}
+images {
+  image: "/town/town_images/inside_lvl2.png"
+}
+images {
+  image: "/town/town_images/test_door.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
