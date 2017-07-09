@@ -327,7 +327,7 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "hubButton"
+  id: "hub_button"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -401,7 +401,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "hubButton"
+  parent: "hub_button"
   layer: "text"
   inherit_alpha: false
   alpha: 1.0

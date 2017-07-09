@@ -57,6 +57,16 @@ local conversationTable = {
 	}
 }
 
+local conversation_table = {
+						npc_greeting = "Hello", 
+						--having 'option_one','option_two'...etc is optional to include improves readability
+						player_choices = {'option_one', 'option_two', 'option_three', 'option_four'},
+						npc_responses = {'option_one', 'option_two', 'option_three', 'option_four'},
+						player_responses = {'option_one', 'option_two', 'option_three', 'option_four'},
+						player_quest_responses = {yes = 'yes', no = 'no'},
+						quest_response_text = {'option', 'text'},
+						quest_name = "none"
+							}
 local function move()
 	i = 0
 end
@@ -66,6 +76,11 @@ function init(self)
 	self.vel = vmath.vector3()
 	self.anim = nil
 	self.yPos = 0
+	
+	self.newTable = {'hello'}
+	self.oldTable = {}
+	table.insert(self.oldTable,self.newTable)
+	print(oldTable)
 end
 
 function update(self, dt)
