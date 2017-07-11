@@ -1,9 +1,9 @@
 local conversationTable = {
-	npcGreeting = {		-- First thing NPC says to player
-		"Hello"
-	},
-	hubReturn = 		-- What the NPC will say when player says "lets talk about something else"
-		"Ok what do you want to talk about?",
+	npc_greeting = "Hello" ,
+	hub_return = "Ok what do you want to talk about?",
+	player_choices = {'option_one', 'option_two', 'option_three', 'option_four'},
+	npc_responses = {'option_one'},
+	player_responses = {'option_one'},
 	playerChoice = {	-- What can you ask the NPC about? MAX 4 options
 		"Do you have a quest?",
 		{
@@ -57,22 +57,32 @@ local conversationTable = {
 	}
 }
 
-local conversation_table = {
-						npc_greeting = "Hello", 
+	local conversation_table = {
+						npc_greeting = "Hello",
+						hub_return = "Talk about something else", 
 						--having 'option_one','option_two'...etc is optional to include improves readability
 						player_choices = {'option_one', 'option_two', 'option_three', 'option_four'},
 						npc_responses = {'option_one', 'option_two', 'option_three', 'option_four'},
 						player_responses = {'option_one', 'option_two', 'option_three', 'option_four'},
-						player_quest_responses = {yes = 'yes', no = 'no'},
+						player_quest_responses = {'yes_option', 'no_option'},
 						quest_response_text = {'option', 'text'},
-						quest_name = "none"
-							}
+						quest_name = nil
+						}
 local function move()
 	i = 0
 end
 
 -- AI behavior should be moved into a seperate script
 function init(self)
+	conversationTable.player_choices['option_one'] = 'Do you have a quest?'
+	conversationTable.player_choices['option_two'] = 'Who are you?'
+	conversationTable.player_choices['option_three'] = 'Where are we?'
+	conversationTable.player_choices['option_four'] = 'Where are you?'	
+	
+	conversationTable.npc_responses['option_one'] = {'Yes I need some help with rats', 'They are infesting my house', 'Can you help me?'}
+	
+	conversationTable.player_responses['option_one'] = {'I see', 'ok'}
+
 	self.vel = vmath.vector3()
 	self.anim = nil
 	self.yPos = 0
@@ -80,7 +90,7 @@ function init(self)
 	self.newTable = {'hello'}
 	self.oldTable = {}
 	table.insert(self.oldTable,self.newTable)
-	print(oldTable)
+	-- print(oldTable)
 end
 
 function update(self, dt)
@@ -98,7 +108,7 @@ end
 function on_message(self, message_id, message, sender)
 	messagereceived = true
 	if message_id == hash("chat") then
-		msg.post("main:/conversationUI#gui", "NPCConversation", conversationTable)
+		msg.post("main:/conversationUI#gui", "npc_conversation", conversationTable)
 		-- pprint(go.get_id())
 		-- pprint(conversationTable.questTable)
 	elseif message_id == hash("quest_accepted") then

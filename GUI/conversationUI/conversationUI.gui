@@ -327,7 +327,7 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "hub_button"
+  id: "hubButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -401,7 +401,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "hub_button"
+  parent: "hubButton"
   layer: "text"
   inherit_alpha: false
   alpha: 1.0
@@ -445,7 +445,7 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "player_choice_1"
+  id: "playerChoiceOne"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -501,7 +501,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "choice1"
   font: "system_font"
-  id: "choice1"
+  id: "playerChoiceOneText"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -519,7 +519,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "player_choice_1"
+  parent: "playerChoiceOne"
   layer: "text"
   inherit_alpha: false
   alpha: 1.0
@@ -563,7 +563,7 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "player_choice_2"
+  id: "playerChoiceTwo"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -619,7 +619,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "choice2"
   font: "system_font"
-  id: "choice2"
+  id: "playerChoiceTwoText"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -637,7 +637,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "player_choice_2"
+  parent: "playerChoiceTwo"
   layer: "text"
   inherit_alpha: false
   alpha: 1.0
@@ -681,7 +681,7 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "player_choice_3"
+  id: "playerChoiceThree"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -737,7 +737,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "choice3"
   font: "system_font"
-  id: "choice3"
+  id: "playerChoiceThreeText"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -755,7 +755,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "player_choice_3"
+  parent: "playerChoiceThree"
   layer: "text"
   inherit_alpha: false
   alpha: 1.0
@@ -799,7 +799,7 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "player_choice_4"
+  id: "playerChoiceFour"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -855,7 +855,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "choice4"
   font: "system_font"
-  id: "choice4"
+  id: "playerChoiceFourText"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -873,7 +873,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "player_choice_4"
+  parent: "playerChoiceFour"
   layer: "text"
   inherit_alpha: false
   alpha: 1.0

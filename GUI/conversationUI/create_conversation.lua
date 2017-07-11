@@ -2,8 +2,11 @@
 -- require "GUI/conversationUI/create_conversation"
 
 -- This module contains all the needed functions to create and build your own conversation
--- with up to 4 different player options, as well as the option to have a quest option
+-- with MAX FOUR different player options, as well as the option to have a quest option
 -- quests are be built in the create_quest.lua module
+
+--[[ To add more than four different conversation options you will have to alter the table
+as well as redesign part of the conversationUI and conversationUIscript.gui_script ]]
 
 local conversation_creator = {
 	
@@ -21,15 +24,17 @@ could break the entire conversation UI ]]
 local function get_conversation_table()
 	local conversation_table = {
 						npc_greeting = "Hello",
-						hub_return = "Talk about something else", 
+						hub_return = "Alright, let's talk about something else", 
 						--having 'option_one','option_two'...etc is optional to include improves readability
 						player_choices = {'option_one', 'option_two', 'option_three', 'option_four'},
 						npc_responses = {'option_one', 'option_two', 'option_three', 'option_four'},
 						player_responses = {'option_one', 'option_two', 'option_three', 'option_four'},
-						player_quest_responses = {yes = 'yes', no = 'no'},
+						player_quest_responses = {'yes_option', 'no_option'},
 						quest_response_text = {'option', 'text'},
-						quest_name = "none"
-						}
+						quest_name = nil
+					}
+	conversation_table.player_quest_responses['yes_option'] = 'yes'
+	conversation_table.player_quest_responses['no_option'] = 'no'
 	return conversation_table
 end
 
@@ -39,15 +44,14 @@ local function set_npc_greeting(conversation_table, npc_greeting)
 	conversation_table.npc_greeting = npc_greeting
 end
 
---[[ Sets the button text that returns player to conversation options hub ]]
-local function set_hub_return_button(conversation_table, hub_return_text)
+--[[ Sets what the npc will say if the player selects return in the middle of a npc dialog ]]
+local function set_npc_hub_return_text(conversation_table, hub_return_text)
 	check_table_validity(conversation_table, 'set_hub_return_button()')
 	conversation_table.hub_return = hub_return_text
 end
 
---[[ Sets a player choice, use 'option_one', 'option_two',
-'option_three', or 'option_four' to set a button
-***Cant add more than 4 per conversation*** ]]
+--[[ Sets a player choice, for conversation_option use 'option_one', 'option_two', 'option_three', 
+or 'option_four' to set which button the text goes into ]]
 local function set_conversation_option(conversation_table, conversation_option ,player_choice_button_text)
 	if check_argument_validity(conversation_table, conversation_option, 'set_conversation_option()') then	
 		conversation_table.player_choices[conversation_option] = player_choice_button_text
@@ -86,8 +90,8 @@ end
 --[[ Set up player answers to a quest request, default is yes and no ]]
 local function set_player_quest_responses(conversation_table, yes_option, no_option)
 	check_table_validity(conversation_table)
-	conversation_table.player_quest_responses[yes] = yes_option
-	conversation_table.player_quest_responses[no] = no_option
+	conversation_table.player_quest_responses['yes_option'] = yes_option
+	conversation_table.player_quest_responses['no_option'] = no_option
 end
 
 --TODO Should be in own quest module?
