@@ -1,13 +1,26 @@
+-- This script contains all the functions needed to play conversations with any npc you have created a 
+-- conversation for. Conversations are created in the create_conversation.lua module and should be left
+-- inside the script for the npc they go with
+
+-- To send a conversation to the GUI use msg.post("main:/conversationGUI#gui", "npc_conversation", conversation_table_name)
+-- where the conversation_table is the table that you created inside of the npc using create_conversation.lua
+
+
+---------------------------------------------------------------------------------------------------
+--------------------------------------PRIMARY FUNCTIONS--------------------------------------------
+----------------------These are all the functions that are needed to run the-----------------------
+---------------------------conversations as they currently are laid out----------------------------
+---------------------------------------------------------------------------------------------------
 --[[ Shows conversation GUI and consumes player input ]]
 local function open_ui(self)
 	msg.post(".", "acquire_input_focus")
-	gui.set_enabled(self.dialog_ui, true)
+	gui.set_enabled(self.conversation_ui, true)
 end
 
 --[[ Closes conversation GUI and no longer consumes input ]]
 local function close_ui(self)
 	msg.post(".", "release_input_focus")
-	gui.set_enabled(self.dialog_ui, false)	 
+	gui.set_enabled(self.conversation_ui, false)	 
 end
 
 --[[ Hides and makes all player choices unselectable ]]
@@ -40,14 +53,20 @@ end
 
 --[[ Sends player back to conversation options ]]
 local function show_hub(self)
+	-- If show_hub is used to return from a conversation then set npc text to hub return text
+	if self.conversation_started == true then
+		gui.set_text(self.npc_text, self.conversation_table.hub_return_text)	
+	end
+	
 	-- Hide all buttons before setting choices to avoid extraneous buttons
 	disable_choice_buttons(self)
 	
 	-- Sets return/goodbye button to goodbye so player can exit conversation
 	gui.set_text(self.hub_button_text, "GoodBye")
 	
-	-- Reset text iterator so your not starting in the middle of a dialog option
-	self.text_iterator = 1
+	-- Reset conversation variables
+	self.current_conversation = nil
+	self.conversation_started = false
 	
 	-- Show the player conversation choices
 	show_player_choices(self)
@@ -59,31 +78,60 @@ local function initialize_conversation(self)
 	show_hub(self)
 end
 
---[[ Plays through the conversation that the player selected ]]
-local function play_conversation(self, player_choice)
+--[[ Plays next text string in npc_responses as well as player responses ]]
+local function continue_conversation(self)
+	-- Shows player responses or defaults to continue if none provided
+	if self.conversation_table.player_responses[self.current_conversation][self.text_iterator] then
+		gui.set_text(self.player_choice_one_text, self.conversation_table.player_responses[self.current_conversation][self.text_iterator])
+	else
+		gui.set_text(self.player_choice_one_text, "Continue")
+	end
+	
+	-- Show npc text in text box/returns to hub if dialog runs out
+	if self.conversation_table.npc_responses[self.current_conversation][self.text_iterator] then
+		gui.set_text(self.npc_text, self.conversation_table.npc_responses[self.current_conversation][self.text_iterator])
+		
+		-- Check if dialog is quest giving dialog
+		if self.conversation_table.npc_responses[self.current_conversation][self.text_iterator] == self.conversation_table.quest_response_text then
+			gui.set_enabled(self.player_choice_two, true)
+			gui.set_text(self.player_choice_one_text, self.conversation_table.player_quest_responses['yes_option'])
+			gui.set_text(self.player_choice_two_text, self.conversation_table.player_quest_responses['no_option'])
+		end
+	else
+		show_hub(self)
+	end
+	
+	self.text_iterator = self.text_iterator + 1
+end
+
+--[[ Starts conversation that the player selected ]]
+local function start_conversation(self, player_choice)
+	-- Prepe iterator to go through dialog
+	self.text_iterator = 1
+	
 	-- Set return button so player can return to hub without finishing conversation
 	gui.set_text(self.hub_button_text, "Return")
 	
 	-- Disable buttons that are not needed for dialog with npc
 	disable_choice_buttons(self)
 	
-	-- Set choice one to player responses, if none then sets to default; 'continue'
+	-- Let script know that a conversation is ongoing and which one
+	self.conversation_started = true
+	self.current_conversation = player_choice
+	
+	-- Play first npc player dialog
 	gui.set_enabled(self.player_choice_one, true)
-	if self.conversation_table.player_responses[player_choice][self.text_iterator] then
-		gui.set_text(self.player_choice_one_text, self.conversation_table.player_responses[player_choice][self.text_iterator])
-	else
-		gui.set_text(self.player_choice_one_text, "Continue")
-	end
-		
-	-- Show npc text in text box
-	if self.conversation_table.npc_responses[player_choice][self.text_iterator] then
-		gui.set_text(self.npc_text, self.conversation_table.npc_responses[player_choice][self.text_iterator])
-	else
-		close_ui(self)
-	end
+	continue_conversation(self)
 end
 
+---------------------------------------------------------------------------------------------------
+---------------------------------------PRIMARY SCRIPT----------------------------------------------
+-------------------------This is where all the functions are used to run---------------------------
+-------------------------------------your conversations--------------------------------------------
+---------------------------------------------------------------------------------------------------
+
 function init(self)
+	--[[ ALL THE VARIABLES NEEDED TO RUN THE CONVERSATION ]]
 	-- Container for the conversation table
 	self.conversation_table = {}
 		
@@ -92,7 +140,7 @@ function init(self)
 	
 	-- Set up GUI node access
 	self.npc_text = gui.get_node("npcText")
-	self.dialog_ui = gui.get_node("conversationUI")
+	self.conversation_ui = gui.get_node("conversationUI")
     self.player_choice_one = gui.get_node("playerChoiceOne")
     self.player_choice_one_text = gui.get_node("playerChoiceOneText")
     self.player_choice_two = gui.get_node("playerChoiceTwo")
@@ -107,8 +155,12 @@ function init(self)
 	-- Iterator for iterating through npc dialog
 	self.text_iterator = 1
 
+	-- Variables for dealing with an ongoing conversation
+	self.current_conversation = nil
+	self.conversation_started = false
+	
 	-- Hide conversation GUI while not in use
-	gui.set_enabled(self.dialog_ui, false)
+	gui.set_enabled(self.conversation_ui, disable)
 end
 
 function on_message(self, message_id, message, sender)
@@ -124,8 +176,9 @@ function on_message(self, message_id, message, sender)
 		-- for example if you want to change what NPC says if player says something
 		self.npc_url = sender
 		
-		-- Initialize text iterator
-    	self.text_iterator = 1
+		-- Initialize conversation variables
+    	self.current_conversation = nil
+    	self.conversation_started = false
 	end
 end
 
@@ -147,36 +200,43 @@ function on_input(self, action_id, action)
 		-- CHOICE BUTTON ONE
 		elseif gui.pick_node(self.player_choice_one, x, y) then		
 			-- What to do if choice one is currently accept quest button
-			if gui.get_text(self.player_choice_one_text) == self.conversation_table.questTable.questAnswer[1] then
-				pprint("Quest Accepted")
+			if gui.get_text(self.player_choice_one_text) == self.conversation_table.player_quest_responses['yes_option'] then
+				pprint("quest '"..self.conversation_table.quest_name.."' accepted")
+				
 				-- Send out the fact that the quest has been accepted
 				msg.post("main:/questData", "questData", self.conversation_table.questTable.questData)
 				msg.post(self.npc_url, "quest_accepted")
+				
 				-- TODO set text to npc acceptance dialog, before closing, should not be able to accept quest again
 				-- even though text will not change yet, disable button or change to a standard?
-				close_ui(self)
-			
-			
-			play_conversation(self, 'option_one')	
-			
-			-- Button one is always the continue/progress conversation button
-			self.text_iterator = self.text_iterator + 1
+				continue_conversation(self)
+				
+			-- Option one is now the continue conversation button
+			elseif self.conversation_started then
+				continue_conversation(self)
+				
+			-- If nothing else applies then the player is at hub, so start conversation 'option one'
+			else
+				start_conversation(self, 'option_one')
+			end
 			
 		-- CHOICE BUTTON TWO		
 		elseif gui.pick_node(self.player_choice_two, x, y) then
-			-- What to do if choice two is currently quest deny button
-			if gui.get_text(self.player_choice_two_text) == self.conversation_table.questTable.questAnswer[2] then
-   			close_ui(self)
+			-- What to do if choice two is currently 'quest deny' button
+			if gui.get_text(self.player_choice_two_text) == self.conversation_table.player_quest_responses['no_option'] then
+				pprint("quest '"..self.conversation_table.quest_name.."' rejected")				
+				continue_conversation(self)
 			end
-			playNPCtext(self, self.conversation_table, 2)	
+           
+			start_conversation(self, 'option_two')	
 
 		-- CHOICE BUTTON THREE	
  	   elseif gui.pick_node(self.player_choice_three, x, y) then
-			playNPCtext(self, self.conversation_table, 3)	
+			start_conversation(self, 'option_three')	
 
 		-- CHOICE BUTTON FOUR	
     	elseif gui.pick_node(self.player_choice_four, x, y) then
-			playNPCtext(self, self.conversation_table, 4)
+			start_conversation(self, 'option_four')
     	end
 	end
 

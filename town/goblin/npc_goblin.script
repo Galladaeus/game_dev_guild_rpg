@@ -1,9 +1,12 @@
 local conversationTable = {
 	npc_greeting = "Hello" ,
-	hub_return = "Ok what do you want to talk about?",
+	hub_return_text = "What else do you want to talk about?",
 	player_choices = {'option_one', 'option_two', 'option_three', 'option_four'},
 	npc_responses = {'option_one'},
 	player_responses = {'option_one'},
+	quest_response_text = 'Can you help me?',
+	player_quest_responses = {'yes_option', 'no_option'},
+	quest_name = 'kill rats',
 	playerChoice = {	-- What can you ask the NPC about? MAX 4 options
 		"Do you have a quest?",
 		{
@@ -82,7 +85,10 @@ function init(self)
 	conversationTable.npc_responses['option_one'] = {'Yes I need some help with rats', 'They are infesting my house', 'Can you help me?'}
 	
 	conversationTable.player_responses['option_one'] = {'I see', 'ok'}
-
+	
+	conversationTable.player_quest_responses['yes_option'] = 'Yes'
+	conversationTable.player_quest_responses['no_option'] = 'No'
+	-- Stuff to test movement
 	self.vel = vmath.vector3()
 	self.anim = nil
 	self.yPos = 0
@@ -94,6 +100,7 @@ function init(self)
 end
 
 function update(self, dt)
+	-- Movement test stuff
 	local pos = go.get_position()
 	self.vel.y = 200
 	--[[
@@ -108,11 +115,11 @@ end
 function on_message(self, message_id, message, sender)
 	messagereceived = true
 	if message_id == hash("chat") then
-		msg.post("main:/conversationUI#gui", "npc_conversation", conversationTable)
+		msg.post("main:/conversationGUI#gui", "npc_conversation", conversationTable)
 		-- pprint(go.get_id())
 		-- pprint(conversationTable.questTable)
 	elseif message_id == hash("quest_accepted") then
-		conversationTable.playerChoice[2] = {"You are already helping me!"}
+		conversationTable.player_choices['option_one'] = "You are already helping me!"
 	end
 end
 
