@@ -53,17 +53,15 @@ end
 
 function on_message(self, message_id, message, sender)
 	-- print(sender)
+	if message_id == hash("trigger_response") then
+		pprint("Triggered")
+	end
 	if message_id == hash("contact_point_response") then
 		if message.group == hash("npc") then -- TODO Should use collision response for npc, seperate later
-	 		--print(sender)
 	 		self.inrangeofnpc = true
 		elseif message.group == hash("border") then
 	 		local newpos = go.get_position() + message.normal * message.distance	-- Seperate player and collision so player cannot enter
 	 		go.set_position(newpos)
-	 		-- pprint("Hit border")
-         elseif message_id == hash("trigger_response") then
-        	 print("hello?")
-        	 msg.post(sender, "load_other_world")
 		end
 	end
 end

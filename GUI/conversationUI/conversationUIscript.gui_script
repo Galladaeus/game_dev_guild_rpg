@@ -5,7 +5,6 @@
 -- To send a conversation to the GUI use msg.post("main:/conversationGUI#gui", "npc_conversation", conversation_table_name)
 -- where the conversation_table is the table that you created inside of the npc using create_conversation.lua
 
-
 ---------------------------------------------------------------------------------------------------
 --------------------------------------PRIMARY FUNCTIONS--------------------------------------------
 ----------------------These are all the functions that are needed to run the-----------------------
@@ -98,7 +97,7 @@ local function continue_conversation(self)
 			gui.set_text(self.player_choice_two_text, self.conversation_table.player_quest_responses['no_option'])
 		end
 	else
-		show_hub(self)
+		close_ui(self)
 	end
 	
 	self.text_iterator = self.text_iterator + 1

@@ -1,125 +1,64 @@
-local conversationTable = {
-	npc_greeting = "Hello" ,
-	hub_return_text = "What else do you want to talk about?",
-	player_choices = {'option_one', 'option_two', 'option_three', 'option_four'},
-	npc_responses = {'option_one'},
-	player_responses = {'option_one'},
-	quest_response_text = 'Can you help me?',
-	player_quest_responses = {'yes_option', 'no_option'},
-	quest_name = 'kill rats',
-	playerChoice = {	-- What can you ask the NPC about? MAX 4 options
-		"Do you have a quest?",
-		{
-			"Yes I need help with some rats",		-- Create a table after the choice to input npc conversation
-			"They are infesting my house",
-			"Can you help me?",
-			playerAnswer = {
-				"Yeah I got you bruh",
-				"Nah, not this time"
-			}
-		},
-		"Who are you?",
-		{
-			"I am nobody, who are you?",
-			"Who am I?",
-			playerAnswer = nil
-		},
-		"Where are we?",
-		{
-			"Who knows?",
-			playerAnswer = nil
-		},
-		"Where are you?",
-		{
-			"I am here.",
-			playerAnswer = nil
-		}
-	},
-	questTable = {
-		true,
-		questData = {
-			questTitle = {
-				"RatKiller"
-			},
-			questGiver = { 
-				"Goblin"
-			},
-			questDescription = {
-				"Kill 7 rats"
-			},
-			questType = {
-				qType = "killQuest",
-				enemyType = "Rat",
-				numberToKill = 7
-			}		
-		},
-		questAnswer = {	-- Text for player accepting quest or rejecting
-		"Yeah I got you bruh",
-		"Nah, not this time"
-		}
-	}
-}
-
-	local conversation_table = {
-						npc_greeting = "Hello",
-						hub_return = "Talk about something else", 
-						--having 'option_one','option_two'...etc is optional to include improves readability
-						player_choices = {'option_one', 'option_two', 'option_three', 'option_four'},
-						npc_responses = {'option_one', 'option_two', 'option_three', 'option_four'},
-						player_responses = {'option_one', 'option_two', 'option_three', 'option_four'},
-						player_quest_responses = {'yes_option', 'no_option'},
-						quest_response_text = {'option', 'text'},
-						quest_name = nil
-						}
-local function move()
-	i = 0
-end
+-- Include the module to create a conversation
+local create_conversation = require "GUI/conversationUI/create_conversation"
 
 -- AI behavior should be moved into a seperate script
 function init(self)
-	conversationTable.player_choices['option_one'] = 'Do you have a quest?'
-	conversationTable.player_choices['option_two'] = 'Who are you?'
-	conversationTable.player_choices['option_three'] = 'Where are we?'
-	conversationTable.player_choices['option_four'] = 'Where are you?'	
+	-- Conversation tables, added for readability
+	local bird_greeting = "Hello Cat! Glorious morning, is it not?"
+	local player_choice_one = 'Hey Bird, where is the human?'
+	local bird_responses_one = {'A little me said that they were by the front of the house, Say, have you noticed something amiss?',
+						"Oh, I'm sure it's nothing. I have just been hearing that the rodents seem to be riled",
+						"Fare thee well"	
+						}
+	local player_responses_one = {'Not yet. Whats going on?',
+						"This time of year? Well, as long as they don't come near me. Goodbye, Bird."
+						}
+
 	
-	conversationTable.npc_responses['option_one'] = {'Yes I need some help with rats', 'They are infesting my house', 'Can you help me?'}
+	-- Creating conversation table to store information in
+	self.bird_conversation = create_conversation.get_conversation_table()
 	
-	conversationTable.player_responses['option_one'] = {'I see', 'ok'}
+	-- Setting conversation values
+	create_conversation.set_npc_greeting(self.bird_conversation, bird_greeting)
+	-- Option one
+	create_conversation.set_player_option(self.bird_conversation, 'option_one', player_choice_one)
+	create_conversation.set_npc_responses(self.bird_conversation, 'option_one', bird_responses_one) 
+	create_conversation.set_player_responses(self.bird_conversation, 'option_one', player_responses_one)
 	
-	conversationTable.player_quest_responses['yes_option'] = 'Yes'
-	conversationTable.player_quest_responses['no_option'] = 'No'
+	-- Testing table
+	-- pprint(self.bird_conversation)
+
 	-- Stuff to test movement
+	--[[
 	self.vel = vmath.vector3()
 	self.anim = nil
 	self.yPos = 0
 	
 	self.newTable = {'hello'}
 	self.oldTable = {}
-	table.insert(self.oldTable,self.newTable)
+	table.insert(self.oldTable,self.newTable)]]
 	-- print(oldTable)
 end
 
 function update(self, dt)
 	-- Movement test stuff
+	--[[
 	local pos = go.get_position()
 	self.vel.y = 200
-	--[[
 	if (self.yPos <= 600) then
 		pos = pos + self.vel * dt
 		go.set_position(pos)
 	end
-	]]
-	self.yPos = self.yPos + 10
+	self.yPos = self.yPos + 10 ]]
 end
 
 function on_message(self, message_id, message, sender)
-	messagereceived = true
 	if message_id == hash("chat") then
-		msg.post("main:/conversationGUI#gui", "npc_conversation", conversationTable)
-		-- pprint(go.get_id())
-		-- pprint(conversationTable.questTable)
+		msg.post("main:/conversationGUI#gui", "npc_conversation", self.bird_conversation)
+		
 	elseif message_id == hash("quest_accepted") then
-		conversationTable.player_choices['option_one'] = "You are already helping me!"
+		-- Player has accepted quest so change quest text to something else
+		create_conversation.set_npc_responses(self.bird_conversation, 'option_one', {'You are already helping me!'})
 	end
 end
 
