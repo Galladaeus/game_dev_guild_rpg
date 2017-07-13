@@ -25,3 +25,8 @@ TODO system that handles updating quests
 TODO Figure out how to use triggers to load player into different worlds
 	UPDATE: Figured out issue with triggers, now need to work on understanding
 	proxy collections and best way to transfer in between locations
+
+NPC Creation System:
+TODO Create a script that automates the creation of a npc with variables that will be commonly passed around,
+i.e. sprite data, npc name, etc. Also can use data to automatically fill in certain information when creating
+conversations/quests
