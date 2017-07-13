@@ -93,6 +93,26 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "owner"
+  prototype: "/town/owner/owner.go"
+  position {
+    x: 280.776
+    y: 330.379
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map"

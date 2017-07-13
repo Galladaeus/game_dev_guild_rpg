@@ -137,8 +137,12 @@ end
 --[[ Set up player answers to a quest request, default is yes and no ]]
 function M.set_player_quest_responses(conversation_table, yes_option, no_option)
 	check_table_validity(conversation_table)
-	conversation_table.player_quest_responses['yes_option'] = yes_option
-	conversation_table.player_quest_responses['no_option'] = no_option
+	if type(yes_option) ~= "string" or type(no_option) ~= "string" then
+		error("Incorrect type passed to yes/no option in set_player_quest_response()")
+	else
+		conversation_table.player_quest_responses['yes_option'] = yes_option
+		conversation_table.player_quest_responses['no_option'] = no_option
+	end
 end
 
 --TODO Should be in own quest module?

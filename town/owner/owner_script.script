@@ -10,7 +10,7 @@ function init(self)
 						"They're nested in out basement, but I can't get into that corner",
 						"Would you be able to take care of that for me?",
 						"Oh don't look at me like that.",
-						"A couple of good swipes at them and they'll be gone for good."
+						"A couple of good swipes at them and they'll be gone for good.",
 						"How about I give you a treat afterwards?",
 						"I knew I could count on you! Now go get 'em."
 						}
@@ -18,8 +18,8 @@ function init(self)
 						"Continue listening",
 						"What? That's disgusting! Rats are filthy and carry disease. Can't you find another way to do it?"
 						}
-	local player_yes_response = {"Fine!Fine! But you owe me, you hear?"}
-	local player_no_response = {"Hell no! You can't bribe me!"}
+	local player_yes_response = "Fine!Fine! But you owe me, you hear?"
+	local player_no_response = "Hell no! You can't bribe me!"
 	local quest_name = 'Rat killer'
 	
 	-- Creating conversation table to store information in
@@ -30,7 +30,7 @@ function init(self)
 	create_conversation.set_player_option(self.owner_conversation, 'option_one', player_choice_one)
 	create_conversation.set_npc_quest_request(self.owner_conversation, 'option_one', owner_responses_one, owner_responses_one[6], 'Rat killer') 
 	create_conversation.set_player_responses(self.owner_conversation, 'option_one', player_responses_one)
-	create_conversation.set_player_quest_responses(conversation_table, player_yes_response, player_no_response)
+	create_conversation.set_player_quest_responses(self.owner_conversation, player_yes_response, player_no_response)
 	
 	-- Testing table
 	pprint(self.bird_conversation)

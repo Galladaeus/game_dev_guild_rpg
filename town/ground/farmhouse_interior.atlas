@@ -7,6 +7,9 @@ images {
 images {
   image: "/town/town_images/test_door.png"
 }
+images {
+  image: "/town/town_images/pixel_guy.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

@@ -110,14 +110,14 @@ embedded_components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/town/goblin/goblin_tilesource.tilesource\"\n"
-  "default_animation: \"idle\"\n"
+  data: "tile_set: \"/town/ground/farmhouse_interior.atlas\"\n"
+  "default_animation: \"pixel_guy\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
   position {
-    x: 0.0
-    y: 0.0
+    x: 0.523
+    y: 6.803
     z: 0.0
   }
   rotation {
