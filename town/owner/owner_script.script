@@ -42,6 +42,7 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("chat") then
+				
 		msg.post("main:/conversationGUI#gui", "npc_conversation", self.owner_conversation)
 		
 	elseif message_id == hash("quest_accepted") then

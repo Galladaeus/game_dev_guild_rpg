@@ -150,6 +150,7 @@ function init(self)
     self.player_choice_four_text = gui.get_node("playerChoiceFourText")
     self.hub_button = gui.get_node("hubButton")
 	self.hub_button_text = gui.get_node("hubButtonText")
+	self.npc_image = gui.get_node("npcImage")
 	
 	-- Iterator for iterating through npc dialog
 	self.text_iterator = 1
@@ -166,6 +167,12 @@ function on_message(self, message_id, message, sender)
     if message_id == hash("npc_conversation") then    	
     	-- Receive conversation data from npc
     	self.conversation_table = message
+    	
+    	-- TODO Recieve image and change dependant on that
+    	texture_test = gui.get_texture(self.npc_image)
+    	print(texture_test)
+    	gui.set_texture(self.npc_image, hash("farmhouse_interior"))
+    	gui.play_flipbook(self.npc_image, hash("pixel_art_girl"))
     	
     	-- Consume input in UI and initialize conversation options
 		open_ui(self)
@@ -192,7 +199,7 @@ function on_input(self, action_id, action)
 			if gui.get_text(self.hub_button_text) == "GoodBye" then
 				close_ui(self)
 			else
-				gui.set_text(self.npc_text, self.conversation_table.hub_return)
+				gui.set_text(self.npc_text, self.conversation_table.hub_return_text)
 				show_hub(self)
 			end			
 		

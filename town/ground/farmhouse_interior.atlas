@@ -10,6 +10,9 @@ images {
 images {
   image: "/town/town_images/pixel_guy.png"
 }
+images {
+  image: "/town/town_images/pixel_art_girl.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0
