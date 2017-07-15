@@ -56,7 +56,6 @@ function init(self)
 
 	-- Add quest to conversation
 	create_conversation.set_quest(self.owner_conversation, self.owner_quest)
-	
 end
 
 function update(self, dt)
@@ -64,6 +63,7 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
+	
 	-- player.script sends message letting npc know to send its conversation data to the conversation 
 	-- user interface which automatically opens and starts conversation
 	if message_id == hash("start_conversation") then
@@ -72,6 +72,9 @@ function on_message(self, message_id, message, sender)
 	elseif message_id == hash("quest_accepted") then
 		-- Player has accepted quest so change quest text to something else
 		create_conversation.set_npc_responses(self.owner_conversation, 'option_one', {'Come back once the rats are dead'})
+		
+	elseif message_id == hash("quest_completed") then
+		pprint("QUEST COMPLETE WOO")
 	end
 end
 

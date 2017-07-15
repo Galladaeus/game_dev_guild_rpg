@@ -52,14 +52,24 @@ end
 
 --[[ Call this function first and store this table in a self.quest_table inside your quest giving npc ]]
 function M.get_quest_table()
+	-- Construct address of quest giver to set as quest completer
+	local self_url = msg.url()
+	-- This may be a source of future errors, i.e. what makes a npc in the default socket vs elsewhere
+	self_url.socket = "default"
+	self_url.path = go.get_id()
+
 	quest_table = {
 			quest_name = 'none',
 			quest_description = 'none',
 			quest_type = 'none',
 			quest_giver = 'none',
 			exp_reward = 10,
-			monetary_reward = 10
+			monetary_reward = 10,
+			-- The URL of the npc you talk to to complete the quest, if none provided default is set to quest_giver's address
+			quest_completer_address = self_url
 		}	
+		
+
 	
 	return quest_table
 end
@@ -96,6 +106,17 @@ function M.set_quest_giver(quest_table, quest_giver)
 	check_argument_validity('set_quest_giver', 'string', quest_giver)
 	
 	quest_table.quest_giver = quest_giver
+end
+
+function M.set_quest_completer(quest_table, quest_completer)
+	check_table_validity(quest_table, 'set_quest_completer')
+	check_argument_validity('set_quest_completer', 'string', quest_completer)
+	-- Extra check to make sure that the URL provided exists
+	if not msg.post(quest_completer, 'test_message') then
+		error('Invalid NPC URL: '..quest_completer..' provided to set_quest_completer')
+	end
+	
+	quest_table.quest_completer_address = quest_completer
 end
 
 --[[ Set the data needed for a kill quest ]]

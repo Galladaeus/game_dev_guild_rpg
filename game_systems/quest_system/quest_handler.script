@@ -2,8 +2,9 @@
 
 -- Makes quest turn in-able
 local function set_quest_complete(self, quest_number)
-	-- WHERE TO CHECK?
+	-- WHERE TO CHECK QUEST COMPLETION?
 	self.current_quests[quest_number].quest_complete = true
+	msg.post(self.current_quests[quest_number].quest_completer_address, "quest_completed", {self.current_quests[quest_number].quest_name})
 end
 
 -- Function to be called whenever quest progress is updated
@@ -28,14 +29,17 @@ end
 -- Function to add a quest to the current quests
 local function add_quest(self, quest_table)
 	self.number_of_quests = self.number_of_quests + 1
+	
 	if quest_table.quest_type == 'kill_quest' then
 		self.current_quests[self.number_of_quests] = {
 				quest_name = quest_table.quest_name,
 				number_to_kill = quest_table.number_to_kill,
+				quest_completer_address = quest_table.quest_completer_address,
 				amount_killed = 0,
 				quest_complete = false
 				}
 	end
+	pprint(self.current_quests)
 end
 
 function init(self)
@@ -56,4 +60,8 @@ function on_message(self, message_id, message, sender)
     elseif message_id == hash("update_quest") then
     	
     end
+    
+    if message_id == hash("debug_quest_complete") then
+    	set_quest_complete(self, 1)
+	end
 end

@@ -2,7 +2,7 @@
 local function anim4(self, node)
 	-- animate scale to 100%
 	-- local s = 0.26767 
-	gui.animate(node, gui.PROP_SCALE, vmath.vector4(0.26767, 0.07727, 1, 0), gui.EASING_INOUT, 0.12, 0)
+	gui.animate(node, gui.PROP_SCALE, vmath.vector4(0.1, 0.1, 1, 0), gui.EASING_INOUT, 0.12, 0)
 end
 
 local function anim3(self, node)
@@ -63,7 +63,7 @@ function on_message(self, message_id, message, sender)
 		
 		local delay = 0.4
 		-- Animate resume button
-		-- anim1(gui.get_node("resumeButton"), delay)
+		anim1(gui.get_node("resumeButton"), delay)
 	end
 end
 

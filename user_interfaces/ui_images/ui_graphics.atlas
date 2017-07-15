@@ -10,6 +10,12 @@ images {
 images {
   image: "/user_interfaces/ui_images/pixel_save_button.png"
 }
+images {
+  image: "/user_interfaces/ui_images/pixel_load_button.png"
+}
+images {
+  image: "/user_interfaces/ui_images/pixel_quit_button.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

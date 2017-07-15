@@ -134,7 +134,7 @@ local function accept_quest(self)
 				
 	-- Send out the fact that the quest has been accepted
 	pprint("quest '"..self.conversation_table.quest_table.quest_name.."' accepted")
-	msg.post("main:/quest_handler", "add_quest", self.conversation_table.quest_table)
+	msg.post("main:/questHandler", "add_quest", self.conversation_table.quest_table)
 	msg.post(self.npc_url, "quest_accepted")
 
 	-- Get rid of the decline quest button and continue with conversation
