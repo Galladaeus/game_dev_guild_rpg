@@ -22,8 +22,9 @@ function on_message(self, message_id, message, sender)
     	gui.set_enabled(gui.get_node("questLog"), true)
     	msg.post(".", "acquire_input_focus")
     	pprint(self.numberOfQuests)
-    elseif message_id == hash("questData") then	-- Receive questdata from conversationUIscript when a quest is accepted
-    	local questData = message				 -- place into table and update data in questlog
+    	
+    elseif message_id == hash("quest_table") then	-- Receive questdata from conversationUIscript when a quest is accepted
+    	local quest_table = message				 -- place into table and update data in questlog
 		self.numberOfQuests = self.numberOfQuests + 1					
     	gui.set_text(questDescription, questData.questDescription[1])		-- TODO place all quest data into a single node that can be deleted
     	gui.set_text(questTitle, questData.questTitle[1])					-- once the quest is completed or moved to a quests completed area

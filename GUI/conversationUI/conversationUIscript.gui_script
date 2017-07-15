@@ -207,21 +207,25 @@ function on_input(self, action_id, action)
 		elseif gui.pick_node(self.player_choice_one, x, y) then		
 			-- What to do if choice one is currently accept quest button
 			if gui.get_text(self.player_choice_one_text) == self.conversation_table.player_quest_responses['yes_option'] then
-				pprint("quest '"..self.conversation_table.quest_name.."' accepted")
+				-- Ensure that a quest is actually included in the conversation table
+				if self.conversation_table.quest_table == nil then
+					error("Conversation table from "..self.npc_url.." has no quest table attached")
+				end
+				pprint("quest '"..self.conversation_table.quest_table.quest_name.."' accepted")
 				
 				-- Send out the fact that the quest has been accepted
-				msg.post("main:/questData", "questData", self.conversation_table.questTable.questData)
+				msg.post("main:/questData", "questData", self.conversation_table.quest_table)
 				msg.post(self.npc_url, "quest_accepted")
 				
 				-- TODO set text to npc acceptance dialog, before closing, should not be able to accept quest again
-				-- even though text will not change yet, disable button or change to a standard?
+				-- even though text will not change yet, disable button or change to a standard? Avoid repeat quest acceptance
 				continue_conversation(self)
 				
 			-- Option one is now the continue conversation button
 			elseif self.conversation_started then
 				continue_conversation(self)
 				
-			-- If nothing else applies then the player is at hub, so start conversation 'option one'
+			-- If nothing else applies then the player is at hub, so start conversation with 'option one'
 			else
 				start_conversation(self, 'option_one')
 			end

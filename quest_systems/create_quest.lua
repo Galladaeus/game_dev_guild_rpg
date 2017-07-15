@@ -26,23 +26,25 @@ local function check_table_validity(quest_table, function_name)
 		error("quest_table missing quest_monetary_reward passed to "..function_name) end
 end	
 
---[[ Call this function first with the type of quest you want to create
-and store this table in a self.quest_table inside your quest giving npc ]]
-function M.get_quest_table(quest_type)
+--[[ Checks that the provided arguments are of the correct type ]]
+local function check_argument_validity(function_name, expected_type, ...)
+	given_types = {...}
+	for i,v in pairs(given_types) do
+		if type(v) ~= expected_type then
+			error(function_name.." received incorrect param type '"..type(v).."' with value '"..tostring(v).." instead of '"..expected_type"'")
+		end
+	end
+end
+
+--[[ Call this function first and store this table in a self.quest_table inside your quest giving npc ]]
+function M.get_quest_table()
 	quest_table = {
-			quest_name = 'default_quest',
-			quest_type = 'kill_quest',
-			quest_giver = 'default_npc',
+			quest_name = 'none',
+			quest_type = 'none',
+			quest_giver = 'none',
 			exp_reward = 10,
 			monetary_reward = 10
 		}	
-	-- Set specific values for quest type
-	if quest_type == 'kill_quest' then
-		quest_table.number_to_kill = 3
-		quest_table.enemy_type = 'rat'
-	elseif quest_type == 'talk_quest' then
-		quest_table.npc_to_contact = 'default_npc'
-	end
 	
 	return quest_table
 end
@@ -50,18 +52,37 @@ end
 --[[ Set the name of your quest ]]
 function M.set_quest_name(quest_table, quest_name)
 	check_table_validity(quest_table, 'set_quest_name')
+	check_argument_validity('set_quest_name', 'string', quest_name)
+	
 	quest_table.quest_name = quest_name
 end	
 
 --[[ Set exp/monetary quest reward ]]
 function M.set_quest_reward(quest_table, exp_reward, monetary_reward)
 	check_table_validity(quest_table, 'set_quest_reward')
+	check_argument_validity('set_quest_reward', 'number', exp_reward, monetary_reward)
+	
 	quest_table.exp_reward = exp_reward
 	quest_table.monetary_reward = monetary_reward
 end
 
 --[[ Set quest giver ]]
-function M.set_quest_giver(quest_giver)
+function M.set_quest_giver(quest_table, quest_giver)
 	check_table_validity(quest_table, 'set_quest_giver')
+	check_argument_validity('set_quest_giver', 'string', quest_giver)
+	
 	quest_table.quest_giver = quest_giver
 end
+
+--[[ Set the data needed for a kill quest ]]
+function M.set_kill_quest(quest_table, enemy, number_to_kill)
+	check_table_validity(quest_table, 'set_kill_quest')
+	check_argument_validity('set_kill_quest', 'string', enemy)
+	check_argument_validity('set_kill_quest', 'number', number_to_kill)
+	
+	quest_table.quest_type = 'kill_quest'
+	quest_table.number_to_kill = number_to_kill
+	quest_table.enemy_type = enemy
+end
+
+return M

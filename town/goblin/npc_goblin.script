@@ -3,7 +3,7 @@ local create_conversation = require "GUI/conversationUI/create_conversation"
 
 -- AI behavior should be moved into a seperate script
 function init(self)
-	-- Conversation tables, added for readability
+	-- Conversation table data, added for readability
 	local bird_greeting = "Hello Cat! Glorious morning, is it not?"
 	local player_choice_one = 'Hey Bird, where is the human?'
 	local bird_responses_one = {'A little me said that they were by the front of the house, Say, have you noticed something amiss?',
@@ -13,6 +13,7 @@ function init(self)
 	local player_responses_one = {'Not yet. Whats going on?',
 						"This time of year? Well, as long as they don't come near me. Goodbye, Bird."
 						}
+					
 
 	
 	-- Creating conversation table to store information in

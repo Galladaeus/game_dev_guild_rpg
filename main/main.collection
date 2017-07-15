@@ -61,7 +61,7 @@ instances {
 }
 instances {
   id: "questData"
-  prototype: "/quests/questData.go"
+  prototype: "/quest_systems/questData.go"
   position {
     x: 1035.0609
     y: 383.09363
@@ -81,7 +81,7 @@ instances {
 }
 instances {
   id: "questLog"
-  prototype: "/quests/questLog.go"
+  prototype: "/quest_systems/questLog.go"
   position {
     x: 0.0
     y: 0.0

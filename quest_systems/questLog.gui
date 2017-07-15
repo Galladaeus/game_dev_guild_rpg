@@ -1,4 +1,4 @@
-script: "/quests/questLog.gui_script"
+script: "/quest_systems/quest_log_gui.gui_script"
 fonts {
   name: "system_font"
   font: "/builtins/fonts/system_font.font"

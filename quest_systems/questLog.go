@@ -1,6 +1,6 @@
 components {
-  id: "questData"
-  component: "/quests/questData.script"
+  id: "gui"
+  component: "/quest_systems/questLog.gui"
   position {
     x: 0.0
     y: 0.0

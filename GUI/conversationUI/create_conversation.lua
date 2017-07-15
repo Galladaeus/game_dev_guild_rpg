@@ -68,7 +68,7 @@ function M.get_conversation_table()
 						player_responses = {},
 						player_quest_responses = {'yes_option', 'no_option'}, --TODO set defaults
 						quest_response_text = 'text',
-						quest_name = nil
+						quest_table = nil
 					}
 	-- Set defaults
 	conversation_table.player_quest_responses['yes_option'] = "I'll help"
@@ -145,16 +145,13 @@ function M.set_player_quest_responses(conversation_table, yes_option, no_option)
 	end
 end
 
---TODO Should be in own quest module?
---[[ Sets up quest information, call set_quest_accept() to set up player accept response
-quest_name, npc_name, and quest_description should all be single strings, the quest_type table
-should be one created from create_quest ]]
-function M.set_quest(conversation_table, quest_name, npc_name, quest_description, quest_type)
+--[[ Inputs a quest table made through create_quest.lua into your conversation ]]
+function M.set_quest(conversation_table, quest_table)
 	check_table_validity(conversation_table, 'set_quest')
-	conversation_table.quest_data.quest_name = quest_name
-	conversation_table.quest_data.npc_name = npc_name
-	conversation_table.quest_data.quest_description = quest_description
-	conversation_table.quest_data.quest_type = quest_type
+	if quest_table.quest_type == 'none' then
+		error("Attempted to assign a quest without a type to quest: "..conversation_table.quest_table.quest_name)
+	end	
+	conversation_table.quest_table = quest_table
 end
 
 return M
