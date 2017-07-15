@@ -62,7 +62,8 @@ function on_message(self, message_id, message, sender)
 		gui.set_enabled(self.main_menu, true)
 		
 		local delay = 0.4
-		anim1(gui.get_node("resumeButton"), delay)
+		-- Animate resume button
+		-- anim1(gui.get_node("resumeButton"), delay)
 	end
 end
 

@@ -1,0 +1,15 @@
+images {
+  image: "/user_interfaces/ui_images/pixel_resume_button.png"
+}
+images {
+  image: "/user_interfaces/ui_images/pixel_options_button.png"
+}
+images {
+  image: "/user_interfaces/ui_images/pixel_quest_log_button.png"
+}
+images {
+  image: "/user_interfaces/ui_images/pixel_save_button.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

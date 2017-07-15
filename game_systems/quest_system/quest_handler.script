@@ -30,9 +30,9 @@ local function add_quest(self, quest_table)
 	self.number_of_quests = self.number_of_quests + 1
 	if quest_table.quest_type == 'kill_quest' then
 		self.current_quests[self.number_of_quests] = {
-				quest_name = quest_table.quest_name
-				number_to_kill = quest_table.number_to_kill
-				amount_killed = 0
+				quest_name = quest_table.quest_name,
+				number_to_kill = quest_table.number_to_kill,
+				amount_killed = 0,
 				quest_complete = false
 				}
 	end

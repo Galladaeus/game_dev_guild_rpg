@@ -3,6 +3,10 @@ fonts {
   name: "system_font"
   font: "/builtins/fonts/system_font.font"
 }
+textures {
+  name: "ui_graphics"
+  texture: "/user_interfaces/ui_images/ui_graphics.atlas"
+}
 background_color {
   x: 0.0
   y: 0.0
@@ -65,8 +69,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.244
-    y: 28.366
+    x: 0.069
+    y: 36.349
     z: 0.0
     w: 1.0
   }
@@ -77,14 +81,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.26767123
-    y: 0.077265956
+    x: 0.1
+    y: 0.1
     z: 1.0
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 512.0
+    y: 256.0
     z: 0.0
     w: 1.0
   }
@@ -96,7 +100,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: ""
+  texture: "ui_graphics/pixel_resume_button"
   id: "resumeButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -120,71 +124,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 2.0
-    y: 4.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "RESUME"
-  font: "system_font"
-  id: "resumeButtonText"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "resumeButton"
-  layer: "text"
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
-}
-nodes {
-  position {
     x: 0.244
-    y: 15.804
+    y: 20.657
     z: 0.0
     w: 1.0
   }
@@ -195,14 +136,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.26767123
-    y: 0.077265956
+    x: 0.1
+    y: 0.1
     z: 1.0
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 512.0
+    y: 256.0
     z: 0.0
     w: 1.0
   }
@@ -214,7 +155,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: ""
+  texture: "ui_graphics/pixel_quest_log_button"
   id: "questLogButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -238,71 +179,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 2.0
-    y: 4.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "QUEST LOG"
-  font: "system_font"
-  id: "questlogButtonText"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "questLogButton"
-  layer: "text"
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
-}
-nodes {
-  position {
     x: 0.244
-    y: 3.737
+    y: 5.302
     z: 0.0
     w: 1.0
   }
@@ -313,14 +191,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.26767123
-    y: 0.077265956
+    x: 0.1
+    y: 0.1
     z: 1.0
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 512.0
+    y: 256.0
     z: 0.0
     w: 1.0
   }
@@ -332,7 +210,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: ""
+  texture: "ui_graphics/pixel_options_button"
   id: "optionsButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -356,71 +234,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 2.0
-    y: 4.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "OPTIONS"
-  font: "system_font"
-  id: "optionsButtonText"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "optionsButton"
-  layer: "text"
-  inherit_alpha: false
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
-}
-nodes {
-  position {
     x: 0.244
-    y: -20.074
+    y: -22.892
     z: 0.0
     w: 1.0
   }
@@ -538,7 +353,7 @@ nodes {
 nodes {
   position {
     x: 0.244
-    y: -8.164
+    y: -9.886
     z: 0.0
     w: 1.0
   }
@@ -549,14 +364,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.26767123
-    y: 0.077265956
+    x: 0.1
+    y: 0.1
     z: 1.0
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 512.0
+    y: 256.0
     z: 0.0
     w: 1.0
   }
@@ -568,7 +383,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: ""
+  texture: "ui_graphics/pixel_save_button"
   id: "saveButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -592,71 +407,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 2.0
-    y: 4.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "SAVE"
-  font: "system_font"
-  id: "saveButtonText"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "saveButton"
-  layer: "text"
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
-}
-nodes {
-  position {
     x: 0.244
-    y: -32.5
+    y: -37.666
     z: 0.0
     w: 1.0
   }
@@ -773,7 +525,7 @@ nodes {
 }
 nodes {
   position {
-    x: 634.358
+    x: 630.997
     y: 408.038
     z: 0.0
     w: 1.0
