@@ -1,0 +1,35 @@
+local saveData = require "main/save_system/save_data"
+local save_file = sys.get_save_file("testGame", "saveFile")
+
+local function save_game(self)
+	if not sys.save(save_file, saveData) then
+		pprint("FAILED TO SAVE")	
+	end
+end
+
+local function load_game(self)
+	pprint(save_file)
+	saveData = sys.load(save_file)
+	return saveData
+end
+
+function init(self)
+	-- pprint(saveData)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("save") then	-- If you save with same quest it will just add it to the table currently
+		msg.post("/questData", "requestQuestData")
+	elseif message_id == hash("questLog") then
+		saveData.questLog = message
+		msg.post("#", "completeSave")
+	elseif message_id == hash("completeSave") then
+		save_game(self)
+		pprint(save_file)
+		-- pprint(saveData)
+	elseif message_id == hash("load") then
+		pprint("ATTEMPTING TO LOAD")
+		saveData = load_game(self)
+		msg.post("/questData", "loadQuestData", saveData.questLog)
+	end
+end

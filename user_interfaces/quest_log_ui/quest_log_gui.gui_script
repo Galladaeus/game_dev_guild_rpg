@@ -1,0 +1,62 @@
+--[[ Adds a quest to the quest list ]]
+local function add_quest(self, quest_table)
+	-- TODO Create a new quest description window for each quest, i.e. clicking on different
+	-- quests brings up different quest windows
+	gui.set_text(self.quest_description, quest_table.quest_description)
+	gui.set_text(self.quest_name, quest_table.quest_name)
+	gui.set_text(self.quest_giver_name, quest_table.quest_giver)
+	-- Set image to correct npc
+	gui.set_texture(self.quest_giver_image, hash("quest_givers")) -- Once all images are in this texture this line is unneeded
+	gui.play_flipbook(self.quest_giver_image, hash(quest_table.quest_giver))
+end
+
+function init(self)
+	self.numberOfQuests = 0
+	
+	self.quest_log = gui.get_node("questLog")
+	self.quest_description_window = gui.get_node("questDescriptionBox")
+	
+	gui.set_enabled(self.quest_log, false)
+	gui.set_enabled(self.quest_description_window, false)
+	
+	self.quest_description = gui.get_node("questDescription")
+	self.quest_name = gui.get_node("questName")
+	self.quest_giver_name = gui.get_node("questGiverName")
+	self.quest_giver_image = gui.get_node("questGiverImage")
+	
+	self.back_button = gui.get_node("backButton")
+end
+
+function on_message(self, message_id, message, sender)
+	-- Player opens quest log through main menu
+    if message_id == hash("open_quest_log") then
+    	gui.set_enabled(self.quest_log, true)
+    	msg.post(".", "acquire_input_focus")
+    	
+	-- Quest log gui recieves and places a new quest into the quest log
+    elseif message_id == hash("quest_table") then
+    	local quest_table = message
+    	add_quest(self, quest_table)
+		self.numberOfQuests = self.numberOfQuests + 1					
+    end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("mouse_press") and action.pressed then
+		local x = action.x
+		local y = action.y
+				
+		if gui.pick_node(gui.get_node("firstQuest"), x, y) then   
+			gui.set_enabled(self.quest_description_window, true)
+			
+		-- The 'back' button returns to the main menu
+		elseif gui.pick_node(self.back_button, x, y) then
+			gui.set_enabled(self.quest_description_window, false)
+			gui.set_enabled(self.quest_log, false)
+			msg.post(".", "release_input_focus")
+			msg.post("playerMenu", "open_main_menu")
+		end
+	end
+	
+	return true
+end

@@ -6,7 +6,7 @@ version = 0.1
 main_collection = /main/main.collectionc
 
 [input]
-game_binding = /input/game.input_bindingc
+game_binding = /main/input/game.input_bindingc
 
 [display]
 width = 1280

@@ -6,7 +6,6 @@ TODO make it so that all text appears in main text box, buttons are just for con
 TODO Maybe replace self with all conversation table params, then all conversation tables have to be named the same thing but it will make it simpler, easier to copy and paste conversations
 TODO npc picture needs to change based on who player is talking to
 TODO check_argument_validity() in create_conversation should check type as well
-TODO UIscripts' quest acceptance needs to be updated whenever quest system is figured out
 
 	GUI ELEMENTS:
 TODO create graphical ui elements
@@ -20,6 +19,7 @@ TODO Create system, player will move a set distance each press, unless no enemy 
 TODO figure out quest structure to be passed around
 TODO create module for creating quests
 TODO system that handles updating quests
+TODO Update quest log to add quests to list rather than just change the only one
 
 
 	World Transfer System:

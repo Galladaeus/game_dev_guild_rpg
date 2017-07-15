@@ -1,0 +1,59 @@
+-- This is the script that processes in-progress quests
+
+-- Makes quest turn in-able
+local function set_quest_complete(self, quest_number)
+	-- WHERE TO CHECK?
+	self.current_quests[quest_number].quest_complete = true
+end
+
+-- Function to be called whenever quest progress is updated
+-- Quests updates currently based on quest name, no good if two quests require
+-- the same objective but are differently named, i.e. if two differently named quests
+-- both require you to kill rats
+local function update_quest(self, update_table)
+	-- Search for a name match in current_quests
+	for i in pairs(self.current_quests) do
+		-- If name is found update the quest (CURRENTLY only updates kill quest)
+		if self.current_quests[i].quest_name == update_table.quest_name then
+			self.current_quests[i].amount_killed = self.current_quests[i].amount_killed + 1
+			
+			-- Check if quest is complete
+			if self.current_quests[i].amount_killed == self.current_quests[i].number_to_kill then
+				set_quest_complete(self, i)
+			end
+		end
+	end
+end
+
+-- Function to add a quest to the current quests
+local function add_quest(self, quest_table)
+	self.number_of_quests = self.number_of_quests + 1
+	if quest_table.quest_type == 'kill_quest' then
+		self.current_quests[self.number_of_quests] = {
+				quest_name = quest_table.quest_name
+				number_to_kill = quest_table.number_to_kill
+				amount_killed = 0
+				quest_complete = false
+				}
+	end
+end
+
+function init(self)
+	-- Table to hold all current ongoing quests
+	self.current_quests = {}
+	self.number_of_quests = 0
+end
+
+function on_message(self, message_id, message, sender)
+	-- Quest handler has been sent a quest to add to list
+	if message_id == hash("add_quest") then
+		local quest_table = message
+		add_quest(self, quest_table)
+		
+		-- After adding quest to backend, send to quest_log to be displayed  	
+    	msg.post("questLog", "quest_table", message)
+    	
+    elseif message_id == hash("update_quest") then
+    	
+    end
+end

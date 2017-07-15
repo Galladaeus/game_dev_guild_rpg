@@ -1,7 +1,7 @@
 name: "main"
 instances {
   id: "controller"
-  prototype: "/main/contoller/controller.go"
+  prototype: "/main/world_controller/controller.go"
   position {
     x: 1035.0609
     y: 383.09363
@@ -21,7 +21,7 @@ instances {
 }
 instances {
   id: "playerHUD"
-  prototype: "/GUI/playerHUD/playerHUD.go"
+  prototype: "/user_interfaces/player_hud/playerHUD.go"
   position {
     x: 0.0
     y: 0.0
@@ -40,8 +40,8 @@ instances {
   }
 }
 instances {
-  id: "playerMenu"
-  prototype: "/GUI/playerMenu/playerMenu.go"
+  id: "mainMenu"
+  prototype: "/user_interfaces/main_menu/mainMenu.go"
   position {
     x: 0.0
     y: 0.0
@@ -61,7 +61,7 @@ instances {
 }
 instances {
   id: "questData"
-  prototype: "/quest_systems/questData.go"
+  prototype: "/game_systems/quest_system/questData.go"
   position {
     x: 1035.0609
     y: 383.09363
@@ -81,7 +81,7 @@ instances {
 }
 instances {
   id: "questLog"
-  prototype: "/quest_systems/questLog.go"
+  prototype: "/user_interfaces/quest_log_ui/questLog.go"
   position {
     x: 0.0
     y: 0.0
@@ -101,7 +101,7 @@ instances {
 }
 instances {
   id: "save_handler"
-  prototype: "/saveSystem/saveHandler/save_handler.go"
+  prototype: "/main/save_system/save_handler.go"
   position {
     x: 640.0
     y: 360.0
@@ -121,7 +121,7 @@ instances {
 }
 instances {
   id: "conversationGUI"
-  prototype: "/GUI/conversationUI/conversationUIgo.go"
+  prototype: "/user_interfaces/conversation_ui/conversationUI.go"
   position {
     x: 0.0
     y: 0.0
