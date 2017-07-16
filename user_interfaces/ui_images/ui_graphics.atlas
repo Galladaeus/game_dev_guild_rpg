@@ -16,6 +16,12 @@ images {
 images {
   image: "/user_interfaces/ui_images/pixel_quit_button.png"
 }
+images {
+  image: "/user_interfaces/ui_images/pixel_cat_portrait.png"
+}
+images {
+  image: "/user_interfaces/ui_images/pixel_inventory_icon.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

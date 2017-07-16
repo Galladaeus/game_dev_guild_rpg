@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/player/playerData.script"
+  component: "/player/player_stats.script"
   position {
     x: 0.0
     y: 0.0

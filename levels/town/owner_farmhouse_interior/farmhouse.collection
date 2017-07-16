@@ -24,8 +24,8 @@ instances {
   id: "goblin"
   prototype: "/levels/town/outside/npcs/goblin/goblin.go"
   position {
-    x: 62.997
-    y: 438.117
+    x: 75.225
+    y: 456.459
     z: 0.1
   }
   rotation {
@@ -35,8 +35,8 @@ instances {
     w: 1.0
   }
   scale3 {
-    x: 2.0
-    y: 2.0
+    x: 1.0
+    y: 1.0
     z: 1.0
   }
 }

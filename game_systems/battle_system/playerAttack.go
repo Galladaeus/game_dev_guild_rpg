@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/game_systems/battle_system/playerAttack.script"
+  component: "/game_systems/battle_system/player_attack.script"
   position {
     x: 0.0
     y: 0.0
