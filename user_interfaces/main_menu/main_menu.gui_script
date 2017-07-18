@@ -1,51 +1,11 @@
--- Animation functions are set up in a timeline, i.e. anim1 triggers first then anim2 etc.
-local function anim4(self, node)
-	-- animate scale to 100%
-	-- local s = 0.26767 
-	gui.animate(node, gui.PROP_SCALE, vmath.vector4(0.1, 0.1, 1, 0), gui.EASING_INOUT, 0.12, 0)
-end
-
-local function anim3(self, node)
-	-- animate scale to 106%
-	local s = .3
-	gui.animate(node, gui.PROP_SCALE, vmath.vector4(s, s, s, 0), gui.EASING_INOUT, 0.12, 0, anim4)
-end
-
-local function anim2(self, node)
-	-- animate scale to 98%
-	local s = .2
-	gui.animate(node, gui.PROP_SCALE, vmath.vector4(s, s, s, 0), gui.EASING_INOUT, 0.12, 0, anim3)
-end
-
-local function anim1(node, delay)
-	-- set alpha to 1 to avoid bug where alpha remains changed if menu is left too soon
-	local reset_alpha = gui.get_color(node)
-	reset_alpha.w = 1
-	gui.set_color(node, reset_alpha)
-	
-	-- set scale to 70%
-	local start_scale = 0.1
-	gui.set_scale(node, vmath.vector4(start_scale, start_scale, start_scale, 0))
-	
-	-- get current color and set alpha to 0 to fade up
-	local from_color = gui.get_color(node)
-	local to_color = gui.get_color(node)
-	from_color.w = 0
-	gui.set_color(node, from_color)
-	
-	-- animate alpha value from 0 to 1
-	gui.animate(node, gui.PROP_COLOR, to_color, gui.EASING_IN, 0.2, delay)
-	
-	-- animate scale from 70% to 110%
-	local s = .2
-	gui.animate(node, gui.PROP_SCALE, vmath.vector4(s, s, s, 0), gui.EASING_IN, 0.2, delay, anim2)
-end
+animate = require "user_interfaces/animation_functions"
 
 function init(self)
     -- Node access variables
     self.main_menu = gui.get_node("mainMenu")
     self.resume_button = gui.get_node("resumeButton")
     self.quest_log_button = gui.get_node("questLogButton")
+    self.options_button = gui.get_node("optionsButton")
     self.save_button = gui.get_node("saveButton")
     self.load_button = gui.get_node("loadButton")
     self.quit_game_button = gui.get_node("quitButton")
@@ -61,9 +21,14 @@ function on_message(self, message_id, message, sender)
 		msg.post(".", "acquire_input_focus")
 		gui.set_enabled(self.main_menu, true)
 		
-		local delay = 0.4
-		-- Animate resume button
-		anim1(gui.get_node("resumeButton"), delay)
+		-- Animates buttons to fluctuate in and out
+		local delay = 0.2
+		animate.anim1(self.resume_button, delay)
+		animate.anim1(self.quest_log_button, 0.22)
+		animate.anim1(self.options_button, 0.24)
+		animate.anim1(self.save_button, 0.26)
+		animate.anim1(self.load_button, 0.28)
+		animate.anim1(self.quit_game_button, 0.3)
 	end
 end
 
@@ -82,12 +47,15 @@ function on_input(self, action_id, action)
 			gui.set_enabled(self.main_menu, false)
 			
 		elseif gui.pick_node(self.save_button, x, y) then
-			msg.post("save_handler", "save")
+			pprint("SAVE BUTTON NOT IMPLEMENTED YET")
 			
 		elseif gui.pick_node(self.load_button, x, y) then
-			msg.post("save_handler", "load")
+			pprint("LOAD BUTTON NOT IMPLEMENTED YET")
 			
-		-- Player tries to quit, send are you sure message to screen
+		elseif gui.pick_node(self.options_button, x, y) then
+			pprint("OPTIOINS BUTTON NOT IMPLEMENTED YET")
+			
+		-- Player tries to quit, sends an "are you sure" message to screen
 		elseif gui.pick_node(self.quit_game_button, x, y) then
 			gui.set_enabled(gui.get_node("quitGameCheck"), true)
 			gui.set_enabled(self.main_menu, false)

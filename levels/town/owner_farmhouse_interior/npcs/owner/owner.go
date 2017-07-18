@@ -1,6 +1,6 @@
 components {
   id: "owner_script"
-  component: "/levels/town/owner_farmhouse_interior/npcs/owner/owner_script.script"
+  component: "/levels/town/owner_farmhouse_interior/npcs/owner/owner.script"
   position {
     x: 0.0
     y: 0.0

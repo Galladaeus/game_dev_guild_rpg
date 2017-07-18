@@ -1,26 +1,26 @@
 images {
-  image: "/user_interfaces/ui_images/pixel_resume_button.png"
+  image: "/user_interfaces/ui_images/button_images/pixel_resume_button.png"
 }
 images {
-  image: "/user_interfaces/ui_images/pixel_options_button.png"
+  image: "/user_interfaces/ui_images/button_images/pixel_options_button.png"
 }
 images {
-  image: "/user_interfaces/ui_images/pixel_quest_log_button.png"
+  image: "/user_interfaces/ui_images/button_images/pixel_quest_log_button.png"
 }
 images {
-  image: "/user_interfaces/ui_images/pixel_save_button.png"
+  image: "/user_interfaces/ui_images/button_images/pixel_save_button.png"
 }
 images {
-  image: "/user_interfaces/ui_images/pixel_load_button.png"
+  image: "/user_interfaces/ui_images/button_images/pixel_load_button.png"
 }
 images {
-  image: "/user_interfaces/ui_images/pixel_quit_button.png"
+  image: "/user_interfaces/ui_images/button_images/pixel_quit_button.png"
 }
 images {
   image: "/user_interfaces/ui_images/pixel_cat_portrait.png"
 }
 images {
-  image: "/user_interfaces/ui_images/pixel_inventory_icon.png"
+  image: "/user_interfaces/ui_images/button_images/pixel_inventory_icon.png"
 }
 margin: 0
 extrude_borders: 0

@@ -80,9 +80,13 @@ end
 --[[ Plays next text string in npc_responses as well as player responses ]]
 local function continue_conversation(self)
 	-- Shows player responses or defaults to continue if none provided
-	if self.conversation_table.player_responses[self.current_conversation][self.text_iterator] then
-		gui.set_text(self.player_choice_one_text, self.conversation_table.player_responses[self.current_conversation][self.text_iterator])
-	else
+	if self.conversation_table.player_responses[self.current_conversation] ~= nil then
+		if self.conversation_table.player_responses[self.current_conversation][self.text_iterator] then
+			gui.set_text(self.player_choice_one_text, self.conversation_table.player_responses[self.current_conversation][self.text_iterator])
+		else
+			gui.set_text(self.player_choice_one_text, "Continue")
+		end
+	else 
 		gui.set_text(self.player_choice_one_text, "Continue")
 	end
 	
@@ -203,10 +207,6 @@ function on_message(self, message_id, message, sender)
     	gui.set_texture(self.npc_image, hash("farmhouse_interior"))
     	gui.play_flipbook(self.npc_image, hash("pixel_art_girl"))
     	
-    	-- Consume input in UI and initialize conversation options
-		open_ui(self)
-    	initialize_conversation(self)
-    	
 		-- Get NPC's address to send messages to, used to send messages back to NPC, 
 		-- for example if you want to change what NPC says if player says something
 		self.npc_url = sender
@@ -214,6 +214,10 @@ function on_message(self, message_id, message, sender)
 		-- Initialize conversation variables
     	self.current_conversation = nil
     	self.conversation_started = false
+    	
+    	-- And finally start conversation
+		open_ui(self)
+    	initialize_conversation(self)
 	end
 end
 

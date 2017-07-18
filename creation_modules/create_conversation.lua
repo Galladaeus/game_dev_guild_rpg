@@ -1,5 +1,5 @@
--- To get access to the functions, you need to put:
--- require "GUI/conversationUI/create_conversation"
+-- To get access to the functions, you need to put this table into a local table inside the npc using:
+-- require "creation_moduels/create_conversation"
 
 -- This module contains all the needed functions to create and build your own conversation
 -- with MAX FOUR different player options, as well as the option to have a quest option
@@ -54,22 +54,22 @@ end
 -------------------------------------your conversations--------------------------------------------
 ---------------------------------------------------------------------------------------------------
 
---[[ DO NOT CHANGE TABLE DATA UNLESS YOU ARE SURE YOU KNOW WHAT IT WILL ALTER ]]	
+--[[ DO NOT CHANGE TABLE DATA UNLESS YOU ARE SURE YOU KNOW EVERYTHING IT WILL ALTER ]]	
 --[[ Call this function before any others and use the table it creates
 to pass into the other functions inside of this module, you should only
 change this table using the functions provided in this module or you
 could break the entire conversation UI ]]
 function M.get_conversation_table()
 	local conversation_table = {
-						npc_greeting = "Hello",
-						hub_return_text = "Alright, let's talk about something else", 
-						player_choices = {},
-						npc_responses = {},
-						player_responses = {},
-						player_quest_responses = {'yes_option', 'no_option'}, --TODO set defaults
-						quest_response_text = 'text',
-						quest_table = nil
-					}
+		npc_greeting = "Hello",
+		hub_return_text = "Alright, let's talk about something else", 
+		player_choices = {},
+		npc_responses = {},
+		player_responses = {},
+		player_quest_responses = {'yes_option', 'no_option'}, --TODO set defaults
+		quest_response_text = 'text',
+		quest_table = nil
+	}
 	-- Set defaults
 	conversation_table.player_quest_responses['yes_option'] = "I'll help"
 	conversation_table.player_quest_responses['no_option'] = "I won't help"	
@@ -149,7 +149,7 @@ end
 function M.set_quest(conversation_table, quest_table)
 	check_table_validity(conversation_table, 'set_quest')
 	if quest_table.quest_type == 'none' then
-		error("Attempted to assign a quest without a type to quest: "..conversation_table.quest_table.quest_name)
+		error("Attempted to assign a quest without a type to quest: "..quest_table.quest_name)
 	end	
 	conversation_table.quest_table = quest_table
 end

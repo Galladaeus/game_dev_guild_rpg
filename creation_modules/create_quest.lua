@@ -1,7 +1,5 @@
--- Put functions in this file to use them in several other scripts.
--- To get access to the functions, you need to put:
--- require "my_directory.my_file"
--- in any script using the functions.
+-- To get access to the functions, you need to put this table into a local table inside the npc using:
+-- require "creation_moduels/create_quest"
 
 -- Include and use this module in any npc that you want to create a quest for
 
@@ -59,18 +57,16 @@ function M.get_quest_table()
 	self_url.path = go.get_id()
 
 	quest_table = {
-			quest_name = 'none',
-			quest_description = 'none',
-			quest_type = 'none',
-			quest_giver = 'none',
-			exp_reward = 10,
-			monetary_reward = 10,
-			-- The URL of the npc you talk to to complete the quest, if none provided default is set to quest_giver's address
-			quest_completer_address = self_url
-		}	
+		quest_name = 'none',
+		quest_description = 'none',
+		quest_type = 'none',
+		quest_giver = 'none',
+		exp_reward = 10,
+		monetary_reward = 10,
+		-- The URL of the npc you talk to to complete the quest, if none provided default is set to quest_giver's address
+		quest_completer_address = self_url
+	}	
 		
-
-	
 	return quest_table
 end
 
@@ -119,15 +115,39 @@ function M.set_quest_completer(quest_table, quest_completer)
 	quest_table.quest_completer_address = quest_completer
 end
 
---[[ Set the data needed for a kill quest ]]
+---------------------------------------------------------------------------------------------------
+----------------------------------------QUEST TYPE FUNCTIONS---------------------------------------
+----------------------Call one of these functions or create your own to create---------------------
+---------------------the actual details of quest completion parameters, you must-------------------
+----------------------also update quest_handler to deal with your new quest type-------------------
+---------------------------------------------------------------------------------------------------
+--[[ Checks to make sure a quest isn't assigned multiple types ]]
+local function check_type(quest_table)
+	if quest_table.quest_type ~= 'none' then
+		error("Type has already been assigned to quest: "..quest_table.quest_name.."\nOnly use one quest type function")
+	end
+end
+
+--[[ Set information needed for a kill quest ]]
 function M.set_kill_quest(quest_table, enemy, number_to_kill)
 	check_table_validity(quest_table, 'set_kill_quest')
+	check_type(quest_table)
 	check_argument_validity('set_kill_quest', 'string', enemy)
 	check_argument_validity('set_kill_quest', 'number', number_to_kill)
 	
 	quest_table.quest_type = 'kill_quest'
 	quest_table.number_to_kill = number_to_kill
 	quest_table.enemy_type = enemy
+end
+
+--[[ Set information needed for a talk quest ]]
+function M.set_talk_quest(quest_table, npc_to_talk_to)
+	check_table_validity(quest_table, 'set_talk_quest')
+	check_type(quest_table)
+	check_argument_validity('set_talk_quest', 'string', npc_to_talk_to)
+	
+	quest_table.quest_type = 'talk_quest'
+	quest_table.npc_to_talk_to = npc_to_talk_to
 end
 
 return M

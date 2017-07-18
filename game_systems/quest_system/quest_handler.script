@@ -1,45 +1,108 @@
 -- This is the script that processes in-progress quests
 
--- Makes quest turn in-able
-local function set_quest_complete(self, quest_number)
-	-- WHERE TO CHECK QUEST COMPLETION?
+--[[
+Function chain goes like this: 
+quest_update message received-->update_quest()-->update_type_quest()-->check_quest_complete()-->set_quest_complete() if complete
+]]
+
+--[[ Sets quest complete on npc(Make sure to set quest_completed msg received on competing npc) ]]
+local function set_quest_complete(self, quest_number)	
 	self.current_quests[quest_number].quest_complete = true
+	
+	-- Send completion message to the npc that you complete quest at, set in npc quest giver using quest_creation.lua module
 	msg.post(self.current_quests[quest_number].quest_completer_address, "quest_completed", {self.current_quests[quest_number].quest_name})
+	
+	-- Send message to quest log to visually let player know quest is complete
+	msg.post("questLog", "quest_complete", {self.current_quests[quest_number].quest_name})
+	
+	-- Lastly, remove quest from being further handled
+	table.remove(current_quests, quest_number)
+	self.number_of_quests = self.number_of_quests - 1
 end
 
--- Function to be called whenever quest progress is updated
--- Quests updates currently based on quest name, no good if two quests require
--- the same objective but are differently named, i.e. if two differently named quests
--- both require you to kill rats
+-- [[ Checks if a quest is a completed, called from update_quest functions ]]
+local function check_quest_complete(self, quest_number)
+	-- If quest is a kill quest
+	if self.current[quest_number].amount_killed then
+		if self.current_quests[quest_number].amount_killed == self. current_quests[quest_number].number_to_kill then
+			set_quest_complete(self, quest_number)
+		end
+	-- Checks if basic talk quest
+	elseif self.current[quest_number].npc_to_talk_to then
+		set_quest_complete(self, quest_number)
+	end
+end
+
+--[[ Helper function that updates kill quests within update_quests ]]
+local function update_kill_quest(self, quest_number, update_table)
+	-- Increments kill count
+	self.current_quests[quest_number].amount_killed = self.current_quests[quest_number].amount_killed + 1
+	-- Send update data to questLog to visually update
+	msg.post("questLog", "update_kill_quest", {quest_name = self.current_quests[quest_number].quest_name, amount_killed = self.current_quests[quest_number].amount_killed})
+	check_quest_complete(self, quest_number)
+end
+
+--[[ Helper function that updates quests that require you to talk to a specific individual ]]
+local function update_talk_quest(self, quest_number, update_table)
+	-- Essentially completes quest for now, later can be added to be more complex, i.e. talk to multiple npcs
+	msg.post("questLog", "update_talk_quest")
+	check_quest_complete(self, quest_number)
+end
+
+--[[ Function to be called whenever a quest's progress is updated ]]
+-- POSSIBLE ISSUE; if two quests are updated at same time?
 local function update_quest(self, update_table)
 	-- Search for a name match in current_quests
 	for i in pairs(self.current_quests) do
-		-- If name is found update the quest (CURRENTLY only updates kill quest)
+		-- If name is found, player has the quest currently, so update the quest
 		if self.current_quests[i].quest_name == update_table.quest_name then
-			self.current_quests[i].amount_killed = self.current_quests[i].amount_killed + 1
-			
-			-- Check if quest is complete
-			if self.current_quests[i].amount_killed == self.current_quests[i].number_to_kill then
-				set_quest_complete(self, i)
+			-- Check what type of quest it is and update properly
+			if update_table.enemy_type then
+				update_kill_quest(self, i, update_table)
+			elseif update_table.npc_talked_to then
+				update_talk_quest(self, i, update_table)
 			end
+			
+		else
+			pprint("Player does not currently have quest: "..update_table.quest_name)
 		end
 	end
 end
 
 -- Function to add a quest to the current quests
 local function add_quest(self, quest_table)
-	self.number_of_quests = self.number_of_quests + 1
-	
-	if quest_table.quest_type == 'kill_quest' then
-		self.current_quests[self.number_of_quests] = {
+	-- Make sure quest isn't already being handled before adding
+	for i in pairs(self.current_quests) do
+		if self.currentquests[i].quest_name == quest_table.quest_name then
+			error("Tried to add quest: "..quest_table.quest_name.." to quest_handler that player already has")
+			
+		else
+			self.number_of_quests = self.number_of_quests + 1
+			
+			-- Set base information			
+			self.current_quests[self.number_of_quests] = {
 				quest_name = quest_table.quest_name,
-				number_to_kill = quest_table.number_to_kill,
-				quest_completer_address = quest_table.quest_completer_address,
-				amount_killed = 0,
-				quest_complete = false
-				}
+				quest_completer_addresss = quest_table.quest_completer_address,
+				-- MIGHT NOT NEED THIS BOOL
+				quest_complete = false	
+			}
+			
+				if quest_table.quest_type == 'kill_quest' then
+					self.current_quests[self.number_of_quests] = {
+						number_to_kill = quest_table.number_to_kill,
+						amount_killed = 0,
+					}
+				elseif quest_table.quest_type == 'talk_quest' then
+					self.current_quests[self.number_of_quests] = {
+						npc_to_talk_to = quest_table.npc_to_talk_to
+					}
+				else 
+					error("Unrecognized quest type: "..quest_table.quest_type.." \nNAME: "..quest_table.quest_name.." sent to add_quest()\n"..
+							"Add type to add_quest() in quest_handler.script, or use a recognized quest type")
+				end
+		end
+	-- pprint(self.current_quests)
 	end
-	pprint(self.current_quests)
 end
 
 function init(self)
@@ -58,9 +121,10 @@ function on_message(self, message_id, message, sender)
     	msg.post("questLog", "quest_table", message)
     	
     elseif message_id == hash("update_quest") then
-    	
+    	update_quest(self, message)
     end
     
+    -- Test message for quest completion
     if message_id == hash("debug_quest_complete") then
     	set_quest_complete(self, 1)
 	end

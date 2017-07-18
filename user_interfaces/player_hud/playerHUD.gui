@@ -15,8 +15,8 @@ background_color {
 }
 nodes {
   position {
-    x: 1203.0795
-    y: 678.96985
+    x: 1209.036
+    y: 684.927
     z: 0.0
     w: 1.0
   }
@@ -27,8 +27,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 3.0
-    y: 3.0
+    x: 2.0
+    y: 2.0
     z: 1.0
     w: 1.0
   }
@@ -249,7 +249,7 @@ nodes {
   position {
     x: 224.929
     y: 614.913
-    z: 0.0
+    z: 0.1
     w: 1.0
   }
   rotation {
@@ -354,7 +354,7 @@ nodes {
   line_break: false
   parent: "healthBar"
   layer: ""
-  inherit_alpha: true
+  inherit_alpha: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -417,7 +417,7 @@ nodes {
   line_break: false
   parent: "healthBar"
   layer: ""
-  inherit_alpha: true
+  inherit_alpha: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -480,7 +480,7 @@ nodes {
   line_break: false
   parent: "healthBar"
   layer: ""
-  inherit_alpha: true
+  inherit_alpha: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0

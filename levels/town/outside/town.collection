@@ -1,7 +1,7 @@
 name: "town"
 instances {
   id: "goblin"
-  prototype: "/levels/town/outside/npcs/goblin/goblin.go"
+  prototype: "/levels/town/outside/npcs/bird/bird.go"
   position {
     x: -133.369
     y: -255.467

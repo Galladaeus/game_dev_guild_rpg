@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/levels/town/outside/npcs/goblin/npc_goblin.script"
+  component: "/levels/town/outside/npcs/bird/bird.script"
   position {
     x: 0.0
     y: 0.0
@@ -110,8 +110,8 @@ embedded_components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/levels/town/outside/images/goblin_tilesource.tilesource\"\n"
-  "default_animation: \"idle\"\n"
+  data: "tile_set: \"/levels/town/outside/outside.atlas\"\n"
+  "default_animation: \"Bird\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
@@ -155,7 +155,7 @@ embedded_components {
   "    count: 3\n"
   "  }\n"
   "  data: 10.0\n"
-  "  data: 10.0\n"
+  "  data: 25.05\n"
   "  data: 10.0\n"
   "}\n"
   "linear_damping: 0.0\n"

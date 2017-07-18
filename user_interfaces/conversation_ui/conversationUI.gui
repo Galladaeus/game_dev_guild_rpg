@@ -4,16 +4,12 @@ fonts {
   font: "/builtins/fonts/system_font.font"
 }
 textures {
-  name: "goblin_tilesource"
-  texture: "/levels/town/outside/images/goblin_tilesource.tilesource"
-}
-textures {
   name: "player"
   texture: "/player/player.atlas"
 }
 textures {
-  name: "farmhouse_interior"
-  texture: "/levels/town/owner_farmhouse_interior/farmhouse_interior.atlas"
+  name: "conversation_npcs"
+  texture: "/user_interfaces/conversation_ui/conversation_npcs.atlas"
 }
 background_color {
   x: 0.0
@@ -834,7 +830,7 @@ nodes {
 }
 nodes {
   position {
-    x: 75.191
+    x: 76.798
     y: -6.233
     z: 0.0
     w: 1.0
@@ -852,8 +848,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 65.0
-    y: 65.0
+    x: 128.0
+    y: 128.0
     z: 0.0
     w: 1.0
   }
@@ -865,7 +861,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "goblin_tilesource/idle"
+  texture: "conversation_npcs/Owner"
   id: "npcImage"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

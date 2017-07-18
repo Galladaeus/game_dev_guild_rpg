@@ -1,0 +1,95 @@
+-- Include the module to create a conversation and quest
+local create_conversation = require "creation_modules/create_conversation"
+local create_quest = require "creation_modules/create_quest"
+
+function init(self)
+	-- Conversation table data
+	local bird_greeting = "Hello Cat! Glorious morning, is it not?"
+	
+	-- Option One data
+	local player_choice_one = 'Hey Bird, where is the human?'
+	local bird_responses_one = {
+		"A little me said that they were by the front of the house, Say, have you noticed something amiss?",
+		"Oh, I'm sure it's nothing. I have just been hearing that the rodents seem to be riled",
+		"Fare thee well"	
+	}
+	local player_responses_one = {
+		"Not yet. Whats going on?",
+		"This time of year? Well, as long as they don't come near me. Goodbye, Bird."
+	}
+	
+	-- Option two data (QUEST OPTION)
+	local player_choice_two = 'What else is going on?'
+	local bird_responses_two = {
+		"I don't know about anything else going on, but...",
+		"You should try talking to your new owner to see if she wants something from you!"
+	}
+	local player_yes_response = "You're right, i'll go do that"
+	local player_no_response = "No, I don't think so"
+					
+	-- Quest table data
+	local quest_name = 'Talk to Owner'
+	local quest_description = 'The local bird has asked you to talk to your new owner'
+	local quest_giver = 'Bird'
+	local gold_reward = 1337
+	local exp_reward = 100
+	local npc_to_talk_to = 'Onwer'	
+	
+	-- Creating quest
+	self.bird_quest = create_quest.get_quest_table()
+	
+	-- Set quest values
+	create_quest.set_talk_quest(self.bird_quest, npc_to_talk_to)
+	create_quest.set_quest_name(self.bird_quest, quest_name)
+	create_quest.set_quest_description(self.bird_quest, quest_description)
+	create_quest.set_quest_reward(self.bird_quest, exp_reward, gold_reward)
+	create_quest.set_quest_giver(self.bird_quest, quest_giver)
+					
+	-- Creating conversation table to store information in
+	self.bird_conversation = create_conversation.get_conversation_table()
+	
+	-- Setting conversation values
+	create_conversation.set_npc_greeting(self.bird_conversation, bird_greeting)
+	
+	-- Option one
+	create_conversation.set_player_option(self.bird_conversation, 'option_one', player_choice_one)
+	create_conversation.set_npc_responses(self.bird_conversation, 'option_one', bird_responses_one) 
+	create_conversation.set_player_responses(self.bird_conversation, 'option_one', player_responses_one)
+	
+	-- Option two (Quest option)
+	create_conversation.set_player_option(self.bird_conversation, 'option_two', player_choice_two)
+	create_conversation.set_npc_quest_request(self.bird_conversation, 'option_two', bird_responses_two, bird_responses_two[2], quest_name) 
+	create_conversation.set_player_quest_responses(self.bird_conversation, player_yes_response, player_no_response)	
+	
+	create_conversation.set_quest(self.bird_conversation, self.bird_quest)
+	
+	-- Testing table
+	-- pprint(self.bird_conversation)
+
+	-- Stuff to test movement
+	--[[
+	self.vel = vmath.vector3()
+	self.anim = nil
+	self.yPos = 0
+	]]
+end
+
+function update(self, dt)
+	-- Movement test stuff
+	--[[
+	local pos = go.get_position()
+	self.vel.y = 200
+	if (self.yPos <= 600) then
+		pos = pos + self.vel * dt
+		go.set_position(pos)
+	end
+	self.yPos = self.yPos + 10
+	]]
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start_conversation") then
+		msg.post("main:/conversationGUI#gui", "npc_conversation", self.bird_conversation)
+	end
+end
+

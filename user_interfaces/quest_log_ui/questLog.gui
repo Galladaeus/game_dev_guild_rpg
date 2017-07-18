@@ -4,10 +4,6 @@ fonts {
   font: "/builtins/fonts/system_font.font"
 }
 textures {
-  name: "goblin_tilesource"
-  texture: "/levels/town/outside/images/goblin_tilesource.tilesource"
-}
-textures {
   name: "quest_givers"
   texture: "/user_interfaces/quest_log_ui/quest_givers.atlas"
 }
@@ -31,8 +27,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 6.3975344
-    y: 7.1841097
+    x: 6.401
+    y: 7.184
     z: 1.0
     w: 1.0
   }
@@ -571,8 +567,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 65.0
-    y: 65.0
+    x: 64.0
+    y: 64.0
     z: 0.0
     w: 1.0
   }
@@ -584,7 +580,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "goblin_tilesource/idle"
+  texture: "quest_givers/Bird"
   id: "questGiverImage"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
