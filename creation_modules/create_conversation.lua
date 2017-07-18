@@ -61,6 +61,7 @@ change this table using the functions provided in this module or you
 could break the entire conversation UI ]]
 function M.get_conversation_table()
 	local conversation_table = {
+		npc_name = "default_npc",
 		npc_greeting = "Hello",
 		hub_return_text = "Alright, let's talk about something else", 
 		player_choices = {},
@@ -74,6 +75,13 @@ function M.get_conversation_table()
 	conversation_table.player_quest_responses['yes_option'] = "I'll help"
 	conversation_table.player_quest_responses['no_option'] = "I won't help"	
 	return conversation_table
+end
+
+--[[ Set npc_name, make sure this name matches the image name in conversation_images.atlas so
+the proper npc image will show up during conversations ]]
+function M.set_npc_name(conversation_table, npc_name)
+	check_table_validity(conversation_table, 'set_npc_name()')
+	conversation_table.npc_name = npc_name	
 end
 
 --[[ Sets the first thing NPC says to player ]]

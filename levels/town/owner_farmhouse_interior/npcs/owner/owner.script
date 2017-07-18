@@ -5,6 +5,7 @@ local create_quest = require "creation_modules/create_quest"
 -- AI behavior should be moved into a seperate script
 function init(self)
 	-- Conversation information
+	local npc_name = 'Owner'
 	-- Use default greeting
 	local player_choice_one = 'Listen to owner'
 	local owner_responses_one = {
@@ -38,6 +39,7 @@ function init(self)
 	self.owner_conversation = create_conversation.get_conversation_table()
 	
 	-- Setting conversation values
+	create_conversation.set_npc_name(self.owner_conversation, npc_name)
 	-- Option one
 	create_conversation.set_player_option(self.owner_conversation, 'option_one', player_choice_one)
 	create_conversation.set_npc_quest_request(self.owner_conversation, 'option_one', owner_responses_one, owner_responses_one[6], 'Rat killer') 

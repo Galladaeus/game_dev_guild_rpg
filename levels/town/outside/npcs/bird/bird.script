@@ -4,6 +4,7 @@ local create_quest = require "creation_modules/create_quest"
 
 function init(self)
 	-- Conversation table data
+	local bird_name = "Bird"
 	local bird_greeting = "Hello Cat! Glorious morning, is it not?"
 	
 	-- Option One data
@@ -50,6 +51,7 @@ function init(self)
 	
 	-- Setting conversation values
 	create_conversation.set_npc_greeting(self.bird_conversation, bird_greeting)
+	create_conversation.set_npc_name(self.bird_conversation, bird_name)
 	
 	-- Option one
 	create_conversation.set_player_option(self.bird_conversation, 'option_one', player_choice_one)

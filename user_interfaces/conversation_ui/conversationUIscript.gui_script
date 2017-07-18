@@ -10,6 +10,7 @@
 ----------------------These are all the functions that are needed to run the-----------------------
 ---------------------------conversations as they currently are laid out----------------------------
 ---------------------------------------------------------------------------------------------------
+
 --[[ Shows conversation GUI and consumes player input ]]
 local function open_ui(self)
 	msg.post(".", "acquire_input_focus")
@@ -200,12 +201,12 @@ function on_message(self, message_id, message, sender)
     	-- Receive conversation data from npc
     	self.conversation_table = message
     	
-    	-- TODO Recieve image and change dependant on that
-    	texture_test = gui.get_texture(self.npc_image)
-    	pprint('PRE-CURRENT CONVERSATION TEXTURE: '..texture_test)
-    	
-    	gui.set_texture(self.npc_image, hash("farmhouse_interior"))
-    	gui.play_flipbook(self.npc_image, hash("pixel_art_girl"))
+    	-- Changes image to npc you are talking to
+		if self.conversation_table.npc_name == 'default_npc' then
+			error("No npc_name provided to conversation")
+		end    	
+    	gui.set_texture(self.npc_image, hash("conversation_npcs"))
+    	gui.play_flipbook(self.npc_image, hash(self.conversation_table.npc_name))
     	
 		-- Get NPC's address to send messages to, used to send messages back to NPC, 
 		-- for example if you want to change what NPC says if player says something
