@@ -53,17 +53,13 @@ function on_input(self, action_id, action)
 			pprint("LOAD BUTTON NOT IMPLEMENTED YET")
 			
 		elseif gui.pick_node(self.options_button, x, y) then
-			pprint("OPTIOINS BUTTON NOT IMPLEMENTED YET")
+			pprint("OPTIONS BUTTON NOT IMPLEMENTED YET")
 			
 		-- Player tries to quit, sends an "are you sure" message to screen
 		elseif gui.pick_node(self.quit_game_button, x, y) then
-			gui.set_enabled(gui.get_node("quitGameCheck"), true)
+			msg.post(".", "release_input_focus")
 			gui.set_enabled(self.main_menu, false)
-		elseif gui.pick_node(gui.get_node("acceptQuitButton"), x, y) then
-			os.exit()
-		elseif gui.pick_node(gui.get_node("declineQuitButton"), x, y) then
-			gui.set_enabled(gui.get_node("quitGameCheck"), false)
-			gui.set_enabled(self.main_menu, true)
+			msg.post("quitCheck", "open_quit_confirmation")
 		end
 	end
 	
