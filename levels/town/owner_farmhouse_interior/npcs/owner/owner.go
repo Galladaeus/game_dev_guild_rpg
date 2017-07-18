@@ -111,7 +111,7 @@ embedded_components {
   id: "sprite"
   type: "sprite"
   data: "tile_set: \"/levels/town/owner_farmhouse_interior/farmhouse_interior.atlas\"\n"
-  "default_animation: \"pixel_art_girl\"\n"
+  "default_animation: \"owner_interior\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""

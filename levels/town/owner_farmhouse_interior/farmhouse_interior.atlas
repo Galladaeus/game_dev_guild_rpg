@@ -5,7 +5,7 @@ images {
   image: "/levels/town/owner_farmhouse_interior/images/inside_lvl2.png"
 }
 images {
-  image: "/levels/town/owner_farmhouse_interior/images/pixel_art_girl.png"
+  image: "/levels/town/owner_farmhouse_interior/images/owner_interior.png"
 }
 margin: 0
 extrude_borders: 0
