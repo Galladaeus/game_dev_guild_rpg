@@ -138,7 +138,7 @@ local function accept_quest(self)
 	end
 				
 	-- Send out the fact that the quest has been accepted
-	pprint("quest '"..self.conversation_table.quest_table.quest_name.."' accepted")
+	pprint("Quest: '"..self.conversation_table.quest_table.quest_name.."' sent to quest handler from conversationUIscript")
 	msg.post("main:/questHandler", "add_quest", self.conversation_table.quest_table)
 	msg.post(self.npc_url, "quest_accepted")
 

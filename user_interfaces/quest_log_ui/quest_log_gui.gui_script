@@ -23,6 +23,9 @@ function init(self)
 	self.quest_name = gui.get_node("questName")
 	self.quest_giver_name = gui.get_node("questGiverName")
 	self.quest_giver_image = gui.get_node("questGiverImage")
+	self.quest_complete_text = gui.get_node("questCompleteText")
+	
+	gui.set_enabled(self.quest_complete_text, false)
 	
 	self.back_button = gui.get_node("backButton")
 end
@@ -34,10 +37,15 @@ function on_message(self, message_id, message, sender)
     	msg.post(".", "acquire_input_focus")
     	
 	-- Quest log gui recieves and places a new quest into the quest log
-    elseif message_id == hash("quest_table") then
+	elseif message_id == hash("quest_table") then
     	local quest_table = message
     	add_quest(self, quest_table)
-		self.numberOfQuests = self.numberOfQuests + 1					
+		self.numberOfQuests = self.numberOfQuests + 1
+
+	elseif message_id == hash("quest_complete") then
+		-- TODO Full function that recieves a quest_name and updates a specific quest in the log based
+		-- on the quest_name
+		gui.set_enabled(self.quest_complete_text, true)		
     end
 end
 

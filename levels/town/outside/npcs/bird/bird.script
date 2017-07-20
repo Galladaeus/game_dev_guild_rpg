@@ -34,7 +34,7 @@ function init(self)
 	local quest_giver = 'Bird'
 	local gold_reward = 1337
 	local exp_reward = 100
-	local npc_to_talk_to = 'Onwer'	
+	local npc_to_talk_to = 'Owner'	
 	
 	-- Creating quest
 	self.bird_quest = create_quest.get_quest_table()

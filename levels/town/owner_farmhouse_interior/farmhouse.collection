@@ -21,7 +21,7 @@ instances {
   }
 }
 instances {
-  id: "goblin"
+  id: "bird"
   prototype: "/levels/town/outside/npcs/bird/bird.go"
   position {
     x: 75.225

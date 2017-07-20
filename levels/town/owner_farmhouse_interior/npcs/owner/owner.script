@@ -9,19 +9,19 @@ function init(self)
 	-- Use default greeting
 	local player_choice_one = 'Listen to owner'
 	local owner_responses_one = {
-						"I found the rats who have been ruining our crops",
-						"They're nested in out basement, but I can't get into that corner",
-						"Would you be able to take care of that for me?",
-						"Oh don't look at me like that.",
-						"A couple of good swipes at them and they'll be gone for good.",
-						"How about I give you a treat afterwards?",
-						"I knew I could count on you! Now go get 'em."
-						}
+		"I found the rats who have been ruining our crops",
+		"They're nested in out basement, but I can't get into that corner",
+		"Would you be able to take care of that for me?",
+		"Oh don't look at me like that.",
+		"A couple of good swipes at them and they'll be gone for good.",
+		"How about I give you a treat afterwards?",
+		"I knew I could count on you! Now go get 'em."
+	}
 	local player_responses_one = {
-						"Continue listening",
-						"Continue listening",
-						"What? That's disgusting! Rats are filthy and carry disease. Can't you find another way to do it?"
-						}
+		"Continue listening",
+		"Continue listening",
+		"What? That's disgusting! Rats are filthy and carry disease. Can't you find another way to do it?"
+	}
 	local player_yes_response = "Fine!Fine! But you owe me, you hear?"
 	local player_no_response = "Hell no! You can't bribe me!"
 	
@@ -65,10 +65,11 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	
 	-- player.script sends message letting npc know to send its conversation data to the conversation 
 	-- user interface which automatically opens and starts conversation
 	if message_id == hash("start_conversation") then
+		-- update_quest is temp for the bird test quest, update_quest data should be handled more elegantly, How?
+		msg.post("main:/questHandler", "update_quest", {quest_name = 'Talk to Owner', npc_talked_to = "Owner"})
 		msg.post("main:/conversationGUI#gui", "npc_conversation", self.owner_conversation)
 		
 	elseif message_id == hash("quest_accepted") then

@@ -16,19 +16,25 @@ local function set_quest_complete(self, quest_number)
 	msg.post("questLog", "quest_complete", {self.current_quests[quest_number].quest_name})
 	
 	-- Lastly, remove quest from being further handled
-	table.remove(current_quests, quest_number)
+	pprint("Removing Quest:"..self.current_quests[quest_number].quest_name.." from quest handler")
+	table.remove(self.current_quests, quest_number)
 	self.number_of_quests = self.number_of_quests - 1
+	
+	-- Log message for debug purposes
+	pprint("Updated current_quests: ")
+	pprint(self.current_quests)
+	pprint("\nNumber of Quests: "..self.number_of_quests.." In quest_handler.script")
 end
 
 -- [[ Checks if a quest is a completed, called from update_quest functions ]]
 local function check_quest_complete(self, quest_number)
 	-- If quest is a kill quest
-	if self.current[quest_number].amount_killed then
+	if self.current_quests[quest_number].amount_killed then
 		if self.current_quests[quest_number].amount_killed == self. current_quests[quest_number].number_to_kill then
 			set_quest_complete(self, quest_number)
 		end
 	-- Checks if basic talk quest
-	elseif self.current[quest_number].npc_to_talk_to then
+	elseif self.current_quests[quest_number].npc_to_talk_to then
 		set_quest_complete(self, quest_number)
 	end
 end
@@ -45,7 +51,7 @@ end
 --[[ Helper function that updates quests that require you to talk to a specific individual ]]
 local function update_talk_quest(self, quest_number, update_table)
 	-- Essentially completes quest for now, later can be added to be more complex, i.e. talk to multiple npcs
-	msg.post("questLog", "update_talk_quest")
+	-- msg.post("questLog", "update_talk_quest")
 	check_quest_complete(self, quest_number)
 end
 
@@ -62,9 +68,6 @@ local function update_quest(self, update_table)
 			elseif update_table.npc_talked_to then
 				update_talk_quest(self, i, update_table)
 			end
-			
-		else
-			pprint("Player does not currently have quest: "..update_table.quest_name)
 		end
 	end
 end
@@ -73,36 +76,35 @@ end
 local function add_quest(self, quest_table)
 	-- Make sure quest isn't already being handled before adding
 	for i in pairs(self.current_quests) do
+		pprint('searching for quest')
 		if self.currentquests[i].quest_name == quest_table.quest_name then
 			error("Tried to add quest: "..quest_table.quest_name.." to quest_handler that player already has")
-			
-		else
-			self.number_of_quests = self.number_of_quests + 1
-			
-			-- Set base information			
-			self.current_quests[self.number_of_quests] = {
-				quest_name = quest_table.quest_name,
-				quest_completer_addresss = quest_table.quest_completer_address,
-				-- MIGHT NOT NEED THIS BOOL
-				quest_complete = false	
-			}
-			
-				if quest_table.quest_type == 'kill_quest' then
-					self.current_quests[self.number_of_quests] = {
-						number_to_kill = quest_table.number_to_kill,
-						amount_killed = 0,
-					}
-				elseif quest_table.quest_type == 'talk_quest' then
-					self.current_quests[self.number_of_quests] = {
-						npc_to_talk_to = quest_table.npc_to_talk_to
-					}
-				else 
-					error("Unrecognized quest type: "..quest_table.quest_type.." \nNAME: "..quest_table.quest_name.." sent to add_quest()\n"..
-							"Add type to add_quest() in quest_handler.script, or use a recognized quest type")
-				end
 		end
-	-- pprint(self.current_quests)
 	end
+	-- Quest wasn't found so add it to the quest_handler
+	self.number_of_quests = self.number_of_quests + 1
+		
+	-- Set base information			
+	self.current_quests[self.number_of_quests] = {
+		quest_name = quest_table.quest_name,
+		quest_completer_addresss = quest_table.quest_completer_address,
+		-- MIGHT NOT NEED THIS BOOL
+		quest_complete = false	
+	}
+
+	-- Set additional information based on quest type
+	if quest_table.quest_type == 'kill_quest' then
+		self.current_quests[self.number_of_quests]['number_to_kill'] = quest_table.number_to_kill
+		self.current_quests[self.number_of_quests]['amount_killed'] = 0
+		
+	elseif quest_table.quest_type == 'talk_quest' then
+		self.current_quests[self.number_of_quests]['npc_to_talk_to'] = quest_table.npc_to_talk_to
+		
+	else 
+		error("Unrecognized quest type: "..quest_table.quest_type.." \nNAME: "..quest_table.quest_name.." sent to add_quest()\n"..
+		"Add type to add_quest() in quest_handler.script, or use a recognized quest type")
+	end
+	pprint("Quest:"..quest_table.quest_name.." added to quest handler")
 end
 
 function init(self)
