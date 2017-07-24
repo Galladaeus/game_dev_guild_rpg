@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/main/world_controller/controller.script"
+  component: "/main/world_controller/world_controller.script"
   position {
     x: 0.0
     y: 0.0

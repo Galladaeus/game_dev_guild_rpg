@@ -1,0 +1,22 @@
+go.property('current_world', hash(''))
+go.property('other_world', hash(''))
+
+function init(self)
+	-- Build URL's to sent to the controller
+	self.current_world_url = msg.url()
+	self.current_world_url.socket = "main"
+	self.current_world_url.path = hash("/controller")
+	self.current_world_url.fragment = self.current_world
+	
+	self.other_world_url = msg.url()
+	self.other_world_url.socket = "main"
+	self.other_world_url.path = hash("/controller")
+	self.other_world_url.fragment = self.other_world
+end
+
+function on_message(self, message_id, message, sender)
+	-- Player walks on to a door trigger; let controller know to switch worlds
+	if message_id == hash("trigger_response") then
+		msg.post("main:/controller", "load_world", {self.current_world_url, self.other_world_url})
+	end
+end
