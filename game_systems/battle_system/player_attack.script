@@ -10,6 +10,7 @@ end
 function update(self, dt)
 	self.lifeTime = self.lifeTime - dt
 	if self.lifeTime < 0 then
+		-- Prevents if check from being called over and over
 		self.lifeTime = 1000
 		go.delete()
 	end

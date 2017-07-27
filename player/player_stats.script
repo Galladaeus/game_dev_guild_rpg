@@ -1,13 +1,45 @@
-local strength = 10
-local agility = 10
-local speed = 10
+-- Editable player health and damage
+go.property("health_points", 20)
+go.property("player_damage", 2)
 
+-- Not self, because it should be shared across player instances
+local current_health = 20
+
+-- TODO Right now just resets health, set to beginning of conversations/pre-battle to allow
+-- player to prepare for battle better, save state before battle
+local function kill_player(self)
+	pprint("You have died!")
+	current_health = self.health_points
+	msg.post("main:/playerHUD", "set_current_hp", {current_hp = 20})
+end
+
+-- TODO if player can load/save in battle then should set hp to load status, if not then just reset to full
 function init(self)
-    -- Add initialization code here
-    -- Remove this function if not needed
+	msg.post("main:/playerHUD", "set_current_hp", {current_hp = current_health})
+	msg.post("main:/playerHUD", "set_max_hp", {max_hp = self.health_points})
 end
 
 function on_message(self, message_id, message, sender)
-    -- Add message-handling code here
-    -- Remove this function if not needed
+	-- Player is hit by enemy or other damaging object
+	if message_id == hash("damage_player") then
+		current_health = current_health - message.damage
+		msg.post("main:/playerHUD", "set_current_hp", {current_hp = current_health})
+			if current_health <= 0 then
+				msg.post("main:/playerHUD", "set_current_hp", {current_hp = 0})
+				kill_player(self)
+			end
+	end
+	-- Player uses item or gets healed
+	if message_id == hash("heal_player") then
+		-- Preserve item if player tries to use item at max health
+		if current_health == self.health_points then
+			pprint("Player already has full health")
+			msg.post(sender, "keep_item")
+		elseif (message.heal_amount + current_health) >= self.health_points then
+			current_health = self.health_points
+		else
+			self.health = self.health + message.heal_amount
+		end
+		msg.post("main:/playerHUD", "set_current_hp")
+	end
 end

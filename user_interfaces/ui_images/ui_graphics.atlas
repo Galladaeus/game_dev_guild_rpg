@@ -22,6 +22,27 @@ images {
 images {
   image: "/user_interfaces/ui_images/button_images/pixel_inventory_icon.png"
 }
+images {
+  image: "/user_interfaces/ui_images/hud_images/Black Heart.png"
+}
+images {
+  image: "/user_interfaces/ui_images/hud_images/Ears1.png"
+}
+images {
+  image: "/user_interfaces/ui_images/hud_images/Ears2.png"
+}
+images {
+  image: "/user_interfaces/ui_images/hud_images/Ears3.png"
+}
+images {
+  image: "/user_interfaces/ui_images/hud_images/Ears4.png"
+}
+images {
+  image: "/user_interfaces/ui_images/hud_images/Heart.png"
+}
+images {
+  image: "/user_interfaces/ui_images/hud_images/Heart_Bubble.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

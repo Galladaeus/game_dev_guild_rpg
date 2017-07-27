@@ -1,11 +1,80 @@
+-- Disable all ears
+local function hide_ears(self)
+	gui.set_enabled(self.first_health_ears, false)
+	gui.set_enabled(self.second_health_ears, false)
+	gui.set_enabled(self.third_health_ears, false)
+	gui.set_enabled(self.fourth_health_ears, false)
+end
+
+-- Checks and changes the ears based on current health
+local function check_ears(self)
+	-- Find what percentage health player is at
+	local fraction = tonumber(gui.get_text(self.current_hp))/tonumber(gui.get_text(self.max_health))
+	
+	hide_ears(self)
+	
+	if fraction >= .75 then
+		gui.set_enabled(self.first_health_ears, true)
+	elseif fraction >= .5 then
+		gui.set_enabled(self.second_health_ears, true)
+	elseif fraction >= .25 then
+		gui.set_enabled(self.third_health_ears, true)
+	else 
+		gui.set_enabled(self.fourth_health_ears, true)
+	end
+end
+
+--130pixels y pos
+local function move_heart(self)	
+	local mask_pos = gui.get_position(self.heart_mask)
+	local heart_pos = gui.get_position(self.heart)
+	
+	-- Fraction should be a percent of health lost
+	local fraction = tonumber(gui.get_text(self.current_hp))/tonumber(gui.get_text(self.max_health))	
+	local move_dis = 20
+	
+	mask_pos.y = mask_pos.y - move_dis
+	-- Why is this 65% movement?
+	heart_pos.y = heart_pos.y + move_dis * .65
+	
+	gui.set_position(self.heart_mask, mask_pos)
+	gui.set_position(self.heart, heart_pos)
+end
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	
 	self.menu_button = gui.get_node("menuButton")
+	self.current_hp = gui.get_node("currentHealth")
+	self.max_health = gui.get_node("maxHealth")
+	
+	-- Health ears
+	self.first_health_ears = gui.get_node("firstHealthEars")
+	self.second_health_ears = gui.get_node("secondHealthEars")
+	self.third_health_ears = gui.get_node("thirdHealthEars")
+	self.fourth_health_ears = gui.get_node("fourthHealthEars")
+	
+	-- Health Heart and mask
+	self.heart_mask = gui.get_node("heartMask")
+	self.heart = gui.get_node("heart")
+	
+	self.heart_mask_start_position = gui.get_position(self.heart_mask)
+	
+	hide_ears(self)
+	
+	check_ears(self)
 end
 
 function on_message(self, message_id, message, sender)
 	-- Messages to update health bar, gold, etc. will be sent to hud to update images
+	if message_id == hash("set_current_hp") then
+		gui.set_text(self.current_hp, message.current_hp)
+		check_ears(self)
+	end
+	if message_id == hash("set_max_hp") then
+		gui.set_text(self.max_health, message.max_hp)
+		check_ears(self)
+	end
 end
 
 function on_input(self, action_id, action)
@@ -13,10 +82,14 @@ function on_input(self, action_id, action)
     if action_id == hash("mouse_press") and action.pressed then
 		local x = action.x
 		local y = action.y
+		
+		-- Heart move test
+    	move_heart(self)
     	
     	if gui.pick_node(self.menu_button, x, y) then
 			msg.post("mainMenu", "open_main_menu")
-    	end
+		end
+		
     elseif action_id == hash("escape_press") and action.pressed then
     	msg.post("playerMenu", "open_main_menu")
     end

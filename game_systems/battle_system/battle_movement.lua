@@ -4,3 +4,9 @@
 -- in any script using the functions.
 
 -- This module will contain all the movement logic for battle levels
+
+M = {}
+
+function M.move()
+	
+end

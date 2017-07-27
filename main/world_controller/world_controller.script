@@ -1,23 +1,13 @@
 function init(self)
-	msg.post("#farmhouse_interior", "load")
+	msg.post("#town", "load")
 	msg.post(".", "acquire_input_focus")
-end
-
-function final(self)
-    -- Add finalization code here
-    -- Remove this function if not needed
-end
-
-function update(self, dt)
-    -- Add update code here
-    -- Remove this function if not needed
 end
 
 function on_message(self, message_id, message, sender)
 	-- Message sent from world_door.script to let controller know, switch worlds
 	if message_id == hash("load_world") then
 		
-		pprint("URL of place you are trying to go:")
+		pprint("World transfer URL's:")
 		pprint(message)
 		
 		msg.post(message.other_world_url, "load")
@@ -29,14 +19,4 @@ function on_message(self, message_id, message, sender)
     	msg.post(sender, "enable")	-- enable recursively enables all the objects contained in the collection
     	-- you only need to send enable by itself, init just gives finer control over initialization process
     end
-end
-
-function on_input(self, action_id, action)
-    -- Add input-handling code here
-    -- Remove this function if not needed
-end
-
-function on_reload(self)
-    -- Add reload-handling code here
-    -- Remove this function if not needed
 end
