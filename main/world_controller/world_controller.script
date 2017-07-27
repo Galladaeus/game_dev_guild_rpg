@@ -16,17 +16,18 @@ end
 function on_message(self, message_id, message, sender)
 	-- Message sent from world_door.script to let controller know, switch worlds
 	if message_id == hash("load_world") then
-		msg.post(message.other_world_url, "enable")
-		-- TODO figure out how to get worlds to load from here using the url
+		
+		pprint("URL of place you are trying to go:")
+		pprint(message)
+		
+		msg.post(message.other_world_url, "load")
+		msg.post(message.current_world_url, "unload")
 	end
 	
     if message_id == hash("proxy_loaded") then 	-- Once collection is loaded, initialize and enable collection
     	msg.post(sender, "init")	-- init recursively initializes all objects in collection			
     	msg.post(sender, "enable")	-- enable recursively enables all the objects contained in the collection
     	-- you only need to send enable by itself, init just gives finer control over initialization process
-    end
-    if message_id == hash("unloadTown") then
-    	msg.post("controller#town", "unload")
     end
 end
 

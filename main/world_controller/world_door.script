@@ -16,7 +16,7 @@ end
 
 function on_message(self, message_id, message, sender)
 	-- Player walks on to a door trigger; let controller know to switch worlds
-	if message_id == hash("trigger_response") then
-		msg.post("main:/controller", "load_world", {self.current_world_url, self.other_world_url})
+	if message_id == hash("player_entered") then
+		msg.post("main:/controller#script", "load_world", {current_world_url = self.current_world_url, other_world_url = self.other_world_url})
 	end
 end
