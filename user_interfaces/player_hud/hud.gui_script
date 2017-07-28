@@ -24,18 +24,22 @@ local function check_ears(self)
 	end
 end
 
---130pixels y pos
-local function move_heart(self)	
+--[[ Updates the heart mask to cover an appropriate amount of the red heart ]]
+local function update_heart(self)	
+	gui.set_position(self.heart_mask, self.heart_mask_start_position)
+	gui.set_position(self.heart, self.heart_start_position)
+	
 	local mask_pos = gui.get_position(self.heart_mask)
 	local heart_pos = gui.get_position(self.heart)
 	
-	-- Fraction should be a percent of health lost
-	local fraction = tonumber(gui.get_text(self.current_hp))/tonumber(gui.get_text(self.max_health))	
-	local move_dis = 20
+	-- Fraction of current health
+	local fraction = 1 - tonumber(gui.get_text(self.current_hp))/tonumber(gui.get_text(self.max_health))	
 	
-	mask_pos.y = mask_pos.y - move_dis
-	-- Why is this 65% movement?
-	heart_pos.y = heart_pos.y + move_dis * .65
+	pprint("Fraction of health missing:")
+	pprint(fraction)
+	
+	mask_pos.y = mask_pos.y - (fraction * 82)
+	heart_pos.y = heart_pos.y + (fraction * 88)
 	
 	gui.set_position(self.heart_mask, mask_pos)
 	gui.set_position(self.heart, heart_pos)
@@ -57,8 +61,8 @@ function init(self)
 	-- Health Heart and mask
 	self.heart_mask = gui.get_node("heartMask")
 	self.heart = gui.get_node("heart")
-	
 	self.heart_mask_start_position = gui.get_position(self.heart_mask)
+	self.heart_start_position = gui.get_position(self.heart)
 	
 	hide_ears(self)
 	
@@ -70,10 +74,12 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("set_current_hp") then
 		gui.set_text(self.current_hp, message.current_hp)
 		check_ears(self)
+		update_heart(self)
 	end
 	if message_id == hash("set_max_hp") then
 		gui.set_text(self.max_health, message.max_hp)
 		check_ears(self)
+		update_heart(self)
 	end
 end
 
@@ -82,15 +88,12 @@ function on_input(self, action_id, action)
     if action_id == hash("mouse_press") and action.pressed then
 		local x = action.x
 		local y = action.y
-		
-		-- Heart move test
-    	move_heart(self)
-    	
+		    	
     	if gui.pick_node(self.menu_button, x, y) then
 			msg.post("mainMenu", "open_main_menu")
 		end
 		
     elseif action_id == hash("escape_press") and action.pressed then
-    	msg.post("playerMenu", "open_main_menu")
+    	msg.post("mainMenu", "open_main_menu")
     end
 end

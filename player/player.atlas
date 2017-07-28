@@ -1,101 +1,114 @@
-images {
-  image: "/player/player_images/ArmL01.png"
+animations {
+  id: "walkRight"
+  images {
+    image: "/player/player_images/Walk_Side00.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side01.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side02.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side03.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side04.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side05.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side06.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side07.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 0
+  flip_vertical: 0
 }
-images {
-  image: "/player/player_images/ArmL02.png"
+animations {
+  id: "walkLeft"
+  images {
+    image: "/player/player_images/Walk_Side00.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side01.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side02.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side03.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side04.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side05.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side06.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side07.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 1
+  flip_vertical: 0
 }
-images {
-  image: "/player/player_images/ArmL03.png"
+animations {
+  id: "idleRight"
+  images {
+    image: "/player/player_images/Blink_Side00.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side01.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side02.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side03.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side04.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side05.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
 }
-images {
-  image: "/player/player_images/ArmR01.png"
-}
-images {
-  image: "/player/player_images/ArmR02.png"
-}
-images {
-  image: "/player/player_images/ArmR03.png"
-}
-images {
-  image: "/player/player_images/BodyA01.png"
-}
-images {
-  image: "/player/player_images/BodyA02.png"
-}
-images {
-  image: "/player/player_images/BodyB01.png"
-}
-images {
-  image: "/player/player_images/BodyB02.png"
-}
-images {
-  image: "/player/player_images/Eye01.png"
-}
-images {
-  image: "/player/player_images/Head01.png"
-}
-images {
-  image: "/player/player_images/Head02.png"
-}
-images {
-  image: "/player/player_images/Head02B.png"
-}
-images {
-  image: "/player/player_images/Head03.png"
-}
-images {
-  image: "/player/player_images/Head03B.png"
-}
-images {
-  image: "/player/player_images/LegB01.png"
-}
-images {
-  image: "/player/player_images/LegB02.png"
-}
-images {
-  image: "/player/player_images/LegB03.png"
-}
-images {
-  image: "/player/player_images/LegB04.png"
-}
-images {
-  image: "/player/player_images/LegL00.png"
-}
-images {
-  image: "/player/player_images/LegLA01.png"
-}
-images {
-  image: "/player/player_images/LegLA02.png"
-}
-images {
-  image: "/player/player_images/LegLA03.png"
-}
-images {
-  image: "/player/player_images/LegLA04.png"
-}
-images {
-  image: "/player/player_images/LegR00.png"
-}
-images {
-  image: "/player/player_images/LegRA01.png"
-}
-images {
-  image: "/player/player_images/LegRA02.png"
-}
-images {
-  image: "/player/player_images/LegRA03.png"
-}
-images {
-  image: "/player/player_images/LegRA04.png"
-}
-images {
-  image: "/player/player_images/ThighL.png"
-}
-images {
-  image: "/player/player_images/ThighR.png"
-}
-images {
-  image: "/player/player_images/empty.png"
+animations {
+  id: "idleLeft"
+  images {
+    image: "/player/player_images/Blink_Side00.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side01.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side02.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side03.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side04.png"
+  }
+  images {
+    image: "/player/player_images/Blink_Side05.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+  flip_horizontal: 1
+  flip_vertical: 0
 }
 margin: 0
 extrude_borders: 0
