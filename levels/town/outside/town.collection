@@ -82,6 +82,7 @@ embedded_instances {
   "  id: \"tile_factory\"\n"
   "  type: \"factory\"\n"
   "  data: \"prototype: \\\"/levels/town/outside/ground/tile.go\\\"\\n"
+  "load_dynamically: false\\n"
   "\"\n"
   "  position {\n"
   "    x: 0.0\n"

@@ -4,8 +4,12 @@ local create_quest = require "creation_modules/create_quest"
 
 -- AI behavior should be moved into a seperate script
 function init(self)
+	-- Disable chat bubble so it only shows when player is in range
+	msg.post("#chat_bubble", "disable")
+	
 	-- Conversation information
 	local npc_name = 'Owner'
+	
 	-- Use default greeting
 	local player_choice_one = 'Listen to owner'
 	local owner_responses_one = {
@@ -61,13 +65,17 @@ function init(self)
 end
 
 function update(self, dt)
-	-- TODO Owner should face player when talking to
+	-- Could be more efficient to check if player has left range rather than constantly checking
+	msg.post("#chat_bubble", "disable")
 end
 
 function on_message(self, message_id, message, sender)
+	-- Should also check for quest availability to change bubble type
+	if message_id == hash("player_in_range") then
+		msg.post("#chat_bubble", "enable")
 	-- player.script sends message letting npc know to send its conversation data to the conversation 
 	-- user interface which automatically opens and starts conversation
-	if message_id == hash("start_conversation") then
+	elseif message_id == hash("start_conversation") then
 		-- update_quest is temp for the bird test quest, update_quest data should be handled more elegantly, How?
 		msg.post("main:/questHandler", "update_quest", {quest_name = 'Talk to Owner', npc_talked_to = "Owner"})
 		msg.post("main:/conversationGUI#gui", "npc_conversation", self.owner_conversation)

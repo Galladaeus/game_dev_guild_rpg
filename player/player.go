@@ -117,6 +117,7 @@ embedded_components {
   id: "attackFactory"
   type: "factory"
   data: "prototype: \"/game_systems/battle_system/playerAttack.go\"\n"
+  "load_dynamically: false\n"
   ""
   position {
     x: 0.0

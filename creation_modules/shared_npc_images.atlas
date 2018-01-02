@@ -1,0 +1,9 @@
+images {
+  image: "/creation_modules/npc_images/chat_bubble.png"
+}
+images {
+  image: "/creation_modules/npc_images/quest_bubble.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

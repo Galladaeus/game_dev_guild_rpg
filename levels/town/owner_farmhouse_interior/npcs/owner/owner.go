@@ -74,7 +74,7 @@ embedded_components {
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"
   "    position {\n"
-  "      x: 0.0\n"
+  "      x: 4.0\n"
   "      y: 6.863\n"
   "      z: 0.0\n"
   "    }\n"
@@ -87,7 +87,7 @@ embedded_components {
   "    index: 0\n"
   "    count: 3\n"
   "  }\n"
-  "  data: 15.004\n"
+  "  data: 29.7925\n"
   "  data: 62.691\n"
   "  data: 10.0\n"
   "}\n"
@@ -165,6 +165,26 @@ embedded_components {
   position {
     x: 0.0
     y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+embedded_components {
+  id: "chat_bubble"
+  type: "sprite"
+  data: "tile_set: \"/creation_modules/shared_npc_images.atlas\"\n"
+  "default_animation: \"chat_bubble\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
+  position {
+    x: 24.0
+    y: 104.0
     z: 0.0
   }
   rotation {

@@ -62,29 +62,34 @@ local function update_animations(self)
 end
 
 function init(self)
-    msg.post(".", "acquire_input_focus")
+	msg.post(".", "acquire_input_focus")
 
 	self.vel = vmath.vector3() -- Position of player
 	self.animation_playing = nil							-- Checks if animation is playing
-	self.inrangeofnpc = false				-- Keep track if player is in range to start conversation
+	self.in_range_of_npc = false				-- Keep track if player is in range to start conversation
 	--self.inBattle = false
 	self.dir = vmath.vector3(0, 1, 0)
+	self.npc_address = nil
 end
 
 
 function update(self, dt)
 	-- msg.post("camera", "look_at") Camera is childed to player, this can be used as part of persp camera
-    local pos = go.get_position() 
-    pos = pos + self.vel * dt 
-    go.set_position(pos) 
-    update_animations(self)
-    
-    -- Used to send the conversation message to correct npc
-    self.npc_address = nil
-    
-    self.vel.x = 0 
-    self.vel.y = 0
-    self.inrangeofnpc = false
+	local pos = go.get_position() 
+	pos = pos + self.vel * dt 
+	go.set_position(pos) 
+	update_animations(self)
+
+	if self.in_range_of_npc == true then
+		msg.post(self.npc_address, "player_in_range")
+	end
+
+	-- Used to send the conversation message to correct npc
+	self.npc_address = nil
+	
+	self.vel.x = 0 
+	self.vel.y = 0
+	self.in_range_of_npc = false
 end
 
 function on_message(self, message_id, message, sender)
@@ -96,7 +101,7 @@ function on_message(self, message_id, message, sender)
 	
 	if message_id == hash("contact_point_response") then
 		if message.group == hash("npc") then -- TODO Should use collision response for npc, seperate later
-			self.inrangeofnpc = true
+			self.in_range_of_npc = true
 			self.npc_address = message.other_id
 		elseif message.group == hash("border") then
 			local newpos = go.get_position() + message.normal * message.distance	-- Seperate player and collision so player cannot enter
@@ -107,15 +112,15 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-    if action_id == input_up then
-        self.vel.y = self.player_speed 
-    elseif action_id == input_down then
-        self.vel.y = -self.player_speed 
-    elseif action_id == input_left then
-        self.vel.x = -self.player_speed  
-    elseif action_id == input_right then
-        self.vel.x = self.player_speed 
-        
+	if action_id == input_up then
+		self.vel.y = self.player_speed 
+	elseif action_id == input_down then
+		self.vel.y = -self.player_speed 
+	elseif action_id == input_left then
+		self.vel.x = -self.player_speed  
+	elseif action_id == input_right then
+		self.vel.x = self.player_speed 
+
     --[[ ATTACK INPUT
 	elseif action_id == input_attack and action.pressed then
     	-- Calculate direction of attack, INCORRECT
@@ -131,7 +136,7 @@ function on_input(self, action_id, action)
     ]]
     
 	-- Using action.pressed prevents button from registering multiple presses from one key press
-    elseif action_id == input_action and self.inrangeofnpc == true and action.pressed then
+    elseif action_id == input_action and self.in_range_of_npc == true and action.pressed then
 		msg.post(self.npc_address, "start_conversation")
 		
 	-- Debug button

@@ -81,7 +81,7 @@ animations {
     image: "/player/player_images/Blink_Side05.png"
   }
   playback: PLAYBACK_LOOP_FORWARD
-  fps: 4
+  fps: 3
   flip_horizontal: 0
   flip_vertical: 0
 }
@@ -106,7 +106,7 @@ animations {
     image: "/player/player_images/Blink_Side05.png"
   }
   playback: PLAYBACK_LOOP_FORWARD
-  fps: 4
+  fps: 3
   flip_horizontal: 1
   flip_vertical: 0
 }
