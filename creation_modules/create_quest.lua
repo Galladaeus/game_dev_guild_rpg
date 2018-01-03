@@ -66,7 +66,9 @@ function M.get_quest_table()
 		-- The URL of the npc you talk to to complete the quest, if none provided default is set to quest_giver's address
 		quest_completer_address = self_url
 	}	
-		
+
+	msg.post(".", "added_quest")
+	
 	return quest_table
 end
 

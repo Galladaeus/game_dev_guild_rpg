@@ -34,3 +34,4 @@ TODO Create a script that automates the creation of a npc with variables that wi
 	i.e. sprite data, npc name, etc. Also can use data to automatically fill in certain information when creating
 	conversations/quests
 TODO NPC images and creation should be seperate from their levels, to allow certain shared elements, like chat bubbles
+TODO NPC needs a boilerplate code to avoid alot of duplication, as mentioned above, also deal with chat bubble popping up,etc.

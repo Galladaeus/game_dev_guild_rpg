@@ -1,15 +1,25 @@
 -- Include the module to create a conversation and quest
 local create_conversation = require "creation_modules/create_conversation"
 local create_quest = require "creation_modules/create_quest"
+local npc = require "creation_modules/npc/create_npc"
+
+-- self.npc.get_properties()
+go.property("quest", hash("none"))
 
 -- AI behavior should be moved into a seperate script
 function init(self)
+	self.npc_table = npc.create_npc()
+	npc.set_name(self, "Owner")
+	
+	--print(dump(self.npc_table))
+
 	-- Disable chat bubble so it only shows when player is in range
-	msg.post("#chat_bubble", "disable")
-	
+	-- msg.post("#chat_bubble", "disable")
+	-- msg.post("#quest_bubble", "disable")
+
 	-- Conversation information
-	local npc_name = 'Owner'
-	
+	-- local npc_name = 'Owner'
+
 	-- Use default greeting
 	local player_choice_one = 'Listen to owner'
 	local owner_responses_one = {
@@ -25,34 +35,33 @@ function init(self)
 		"Continue listening",
 		"Continue listening",
 		"What? That's disgusting! Rats are filthy and carry disease. Can't you find another way to do it?"
-	}
+		}
 	local player_yes_response = "Fine!Fine! But you owe me, you hear?"
 	local player_no_response = "Hell no! You can't bribe me!"
-	
+
 	-- Quest information
 	local quest_name = 'Rat Killer'
 	local quest_description = 'Your new owner has asked you to kill 7 rats in her basement'
-	local quest_giver = 'Owner'
+	local quest_giver = npc.get_name(self)
 	local gold_reward = 10
 	local exp_reward = 10
 	local enemy_type = 'rat'
 	local rats_to_kill = 7
-	
-	
+
 	-- Creating default conversation table
 	self.owner_conversation = create_conversation.get_conversation_table()
-	
+
 	-- Setting conversation values
-	create_conversation.set_npc_name(self.owner_conversation, npc_name)
+	create_conversation.set_npc_name(self.owner_conversation, npc.get_name(self))
 	-- Option one
 	create_conversation.set_player_option(self.owner_conversation, 'option_one', player_choice_one)
 	create_conversation.set_npc_quest_request(self.owner_conversation, 'option_one', owner_responses_one, owner_responses_one[6], 'Rat killer') 
 	create_conversation.set_player_responses(self.owner_conversation, 'option_one', player_responses_one)
 	create_conversation.set_player_quest_responses(self.owner_conversation, player_yes_response, player_no_response)
-	
+
 	-- Creating default quest table
 	self.owner_quest = create_quest.get_quest_table()
-	
+
 	-- Set quest values
 	create_quest.set_kill_quest(self.owner_quest, enemy_type, rats_to_kill)
 	create_quest.set_quest_name(self.owner_quest, quest_name)
@@ -67,25 +76,37 @@ end
 function update(self, dt)
 	-- Could be more efficient to check if player has left range rather than constantly checking
 	msg.post("#chat_bubble", "disable")
+	msg.post("#quest_bubble", "disable")
 end
 
 function on_message(self, message_id, message, sender)
 	-- Should also check for quest availability to change bubble type
 	if message_id == hash("player_in_range") then
-		msg.post("#chat_bubble", "enable")
+		if npc.has_quest(self) then
+			msg.post("#quest_bubble", "enable")
+		else
+			msg.post("#chat_bubble", "enable")
+		end
+
+	elseif message_id == hash("added_quest") then
+		-- Change so as to not directly alter table?
+		self.npc_table.has_quest = true
+
 	-- player.script sends message letting npc know to send its conversation data to the conversation 
 	-- user interface which automatically opens and starts conversation
 	elseif message_id == hash("start_conversation") then
 		-- update_quest is temp for the bird test quest, update_quest data should be handled more elegantly, How?
 		msg.post("main:/questHandler", "update_quest", {quest_name = 'Talk to Owner', npc_talked_to = "Owner"})
 		msg.post("main:/conversationGUI#gui", "npc_conversation", self.owner_conversation)
-		
+
 	elseif message_id == hash("quest_accepted") then
 		-- Player has accepted quest so change quest text to something else
+		-- TODO Change so that npc no longer has quest to give
 		create_conversation.set_npc_responses(self.owner_conversation, 'option_one', {'Come back once the rats are dead'})
-		
+		self.npc_table.has_quest = false
+
 	elseif message_id == hash("quest_completed") then
 		pprint("QUEST COMPLETE WOO")
 	end
 end
-
+	

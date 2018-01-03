@@ -1,18 +1,3 @@
-components {
-  id: "owner"
-  component: "/levels/town/owner_farmhouse_interior/npcs/owner/owner.script"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-}
 embedded_components {
   id: "chatbox"
   type: "collisionobject"
@@ -108,10 +93,10 @@ embedded_components {
   }
 }
 embedded_components {
-  id: "sprite"
+  id: "npc_sprite"
   type: "sprite"
-  data: "tile_set: \"/levels/town/owner_farmhouse_interior/farmhouse_interior.atlas\"\n"
-  "default_animation: \"owner_interior\"\n"
+  data: "tile_set: \"/creation_modules/npc/npc_images/shared_npc_images.atlas\"\n"
+  "default_animation: \"no_sprite_sign\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
@@ -157,7 +142,7 @@ embedded_components {
   ""
   position {
     x: 24.0
-    y: 104.0
+    y: 103.0
     z: 0.0
   }
   rotation {

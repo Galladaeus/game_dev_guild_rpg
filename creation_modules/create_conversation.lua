@@ -15,7 +15,7 @@ local M = {}
 
 ---------------------------------------------------------------------------------------------------
 --------------------------------------HELPER FUNCTIONS---------------------------------------------
-----------------------Should not have any reson to call outside this module------------------------
+----------------------Should not have any reason to call outside this module-----------------------
 ---------------------------------------------------------------------------------------------------
 
 --[[ Helper function to ensure table is valid ]]
@@ -71,6 +71,7 @@ function M.get_conversation_table()
 		quest_response_text = 'text',
 		quest_table = nil
 	}
+	
 	-- Set defaults
 	conversation_table.player_quest_responses['yes_option'] = "I'll help"
 	conversation_table.player_quest_responses['no_option'] = "I won't help"	

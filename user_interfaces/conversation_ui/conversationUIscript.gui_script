@@ -204,19 +204,19 @@ function on_message(self, message_id, message, sender)
     	-- Changes image to npc you are talking to
 		if self.conversation_table.npc_name == 'default_npc' then
 			error("No npc_name provided to conversation")
-		end    	
-    	gui.set_texture(self.npc_image, hash("conversation_npcs"))
-    	gui.play_flipbook(self.npc_image, hash(self.conversation_table.npc_name))
-    	
+		end
+		gui.set_texture(self.npc_image, hash("conversation_npcs"))
+		gui.play_flipbook(self.npc_image, hash(self.conversation_table.npc_name))
+
 		-- Get NPC's address to send messages to, used to send messages back to NPC, 
 		-- for example if you want to change what NPC says if player says something
 		self.npc_url = sender
 		
 		-- Initialize conversation variables
-    	self.current_conversation = nil
-    	self.conversation_started = false
-    	
-    	-- And finally start conversation
+		self.current_conversation = nil
+		self.conversation_started = false
+
+		-- And finally start conversation
 		open_ui(self)
     	initialize_conversation(self)
 	end
