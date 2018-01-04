@@ -110,8 +110,8 @@ embedded_components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/levels/town/outside/outside.atlas\"\n"
-  "default_animation: \"Bird\"\n"
+  data: "tile_set: \"/creation_modules/npcs/npc_images/npc_images.atlas\"\n"
+  "default_animation: \"bird\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""

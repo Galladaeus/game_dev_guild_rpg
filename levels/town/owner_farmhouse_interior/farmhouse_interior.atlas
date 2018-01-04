@@ -4,9 +4,6 @@ images {
 images {
   image: "/levels/town/owner_farmhouse_interior/images/inside_lvl2.png"
 }
-images {
-  image: "/levels/town/owner_farmhouse_interior/images/owner_interior.png"
-}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

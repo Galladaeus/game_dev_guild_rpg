@@ -1,0 +1,7 @@
+Jan 4 2018:
++ Managed to seperate most of the functionality of creating quests from the npc script
+	+ All quests should be placed in seperate .script 's and added to the game object they belong to
++ Found that my validity check functions in create_quest.lua are non-functioning
++ Started work on refactoring all non-code object names to camelCase
++ Pretty much done changing all spacing to tabs
++ Should start using hashes so I can use go.property() 's 

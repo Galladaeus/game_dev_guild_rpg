@@ -173,15 +173,15 @@ function init(self)
 	-- Set up GUI node access
 	self.npc_text = gui.get_node("npcText")
 	self.conversation_ui = gui.get_node("conversationUI")
-    self.player_choice_one = gui.get_node("playerChoiceOne")
-    self.player_choice_one_text = gui.get_node("playerChoiceOneText")
-    self.player_choice_two = gui.get_node("playerChoiceTwo")
-    self.player_choice_two_text = gui.get_node("playerChoiceTwoText")
-    self.player_choice_three = gui.get_node("playerChoiceThree")
-    self.player_choice_three_text = gui.get_node("playerChoiceThreeText")
-    self.player_choice_four = gui.get_node("playerChoiceFour")
-    self.player_choice_four_text = gui.get_node("playerChoiceFourText")
-    self.hub_button = gui.get_node("hubButton")
+	self.player_choice_one = gui.get_node("playerChoiceOne")
+	self.player_choice_one_text = gui.get_node("playerChoiceOneText")
+	self.player_choice_two = gui.get_node("playerChoiceTwo")
+	self.player_choice_two_text = gui.get_node("playerChoiceTwoText")
+	self.player_choice_three = gui.get_node("playerChoiceThree")
+	self.player_choice_three_text = gui.get_node("playerChoiceThreeText")
+	self.player_choice_four = gui.get_node("playerChoiceFour")
+	self.player_choice_four_text = gui.get_node("playerChoiceFourText")
+	self.hub_button = gui.get_node("hubButton")
 	self.hub_button_text = gui.get_node("hubButtonText")
 	self.npc_image = gui.get_node("npcImage")
 	
@@ -197,12 +197,12 @@ function init(self)
 end
 
 function on_message(self, message_id, message, sender)
-    if message_id == hash("npc_conversation") then    	
-    	-- Receive conversation data from npc
-    	self.conversation_table = message
-    	
-    	-- Changes image to npc you are talking to
-		if self.conversation_table.npc_name == 'default_npc' then
+	if message_id == hash("npc_conversation") then    	
+		-- Receive conversation data from npc
+		self.conversation_table = message
+
+		-- Changes image to npc you are talking to
+		if self.conversation_table.npc_name == "default_npc" then
 			error("No npc_name provided to conversation")
 		end
 		gui.set_texture(self.npc_image, hash("conversation_npcs"))
@@ -218,7 +218,7 @@ function on_message(self, message_id, message, sender)
 
 		-- And finally start conversation
 		open_ui(self)
-    	initialize_conversation(self)
+		initialize_conversation(self)
 	end
 end
 
@@ -262,16 +262,16 @@ function on_input(self, action_id, action)
 			end
 
 		-- CHOICE BUTTON THREE	
- 	   elseif gui.pick_node(self.player_choice_three, x, y) then
+		elseif gui.pick_node(self.player_choice_three, x, y) then
 			start_conversation(self, 'option_three')	
 
 		-- CHOICE BUTTON FOUR	
-    	elseif gui.pick_node(self.player_choice_four, x, y) then
+		elseif gui.pick_node(self.player_choice_four, x, y) then
 			start_conversation(self, 'option_four')
-    	end
+		end
 	end
 
 	-- As long as input is being listened to i.e. "true" it will consume input and
 	-- controls are disabled for player character movement and main menu
-    return true
+	return true
 end

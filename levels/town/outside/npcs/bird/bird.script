@@ -1,6 +1,6 @@
 -- Include the module to create a conversation and quest
 local create_conversation = require "creation_modules/create_conversation"
-local create_quest = require "creation_modules/create_quest"
+local create_quest = require "creation_modules/quests/create_quest"
 
 function init(self)
 	-- Conversation table data

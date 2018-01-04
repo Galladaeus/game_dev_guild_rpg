@@ -12,6 +12,26 @@ components {
     z: 0.0
     w: 1.0
   }
+  properties {
+    id: "quest"
+    value: "true"
+    type: PROPERTY_TYPE_HASH
+  }
+}
+components {
+  id: "kill_rats"
+  component: "/creation_modules/quests/killRats/kill_rats.script"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
 }
 embedded_components {
   id: "chatbox"
@@ -110,8 +130,8 @@ embedded_components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/levels/town/owner_farmhouse_interior/farmhouse_interior.atlas\"\n"
-  "default_animation: \"owner_interior\"\n"
+  data: "tile_set: \"/creation_modules/npcs/npc_images/npc_images.atlas\"\n"
+  "default_animation: \"owner\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
@@ -128,16 +148,16 @@ embedded_components {
   }
 }
 embedded_components {
-  id: "chat_bubble"
+  id: "chatBubble"
   type: "sprite"
-  data: "tile_set: \"/creation_modules/npc/npc_images/shared_npc_images.atlas\"\n"
+  data: "tile_set: \"/creation_modules/npcs/npc_images/npc_images.atlas\"\n"
   "default_animation: \"chat_bubble\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
   position {
-    x: 24.0
-    y: 104.0
+    x: 21.0
+    y: 105.0
     z: 0.0
   }
   rotation {
@@ -148,16 +168,16 @@ embedded_components {
   }
 }
 embedded_components {
-  id: "quest_bubble"
+  id: "questBubble"
   type: "sprite"
-  data: "tile_set: \"/creation_modules/npc/npc_images/shared_npc_images.atlas\"\n"
+  data: "tile_set: \"/creation_modules/npcs/npc_images/npc_images.atlas\"\n"
   "default_animation: \"quest_bubble\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
   position {
-    x: 24.0
-    y: 104.0
+    x: 21.0
+    y: 106.0
     z: 0.0
   }
   rotation {

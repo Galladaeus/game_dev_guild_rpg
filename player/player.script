@@ -12,18 +12,18 @@ local anim_idle = hash("idle_right")
 
 -- Temp function to print a table's data
 local function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
+	if type(o) == 'table' then
+		local s = '{ '
+		for k,v in pairs(o) do
+		if type(k) ~= 'number' then k = '"'..k..'"' end
+		s = s .. '['..k..'] = ' .. dump(v) .. ','
+	end
+		return s .. '} '
+	else
+		return tostring(o)
+	end
 end
-  
+
 --[[ Plays an animation ]]
 local function play_animation(self, animation)
 	-- Prevent same animation from starting over and over again
@@ -121,22 +121,22 @@ function on_input(self, action_id, action)
 	elseif action_id == input_right then
 		self.vel.x = self.player_speed 
 
-    --[[ ATTACK INPUT
+	--[[ ATTACK INPUT
 	elseif action_id == input_attack and action.pressed then
-    	-- Calculate direction of attack, INCORRECT
-    	local angle = math.atan2(self.dir.y, self.dir.x)
-    	local rot = vmath.quat_rotation_z(angle)
-    	-- Move attack away from being directly on top of player
-    	local attackPos = vmath.vector3(100, 100, 0)
-    	
-    	local pos = go.get_position()
+		-- Calculate direction of attack, INCORRECT
+		local angle = math.atan2(self.dir.y, self.dir.x)
+		local rot = vmath.quat_rotation_z(angle)
+		-- Move attack away from being directly on top of player
+		local attackPos = vmath.vector3(100, 100, 0)
+		
+		local pos = go.get_position()
 		local props = {dir = self.dir} -- unneeded
-    	factory.create("#attackFactory", pos + attackPos, rot, props, vmath.vector3(0.2, 0.2, 0.2))
-    	pprint("attacking")
-    ]]
-    
+		factory.create("#attackFactory", pos + attackPos, rot, props, vmath.vector3(0.2, 0.2, 0.2))
+		pprint("attacking")
+	]]
+
 	-- Using action.pressed prevents button from registering multiple presses from one key press
-    elseif action_id == input_action and self.in_range_of_npc == true and action.pressed then
+	elseif action_id == input_action and self.in_range_of_npc == true and action.pressed then
 		msg.post(self.npc_address, "start_conversation")
 		
 	-- Debug button
@@ -144,12 +144,12 @@ function on_input(self, action_id, action)
 		pprint("Pressed F1")
 		msg.post(".", "damage_player", {damage = 1})
 		--msg.post("main:/questHandler", "debug_quest_complete")
-    	--msg.post("main:/controller", "startBattle")
-    end
-    
-    -- Normalize direction to NESW
-    if vmath.length(self.vel) > 0 then
-    	self.moving = true
-    	self.dir = vmath.normalize(self.vel)
-    end
+		--msg.post("main:/controller", "startBattle")
+	end
+
+	-- Normalize direction to NESW
+	if vmath.length(self.vel) > 0 then
+		self.moving = true
+		self.dir = vmath.normalize(self.vel)
+	end
 end

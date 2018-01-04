@@ -1,6 +1,3 @@
-images {
-  image: "/levels/town/outside/images/Bird.png"
-}
 margin: 0
 extrude_borders: 0
 inner_padding: 0
