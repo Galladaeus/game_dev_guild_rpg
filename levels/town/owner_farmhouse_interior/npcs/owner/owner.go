@@ -17,10 +17,30 @@ components {
     value: "true"
     type: PROPERTY_TYPE_HASH
   }
+  properties {
+    id: "name"
+    value: "Owner"
+    type: PROPERTY_TYPE_HASH
+  }
 }
 components {
-  id: "kill_rats"
-  component: "/creation_modules/quests/killRats/kill_rats.script"
+  id: "quest"
+  component: "/creation_modules/quests/kill_rats/kill_rats.script"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+components {
+  id: "conversation"
+  component: "/creation_modules/conversations/owner_conversations_farmhouse/owner_conversation_initial.script"
   position {
     x: 0.0
     y: 0.0
@@ -131,7 +151,7 @@ embedded_components {
   id: "sprite"
   type: "sprite"
   data: "tile_set: \"/creation_modules/npcs/npc_images/npc_images.atlas\"\n"
-  "default_animation: \"owner\"\n"
+  "default_animation: \"owner_new\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""

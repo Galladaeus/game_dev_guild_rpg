@@ -10,13 +10,13 @@ function M.enable_chat_bubble() msg.post("#chatBubble", "enable") end
 function M.disable_chat_bubble() msg.post("#chatBubble", "disable") end
 
 --[[ First function to call when creating a new npc, intializes the basic data for a npc ]]
-function M.create_npc()
+function M.create_npc(name_npc)
 	-- Disable npc talk bubbles when player is not in range
 	M.disable_chat_bubble()
 	M.disable_quest_bubble()
 
 	local npc_table = {
-		npc_name,
+		npc_name = name_npc,
 		
 		has_quest = false,
 		has_conversation = false,
@@ -24,6 +24,13 @@ function M.create_npc()
 		quest_table = nil,
 		conversation_table = nil
 	}
+	
+	-- This doesn't work if npc has more than one quest or conversation, unless you put 
+	-- both conversations or quests in one script, which seems janky
+	-- CAN place one of these in one or the other to control order of initialization if needed
+	msg.post("#quest", "init_npc", {name = npc_table.npc_name})
+	msg.post("#conversation", "init_npc", {name = npc_table.npc_name})
+	
 	return npc_table
 end
 
@@ -31,18 +38,12 @@ end
 function M.set_name(self, name) self.npc_table.npc_name = name end
 function M.get_name(self) return self.npc_table.npc_name end
 
-function M.set_quest(self, quest)
-	self.npc_table.has_quest = true
-	self.npc_table.quest_table = quest
-end
-
-function M.get_quest(self, quest)
-	return self.npc_table.quest_table
-end
-
---[[ Functions to check whether npc has a conversation or quest ]]
+--[[ Functions to check and set whether npc has a conversation or quest ]]
 function M.has_conversation(self) return self.npc_table.has_conversation end
+function M.set_has_conversation(self, boolean) self.npc_table.has_conversation = boolean end
 function M.has_quest(self) return self.npc_table.has_quest end
+function M.set_has_quest(self, boolean)	self.npc_table.has_quest = boolean end
+
 
 --[[ Gets the URL of this npc so it can be sent messages ]]
 function M.get_npc_url()

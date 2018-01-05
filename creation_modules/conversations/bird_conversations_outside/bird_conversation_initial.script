@@ -1,0 +1,63 @@
+local conversation_func = require "creation_modules/conversations/create_conversation"
+
+function init(self) end
+function update(self, dt) end
+function on_message(self, message_id, message, sender)
+	if message_id == hash("init_npc") then
+		npc_data = message
+
+		--[[ These are the only variables you need to change ]]--
+		-- Conversation table data
+		local bird_name = "Bird"
+		local bird_greeting = "Hello Cat! Glorious morning, is it not?"
+		-- Option One data
+		local player_choice_one = 'Hey Bird, where is the human?'
+		local bird_responses_one = {
+			"A little me said that they were by the front of the house, Say, have you noticed something amiss?",
+			"Oh, I'm sure it's nothing. I have just been hearing that the rodents seem to be riled",
+			"Fare thee well"	
+		}
+		local player_responses_one = {
+			"Not yet. Whats going on?",
+			"This time of year? Well, as long as they don't come near me. Goodbye, Bird."
+		}
+		-- Option two data (QUEST OPTION)
+		local player_choice_two = 'What else is going on?'
+		local bird_responses_two = {
+			"I don't know about anything else going on, but...",
+			"You should try talking to your new owner to see if she wants something from you!"
+		}
+		local player_yes_response = "You're right, i'll go do that"
+		local player_no_response = "No, I don't think so"
+		--[[ END These are the only variables you need to change ]]
+		
+		-- Creating conversation table to store information in
+		self.bird_conversation = conversation_func.get_conversation_table()
+
+		-- Setting conversation values
+		conversation_func.set_npc_greeting(self.bird_conversation, bird_greeting)
+		conversation_func.set_npc_name(self.bird_conversation, bird_name)
+
+		-- Option one
+		conversation_func.set_player_option(self.bird_conversation, 'option_one', player_choice_one)
+		conversation_func.set_npc_responses(self.bird_conversation, 'option_one', bird_responses_one) 
+		conversation_func.set_player_responses(self.bird_conversation, 'option_one', player_responses_one)
+
+		-- Option two (Quest option)
+		conversation_func.set_player_option(self.bird_conversation, 'option_two', player_choice_two)
+		conversation_func.set_npc_quest_request(self.bird_conversation, 'option_two', bird_responses_two, bird_responses_two[2], quest_name) 
+		conversation_func.set_player_quest_responses(self.bird_conversation, player_yes_response, player_no_response)	
+
+	elseif message_id == hash("quest_data") then
+		conversation_func.set_quest(self.bird_conversation, message)
+		-- player.script sends message letting npc know to send its conversation data to the conversation 
+		-- user interface which automatically opens and starts conversation
+
+	elseif message_id == hash("start_conversation") then
+		msg.post("main:/conversationGUI#gui", "npc_conversation", self.bird_conversation)
+	
+	-- This message is sent if the player accepts the quest, sent from conversationUI
+	elseif message_id == hash("quest_accepted") then
+		msg.post("#npc", "quest_accepted")
+	end
+end

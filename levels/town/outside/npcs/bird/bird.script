@@ -1,72 +1,12 @@
--- Include the module to create a conversation and quest
-local create_conversation = require "creation_modules/create_conversation"
-local create_quest = require "creation_modules/quests/create_quest"
+local npc = require "creation_modules/npcs/npc"
 
+-- AI behavior should be moved into a seperate script
 function init(self)
-	-- Conversation table data
-	local bird_name = "Bird"
-	local bird_greeting = "Hello Cat! Glorious morning, is it not?"
-	
-	-- Option One data
-	local player_choice_one = 'Hey Bird, where is the human?'
-	local bird_responses_one = {
-		"A little me said that they were by the front of the house, Say, have you noticed something amiss?",
-		"Oh, I'm sure it's nothing. I have just been hearing that the rodents seem to be riled",
-		"Fare thee well"	
-	}
-	local player_responses_one = {
-		"Not yet. Whats going on?",
-		"This time of year? Well, as long as they don't come near me. Goodbye, Bird."
-	}
-	
-	-- Option two data (QUEST OPTION)
-	local player_choice_two = 'What else is going on?'
-	local bird_responses_two = {
-		"I don't know about anything else going on, but...",
-		"You should try talking to your new owner to see if she wants something from you!"
-	}
-	local player_yes_response = "You're right, i'll go do that"
-	local player_no_response = "No, I don't think so"
-					
-	-- Quest table data
-	local quest_name = 'Talk to Owner'
-	local quest_description = 'The local bird has asked you to talk to your new owner'
-	local quest_giver = 'Bird'
-	local gold_reward = 1337
-	local exp_reward = 100
-	local npc_to_talk_to = 'Owner'	
-	
-	-- Creating quest
-	self.bird_quest = create_quest.get_quest_table()
-	
-	-- Set quest values
-	create_quest.set_talk_quest(self.bird_quest, npc_to_talk_to)
-	create_quest.set_quest_name(self.bird_quest, quest_name)
-	create_quest.set_quest_description(self.bird_quest, quest_description)
-	create_quest.set_quest_reward(self.bird_quest, exp_reward, gold_reward)
-	create_quest.set_quest_giver(self.bird_quest, quest_giver)
-					
-	-- Creating conversation table to store information in
-	self.bird_conversation = create_conversation.get_conversation_table()
-	
-	-- Setting conversation values
-	create_conversation.set_npc_greeting(self.bird_conversation, bird_greeting)
-	create_conversation.set_npc_name(self.bird_conversation, bird_name)
-	
-	-- Option one
-	create_conversation.set_player_option(self.bird_conversation, 'option_one', player_choice_one)
-	create_conversation.set_npc_responses(self.bird_conversation, 'option_one', bird_responses_one) 
-	create_conversation.set_player_responses(self.bird_conversation, 'option_one', player_responses_one)
-	
-	-- Option two (Quest option)
-	create_conversation.set_player_option(self.bird_conversation, 'option_two', player_choice_two)
-	create_conversation.set_npc_quest_request(self.bird_conversation, 'option_two', bird_responses_two, bird_responses_two[2], quest_name) 
-	create_conversation.set_player_quest_responses(self.bird_conversation, player_yes_response, player_no_response)	
-	
-	create_conversation.set_quest(self.bird_conversation, self.bird_quest)
-	
-	-- Testing table
-	-- pprint(self.bird_conversation)
+	self.npc_table = npc.create_npc("Bird")
+	npc.set_has_quest(self, true)
+	npc.set_has_conversation(self, true)
+	-- TODO Change name based on go.property() input, using hashes???
+	--npc.set_name(self, go.get("#", hash("name")))
 
 	-- Stuff to test movement
 	--[[
@@ -87,11 +27,25 @@ function update(self, dt)
 	end
 	self.yPos = self.yPos + 10
 	]]
+	-- Could be more efficient to check if player has left range rather than constantly checking
+	npc.disable_chat_bubble()
+	npc.disable_quest_bubble()
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("start_conversation") then
-		msg.post("main:/conversationGUI#gui", "npc_conversation", self.bird_conversation)
+	-- Should also check for quest availability to change bubble type
+	if message_id == hash("player_in_range") and npc.has_conversation(self) then
+		if npc.has_quest(self) then
+			npc.enable_quest_bubble()
+		else
+			npc.enable_chat_bubble()
+		end
+
+		-- Quest data is sent if a quest is added to the npc
+	elseif message_id == hash("quest_accepted") then
+		npc.set_has_quest(self, false)
+	elseif message_id == hash("quest_completed") then
+		pprint("QUEST COMPLETE WOO")
 	end
 end
 

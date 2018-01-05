@@ -13,6 +13,9 @@ images {
 images {
   image: "/creation_modules/npcs/npc_images/bird.png"
 }
+images {
+  image: "/creation_modules/npcs/npc_images/owner_new.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

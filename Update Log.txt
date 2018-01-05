@@ -5,3 +5,8 @@ Jan 4 2018:
 + Started work on refactoring all non-code object names to camelCase
 + Pretty much done changing all spacing to tabs
 + Should start using hashes so I can use go.property() 's 
+
+Jan 5 2018:
++ Fully seperated quests and conversations from npc scripts, now they are created in their own seperate scripts
++ Updated owner sprite
++ Also fixed bird game object and scripts

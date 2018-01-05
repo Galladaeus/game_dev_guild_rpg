@@ -1,0 +1,72 @@
+local conversation_func = require "creation_modules/conversations/create_conversation"
+
+function init(self)
+
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("init_npc") then
+		npc_data = message
+		-- TODO Post a message to somewhere that the player has talked to the owner
+		msg.post(receiver, "talked_to_npc", {"Owner"})
+
+		--[[ These are the only variables you need to change ]]--
+		-- Use default greeting
+		local player_choice_one = 'Listen to owner'
+		local owner_responses_one = {
+			"I found the rats who have been ruining our crops",
+			"They're nested in out basement, but I can't get into that corner",
+			"Would you be able to take care of that for me?",
+			"Oh don't look at me like that.",
+			"A couple of good swipes at them and they'll be gone for good.",
+			"How about I give you a treat afterwards?",
+			"I knew I could count on you! Now go get 'em."
+		}
+		local player_responses_one = {
+			"Continue listening",
+			"Continue listening",
+			"What? That's disgusting! Rats are filthy and carry disease. Can't you find another way to do it?"
+		}
+		local player_yes_response = "Fine!Fine! But you owe me, you hear?"
+		local player_no_response = "Hell no! You can't bribe me!"
+		--[[ END These are the only variables you need to change ]]--
+
+		-- Creating default conversation table
+		self.owner_conversation = conversation_func.get_conversation_table()
+
+		-- Setting conversation values
+		conversation_func.set_npc_name(self.owner_conversation, npc_data.name)
+		-- Option one
+		conversation_func.set_player_option(self.owner_conversation, 'option_one', player_choice_one)
+		conversation_func.set_npc_quest_request(self.owner_conversation, 'option_one', owner_responses_one, owner_responses_one[6], 'Rat killer') 
+		conversation_func.set_player_responses(self.owner_conversation, 'option_one', player_responses_one)
+		conversation_func.set_player_quest_responses(self.owner_conversation, player_yes_response, player_no_response)
+
+	elseif message_id == hash("quest_data") then
+		conversation_func.set_quest(self.owner_conversation, message)
+
+	-- player.script sends message letting npc know to send its conversation data to the conversation 
+	-- user interface which automatically opens and starts conversation
+	elseif message_id == hash("start_conversation") then
+		-- update_quest is temp for the bird test quest, update_quest data should be handled more elegantly, How?
+		msg.post("main:/questHandler", "update_quest", {quest_name = 'Talk to Owner', npc_talked_to = "Owner"})
+		msg.post("main:/conversationGUI#gui", "npc_conversation", self.owner_conversation)
+
+	-- This message is sent if the player accepts the quest, sent from conversationUI
+	elseif message_id == hash("quest_accepted") then
+		-- Player has accepted quest so change quest text to something else
+		-- TODO Change so that npc no longer has quest to give
+		conversation_func.set_npc_responses(self.owner_conversation, 'option_one', {'Come back once the rats are dead'})
+		msg.post("#owner", "quest_accepted")
+	end
+end

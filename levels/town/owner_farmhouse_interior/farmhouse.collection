@@ -21,26 +21,6 @@ instances {
   }
 }
 instances {
-  id: "bird"
-  prototype: "/levels/town/outside/npcs/bird/bird.go"
-  position {
-    x: 75.225
-    y: 456.459
-    z: 0.1
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
   id: "camera"
   prototype: "/player/camera/camera.go"
   position {

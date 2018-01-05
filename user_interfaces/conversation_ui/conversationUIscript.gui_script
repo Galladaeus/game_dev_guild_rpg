@@ -134,13 +134,13 @@ end
 local function accept_quest(self)
 	-- Ensure that a quest is actually included in the conversation table
 	if self.conversation_table.quest_table == nil then
-		error("Conversation table from "..self.npc_url.." has no quest table attached")
+		error("Conversation table from "..self.conversation_url.." has no quest table attached")
 	end
 				
 	-- Send out the fact that the quest has been accepted
 	pprint("Quest: '"..self.conversation_table.quest_table.quest_name.."' sent to quest handler from conversationUIscript")
 	msg.post("main:/questHandler", "add_quest", self.conversation_table.quest_table)
-	msg.post(self.npc_url, "quest_accepted")
+	msg.post(self.conversation_url, "quest_accepted")
 
 	-- Get rid of the decline quest button and continue with conversation
 	gui.set_enabled(self.player_choice_two, false)
@@ -168,7 +168,7 @@ function init(self)
 	self.conversation_table = {}
 		
 	-- Address holder for conversation sender
-	self.npc_url = nil
+	self.conversation_url = nil
 	
 	-- Set up GUI node access
 	self.npc_text = gui.get_node("npcText")
@@ -210,7 +210,7 @@ function on_message(self, message_id, message, sender)
 
 		-- Get NPC's address to send messages to, used to send messages back to NPC, 
 		-- for example if you want to change what NPC says if player says something
-		self.npc_url = sender
+		self.conversation_url = sender
 		
 		-- Initialize conversation variables
 		self.current_conversation = nil

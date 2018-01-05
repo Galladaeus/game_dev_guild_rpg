@@ -1,0 +1,42 @@
+local quest_func = require("creation_modules/quests/create_quest")
+local npc = require("creation_modules/npcs/npc")
+
+function init(self)
+
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("init_npc") then
+		--[[ Creating default quest table ]]--
+		self.data = quest_func.get_quest_table()
+
+		--------------------------------------------------------------------------------------
+		----------------[[ The only information you need to change ]]-------------------------
+		--------------------------------------------------------------------------------------
+		-- TODO The name data is repeated alot, see if I can make it more centralized, use hashes
+		-- and go.property()'s 
+		local quest_giver = message.name
+		local quest_name = 'Rat Killer'
+		local quest_description = 'Your new owner has asked you to kill 7 rats in her basement'
+		local gold_reward = 10
+		local exp_reward = 10
+		local enemy_type = 'rat'
+		local rats_to_kill = 7
+		-- TODO Make it so you dont have to complete quest from same npc
+		--------------------------------------------------------------------------------------
+		--------------[[ END The only information you need to change ]]-----------------------
+		--------------------------------------------------------------------------------------
+
+		--[[ Setting quest values in the actual table ]]--
+		quest_func.set_kill_quest(self.data, enemy_type, rats_to_kill)
+		quest_func.set_quest_name(self.data, quest_name)
+		quest_func.set_quest_description(self.data, quest_description)
+		quest_func.set_quest_reward(self.data, exp_reward, gold_reward)
+		quest_func.set_quest_giver(self.data, quest_giver)
+		--quest_func.set_quest_giver(self.data, npc.get_name(self))
+		quest_func.set_quest_completer(self.data, npc.get_npc_url())
+
+		msg.post("#owner", "quest_data", self.data)
+		msg.post("#conversation", "quest_data", self.data)
+	end
+end
