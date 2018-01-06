@@ -151,7 +151,7 @@ embedded_components {
   id: "sprite"
   type: "sprite"
   data: "tile_set: \"/creation_modules/npcs/npc_images/npc_images.atlas\"\n"
-  "default_animation: \"owner_new\"\n"
+  "default_animation: \"Owner\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""

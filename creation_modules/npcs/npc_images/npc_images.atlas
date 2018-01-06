@@ -8,13 +8,10 @@ images {
   image: "/creation_modules/npcs/npc_images/no_sprite_sign.png"
 }
 images {
-  image: "/creation_modules/npcs/npc_images/owner.png"
+  image: "/creation_modules/npcs/npc_images/Bird.png"
 }
 images {
-  image: "/creation_modules/npcs/npc_images/bird.png"
-}
-images {
-  image: "/creation_modules/npcs/npc_images/owner_new.png"
+  image: "/creation_modules/npcs/npc_images/Owner.png"
 }
 margin: 0
 extrude_borders: 0

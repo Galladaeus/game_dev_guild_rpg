@@ -9,13 +9,14 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("init_npc") then
 		--[[ Creating default quest table ]]--
 		self.data = quest_func.get_quest_table()
+		-- Getting name from the npc that the script is attached to
+		local quest_giver = message.name
 
 		--------------------------------------------------------------------------------------
 		----------------[[ The only information you need to change ]]-------------------------
 		--------------------------------------------------------------------------------------
 		-- TODO The name data is repeated alot, see if I can make it more centralized, use hashes
 		-- and go.property()'s 
-		local quest_giver = message.name
 		local quest_name = 'Rat Killer'
 		local quest_description = 'Your new owner has asked you to kill 7 rats in her basement'
 		local gold_reward = 10

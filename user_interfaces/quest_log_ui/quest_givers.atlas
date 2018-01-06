@@ -1,9 +1,0 @@
-images {
-  image: "/user_interfaces/quest_log_ui/quest_giver_images/Owner.png"
-}
-images {
-  image: "/user_interfaces/quest_log_ui/quest_giver_images/Bird.png"
-}
-margin: 0
-extrude_borders: 0
-inner_padding: 0

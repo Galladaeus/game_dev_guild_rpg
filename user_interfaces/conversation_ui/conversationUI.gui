@@ -1,4 +1,4 @@
-script: "/user_interfaces/conversation_ui/conversationUIscript.gui_script"
+script: "/user_interfaces/conversation_ui/conversationUI.gui_script"
 fonts {
   name: "system_font"
   font: "/builtins/fonts/system_font.font"
@@ -9,7 +9,7 @@ textures {
 }
 textures {
   name: "conversation_npcs"
-  texture: "/user_interfaces/conversation_ui/conversation_npcs.atlas"
+  texture: "/creation_modules/npcs/npc_images/npc_images.atlas"
 }
 background_color {
   x: 0.0
@@ -797,8 +797,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 128.0
-    y: 128.0
+    x: 96.0
+    y: 96.0
     z: 0.0
     w: 1.0
   }
@@ -810,7 +810,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "conversation_npcs/Owner"
+  texture: "conversation_npcs/no_sprite_sign"
   id: "npcImage"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

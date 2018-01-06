@@ -3,6 +3,7 @@ local npc = require "creation_modules/npcs/npc"
 -- self.npc.get_properties()
 go.property("quest", hash("none"))
 go.property("name", hash("none"))
+go.property("image to use", hash(""))
 
 -- AI behavior should be moved into a seperate script
 function init(self)
@@ -35,4 +36,3 @@ function on_message(self, message_id, message, sender)
 		pprint("QUEST COMPLETE WOO")
 	end
 end
-	

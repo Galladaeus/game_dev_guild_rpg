@@ -1,15 +1,22 @@
 -- This is the script that processes in-progress quests
 
 --[[
-Function chain goes like this: 
-quest_update message received-->update_quest()-->update_type_quest()-->check_quest_complete()-->set_quest_complete() if complete
-]]
+Quest Update Chain: 
+-------------------
+1. quest_update message received from elsewhere:
+2. update_quest()-->
+3. update_type_quest()-->
+4. check_quest_complete()-->
+5. (*only if complete)set_quest_complete()
+-------------------
+--]]
 
 --[[ Sets quest complete on npc(Make sure to set quest_completed msg received on competing npc) ]]
 local function set_quest_complete(self, quest_number)	
 	self.current_quests[quest_number].quest_complete = true
 	
-	-- Send completion message to the npc that you complete quest at, set in npc quest giver using quest_creation.lua module
+	-- Send completion message to the quest_script attached to npc that you complete quest at, 
+	-- set a message_id == hash("quest_completed") in the quest script to change anything
 	msg.post(self.current_quests[quest_number].quest_completer_address, "quest_completed", {self.current_quests[quest_number].quest_name})
 	
 	-- Send message to quest log to visually let player know quest is complete
@@ -23,7 +30,7 @@ local function set_quest_complete(self, quest_number)
 	-- Log message for debug purposes
 	pprint("Updated current_quests: ")
 	pprint(self.current_quests)
-	pprint("\nNumber of Quests: "..self.number_of_quests.." In quest_handler.script")
+	pprint("quest_handler.script: Number of Quests: "..self.number_of_quests)
 end
 
 -- [[ Checks if a quest is a completed, called from update_quest functions ]]
@@ -77,8 +84,8 @@ local function add_quest(self, quest_table)
 	-- Make sure quest isn't already being handled before adding
 	for i in pairs(self.current_quests) do
 		pprint('searching for quest')
-		if self.currentquests[i].quest_name == quest_table.quest_name then
-			error("Tried to add quest: "..quest_table.quest_name.." to quest_handler that player already has")
+		if self.current_quests[i].quest_name == quest_table.quest_name then
+			error("Tried to add quest: ["..quest_table.quest_name.."] to quest_handler, but quest is already in quest handler")
 		end
 	end
 	-- Quest wasn't found so add it to the quest_handler
@@ -104,7 +111,8 @@ local function add_quest(self, quest_table)
 		error("Unrecognized quest type: "..quest_table.quest_type.." \nNAME: "..quest_table.quest_name.." sent to add_quest()\n"..
 		"Add type to add_quest() in quest_handler.script, or use a recognized quest type")
 	end
-	pprint("Quest:"..quest_table.quest_name.." added to quest handler")
+	pprint("quest_handler.script: Quest:["..quest_table.quest_name.."] added to quest handler")
+	pprint("quest_handler.script: There are ["..self.number_of_quests.."] in self.current_quests")
 end
 
 function init(self)
@@ -119,15 +127,15 @@ function on_message(self, message_id, message, sender)
 		local quest_table = message
 		add_quest(self, quest_table)
 		
-		-- After adding quest to backend, send to quest_log to be displayed  	
-    	msg.post("questLog", "quest_table", message)
-    	
-    elseif message_id == hash("update_quest") then
-    	update_quest(self, message)
-    end
-    
-    -- Test message for quest completion
-    if message_id == hash("debug_quest_complete") then
-    	set_quest_complete(self, 1)
+		-- After adding quest to backend, send to quest_log to be displayed
+		msg.post("questLog", "quest_table", message)
+
+	elseif message_id == hash("update_quest") then
+		update_quest(self, message)
+	end
+
+	-- Test message for quest completion
+	if message_id == hash("debug_quest_complete") then
+		set_quest_complete(self, 1)
 	end
 end

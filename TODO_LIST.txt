@@ -19,9 +19,10 @@ TODO Create system, player will move a set distance each press, unless no enemy 
 
 
 	Quest System:
-TODO figure out quest structure to be passed around
+---TODO figure out quest structure to be passed around
 TODO system that handles updating quests
-TODO Update quest log to add quests to list rather than just change the only one
+---TODO Update quest log to add quests to list rather than just change the only one
+TODO Add individual complete stamps for each quest box
 
 
 	World Transfer System:

@@ -1,70 +1,89 @@
 --[[ Adds a quest to the quest list ]]
-local function add_quest(self, quest_table)
+local function add_quest(self, quest_table, quest_number)
 	-- TODO Create a new quest description window for each quest, i.e. clicking on different
 	-- quests brings up different quest windows
-	gui.set_text(self.quest_description, quest_table.quest_description)
-	gui.set_text(self.quest_name, quest_table.quest_name)
-	gui.set_text(self.quest_giver_name, quest_table.quest_giver)
+	gui.set_text(gui.get_node("questDescription"..quest_number), quest_table.quest_description)
+	gui.set_text(gui.get_node("questName"..quest_number), quest_table.quest_name)
+	gui.set_text(gui.get_node("questGiverName"..quest_number), quest_table.quest_giver)
+	gui.set_text(gui.get_node("questButton"..quest_number), quest_table.quest_name)
 	-- Set image to correct npc
-	gui.set_texture(self.quest_giver_image, hash("quest_givers")) -- Once all images are in this texture this line is unneeded
-	gui.play_flipbook(self.quest_giver_image, hash(quest_table.quest_giver))
+	gui.play_flipbook(gui.get_node("questGiverImage"..quest_number), hash(quest_table.quest_giver))
+	-- Enable the new quest button to show up in the quest log
+	gui.set_enabled(gui.get_node("questButton"..quest_number), true)
+	-- Let list know that the quest_number is now associated with a quest
+	self.quest_list[quest_number] = true
 end
 
 function init(self)
-	self.numberOfQuests = 0
+	local max_number_of_quests = 10
 	
 	self.quest_log = gui.get_node("questLog")
-	self.quest_description_window = gui.get_node("questDescriptionBox")
+	self.description_open = false
+	-- Used to keep track of which quest buttons should be selectable
 	
+	self.quest_list = {}
+	for i=1,max_number_of_quests do
+		self.quest_list[i] = false
+		gui.set_enabled(gui.get_node("questDescriptionBox"..i), false)
+		gui.set_enabled(gui.get_node("questButton"..i), false)
+	end
+
 	gui.set_enabled(self.quest_log, false)
-	gui.set_enabled(self.quest_description_window, false)
-	
-	self.quest_description = gui.get_node("questDescription")
-	self.quest_name = gui.get_node("questName")
-	self.quest_giver_name = gui.get_node("questGiverName")
-	self.quest_giver_image = gui.get_node("questGiverImage")
+
 	self.quest_complete_text = gui.get_node("questCompleteText")
-	
-	gui.set_enabled(self.quest_complete_text, false)
-	
 	self.back_button = gui.get_node("backButton")
+
+	gui.set_enabled(self.quest_complete_text, false)
 end
 
 function on_message(self, message_id, message, sender)
 	-- Player opens quest log through main menu
-    if message_id == hash("open_quest_log") then
-    	gui.set_enabled(self.quest_log, true)
-    	msg.post(".", "acquire_input_focus")
-    	
+	if message_id == hash("open_quest_log") then
+		gui.set_enabled(self.quest_log, true)
+		msg.post(".", "acquire_input_focus")
+
 	-- Quest log gui recieves and places a new quest into the quest log
 	elseif message_id == hash("quest_table") then
-    	local quest_table = message
-    	add_quest(self, quest_table)
-		self.numberOfQuests = self.numberOfQuests + 1
-
+		local quest_table = message
+		for i,v in ipairs(self.quest_list) do
+			if not v then
+				add_quest(self, quest_table, i)
+			break end
+		end
 	elseif message_id == hash("quest_complete") then
 		-- TODO Full function that recieves a quest_name and updates a specific quest in the log based
 		-- on the quest_name
 		gui.set_enabled(self.quest_complete_text, true)		
-    end
+	end
 end
 
 function on_input(self, action_id, action)
 	if action_id == hash("mouse_press") and action.pressed then
 		local x = action.x
 		local y = action.y
-				
-		if gui.pick_node(gui.get_node("firstQuest"), x, y) then   
-			gui.set_enabled(self.quest_description_window, true)
-			
+
+		-- Iterate through the values in the quest list to find which button was selected
+		-- and whether or not it is associated to a quest
+		for i,has_quest in ipairs(self.quest_list) do
+			if gui.pick_node(gui.get_node("questButton"..i), x, y) and has_quest and not self.description_open then
+				gui.set_enabled(gui.get_node("questDescriptionBox"..i), true)
+				self.description_open = true
+				pprint("quest_log_gui.gui_script: selected quest["..i.."]")
+			break end
+		end
+
 		-- The 'back' button returns to the main menu
-		elseif gui.pick_node(self.back_button, x, y) then
-			gui.set_enabled(self.quest_description_window, false)
+		if gui.pick_node(self.back_button, x, y) then
+			self.description_open = false
+			for i,v in ipairs(self.quest_list) do
+				gui.set_enabled(gui.get_node("questDescriptionBox"..i), false)
+			end
 			gui.set_enabled(self.quest_log, false)
 			msg.post(".", "release_input_focus")
 			msg.post("mainMenu", "open_main_menu")
 		end
 	end
-	
+	-- As long as input is being listened to returning true will consume input so controls
+	-- are disabled for player character movement and other game objects listening to input
 	return true
 end

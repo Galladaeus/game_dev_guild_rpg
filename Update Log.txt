@@ -10,3 +10,12 @@ Jan 5 2018:
 + Fully seperated quests and conversations from npc scripts, now they are created in their own seperate scripts
 + Updated owner sprite
 + Also fixed bird game object and scripts
+
+Jan 6 2018"
++ Refactored Quest Log Gui:
+	+ Made it so that Multiple quests can now be listed in the quest list
+	+ Each quest has its own button, description, title, npc pic, etc.
++ Started work on making the quest_handler.script more robust and useful
++ Fixed some error messages so now they post where they are being posted from
++ Made it so all images now come from the npc_images.atlas rather than npc images being spread all over
++ ~Added sound but was unable to sync with the large .wav file, need to figure out how to compress or override that

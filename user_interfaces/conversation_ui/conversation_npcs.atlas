@@ -1,9 +1,0 @@
-images {
-  image: "/user_interfaces/conversation_ui/conversation_npc_images/Bird.png"
-}
-images {
-  image: "/user_interfaces/conversation_ui/conversation_npc_images/Owner.png"
-}
-margin: 0
-extrude_borders: 0
-inner_padding: 0
