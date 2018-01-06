@@ -1,6 +1,6 @@
 TODO LIST:
 
-TODO Document how all the systems work as well as how i am naming things
+FINAL TODO Document how all the systems work as well as how i am naming things
 
 	Conversation System:
 		PROGRAMMATIC:
@@ -8,6 +8,7 @@ TODO make it so that all text appears in main text box, buttons are just for con
 TODO Maybe replace self with all conversation table params, then all conversation tables have to be named the same thing but it will make it simpler, easier to copy and paste conversations
 TODO npc picture needs to change based on who player is talking to
 TODO check_argument_validity() in create_conversation should check type as well
+TODO Refactor the way it selects images, so it selects from npc_images in the shared npc images pool
 
 	GUI ELEMENTS:
 TODO create graphical ui elements
@@ -19,13 +20,12 @@ TODO Create system, player will move a set distance each press, unless no enemy 
 
 	Quest System:
 TODO figure out quest structure to be passed around
-TODO create module for creating quests
 TODO system that handles updating quests
 TODO Update quest log to add quests to list rather than just change the only one
 
 
 	World Transfer System:
-TODO Figure out how to use triggers to load player into different worlds
+TODO re-Figure out how to use triggers to load player into different worlds
 	UPDATE: Figured out issue with triggers, now need to work on understanding
 	proxy collections and best way to transfer in between locations
 
@@ -34,4 +34,8 @@ TODO Create a script that automates the creation of a npc with variables that wi
 	i.e. sprite data, npc name, etc. Also can use data to automatically fill in certain information when creating
 	conversations/quests
 TODO NPC images and creation should be seperate from their levels, to allow certain shared elements, like chat bubbles
-TODO NPC needs a boilerplate code to avoid alot of duplication, as mentioned above, also deal with chat bubble popping up,etc.
+---TODO NPC needs a boilerplate code to avoid alot of duplication, as mentioned above, also deal with chat bubble popping up,etc.
+
+	MUSIC:
+TODO Add music from videos that Genji posted
+TODO Attribute music in documentation/manual
