@@ -11,7 +11,7 @@ Jan 5 2018:
 + Updated owner sprite
 + Also fixed bird game object and scripts
 
-Jan 6 2018"
+Jan 6 2018:
 + Refactored Quest Log Gui:
 	+ Made it so that Multiple quests can now be listed in the quest list
 	+ Each quest has its own button, description, title, npc pic, etc.
@@ -19,3 +19,10 @@ Jan 6 2018"
 + Fixed some error messages so now they post where they are being posted from
 + Made it so all images now come from the npc_images.atlas rather than npc images being spread all over
 + ~Added sound but was unable to sync with the large .wav file, need to figure out how to compress or override that
+
+Jan 8 2018:
++ Added quest complete button to completed quests so player can collect reward
++ Made it so quests completed and collected are removed from the quest list
++ Now quests are properly handled when completed in quest_log_gui.gui_script
++ Now clicking on different quests in the quest log gui changes to the other quest description
++ TODO Tomorrow, add an archived quests tab to store fully completed and collected quests

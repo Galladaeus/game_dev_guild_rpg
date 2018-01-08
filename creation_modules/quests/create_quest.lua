@@ -37,7 +37,8 @@ local function check_argument_validity(function_name, expected_type, ...)
 	given_types = {...}
 	for i,v in pairs(given_types) do
 		if type(v) ~= expected_type then
-			error(function_name.." received incorrect param type '"..type(v).."' with value '"..tostring(v).." instead of '"..expected_type"'")
+			error(function_name.." received incorrect param type ["..type(v).."] with value ["
+			..tostring(v).."] instead of expected type ["..expected_type.."]")
 		end
 	end
 end

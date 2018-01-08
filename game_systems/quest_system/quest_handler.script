@@ -130,6 +130,9 @@ function on_message(self, message_id, message, sender)
 		-- After adding quest to backend, send to quest_log to be displayed
 		msg.post("questLog", "quest_table", message)
 
+	elseif message_id == hash("reward_player") then
+		pprint("quest_handler.script: TODO Send reward to player stats")
+
 	elseif message_id == hash("update_quest") then
 		update_quest(self, message)
 	end

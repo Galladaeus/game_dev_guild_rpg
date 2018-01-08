@@ -1,18 +1,6 @@
 local conversation_func = require "creation_modules/conversations/create_conversation"
 
-function init(self)
-
-end
-
-function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
-end
-
-function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
-end
+function init(self) end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("init_npc") then

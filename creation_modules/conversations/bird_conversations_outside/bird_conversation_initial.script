@@ -1,3 +1,12 @@
+--[[
+IMPORTANT TODO Put conversation variables in conversation that change the conversation before sending it 
+to the conversation_gui, for example 
+self.has_talked_to_owner = false
+then check for that and alter conversation based on that
+set_player_option(self.bird_conversation, "option_two", nil)
+to disable second option
+]]--
+
 local conversation_func = require "creation_modules/conversations/create_conversation"
 
 function init(self) end

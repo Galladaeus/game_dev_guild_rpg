@@ -1,7 +1,10 @@
+-- +++ TODO Clicking on a different quest in the list changes the quest
+-- +++ TODO Fix complete quest system
+	-- Task passed to quest_handler.script for player rewards
+-- +++ TODO When a quest is fully completed, remove it from the log
+
 --[[ Adds a quest to the quest list ]]
 local function add_quest(self, quest_table, quest_number)
-	-- TODO Create a new quest description window for each quest, i.e. clicking on different
-	-- quests brings up different quest windows
 	gui.set_text(gui.get_node("questDescription"..quest_number), quest_table.quest_description)
 	gui.set_text(gui.get_node("questName"..quest_number), quest_table.quest_name)
 	gui.set_text(gui.get_node("questGiverName"..quest_number), quest_table.quest_giver)
@@ -11,29 +14,74 @@ local function add_quest(self, quest_table, quest_number)
 	-- Enable the new quest button to show up in the quest log
 	gui.set_enabled(gui.get_node("questButton"..quest_number), true)
 	-- Let list know that the quest_number is now associated with a quest
-	self.quest_list[quest_number] = true
+	self.quest_list[quest_number].has_quest = true
+end
+
+-- Sets quest complete text on quest that is finished
+local function set_quest_complete(self, quest_name)
+	for i,v in ipairs(self.quest_list) do
+		if v.has_quest then
+			if gui.get_text(gui.get_node("questName"..i)) == quest_name then
+				gui.set_enabled(gui.get_node("questCompleteText"..i), true)
+				v.quest_complete = true
+			end
+		end
+	end
+end
+
+-- Removes a quest from the quest list, ideally the other quests will be pushed up
+-- if the quest removed is above them, also add to an archived quest list
+local function remove_quest(self, quest_number)
+	self.quest_list[quest_number].has_quest=false
+	self.quest_list[quest_number].quest_complete=false
+	gui.set_enabled(gui.get_node("questButton"..quest_number), false)
+end
+
+local function open_quest_description(self, quest_number)
+	gui.set_enabled(gui.get_node("questDescriptionBox"..quest_number), true)
+	self.description_open = true
+	self.current_quest_open = quest_number
+	
+	--pprint("quest_log_gui.gui_script: selected quest["..quest_number.."]")
+	
+	-- If the quest is completed allow player to collect reward
+	if self.quest_list[quest_number].quest_complete then
+		gui.set_enabled(self.collect_reward_button, true)
+	end
+end
+
+local function close_quest_description(self, quest_number)
+	gui.set_enabled(gui.get_node("questDescriptionBox"..quest_number), false)
+	gui.set_enabled(self.collect_reward_button, false)
+	self.description_open = false
+	self.current_quest_open = nil
+	
+	--pprint("quest_log_gui.gui_script: closed quest_description["..quest_number.."]")
 end
 
 function init(self)
 	local max_number_of_quests = 10
-	
+
 	self.quest_log = gui.get_node("questLog")
 	self.description_open = false
+	self.current_quest_open = nil
+
 	-- Used to keep track of which quest buttons should be selectable
-	
 	self.quest_list = {}
+	-- Disable all buttons and descriptions, and fill quest list
 	for i=1,max_number_of_quests do
-		self.quest_list[i] = false
+		table.insert(self.quest_list, i, {has_quest = false, quest_complete = false})
 		gui.set_enabled(gui.get_node("questDescriptionBox"..i), false)
 		gui.set_enabled(gui.get_node("questButton"..i), false)
+		gui.set_enabled(gui.get_node("questCompleteText"..i), false)
 	end
 
-	gui.set_enabled(self.quest_log, false)
-
-	self.quest_complete_text = gui.get_node("questCompleteText")
+	-- Prehash gui back button
 	self.back_button = gui.get_node("backButton")
+	self.collect_reward_button = gui.get_node("questRewardBox")
 
-	gui.set_enabled(self.quest_complete_text, false)
+	gui.set_enabled(self.quest_log, false)
+	gui.set_enabled(self.collect_reward_button, false)
 end
 
 function on_message(self, message_id, message, sender)
@@ -46,14 +94,13 @@ function on_message(self, message_id, message, sender)
 	elseif message_id == hash("quest_table") then
 		local quest_table = message
 		for i,v in ipairs(self.quest_list) do
-			if not v then
+			if not v.has_quest then
 				add_quest(self, quest_table, i)
 			break end
 		end
+
 	elseif message_id == hash("quest_complete") then
-		-- TODO Full function that recieves a quest_name and updates a specific quest in the log based
-		-- on the quest_name
-		gui.set_enabled(self.quest_complete_text, true)		
+		set_quest_complete(self, message[1])	
 	end
 end
 
@@ -64,19 +111,29 @@ function on_input(self, action_id, action)
 
 		-- Iterate through the values in the quest list to find which button was selected
 		-- and whether or not it is associated to a quest
-		for i,has_quest in ipairs(self.quest_list) do
-			if gui.pick_node(gui.get_node("questButton"..i), x, y) and has_quest and not self.description_open then
-				gui.set_enabled(gui.get_node("questDescriptionBox"..i), true)
-				self.description_open = true
-				pprint("quest_log_gui.gui_script: selected quest["..i.."]")
-			break end
+		for i,v in ipairs(self.quest_list) do
+			if gui.pick_node(gui.get_node("questButton"..i), x, y) and v.has_quest and not self.description_open then
+				open_quest_description(self, i)
+			elseif gui.pick_node(gui.get_node("questButton"..i), x, y) and v.has_quest and self.description_open then
+				close_quest_description(self, self.current_quest_open)
+				open_quest_description(self, i)
+			end
 		end
 
+		-- If quest is complete and quest window is open to completed quest, allow player to collect reward
+		if gui.pick_node(self.collect_reward_button, x, y) and self.quest_list[self.current_quest_open].quest_complete then
+			-- Send quest name to quest_handler.script and send reward to player from there
+			msg.post("main:/questHandler#questData", "reward_player", {gui.get_text(gui.get_node("questName"..self.current_quest_open))})
+			gui.set_enabled(self.collect_reward_button, false)
+			--TODO should move quest to an archive at this point
+			remove_quest(self, self.current_quest_open)
+			pprint("Reward Collected!")
+
 		-- The 'back' button returns to the main menu
-		if gui.pick_node(self.back_button, x, y) then
-			self.description_open = false
-			for i,v in ipairs(self.quest_list) do
-				gui.set_enabled(gui.get_node("questDescriptionBox"..i), false)
+		elseif gui.pick_node(self.back_button, x, y) then
+			-- Check if there is a quest open that needs to be closed
+			if self.current_quest_open ~= nil then
+				close_quest_description(self, self.current_quest_open)
 			end
 			gui.set_enabled(self.quest_log, false)
 			msg.post(".", "release_input_focus")
