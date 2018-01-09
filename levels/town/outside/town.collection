@@ -137,7 +137,7 @@ embedded_instances {
   "  }\n"
   "  properties {\n"
   "    id: \"other_world\"\n"
-  "    value: \"farmhouse_interior\"\n"
+  "    value: \"farmhouse\"\n"
   "    type: PROPERTY_TYPE_HASH\n"
   "  }\n"
   "}\n"

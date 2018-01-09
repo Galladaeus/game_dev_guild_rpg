@@ -64,9 +64,16 @@ end
 function init(self)
 	msg.post(".", "acquire_input_focus")
 
+	-- Sends current player location to message hub, so any script that needs to send 
+	-- any messages to the current level game objects have the socket needed
+	player_url = msg.url()
+	--pprint("player.script: Current player URL: "..player_url.socket)
+	--pprint("player.script: Current Collection: "..player_url.socket)
+	msg.post("main:/controller#message_hub", "player_location", { player_url.socket })
+
 	self.vel = vmath.vector3() -- Position of player
-	self.animation_playing = nil							-- Checks if animation is playing
-	self.in_range_of_npc = false				-- Keep track if player is in range to start conversation
+	self.animation_playing = nil -- Checks if animation is playing
+	self.in_range_of_npc = false -- Keep track if player is in range to start conversation
 	--self.inBattle = false
 	self.dir = vmath.vector3(0, 1, 0)
 	self.npc_address = nil

@@ -74,6 +74,8 @@ function on_message(self, message_id, message, sender)
 		gui.set_text(self.current_hp, message.current_hp)
 		check_ears(self)
 		update_heart(self)
+		
+		pprint(sender)
 	end
 	if message_id == hash("set_max_hp") then
 		gui.set_text(self.max_health, message.max_hp)

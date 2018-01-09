@@ -15,9 +15,9 @@ function on_message(self, message_id, message, sender)
 		msg.post(message.current_world_url, "unload")
 	end
 	
-    if message_id == hash("proxy_loaded") then 	-- Once collection is loaded, initialize and enable collection
-    	msg.post(sender, "init")	-- init recursively initializes all objects in collection			
-    	msg.post(sender, "enable")	-- enable recursively enables all the objects contained in the collection
-    	-- you only need to send enable by itself, init just gives finer control over initialization process
-    end
+	if message_id == hash("proxy_loaded") then 	-- Once collection is loaded, initialize and enable collection
+		msg.post(sender, "init")	-- init recursively initializes all objects in collection			
+		msg.post(sender, "enable")	-- enable recursively enables all the objects contained in the collection
+		-- you only need to send enable by itself, init just gives finer control over initialization process
+	end
 end

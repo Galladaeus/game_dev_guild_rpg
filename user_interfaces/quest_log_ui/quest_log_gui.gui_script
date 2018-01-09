@@ -35,6 +35,7 @@ local function remove_quest(self, quest_number)
 	self.quest_list[quest_number].has_quest=false
 	self.quest_list[quest_number].quest_complete=false
 	gui.set_enabled(gui.get_node("questButton"..quest_number), false)
+	gui.set_enabled(gui.get_node("questCompleteText"..quest_number), false)
 end
 
 local function open_quest_description(self, quest_number)

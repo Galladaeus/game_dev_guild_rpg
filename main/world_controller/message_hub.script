@@ -1,0 +1,13 @@
+-- This script handles passing out information that is needed in various scripts
+-- whenever a new level is loaded, for example when the player goes through the door
+
+function init(self) end
+function final(self) end
+
+function on_message(self, message_id, message, sender)
+	-- This is used so that the quest_handler.script can send the reward to the player regardless of level
+	if message_id == hash("player_location") then
+		--pprint("message_hub.script: Received player location at "..message[1].." now sending to questHandler#questData")
+		msg.post("main:/questHandler#questData", "player_location", message)
+	end
+end

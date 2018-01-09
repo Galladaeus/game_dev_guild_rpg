@@ -1,4 +1,4 @@
-name: "default"
+name: "farmhouse"
 instances {
   id: "player"
   prototype: "/player/player.go"
@@ -633,7 +633,7 @@ embedded_instances {
   "  }\n"
   "  properties {\n"
   "    id: \"current_world\"\n"
-  "    value: \"farmhouse_interior\"\n"
+  "    value: \"farmhouse\"\n"
   "    type: PROPERTY_TYPE_HASH\n"
   "  }\n"
   "  properties {\n"

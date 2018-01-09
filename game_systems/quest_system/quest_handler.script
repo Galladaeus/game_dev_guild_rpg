@@ -7,30 +7,33 @@ Quest Update Chain:
 2. update_quest()-->
 3. update_type_quest()-->
 4. check_quest_complete()-->
-5. (*only if complete)set_quest_complete()
+5. (*only if complete)set_quest_completable()
 -------------------
 --]]
 
---[[ Sets quest complete on npc(Make sure to set quest_completed msg received on competing npc) ]]
-local function set_quest_complete(self, quest_number)	
+--[[ Removes the quest from the quest handler ]]
+local function remove_quest(self, quest_number)
+	pprint("quest_handler.script: Removing Quest:"..self.current_quests[quest_number].quest_name)
+	
+	table.remove(self.current_quests, quest_number)
+	self.number_of_quests = self.number_of_quests - 1
+
+	-- Log message for debug purposes
+	pprint("quest_handler.script: Updated current_quests: ")
+	pprint(self.current_quests)
+	pprint("quest_handler.script: Number of Quests: "..self.number_of_quests)
+end
+
+--[[ Sets quest complete on npc(Make sure to set quest_completed msg received on completing npc) ]]
+local function set_quest_completable(self, quest_number)	
 	self.current_quests[quest_number].quest_complete = true
 	
 	-- Send completion message to the quest_script attached to npc that you complete quest at, 
 	-- set a message_id == hash("quest_completed") in the quest script to change anything
-	msg.post(self.current_quests[quest_number].quest_completer_address, "quest_completed", {self.current_quests[quest_number].quest_name})
+	msg.post(self.current_quests[quest_number].quest_completer_address, "quest_complete", {self.current_quests[quest_number].quest_name})
 	
-	-- Send message to quest log to visually let player know quest is complete
+	-- Send message to quest log to visually let player know quest is completable, so they can collect the reward
 	msg.post("questLog", "quest_complete", {self.current_quests[quest_number].quest_name})
-	
-	-- Lastly, remove quest from being further handled
-	pprint("Removing Quest:"..self.current_quests[quest_number].quest_name.." from quest handler")
-	table.remove(self.current_quests, quest_number)
-	self.number_of_quests = self.number_of_quests - 1
-	
-	-- Log message for debug purposes
-	pprint("Updated current_quests: ")
-	pprint(self.current_quests)
-	pprint("quest_handler.script: Number of Quests: "..self.number_of_quests)
 end
 
 -- [[ Checks if a quest is a completed, called from update_quest functions ]]
@@ -38,11 +41,11 @@ local function check_quest_complete(self, quest_number)
 	-- If quest is a kill quest
 	if self.current_quests[quest_number].amount_killed then
 		if self.current_quests[quest_number].amount_killed == self. current_quests[quest_number].number_to_kill then
-			set_quest_complete(self, quest_number)
+			set_quest_completable(self, quest_number)
 		end
 	-- Checks if basic talk quest
 	elseif self.current_quests[quest_number].npc_to_talk_to then
-		set_quest_complete(self, quest_number)
+		set_quest_completable(self, quest_number)
 	end
 end
 
@@ -83,7 +86,6 @@ end
 local function add_quest(self, quest_table)
 	-- Make sure quest isn't already being handled before adding
 	for i in pairs(self.current_quests) do
-		pprint('searching for quest')
 		if self.current_quests[i].quest_name == quest_table.quest_name then
 			error("Tried to add quest: ["..quest_table.quest_name.."] to quest_handler, but quest is already in quest handler")
 		end
@@ -95,8 +97,10 @@ local function add_quest(self, quest_table)
 	self.current_quests[self.number_of_quests] = {
 		quest_name = quest_table.quest_name,
 		quest_completer_addresss = quest_table.quest_completer_address,
+		gold_reward = quest_table.monetary_reward,
+		exp_reward = quest_table.exp_reward,
 		-- MIGHT NOT NEED THIS BOOL
-		quest_complete = false	
+		quest_complete = false
 	}
 
 	-- Set additional information based on quest type
@@ -119,6 +123,9 @@ function init(self)
 	-- Table to hold all current ongoing quests
 	self.current_quests = {}
 	self.number_of_quests = 0
+	
+	-- Holds the current level the player is in
+	self.current_socket = nil
 end
 
 function on_message(self, message_id, message, sender)
@@ -130,8 +137,23 @@ function on_message(self, message_id, message, sender)
 		-- After adding quest to backend, send to quest_log to be displayed
 		msg.post("questLog", "quest_table", message)
 
+	elseif message_id == hash("player_location") then
+		--pprint("quest_handler.script: Received location of player at "..message[1].."")
+		self.current_socket = message[1]
+
 	elseif message_id == hash("reward_player") then
-		pprint("quest_handler.script: TODO Send reward to player stats")
+		pprint("quest_handler.script: Sending reward to [inventory??] and player_stats.script")
+		for i,v in ipairs(self.current_quests) do
+			if message[1] == v.quest_name then
+				pprint("quest_handler.script: EXP VAL: "..v.exp_reward)
+				pprint("quest_handler.script: GOLD VAL: "..v.gold_reward)
+				local player_location = msg.url(self.current_socket, "/player", "player_stats")
+				msg.post(player_location, "quest_reward", {v.gold_reward, v.exp_reward})
+				remove_quest(self, i)
+			else
+				pprint("quest_handler.script: could not find quest reward for player for quest ["..message[1].."]")
+			end
+		end
 
 	elseif message_id == hash("update_quest") then
 		update_quest(self, message)

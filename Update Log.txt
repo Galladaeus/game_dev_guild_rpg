@@ -25,4 +25,10 @@ Jan 8 2018:
 + Made it so quests completed and collected are removed from the quest list
 + Now quests are properly handled when completed in quest_log_gui.gui_script
 + Now clicking on different quests in the quest log gui changes to the other quest description
-+ TODO Tomorrow, add an archived quests tab to store fully completed and collected quests
++--WISHLIST ITEM-- add an archived quests tab to store fully completed and collected quests
+
+Jan 9 2018:
++ Quests will simply leave the quest log once they are completed for now
++ Quest rewards are now sent to the player once the player clicks on the complete quest button in the quest log
++ Removed a few uneccesary pictures
++ Added a message_hub script to the world controller that is meant to handle any messages that need to be sent everytime a new level is loaded 

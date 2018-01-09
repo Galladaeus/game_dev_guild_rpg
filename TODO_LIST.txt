@@ -8,7 +8,7 @@ TODO make it so that all text appears in main text box, buttons are just for con
 TODO Maybe replace self with all conversation table params, then all conversation tables have to be named the same thing but it will make it simpler, easier to copy and paste conversations
 TODO npc picture needs to change based on who player is talking to
 TODO check_argument_validity() in create_conversation should check type as well
-TODO Refactor the way it selects images, so it selects from npc_images in the shared npc images pool
+---TODO Refactor the way it selects images, so it selects from npc_images in the shared npc images pool
 
 	GUI ELEMENTS:
 TODO create graphical ui elements
@@ -23,6 +23,7 @@ TODO Create system, player will move a set distance each press, unless no enemy 
 TODO system that handles updating quests
 ---TODO Update quest log to add quests to list rather than just change the only one
 ---TODO Add individual complete stamps for each quest box
+TODO Rename "monetary_reward" to something like "gold_reward" IS THIS EVEN NEEDED???
 
 
 	World Transfer System:
@@ -40,3 +41,6 @@ TODO NPC images and creation should be seperate from their levels, to allow cert
 	MUSIC:
 TODO Add music from videos that Genji posted
 TODO Attribute music in documentation/manual
+
+	QoL Changes:
+TODO Rename some of the game objects in the main collection so their names make more sense

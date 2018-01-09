@@ -24,13 +24,13 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("damage_player") then
 		current_health = current_health - message.damage
 		msg.post("main:/playerHUD", "set_current_hp", {current_hp = current_health})
-			if current_health <= 0 then
-				msg.post("main:/playerHUD", "set_current_hp", {current_hp = 0})
-				kill_player(self)
-			end
-	end
+		if current_health <= 0 then
+			msg.post("main:/playerHUD", "set_current_hp", {current_hp = 0})
+			kill_player(self)
+		end
+	
 	-- Player uses item or gets healed
-	if message_id == hash("heal_player") then
+	elseif message_id == hash("heal_player") then
 		-- Preserve item if player tries to use item at max health
 		if current_health == self.health_points then
 			pprint("Player already has full health")
@@ -41,5 +41,9 @@ function on_message(self, message_id, message, sender)
 			self.health = self.health + message.heal_amount
 		end
 		msg.post("main:/playerHUD", "set_current_hp")
+
+	elseif message_id == hash("quest_reward") then
+		pprint("YAY MONIES!")
+		pprint("player_stats.script: player received gold["..message[1].."] and exp["..message[2].."]")
 	end
 end

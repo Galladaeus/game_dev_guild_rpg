@@ -13,6 +13,21 @@ components {
     w: 1.0
   }
 }
+components {
+  id: "message_hub"
+  component: "/main/world_controller/message_hub.script"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
 embedded_components {
   id: "battle"
   type: "collectionproxy"
@@ -50,7 +65,7 @@ embedded_components {
   }
 }
 embedded_components {
-  id: "farmhouse_interior"
+  id: "farmhouse"
   type: "collectionproxy"
   data: "collection: \"/levels/town/owner_farmhouse_interior/farmhouse.collection\"\n"
   "exclude: false\n"
