@@ -43,6 +43,15 @@ images {
 images {
   image: "/user_interfaces/ui_images/hud_images/Heart_Bubble.png"
 }
+images {
+  image: "/user_interfaces/ui_images/inventory_images/green_potion_128x128.png"
+}
+images {
+  image: "/user_interfaces/ui_images/inventory_images/health_potion_128x128.png"
+}
+images {
+  image: "/user_interfaces/ui_images/inventory_images/ninja_star_thing_128x128.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

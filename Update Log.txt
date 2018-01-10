@@ -32,3 +32,9 @@ Jan 9 2018:
 + Quest rewards are now sent to the player once the player clicks on the complete quest button in the quest log
 + Removed a few uneccesary pictures
 + Added a message_hub script to the world controller that is meant to handle any messages that need to be sent everytime a new level is loaded 
+
+Jan 10 2018:
++ Changed owner sprite again
++ Made it so the quest list moves up if a quest is completed that is not on the bottom of the list, to avoid gaps in the quest list
++ Added basic inventory system with a health, damage boost, and throwable object and number
++ Inventory can be opened by click on the backpack but can not be closed yet, also items have no meaning yet

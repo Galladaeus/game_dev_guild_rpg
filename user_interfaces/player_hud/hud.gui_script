@@ -48,6 +48,7 @@ function init(self)
 	msg.post(".", "acquire_input_focus")
 	
 	self.menu_button = gui.get_node("menuButton")
+	self.inventory_button = gui.get_node("inventoryButton")
 	self.current_hp = gui.get_node("currentHealth")
 	self.max_health = gui.get_node("maxHealth")
 	
@@ -86,15 +87,18 @@ end
 
 function on_input(self, action_id, action)
 	-- Both escape and clicking on the menu button will open the main menu
-    if action_id == hash("mouse_press") and action.pressed then
+	if action_id == hash("mouse_press") and action.pressed then
 		local x = action.x
 		local y = action.y
-		    	
-    	if gui.pick_node(self.menu_button, x, y) then
+
+		if gui.pick_node(self.menu_button, x, y) then
 			msg.post("mainMenu", "open_main_menu")
+
+		elseif gui.pick_node(self.inventory_button, x, y) then
+			msg.post("inventory", "open_inventory")
 		end
 		
-    elseif action_id == hash("escape_press") and action.pressed then
-    	msg.post("mainMenu", "open_main_menu")
-    end
+	elseif action_id == hash("escape_press") and action.pressed then
+		msg.post("mainMenu", "open_main_menu")
+	end
 end

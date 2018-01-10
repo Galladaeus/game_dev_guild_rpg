@@ -1,0 +1,34 @@
+function init(self)
+	self.inventory = gui.get_node("inventory")
+	self.health_potion = gui.get_node("healthItem")
+	self.damage_potion = gui.get_node("damageBoostItem")
+	self.throwable = gui.get_node("throwableItem")
+
+	gui.set_enabled(self.inventory, false)
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("open_inventory") then
+		gui.set_enabled(self.inventory, true)
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end

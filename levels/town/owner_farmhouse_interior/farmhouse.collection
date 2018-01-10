@@ -44,8 +44,8 @@ instances {
   id: "owner"
   prototype: "/levels/town/owner_farmhouse_interior/npcs/owner/owner.go"
   position {
-    x: 510.807
-    y: 122.647
+    x: 73.807
+    y: 315.647
     z: 0.1
   }
   rotation {
