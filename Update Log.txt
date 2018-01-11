@@ -38,3 +38,10 @@ Jan 10 2018:
 + Made it so the quest list moves up if a quest is completed that is not on the bottom of the list, to avoid gaps in the quest list
 + Added basic inventory system with a health, damage boost, and throwable object and number
 + Inventory can be opened by click on the backpack but can not be closed yet, also items have no meaning yet
+
+Jan 11 2018:
++ Changed camera to be placed directly on player GO, while positioning player is a little wierder, now don't have to add a camera to the player each level
++ Make the base inventory system working, player can use health potions to heal, and dmg boost and throwable are ready to be implemented
++ Added debug buttons f2 and f3, which respectively add 1 of each item to inventory and move player to battle level(No combat system yet)
++ Updated player stats to work with inventory system
++ Pressing 'i' also opens inventory in addition to clicking the backpack, and inventory can be closed by pushing 'i' or clicking the x

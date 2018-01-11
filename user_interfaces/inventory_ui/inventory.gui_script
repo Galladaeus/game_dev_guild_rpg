@@ -1,34 +1,126 @@
+
+local function update_inventory(self, item_type)
+	if item_type == "health_potion" then
+		gui.set_text(self.num_health_potion, self.inventory_stock.health_potion)
+	elseif item_type == "damage_potion" then
+		gui.set_text(self.num_damage_potion, self.inventory_stock.damage_potion)
+	elseif item_type == "throwable" then
+		gui.set_text(self.num_throwable, self.inventory_stock.throwable)
+	end
+end
+
+local function add_item(self, item_type, num_to_add)
+	self.inventory_stock[item_type] = self.inventory_stock[item_type] + num_to_add
+	update_inventory(self, item_type)
+
+	pprint(self.inventory_stock)
+	pprint("inventory.gui_script: Added ["..num_to_add.."] of item ["..item_type.."] to inventory")
+end
+
+local function remove_item(self, item_type, num_to_remove)
+	self.inventory_stock[item_type] = self.inventory_stock[item_type] - num_to_remove
+	update_inventory(self, item_type)
+
+	pprint("inventory.gui_script: Removed ["..num_to_remove.."] of item ["..item_type.."] from inventory")
+end
+
+local function close_inventory(self)
+	gui.set_enabled(self.inventory, false)
+	msg.post(".", "release_input_focus")
+end
+
 function init(self)
+	-- Prehashing all the gui buttons and text
 	self.inventory = gui.get_node("inventory")
+	self.exit_button = gui.get_node("exitButton")
 	self.health_potion = gui.get_node("healthItem")
+	self.num_health_potion = gui.get_node("numberOfHealthItems")
 	self.damage_potion = gui.get_node("damageBoostItem")
+	self.num_damage_potion = gui.get_node("numberOfDamageItems")
 	self.throwable = gui.get_node("throwableItem")
+	self.num_throwable = gui.get_node("numberOfThrowableItems")
+
+	-- Item values, such as how much player is healed when a health potion is used
+	self.heal_amount = 2
+	self.damage_boost_amount = 1
+	self.throwable_damage = 3
+
+	-- Data to keep track of how many of each item the player has
+	self.inventory_stock = {
+		health_potion = 0,
+		damage_potion = 0,
+		throwable = 0,
+	}
+	-- Store player location so script can send item data to player whenever
+	-- player uses an item
+	self.player_url = msg.url()
 
 	gui.set_enabled(self.inventory, false)
-end
-
-function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
-end
-
-function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("open_inventory") then
 		gui.set_enabled(self.inventory, true)
+		msg.post(".", "acquire_input_focus")
+
+	-- When adding an item to the inventory, the first value should be a string
+	-- denoting what kind of item it is, while the second number should be a number 
+	-- denoting how many of that item to add
+	elseif message_id == hash("add_item") then
+		add_item(self, message[1], message[2])
+
+	elseif message_id == hash("player_location") then
+		self.player_url.socket = message[1]
+		self.player_url.path = hash("/player")
+		self.player_url.fragment = hash("player_stats")
+
+	-- Sent from scripts if an item is actually used, to prevent removing items that
+	-- weren't actually used, same msg format as add_item
+	elseif message_id == hash("use_item") then
+		remove_item(self, message[1], message[2])
 	end
 end
 
 function on_input(self, action_id, action)
-	-- Add input-handling code here
-	-- Remove this function if not needed
-end
+	if action_id == hash("mouse_press") then
+		local x = action.x
+		local y = action.y
 
-function on_reload(self)
-	-- Add input-handling code here
-	-- Remove this function if not needed
+		if gui.pick_node(self.exit_button, x, y) then
+			close_inventory(self)
+
+		elseif gui.pick_node(self.health_potion, x, y) and action.pressed then
+			if self.inventory_stock.health_potion == 0 then
+				--TODO add a shake animation to the health potions
+				pprint("inventory.gui_script: Player has no health potions to use!")
+			else
+				msg.post(self.player_url, "heal_player", {heal_amount = self.heal_amount})
+			end
+
+		elseif gui.pick_node(self.damage_potion, x, y) and action.pressed then
+			if self.inventory_stock.damage_potion == 0 then
+				--TODO add shake animation
+				pprint("inventory.gui_script: Player has no damage potions to use!")
+			else
+				-- TODO if different player GO for battle, then need to change address possibly,
+				-- maybe just fragment
+				msg.post(self.player_url, "damage_boost", {self.damage_boost_amount})
+			end
+
+		elseif gui.pick_node(self.throwable, x, y) and action.pressed then
+			if self.inventory_stock.throwable == 0 then
+				pprint("inventory.gui_script: Player has no throwables!")
+			else
+				--TODO Where to send this data?
+				pprint("Throwing item!")
+				remove_item(self, "throwable", 1)
+			end
+		end
+
+	elseif action_id == hash("i_press") and action.pressed then
+		close_inventory(self)
+	end
+
+	-- Disable other input_focuses
+	return true
 end

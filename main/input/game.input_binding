@@ -26,6 +26,18 @@ key_trigger {
   input: KEY_ESC
   action: "escape_press"
 }
+key_trigger {
+  input: KEY_F2
+  action: "f2_press"
+}
+key_trigger {
+  input: KEY_I
+  action: "i_press"
+}
+key_trigger {
+  input: KEY_F3
+  action: "f3_press"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_1
   action: "mouse_press"

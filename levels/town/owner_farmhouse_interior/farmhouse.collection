@@ -2,10 +2,9 @@ name: "farmhouse"
 instances {
   id: "player"
   prototype: "/player/player.go"
-  children: "camera"
   position {
-    x: -443.598
-    y: -387.846
+    x: -1106.598
+    y: -741.846
     z: 0.01
   }
   rotation {
@@ -17,26 +16,6 @@ instances {
   scale3 {
     x: 0.1
     y: 0.1
-    z: 1.0
-  }
-}
-instances {
-  id: "camera"
-  prototype: "/player/camera/camera.go"
-  position {
-    x: -6437.382
-    y: -3843.624
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
     z: 1.0
   }
 }

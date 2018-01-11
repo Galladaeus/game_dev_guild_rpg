@@ -34,13 +34,16 @@ function on_message(self, message_id, message, sender)
 		-- Preserve item if player tries to use item at max health
 		if current_health == self.health_points then
 			pprint("Player already has full health")
-			msg.post(sender, "keep_item")
+			--msg.post(sender, "keep_item")
 		elseif (message.heal_amount + current_health) >= self.health_points then
 			current_health = self.health_points
+			msg.post("main:/inventory", "use_item", {"health_potion", 1})
 		else
-			self.health = self.health + message.heal_amount
+			current_health = current_health + message.heal_amount
+			msg.post("main:/inventory", "use_item", {"health_potion", 1})
 		end
-		msg.post("main:/playerHUD", "set_current_hp")
+
+		msg.post("main:/playerHUD", "set_current_hp", {current_hp = current_health})
 
 	elseif message_id == hash("quest_reward") then
 		pprint("YAY MONIES!")

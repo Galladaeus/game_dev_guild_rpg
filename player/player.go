@@ -44,8 +44,8 @@ embedded_components {
   "  shapes {\n"
   "    shape_type: TYPE_SPHERE\n"
   "    position {\n"
-  "      x: 270.236\n"
-  "      y: 128.123\n"
+  "      x: 6734.236\n"
+  "      y: 3643.123\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -60,8 +60,8 @@ embedded_components {
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"
   "    position {\n"
-  "      x: 37.034\n"
-  "      y: -215.779\n"
+  "      x: 6491.034\n"
+  "      y: 3228.221\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -76,8 +76,8 @@ embedded_components {
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"
   "    position {\n"
-  "      x: -243.189\n"
-  "      y: 244.699\n"
+  "      x: 6210.811\n"
+  "      y: 3688.699\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -89,7 +89,7 @@ embedded_components {
   "    index: 4\n"
   "    count: 3\n"
   "  }\n"
-  "  data: 163.7275\n"
+  "  data: 228.314\n"
   "  data: 311.8265\n"
   "  data: 229.9925\n"
   "  data: 10.0\n"
@@ -138,6 +138,27 @@ embedded_components {
   "default_animation: \"idleRight\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
+  position {
+    x: 6454.0
+    y: 3444.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+embedded_components {
+  id: "camera"
+  type: "camera"
+  data: "aspect_ratio: 1.0\n"
+  "fov: 45.0\n"
+  "near_z: 0.1\n"
+  "far_z: 1000.0\n"
+  "auto_aspect_ratio: 0\n"
   ""
   position {
     x: 0.0

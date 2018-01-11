@@ -1,4 +1,4 @@
-go.property("player_speed", 200)
+go.property("player_speed", 250)
 
 -- Pre-hashing ids improves performance
 local input_up = hash("up")
@@ -34,7 +34,7 @@ local function play_animation(self, animation)
 end
 
 -- [[ Sets animation based on action ]]
--- Way too clunky needs to be updated
+-- Way too clunky, should to be updated
 local function update_animations(self)
 	if (self.vel.x == 0 and self.vel.y == 0) and self.dir.x == 1 then
 		play_animation(self, "idleRight")
@@ -63,6 +63,8 @@ end
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	msg.post("#camera", "acquire_camera_focus")
+	--go.set_position(vmath.vector3(100,500,0), "#camera")
 
 	-- Sends current player location to message hub, so any script that needs to send 
 	-- any messages to the current level game objects have the socket needed
@@ -145,13 +147,26 @@ function on_input(self, action_id, action)
 	-- Using action.pressed prevents button from registering multiple presses from one key press
 	elseif action_id == input_action and self.in_range_of_npc == true and action.pressed then
 		msg.post(self.npc_address, "start_conversation")
-		
+
+	-- TODO Move debug buttons and functions to their own script, maybe make a testing script if needed
 	-- Debug button
 	elseif action_id == hash("f1_press") and action.pressed then
-		pprint("Pressed F1")
-		msg.post(".", "damage_player", {damage = 1})
+		pprint("player.script:debug: Dealing 3 damage to player")
+		msg.post(".", "damage_player", {damage = 3})
 		--msg.post("main:/questHandler", "debug_quest_complete")
 		--msg.post("main:/controller", "startBattle")
+
+	-- Debug button #2 Add 1 of each item to the inventory
+	elseif action_id == hash("f2_press") and action.pressed then
+		pprint("player.script:debug: Adding 1 of each item to inventory")
+		msg.post("main:/inventory", "add_item", {"health_potion", 1})
+		msg.post("main:/inventory", "add_item", {"damage_potion", 1})
+		msg.post("main:/inventory", "add_item", {"throwable", 1})
+
+	-- Debug button #3 moves to the test battle level
+	elseif action_id == hash("f3_press") and action.pressed then
+		msg.post("main:/controller", "start_battle")
+
 	end
 
 	-- Normalize direction to NESW

@@ -44,13 +44,16 @@ images {
   image: "/user_interfaces/ui_images/hud_images/Heart_Bubble.png"
 }
 images {
-  image: "/user_interfaces/ui_images/inventory_images/green_potion_128x128.png"
+  image: "/user_interfaces/ui_images/inventory_images/greenPotion.png"
 }
 images {
-  image: "/user_interfaces/ui_images/inventory_images/health_potion_128x128.png"
+  image: "/user_interfaces/ui_images/inventory_images/healthPotion.png"
 }
 images {
-  image: "/user_interfaces/ui_images/inventory_images/ninja_star_thing_128x128.png"
+  image: "/user_interfaces/ui_images/inventory_images/throwable.png"
+}
+images {
+  image: "/user_interfaces/ui_images/inventory_images/exitButton.png"
 }
 margin: 0
 extrude_borders: 0

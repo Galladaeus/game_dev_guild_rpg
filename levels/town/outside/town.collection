@@ -22,10 +22,9 @@ instances {
 instances {
   id: "player"
   prototype: "/player/player.go"
-  children: "camera"
   position {
-    x: 157.739
-    y: -579.594
+    x: -726.261
+    y: -879.594
     z: 0.2
   }
   rotation {
@@ -37,26 +36,6 @@ instances {
   scale3 {
     x: 0.1
     y: 0.1
-    z: 1.0
-  }
-}
-instances {
-  id: "camera"
-  prototype: "/player/camera/camera.go"
-  position {
-    x: -6292.217
-    y: -3582.326
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
     z: 1.0
   }
 }

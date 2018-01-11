@@ -9,5 +9,6 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("player_location") then
 		--pprint("message_hub.script: Received player location at "..message[1].." now sending to questHandler#questData")
 		msg.post("main:/questHandler#questData", "player_location", message)
+		msg.post("main:/inventory", "player_location", message)
 	end
 end

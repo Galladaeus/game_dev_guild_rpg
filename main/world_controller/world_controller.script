@@ -1,6 +1,9 @@
 function init(self)
+	self.current_level = "#town"
+	
 	msg.post("#town", "load")
 	msg.post(".", "acquire_input_focus")
+	
 	-- Better way to play music, or place music?
 	-- msg.post("farm_background_music#sound", "play_sound", {delay = 1, gain = 0.5})
 end
@@ -11,6 +14,8 @@ function on_message(self, message_id, message, sender)
 		pprint("World transfer URL's:")
 		pprint(message)
 		
+		self.current_level = message.other_world_url
+		
 		msg.post(message.other_world_url, "load")
 		msg.post(message.current_world_url, "unload")
 	end
@@ -19,5 +24,23 @@ function on_message(self, message_id, message, sender)
 		msg.post(sender, "init")	-- init recursively initializes all objects in collection			
 		msg.post(sender, "enable")	-- enable recursively enables all the objects contained in the collection
 		-- you only need to send enable by itself, init just gives finer control over initialization process
+	end
+
+	if message_id == hash("start_battle") then
+		local battle_level_url = msg.url()
+		battle_level_url.socket = "main"
+		battle_level_url.path = hash("/controller")
+		battle_level_url.fragment = hash("battle")
+
+		--[[
+		local current_level_url = msg.url()
+		current_level_url.socket = "main"
+		current_level_url.path = hash("/controller")
+		current_level_url.fragment = hash("town")]]
+
+		-- Can also use "#battle" and "#town" in place of the constructed urls
+		
+		msg.post(battle_level_url, "load")
+		msg.post(self.current_level, "unload")
 	end
 end
