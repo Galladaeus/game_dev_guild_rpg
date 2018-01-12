@@ -31,7 +31,7 @@ components {
 embedded_components {
   id: "battle"
   type: "collectionproxy"
-  data: "collection: \"/levels/town/rat_dungeon/battle.collection\"\n"
+  data: "collection: \"/levels/battle_levels/rat_dungeon/battle.collection\"\n"
   "exclude: false\n"
   ""
   position {

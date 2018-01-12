@@ -3,8 +3,8 @@ instances {
   id: "goblin"
   prototype: "/levels/town/outside/npcs/bird/bird.go"
   position {
-    x: -17.535
-    y: -7.895
+    x: -350.0
+    y: 0.0
     z: 0.0
   }
   rotation {
@@ -20,12 +20,13 @@ instances {
   }
 }
 instances {
-  id: "player"
-  prototype: "/player/player.go"
+  id: "battle_player"
+  prototype: "/player/battle_player/battle_player.go"
+  children: "camera"
   position {
-    x: -1360.231
-    y: -358.906
-    z: 0.2
+    x: -738.0
+    y: -0.0
+    z: 0.0
   }
   rotation {
     x: 0.0
@@ -39,13 +40,33 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "camera"
+  prototype: "/player/camera/camera.go"
+  position {
+    x: -6850.0
+    y: -2980.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map"
   data: "embedded_components {\n"
   "  id: \"dungeonMap\"\n"
   "  type: \"sprite\"\n"
-  "  data: \"tile_set: \\\"/levels/town/rat_dungeon/dungeon_images/dungeonAssets.atlas\\\"\\n"
+  "  data: \"tile_set: \\\"/levels/battle_levels/rat_dungeon/dungeon_images/dungeonAssets.atlas\\\"\\n"
   "default_animation: \\\"dungeonBattleMap\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "blend_mode: BLEND_MODE_ALPHA\\n"
@@ -64,7 +85,7 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 0.0
+    x: -27.0
     y: -32.248
     z: -0.01
   }

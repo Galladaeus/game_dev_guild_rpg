@@ -1,6 +1,6 @@
 components {
   id: "camera"
-  component: "/player/camera(unused currently)/playercamera.camera"
+  component: "/player/camera/playercamera.camera"
   position {
     x: 0.0
     y: 0.0
@@ -15,7 +15,7 @@ components {
 }
 components {
   id: "script"
-  component: "/player/camera(unused currently)/camerascript.script"
+  component: "/player/camera/camerascript.script"
   position {
     x: 0.0
     y: 0.0

@@ -42,5 +42,18 @@ function on_message(self, message_id, message, sender)
 		
 		msg.post(battle_level_url, "load")
 		msg.post(self.current_level, "unload")
+		
+		self.current_level = battle_level_url
+	end
+
+	if message_id == hash("exit_battle") then
+		local town_level_url = msg.url()
+		
+		town_level_url.socket = "main"
+		town_level_url.path = hash("/controller")
+		town_level_url.fragment = hash("town")
+
+		msg.post(town_level_url, "load")
+		msg.post(self.current_level, "unload")
 	end
 end

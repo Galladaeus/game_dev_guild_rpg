@@ -45,3 +45,8 @@ Jan 11 2018:
 + Added debug buttons f2 and f3, which respectively add 1 of each item to inventory and move player to battle level(No combat system yet)
 + Updated player stats to work with inventory system
 + Pressing 'i' also opens inventory in addition to clicking the backpack, and inventory can be closed by pushing 'i' or clicking the x
+
+Jan 12 2018:
++ Implemented base combat movement system, can be tested by pressing f3, you can move in a roguelike manner
++ Base interaction with other elements also implemented, borders will prevent movement, while enemies will be destroyed
++ Camera had to be attached seperately to battle_player otherwise the player position was off from the sprite, which interefered with ray_casting(which may not be needed)
