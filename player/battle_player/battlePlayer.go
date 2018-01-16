@@ -37,7 +37,6 @@ embedded_components {
   "friction: 0.1\n"
   "restitution: 0.5\n"
   "group: \"player\"\n"
-  "mask: \"npc\"\n"
   "mask: \"border\"\n"
   "mask: \"trigger\"\n"
   "mask: \"enemy\"\n"

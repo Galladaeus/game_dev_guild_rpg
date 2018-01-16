@@ -50,3 +50,12 @@ Jan 12 2018:
 + Implemented base combat movement system, can be tested by pressing f3, you can move in a roguelike manner
 + Base interaction with other elements also implemented, borders will prevent movement, while enemies will be destroyed
 + Camera had to be attached seperately to battle_player otherwise the player position was off from the sprite, which interefered with ray_casting(which may not be needed)
+
+Jan 15 2018:
++ Implemented basic turn system for combat, player takes turn and can no longer perform actions
+	+ Collisions are now handled by raycasting rather than colliding into another object, raycasts check each time the player tries to move
+	+ The player changes direction and only moves if the move in the direction they are facing
+	+ Running into collision borders does not end turn, running into enemies will attack them
+	+ To reset turn, currently need to push f2
++ Started working on what a baseline enemy .go will consist of
++ Added a battleController.go that will handle turns and message passing for battles, need to decide whether to put in main and deactivate when not in use, or put the controller in each battle

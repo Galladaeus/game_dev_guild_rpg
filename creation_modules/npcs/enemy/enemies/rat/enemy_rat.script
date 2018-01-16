@@ -1,0 +1,34 @@
+go.property("health_points", 6)
+go.property("damage", 1)
+
+function init(self)
+	self.player_location = go.get_position("/battle_player")
+end
+
+function final(self)
+end
+
+function update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("player_moved") then
+		self.player_location = go.get_position("/battlePlayer")
+		pprint("enemy_rat.script: The player is at location :")
+		pprint(self.player_location)
+		--msg.post("/battle_player", "enemy_turn_over")
+
+	elseif message_id == hash("player_turn_over") then
+		pprint("enemy_rat.script: It is now the enemies turn")
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
