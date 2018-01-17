@@ -1,6 +1,6 @@
 components {
-  id: "battle_controller"
-  component: "/game_systems/battle_system/battle_controller.script"
+  id: "debug_commands"
+  component: "/main/debug/debug_commands.script"
   position {
     x: 0.0
     y: 0.0

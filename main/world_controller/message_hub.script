@@ -7,8 +7,9 @@ function final(self) end
 function on_message(self, message_id, message, sender)
 	-- This is used so that the quest_handler.script can send the reward to the player regardless of level
 	if message_id == hash("player_location") then
-		--pprint("message_hub.script: Received player location at "..message[1].." now sending to questHandler#questData")
+		pprint("message_hub.script: Received player location at "..message[1].." now sending to questHandler#questData")
 		msg.post("main:/questHandler#questData", "player_location", message)
 		msg.post("main:/inventory", "player_location", message)
+		msg.post("main:/debugCommands", "player_location", message)
 	end
 end

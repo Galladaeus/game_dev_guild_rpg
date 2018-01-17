@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/main/save_system/save_handler.script"
+  component: "/game_systems/save_system/save_handler.script"
   position {
     x: 0.0
     y: 0.0

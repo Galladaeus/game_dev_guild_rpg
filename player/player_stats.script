@@ -1,6 +1,6 @@
 -- Editable player health and damage
 go.property("health_points", 20)
-go.property("player_damage", 2)
+--go.property("player_damage", 2)
 
 -- Not self, because it should be shared across player instances
 local current_health = 20

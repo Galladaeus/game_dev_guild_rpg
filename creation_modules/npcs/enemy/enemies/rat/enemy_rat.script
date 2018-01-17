@@ -1,8 +1,43 @@
+-- Enemy's health, inventory, and stats are dealt with in player_stats.script
+go.property("x_move_distance", 128)
+go.property("y_move_distance", 90.4)
 go.property("health_points", 6)
 go.property("damage", 1)
 
+local function kill_enemy(self)
+	pprint("enemy_"..tostring(go.get_id())..".script: Has died")
+	-- Should play a death animation before using animation done to delete the object
+	-- Send message to quest log so that it can update the kill rat quest if player has it
+	msg.post("main:/questHandler#questData", "update_quest", {quest_name = "Rat Killer", enemy_type = "rat", })
+	go.delete()
+end
+
+-- TODO Should also be a module function and battle controller handles knowing whose turn it is
+local function end_turn(self)
+	msg.post("/battleController", "end_enemy_turn")
+end
+
+-- Performs a one space move
+-- TODO should place similar movement checks in a module so I don't have all this repeated movement code 
+-- between player and different enemy types
+local function move(self, direction)
+	--local current_position = go.get_position()
+	local new_position = go.get_position() 
+
+	if direction == 'y' then
+		new_position[direction] = new_position[direction] + self.y_move_distance
+	elseif direction == 'x' then
+		new_position[direction] = new_position[direction] + self.x_move_distance
+	end
+	
+	go.set_position(new_position)
+	end_turn(self)
+end
+
 function init(self)
-	self.player_location = go.get_position("/battle_player")
+	-- Will be used to help decide where to move next
+	self.player_location = go.get_position("/battlePlayer")
+	msg.post("/battleController", "new_enemy")
 end
 
 function final(self)
@@ -12,14 +47,18 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("player_moved") then
-		self.player_location = go.get_position("/battlePlayer")
-		pprint("enemy_rat.script: The player is at location :")
-		pprint(self.player_location)
-		--msg.post("/battle_player", "enemy_turn_over")
-
-	elseif message_id == hash("player_turn_over") then
+	if message_id == hash("start_turn") then
 		pprint("enemy_rat.script: It is now the enemies turn")
+		move(self, 'y')
+		msg.post("/battleController", "end_enemy_turn")
+		
+	elseif message_id == hash("player_attack") then
+		if self.health_points - message[1] <= 0 then
+			kill_enemy(self)
+		else
+			self.health_points = self.health_points - message[1]
+			pprint("enemy_rat.script: Rat now has ["..self.health_points.."] Health Points remaining")
+		end
 	end
 end
 

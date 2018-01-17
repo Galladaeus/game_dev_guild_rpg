@@ -44,8 +44,8 @@ instances {
   id: "enemyRat"
   prototype: "/creation_modules/npcs/enemy/enemies/rat/enemyRat.go"
   position {
-    x: -350.0
-    y: -25.0
+    x: -353.0
+    y: -41.0
     z: 0.0
   }
   rotation {

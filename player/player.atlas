@@ -149,6 +149,34 @@ animations {
   flip_horizontal: 1
   flip_vertical: 0
 }
+animations {
+  id: "attackRight"
+  images {
+    image: "/player/player_images/Walk_Side01.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side02.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side03.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side04.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side05.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side06.png"
+  }
+  images {
+    image: "/player/player_images/Walk_Side07.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

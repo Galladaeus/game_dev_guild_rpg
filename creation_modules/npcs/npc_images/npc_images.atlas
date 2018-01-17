@@ -13,6 +13,26 @@ images {
 images {
   image: "/creation_modules/npcs/npc_images/Owner.png"
 }
+animations {
+  id: "rat_left"
+  images {
+    image: "/creation_modules/npcs/npc_images/rat.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 1
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "right_right"
+  images {
+    image: "/creation_modules/npcs/npc_images/rat.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

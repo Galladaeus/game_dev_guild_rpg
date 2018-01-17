@@ -35,6 +35,8 @@ TODO Rename "monetary_reward" to something like "gold_reward" IS THIS EVEN NEEDE
 TODO Create a script that automates the creation of a npc with variables that will be commonly passed around,
 	i.e. sprite data, npc name, etc. Also can use data to automatically fill in certain information when creating
 	conversations/quests
+KEY TODO Fix npc_images so that they are not dependent on name, or at least the images shown in conversations are not dependent, right now they have
+	weird cross dependencies that will create confusion in the future
 TODO NPC images and creation should be seperate from their levels, to allow certain shared elements, like chat bubbles
 ---TODO NPC needs a boilerplate code to avoid alot of duplication, as mentioned above, also deal with chat bubble popping up,etc.
 

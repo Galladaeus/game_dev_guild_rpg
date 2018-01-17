@@ -132,6 +132,19 @@ function on_message(self, message_id, message, sender)
 			break end
 		end
 
+	elseif message_id == hash("update_quest") then
+		local quest_table = message
+		local found_quest = false -- Used to send debug message
+		for i,v in ipairs(self.quest_list) do
+			if message.quest_name == gui.get_text(gui.get_node("questName"..i)) then
+				pprint("quest_log_gui.script: updating quest: "..gui.get_text(gui.get_node("questName"..i)))
+				found_quest = true
+			end
+		end
+		if not found_quest then
+			pprint("quest_log_gui.script: Cannot update quest: ["..message.quest_name.."] not found in quest_log_gui.script")
+		end
+
 	elseif message_id == hash("quest_complete") then
 		set_quest_complete(self, message[1])	
 	end

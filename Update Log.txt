@@ -59,3 +59,13 @@ Jan 15 2018:
 	+ To reset turn, currently need to push f2
 + Started working on what a baseline enemy .go will consist of
 + Added a battleController.go that will handle turns and message passing for battles, need to decide whether to put in main and deactivate when not in use, or put the controller in each battle
+
+Jan 17 2018:
++ Implemented player attack so they attack the enemy whenever they run into it
++ Implemented enemy health and death so they die after they lose all their health points
++ Basic enemy movement in place, need to move movement functions into a shared .lua module since player and enemy movement will be largely similar 
++ Rat kill quest is updated in the back if you have it and kill the rat, still need to add a visual que to the quest log 
++ Their is a bug where you can't move back into the combat level after you have left it so I removed the ability to leave the combat level for now
++ Player now uses raycast detection for movement and attack rather than any collision detection
++ Battle controller has been updated so it can handle multiple enemies in the level and let them each take their turn before switching back to player turn
++ Moved debug f keys to a seperate game object so they don't clutter player scripts

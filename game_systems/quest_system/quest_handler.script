@@ -54,7 +54,8 @@ local function update_kill_quest(self, quest_number, update_table)
 	-- Increments kill count
 	self.current_quests[quest_number].amount_killed = self.current_quests[quest_number].amount_killed + 1
 	-- Send update data to questLog to visually update
-	msg.post("questLog", "update_kill_quest", {quest_name = self.current_quests[quest_number].quest_name, amount_killed = self.current_quests[quest_number].amount_killed})
+	msg.post("questLog", "update_quest", {quest_name = self.current_quests[quest_number].quest_name, amount_killed = self.current_quests[quest_number].amount_killed})
+	pprint("quest_handler.script: ["..self.current_quests[quest_number].quest_name.."] "..self.current_quests[quest_number].amount_killed.."/"..self.current_quests[quest_number].number_to_kill)
 	check_quest_complete(self, quest_number)
 end
 

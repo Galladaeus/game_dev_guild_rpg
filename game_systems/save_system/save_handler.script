@@ -1,4 +1,4 @@
-local saveData = require "main/save_system/save_data"
+local saveData = require "game_systems/save_system/save_data"
 local save_file = sys.get_save_file("testGame", "saveFile")
 
 local function save_game(self)

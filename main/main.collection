@@ -101,7 +101,7 @@ instances {
 }
 instances {
   id: "save_handler"
-  prototype: "/main/save_system/save_handler.go"
+  prototype: "/game_systems/save_system/save_handler.go"
   position {
     x: 640.0
     y: 360.0
@@ -142,6 +142,26 @@ instances {
 instances {
   id: "inventory"
   prototype: "/user_interfaces/inventory_ui/inventory.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "debugCommands"
+  prototype: "/main/debug/debugCommands.go"
   position {
     x: 0.0
     y: 0.0

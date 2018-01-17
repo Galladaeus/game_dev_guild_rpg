@@ -1,7 +1,7 @@
 name: "farmhouse"
 instances {
   id: "player"
-  prototype: "/player/player.go"
+  prototype: "/player/regular_player/player.go"
   position {
     x: -1106.598
     y: -741.846
