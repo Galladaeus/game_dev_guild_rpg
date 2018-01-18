@@ -35,7 +35,7 @@ local function update_heart(self)
 	-- Fraction of current health
 	local fraction = 1 - tonumber(gui.get_text(self.current_hp))/tonumber(gui.get_text(self.max_health))	
 	
-	pprint("player_hud/hud.gui_script: Fraction of health missing:"..fraction)
+	--pprint("player_hud/hud.gui_script: Fraction of health missing:"..fraction)
 	
 	mask_pos.y = mask_pos.y - (fraction * 82)
 	heart_pos.y = heart_pos.y + (fraction * 88)
@@ -76,7 +76,7 @@ function on_message(self, message_id, message, sender)
 		check_ears(self)
 		update_heart(self)
 		
-		pprint(sender)
+		pprint("hud.gui.script: message:'set_current_hp' sent from ["..tostring(sender).."]")
 	end
 	if message_id == hash("set_max_hp") then
 		gui.set_text(self.max_health, message.max_hp)

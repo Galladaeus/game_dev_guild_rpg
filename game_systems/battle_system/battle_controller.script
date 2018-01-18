@@ -12,11 +12,11 @@ function init(self)
 	self.enemy_list = {}
 
 	self.number_of_enemies = 0
-	self.enemy_iterator = 1
+	self.enemy_iterator = 0
 	
 	-- For testing purposes
-	table.insert(self.enemy_list, {url = "/enemyRat"})
-	pprint(self.enemy_list)
+	-- table.insert(self.enemy_list, {url = "/enemyRat"})
+	-- pprint(self.enemy_list)
 end
 
 function final(self)
@@ -30,31 +30,36 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("end_player_turn") then
-		pprint("battle_controller.script: player turn is over")
-		
-		msg.post(self.enemy_list[self.enemy_iterator].url, "start_turn")
-		pprint("battle_controller.script: enemy"..self.enemy_iterator.." is taking their turn")
-
-	elseif message_id == hash("end_enemy_turn") then
-		-- If every enemy has completed their turn
+	-- Do not need to check if it is player or enemy because if all the enemies went it will be the end of 
+	-- the table, so then the player can go and the iterator is 0 that means player just ended turn
+	if message_id == hash("end_turn") then
 		if self.enemy_iterator == self.number_of_enemies then
-			pprint("battle_controler.script: Enemy turns are over")
+			pprint("battle_controller.script: Enemy turns are over")
+			-- Reset enemy list
+			self.enemy_iterator = 0
 			msg.post("/battlePlayer", "enemy_turn_over")
 		else 
 			self.enemy_iterator = self.enemy_iterator + 1
-			msg.post(self.enemy_list[self.enemy_iterator], "start_turn")
+			msg.post(self.enemy_list[self.enemy_iterator].url, "start_turn")
 		end
 
+	-- Sent from the init() function of every new enemy so the controller can add them to the list
 	elseif message_id == hash("new_enemy") then
-		-- TODO should also add enemy info into self.enemy_list
+		table.insert(self.enemy_list, message)
 		self.number_of_enemies = self.number_of_enemies + 1
-	end
-end
+		
+		pprint("battle_controller.script: Added ["..tostring(message.url)..
+		"] to enemy list, there are now ["..self.number_of_enemies.."] enemies on the list")
 
-function on_input(self, action_id, action)
-	-- Add input-handling code here
-	-- Remove this function if not needed
+	elseif message_id == hash("enemy_died") then
+		for i,enemy in ipairs(self.enemy_list) do
+			if enemy.url == message.url then
+				table.remove(self.enemy_list, i)
+				self.number_of_enemies = self.number_of_enemies - 1
+				pprint("battle_controller.script: Removing ["..tostring(message.url).."] from battle")
+			end
+		end
+	end
 end
 
 function on_reload(self)

@@ -1,4 +1,5 @@
 --TODO Find out how to do delays, so animations and movement can look better
+local battle = require "game_systems/battle_system/battle_functions"
 
 -- Player's health, inventory, and stats are dealt with in player_stats.script
 go.property("x_move_distance", 128)
@@ -39,82 +40,39 @@ local function update_animations(self)
 	end 
 end
 
--- Currently player turns are ended from moving and attacking
-local function end_turn(self)
-	self.player_turn = false
-	msg.post("/battleController", "end_player_turn")
-	pprint("battle_player.script: Player's turn is over.")
-end
-
--- Cast a ray in the given direction to check for collision
-local function cast_ray_from_player(self, distance, direction)
-	local ray_distance = distance
-	-- Add hashed groups to the table if you want to detect other collision groups
-	local collision_groups = { hash("border"), hash("enemy") }
-
-	local from = go.get_position()
-	local to = go.get_position()
-	to[direction] = to[direction] + ray_distance
-
-	--pprint("battle_player.script: to ray cast: "..to)
-	--pprint("battle_player.script: player_location: "..player_position)
-
-	physics.ray_cast(from, to, collision_groups)
-end
-
--- Checks for obstacles before allowing player to move and end their turn
-local function try_moving(self, distance, direction)
-	-- Set the move variables for if move is successful
-	self.move_direction = direction
-	self.move_distance = distance
-
-	-- Check for collisions before moving player
-	cast_ray_from_player(self, distance, direction)
-end
-
 -- Function for when player attacks by moving into an enemy
 local function attack(self, enemy)
 	play_animation(self, "attackRight")
 	msg.post(enemy, "player_attack", { self.player_damage })
-	end_turn(self)
-end
-
--- Performs a one space move
-local function move(self)
-	self.player_position = go.get_position()
-	
-	local pos = go.get_position() 
-	
-	pos[self.move_direction] = pos[self.move_direction] + self.move_distance
-	go.set_position(pos) 
-
-	end_turn(self)
+	-- End turn moved to animation_done message
+	--battle.end_turn(self)
 end
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	pprint(go.get_position())
+
+	msg.post("#player_stats", "test")
 
 	-- Sends current player location to message hub, so any script that needs to send 
 	-- any messages to the current level game objects have the socket needed
-	player_url = msg.url()
+	local player_url = msg.url()
+	-- Sending to battleController so it can compare url to know that it is the player turn that has ended
 	msg.post("main:/controller#message_hub", "player_location", { player_url.socket })
 	msg.post("main:/debugCommands", "in_battle")
 
-	self.player_position = go.get_position() -- Position of player
 	self.animation_playing = nil -- Checks if animation is playing
 	self.dir = vmath.vector3(1, 0, 0) -- Keep direction of player
 
+	-- Required for movement, because moving happens after a ray_cast_response is received
 	self.move_distance = nil
 	self.move_direction = nil
 
-	self.player_turn = true
+	self.is_turn = true
 end
-
 
 function update(self, dt)
 	-- msg.post("camera", "look_at") Camera is childed to player, this can be used as part of persp camera
-	--pprint("battle_player.script: currently player turn == "..tostring(self.player_turn))
+	-- pprint("battle_player.script: currently player turn == "..tostring(self.player_turn))
 end
 
 function on_message(self, message_id, message, sender)
@@ -134,25 +92,30 @@ function on_message(self, message_id, message, sender)
 
 	-- Lets script know that the space ahead is clear and is good to move the player
 	elseif message_id == hash("ray_cast_missed") then
-		move(self)
+		battle.move(self, self.move_distance, self.move_direction)
 		--print("battle_player.script: player is good to move")
 
-	-- Sets player back to correct idle after attack animation
-	elseif message_id == hash("animation_done") then 
+	elseif message_id == hash("damage_player") then
+		battle.animate_flash(self)
+		msg.post("#player_stats", "damage_player", message)
+
+	-- Sets player back to correct idle after attack animation and ends player turn
+	elseif message_id == hash("animation_done") and message.id == hash("attackRight") then 
 		update_animations(self)
+		battle.end_turn(self)
 
 	elseif message_id == hash("enemy_turn_over") then
-		self.player_turn = true
+		battle.start_turn(self)
 	end
 end
 
 function on_input(self, action_id, action)
 	-- TODO Implement attack, either running into enemy or pressing an attack key (i.e. for invis enemies or otherwise)
 	-- Player can only perform move and attack actions on turn
-	if self.player_turn == true then
+	if self.is_turn == true then
 		if action_id == input_up and action.pressed then
 			if self.dir.y == 1 then
-				try_moving(self, self.y_move_distance, 'y')
+				battle.try_moving(self, battle.y_move_distance, 'y')
 			else
 				-- Is this slower? 
 				-- self.dir = vmath.vector3(0,1,0)
@@ -162,7 +125,7 @@ function on_input(self, action_id, action)
 			end
 		elseif action_id == input_down and action.pressed then
 			if self.dir.y == -1 then
-				try_moving(self, (-self.y_move_distance), 'y')
+				battle.try_moving(self, -(battle.y_move_distance), 'y')
 			else
 				self.dir.y = -1
 				self.dir.x = 0
@@ -170,7 +133,7 @@ function on_input(self, action_id, action)
 			end
 		elseif action_id == input_left and action.pressed then
 			if self.dir.x == -1 then
-				try_moving(self, (-self.x_move_distance), 'x') 
+				battle.try_moving(self, -(battle.x_move_distance), 'x') 
 			else
 				self.dir.x = -1
 				self.dir.y = 0
@@ -178,7 +141,7 @@ function on_input(self, action_id, action)
 			end
 		elseif action_id == input_right and action.pressed then
 			if self.dir.x == 1 then
-				try_moving(self, self.x_move_distance, 'x') 
+				battle.try_moving(self, battle.x_move_distance, 'x') 
 			else
 				self.dir.x = 1
 				self.dir.y = 0
@@ -197,7 +160,7 @@ function on_input(self, action_id, action)
 
 		-- Debug button #2 Add 1 of each item to the inventory
 	elseif action_id == hash("f2_press") and action.pressed then
-		self.player_turn = true
+		battle.start_turn(self)
 		pprint("battle_player.script: It is now player's turn")
 	end
 

@@ -8,7 +8,7 @@ local current_health = 20
 -- TODO Right now just resets health, set to beginning of conversations/pre-battle to allow
 -- player to prepare for battle better, save state before battle
 local function kill_player(self)
-	pprint("You have died!")
+	pprint("player_stats.script:kill_player(): You have died!")
 	current_health = self.health_points
 	msg.post("main:/playerHUD", "set_current_hp", {current_hp = 20})
 end
@@ -17,11 +17,19 @@ end
 function init(self)
 	msg.post("main:/playerHUD", "set_current_hp", {current_hp = current_health})
 	msg.post("main:/playerHUD", "set_max_hp", {max_hp = self.health_points})
+	--pprint("player_stats.script: Init player_stats.script in level "..tostring(msg.url()))
+end
+
+--TODO can send messages to new player stats being created, or move to main:/
+function final(self)
+	--pprint("player_stats.script: delete")
 end
 
 function on_message(self, message_id, message, sender)
 	-- Player is hit by enemy or other damaging object
 	if message_id == hash("damage_player") then
+		-- pprint("player_stats.script: "..tostring(msg.url()))
+		-- pprint("player_stats.script: Damaging player")
 		current_health = current_health - message.damage
 		msg.post("main:/playerHUD", "set_current_hp", {current_hp = current_health})
 		if current_health <= 0 then
@@ -33,7 +41,7 @@ function on_message(self, message_id, message, sender)
 	elseif message_id == hash("heal_player") then
 		-- Preserve item if player tries to use item at max health
 		if current_health == self.health_points then
-			pprint("Player already has full health")
+			pprint("player_stats.script: Player already has full health")
 			--msg.post(sender, "keep_item")
 		elseif (message.heal_amount + current_health) >= self.health_points then
 			current_health = self.health_points
@@ -46,7 +54,9 @@ function on_message(self, message_id, message, sender)
 		msg.post("main:/playerHUD", "set_current_hp", {current_hp = current_health})
 
 	elseif message_id == hash("quest_reward") then
-		pprint("YAY MONIES!")
 		pprint("player_stats.script: player received gold["..message[1].."] and exp["..message[2].."]")
+
+	elseif message_id == hash("test") then
+		pprint("player_stats.script: test message sent from battle_player.script")
 	end
 end

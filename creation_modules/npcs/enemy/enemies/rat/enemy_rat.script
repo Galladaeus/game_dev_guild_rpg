@@ -1,3 +1,5 @@
+local battle = require "game_systems/battle_system/battle_functions"
+
 -- Enemy's health, inventory, and stats are dealt with in player_stats.script
 go.property("x_move_distance", 128)
 go.property("y_move_distance", 90.4)
@@ -8,36 +10,26 @@ local function kill_enemy(self)
 	pprint("enemy_"..tostring(go.get_id())..".script: Has died")
 	-- Should play a death animation before using animation done to delete the object
 	-- Send message to quest log so that it can update the kill rat quest if player has it
+	msg.post("/battleController", "enemy_died", { url = msg.url() })
 	msg.post("main:/questHandler#questData", "update_quest", {quest_name = "Rat Killer", enemy_type = "rat", })
 	go.delete()
 end
 
--- TODO Should also be a module function and battle controller handles knowing whose turn it is
-local function end_turn(self)
-	msg.post("/battleController", "end_enemy_turn")
-end
-
--- Performs a one space move
--- TODO should place similar movement checks in a module so I don't have all this repeated movement code 
--- between player and different enemy types
-local function move(self, direction)
-	--local current_position = go.get_position()
-	local new_position = go.get_position() 
-
-	if direction == 'y' then
-		new_position[direction] = new_position[direction] + self.y_move_distance
-	elseif direction == 'x' then
-		new_position[direction] = new_position[direction] + self.x_move_distance
+-- Will handle AI logic
+local function calculate_next_move(self)
+	if self.health_points >= .5 * self.health_points then
+		
 	end
-	
-	go.set_position(new_position)
-	end_turn(self)
 end
 
 function init(self)
 	-- Will be used to help decide where to move next
 	self.player_location = go.get_position("/battlePlayer")
-	msg.post("/battleController", "new_enemy")
+	msg.post("/battleController", "new_enemy", { url = msg.url() })
+	self.is_turn = false
+
+	self.move_distance = nil
+	self.move_direction = nil
 end
 
 function final(self)
@@ -49,16 +41,31 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("start_turn") then
 		pprint("enemy_rat.script: It is now the enemies turn")
-		move(self, 'y')
-		msg.post("/battleController", "end_enemy_turn")
+		battle.try_moving(self, -battle.x_move_distance, 'x')
+		--msg.post("/battleController", "end_turn", { msg.url() })
 		
 	elseif message_id == hash("player_attack") then
 		if self.health_points - message[1] <= 0 then
 			kill_enemy(self)
 		else
 			self.health_points = self.health_points - message[1]
+			battle.animate_flash(self)
 			pprint("enemy_rat.script: Rat now has ["..self.health_points.."] Health Points remaining")
 		end
+
+	elseif message_id == hash("ray_cast_response") and message.group == hash("battlePlayer") then
+		pprint("enemy_rat.script: Attacking player")
+
+		local n_position = go.get_position()
+		local c_position = go.get_position()
+		n_position.x = c_position.x - 40
+		--go.animate(".", "position", go.PLAYBACK_ONCE_FORWARD, n_position, go.EASING_LINEAR, 1, battle.end_turn(self))
+		battle.end_turn(self)
+		
+		msg.post("/battlePlayer#script", "damage_player", {damage = self.damage})
+
+	elseif message_id == hash("ray_cast_missed") then
+		battle.move(self, self.move_distance, self.move_direction)
 	end
 end
 

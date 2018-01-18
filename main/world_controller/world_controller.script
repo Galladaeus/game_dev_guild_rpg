@@ -19,12 +19,6 @@ function on_message(self, message_id, message, sender)
 		msg.post(message.other_world_url, "load")
 		msg.post(message.current_world_url, "unload")
 	end
-	
-	if message_id == hash("proxy_loaded") then 	-- Once collection is loaded, initialize and enable collection
-		msg.post(sender, "init")	-- init recursively initializes all objects in collection			
-		msg.post(sender, "enable")	-- enable recursively enables all the objects contained in the collection
-		-- you only need to send enable by itself, init just gives finer control over initialization process
-	end
 
 	if message_id == hash("start_battle") then
 		local battle_level_url = msg.url()
@@ -39,16 +33,16 @@ function on_message(self, message_id, message, sender)
 		current_level_url.fragment = hash("town")]]
 
 		-- Can also use "#battle" and "#town" in place of the constructed urls
-		
+
 		msg.post(battle_level_url, "load")
 		msg.post(self.current_level, "unload")
-		
+
 		self.current_level = battle_level_url
 	end
 
 	if message_id == hash("exit_battle") then
 		local town_level_url = msg.url()
-		
+
 		town_level_url.socket = "main"
 		town_level_url.path = hash("/controller")
 		town_level_url.fragment = hash("town")
@@ -56,4 +50,11 @@ function on_message(self, message_id, message, sender)
 		msg.post(town_level_url, "load")
 		msg.post(self.current_level, "unload")
 	end
+	
+	if message_id == hash("proxy_loaded") then 	-- Once collection is loaded, initialize and enable collection
+		msg.post(sender, "init")	-- init recursively initializes all objects in collection			
+		msg.post(sender, "enable")	-- enable recursively enables all the objects contained in the collection
+		-- you only need to send enable by itself, init just gives finer control over initialization process
+	end
+
 end

@@ -69,3 +69,11 @@ Jan 17 2018:
 + Player now uses raycast detection for movement and attack rather than any collision detection
 + Battle controller has been updated so it can handle multiple enemies in the level and let them each take their turn before switching back to player turn
 + Moved debug f keys to a seperate game object so they don't clutter player scripts
+
+Jan 18 2018:
++ Player and enemy now flash when they take damage as a visual que
++ Added a very basic rat spawner, has no logic other than spawning one rat
++ Moved all battle movement logic into a shared module called battle_functions.lua
++ Battle Controller now more robust, tested for handling at least two enemies
++ Enemy now attacks player when moving into them, but currently only moves left
++ Updated player stats so it will show player taking damage when rat hits them 
