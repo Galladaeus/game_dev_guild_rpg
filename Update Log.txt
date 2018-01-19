@@ -77,3 +77,12 @@ Jan 18 2018:
 + Battle Controller now more robust, tested for handling at least two enemies
 + Enemy now attacks player when moving into them, but currently only moves left
 + Updated player stats so it will show player taking damage when rat hits them 
+
+Jan 19 2018:
++ Implemented basic ai system where enemies will go straight for player and try to attack them
++ Converted music file to .ogg so it is smaller and their is now a constant background music
++ Changed quest so you only have to kill 3 rats:
+	+ New bug -> Since the player inside combat is a different GO than regular player, sending quest rewards doesnt point to the right area, need to either disable accepting quests in dungeons or send to a checked URL
++ Added a few more borders to the test combat level
++ Fixed bug where player could attack many times before their turn ended
++ Added behavior to spawn a rat every three turns in the battle_controller.script

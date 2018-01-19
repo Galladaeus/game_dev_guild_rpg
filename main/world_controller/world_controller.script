@@ -5,7 +5,7 @@ function init(self)
 	msg.post(".", "acquire_input_focus")
 	
 	-- Better way to play music, or place music?
-	-- msg.post("farm_background_music#sound", "play_sound", {delay = 1, gain = 0.5})
+	msg.post("farmBackgroundMusic#sound", "play_sound", {delay = 1, gain = 0.5})
 end
 
 function on_message(self, message_id, message, sender)

@@ -12,7 +12,13 @@ function update(self, dt)
 	-- Remove this function if not needed
 end
 
+-- TODO If player or enemy is standing on top of factory this will cause
+-- them to be directly on top of each other, this needs to be handled somehow
 function on_message(self, message_id, message, sender)
+	if message_id == hash("spawn_enemy") then
+		pprint("rat_spawner.script: Spawning new rat")
+		factory.create("#ratFactory")
+	end
 end
 
 function on_input(self, action_id, action)

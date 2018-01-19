@@ -6,16 +6,30 @@ FINAL TODO Document how all the systems work as well as how i am naming things
 		PROGRAMMATIC:
 TODO make it so that all text appears in main text box, buttons are just for continue, accept/reject quests
 TODO Maybe replace self with all conversation table params, then all conversation tables have to be named the same thing but it will make it simpler, easier to copy and paste conversations
-TODO npc picture needs to change based on who player is talking to
+---TODO npc picture needs to change based on who player is talking to
 TODO check_argument_validity() in create_conversation should check type as well
 ---TODO Refactor the way it selects images, so it selects from npc_images in the shared npc images pool
 
 	GUI ELEMENTS:
-TODO create graphical ui elements
+TODO create graphical ui elements for at least:
+	Inventory background
+	Quest Log
+	Conversations
+	Quit button
+
+
+	Player:
+TODO Add different sprites to different move directions, is their an attack animation and sounds to use?
+
+	
+	Menu's:
+TODO Implement Save, Load
+TODO Maybe options???
 
 
 	Battle System:
-TODO Create system, player will move a set distance each press, unless no enemy is on screen, enemy will take turn after player
+---TODO Create system, player will move a set distance each press, unless no enemy is on screen, enemy will take turn after player
+TODO Change rat spawning behavior to spawn only a few
 
 
 	Quest System:
@@ -24,6 +38,8 @@ TODO Create system, player will move a set distance each press, unless no enemy 
 ---TODO Update quest log to add quests to list rather than just change the only one
 ---TODO Add individual complete stamps for each quest box
 TODO Rename "monetary_reward" to something like "gold_reward" IS THIS EVEN NEEDED???
+TODO Fix quest_reward sending bug, details in update_log
+TODO Make item rewards, i.e. potions, etc.
 
 
 	World Transfer System:

@@ -7,12 +7,19 @@ function get_number_of_enemies(self)
 	return count
 end
 
+function spawn_enemy(self, factory)
+	msg.post(factory, "spawn_enemy")
+end
+
 function init(self)
 	-- Keep track of all the enemies on the battlefield
 	self.enemy_list = {}
-
-	self.number_of_enemies = 0
 	self.enemy_iterator = 0
+	
+	self.number_of_enemies = 0
+
+	-- Keeps track of the number of turns passed, increments every time the enemies complete all their turns 
+	self.turns_elapsed = 0
 	
 	-- For testing purposes
 	-- table.insert(self.enemy_list, {url = "/enemyRat"})
@@ -37,6 +44,13 @@ function on_message(self, message_id, message, sender)
 			pprint("battle_controller.script: Enemy turns are over")
 			-- Reset enemy list
 			self.enemy_iterator = 0
+			self.turns_elapsed = self.turns_elapsed + 1
+
+			-- Should probably be moved or handled differently
+			if self.turns_elapsed % 3 == 0 then
+				spawn_enemy(self, "ratSpawner")
+			end
+			
 			msg.post("/battlePlayer", "enemy_turn_over")
 		else 
 			self.enemy_iterator = self.enemy_iterator + 1
