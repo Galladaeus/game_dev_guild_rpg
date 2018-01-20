@@ -1,19 +1,11 @@
 function init(self)
-	factory.create("#ratFactory")
-end
-
-function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
-end
-
-function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
+	--factory.create("#ratFactory")
 end
 
 -- TODO If player or enemy is standing on top of factory this will cause
 -- them to be directly on top of each other, this needs to be handled somehow
+-- POSSIBLE Solution->Have a one space area that only enemies can enter and place the spawner in there
+-- but then if the player traps the enemy in that location they will still spawn on top of each other
 function on_message(self, message_id, message, sender)
 	if message_id == hash("spawn_enemy") then
 		pprint("rat_spawner.script: Spawning new rat")

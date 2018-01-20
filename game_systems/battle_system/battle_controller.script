@@ -1,12 +1,6 @@
--- Might not need if all counts are handled in message passing
-function get_number_of_enemies(self)
-	local count = 0
-	for i in pairs(self.enemy_list) do
-		count = count + 1
-	end
-	return count
-end
+go.property("total_enemies", 2)
 
+-- Spawns an enemy to a GO with a factory attached
 function spawn_enemy(self, factory)
 	msg.post(factory, "spawn_enemy")
 end
@@ -15,8 +9,11 @@ function init(self)
 	-- Keep track of all the enemies on the battlefield
 	self.enemy_list = {}
 	self.enemy_iterator = 0
-	
+
+	-- Used to keep track of how many enemies still need to take their turn
 	self.number_of_enemies = 0
+	-- Used to stop the spawns after self.total_enemies is reached
+	self.total_enemies_spawned = 0
 
 	-- Keeps track of the number of turns passed, increments every time the enemies complete all their turns 
 	self.turns_elapsed = 0
@@ -27,13 +24,7 @@ function init(self)
 end
 
 function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
-end
-
-function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
+	pprint("battle_controller.script: Battle over, deleting battleController")
 end
 
 function on_message(self, message_id, message, sender)
@@ -46,11 +37,13 @@ function on_message(self, message_id, message, sender)
 			self.enemy_iterator = 0
 			self.turns_elapsed = self.turns_elapsed + 1
 
-			-- Should probably be moved or handled differently
-			if self.turns_elapsed % 3 == 0 then
+			-- Spawns an enemy rat every three turns
+			-- Should probably move into a reusable function
+			if self.turns_elapsed % 3 == 0 and self.total_enemies_spawned ~= self.total_enemies then
+				self.total_enemies_spawned = self.total_enemies_spawned + 1
 				spawn_enemy(self, "ratSpawner")
 			end
-			
+
 			msg.post("/battlePlayer", "enemy_turn_over")
 		else 
 			self.enemy_iterator = self.enemy_iterator + 1

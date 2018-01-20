@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/levels/town/outside/ground/tile.script"
+  component: "/levels/town/outside/map/tile.script"
   position {
     x: 0.0
     y: 0.0
@@ -16,7 +16,7 @@ components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/levels/town/outside/ground/ground_tiles.tilesource\"\n"
+  data: "tile_set: \"/levels/town/outside/map/ground_tiles.tilesource\"\n"
   "default_animation: \"1\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
