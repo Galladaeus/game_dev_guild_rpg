@@ -4,6 +4,7 @@ version = 0.2
 
 [bootstrap]
 main_collection = /main/main.collectionc
+render = /render/custom_render.renderc
 
 [input]
 game_binding = /main/input/game.input_bindingc
@@ -20,15 +21,21 @@ scale = 0.02
 shared_state = 1
 
 [sprite]
-max_count = 4096
+max_count = 16384
 subpixels = 1
-
-[resource]
-max_resources = 5096
-
-[collection]
-max_instances = 4096
 
 [particle_fx]
 max_count = 1024
+
+[factory]
+max_count = 30000
+
+[graphics]
+max_draw_calls = 10000
+
+[resource]
+max_resources = 30000
+
+[collection]
+max_instances = 20000
 

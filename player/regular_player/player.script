@@ -1,4 +1,4 @@
-go.property("player_speed", 250)
+go.property("player_speed", 300)
 
 -- Pre-hashing ids improves performance
 local input_up = hash("up")

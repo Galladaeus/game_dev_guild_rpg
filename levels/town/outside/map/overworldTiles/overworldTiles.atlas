@@ -1,0 +1,195 @@
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grass_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grass_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grass_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grass_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassHill_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassHill_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassHill_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassHill_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassHillHigh_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassHillHigh_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassHillHigh_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassHillHigh_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCorner_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCorner_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCorner_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCorner_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCornerPlace_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCornerPlace_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCornerPlace_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCornerPlace_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCrossing_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCrossing_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCrossing_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathCrossing_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathEnd_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathEnd_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathEnd_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathEnd_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathStraight_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathStraight_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathStraight_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassPathStraight_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassStoneLarge_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassStoneLarge_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassStoneLarge_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassStoneLarge_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassStoneSmall_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassStoneSmall_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassStoneSmall_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassStoneSmall_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassTreeStump_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassTreeStump_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassTreeStump_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassTreeStump_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassTreeStumpAxe_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassTreeStumpAxe_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassTreeStumpAxe_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/grassTreeStumpAxe_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treeDeadLarge_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treeDeadLarge_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treeDeadLarge_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treeDeadLarge_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treeDeadSmall_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treeDeadSmall_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treeDeadSmall_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treeDeadSmall_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treePineLarge_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treePineLarge_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treePineLarge_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treePineLarge_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treePineSmall_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treePineSmall_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treePineSmall_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/overworld_pack/treePineSmall_W.png"
+}
+margin: 0
+extrude_borders: 1
+inner_padding: 0

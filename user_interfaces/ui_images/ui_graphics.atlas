@@ -55,6 +55,9 @@ images {
 images {
   image: "/user_interfaces/ui_images/inventory_images/exitButton.png"
 }
+images {
+  image: "/user_interfaces/ui_images/button_images/pixel_quit_check.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

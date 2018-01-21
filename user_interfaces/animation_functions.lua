@@ -9,6 +9,7 @@ local M = {}
 --------This set of animations animates a gui node to flucuate size before returning to normal---------
 -------------------------------------------------------------------------------------------------------
 
+-- TODO Fix so they are usable for any nodes, right now they set the scale to 0.1 for main menu buttons
 -- Animation functions are set up in a timeline, i.e. anim1 triggers first then anim2 etc.
 function M.anim4(self, node)
 	-- animate scale to 100%

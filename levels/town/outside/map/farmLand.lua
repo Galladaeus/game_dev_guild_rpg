@@ -34,1297 +34,1297 @@ return {
       tiles = {
         {
           id = 0,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHoleCross_E.png",
+          image = "woodWallHoleCross_E",
           width = 256,
           height = 512
         },
         {
           id = 1,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHoleCross_N.png",
+          image = "woodWallHoleCross_N",
           width = 256,
           height = 512
         },
         {
           id = 2,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHoleCross_S.png",
+          image = "woodWallHoleCross_S",
           width = 256,
           height = 512
         },
         {
           id = 3,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHoleCross_W.png",
+          image = "woodWallHoleCross_W",
           width = 256,
           height = 512
         },
         {
           id = 4,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHoleDiagonal_E.png",
+          image = "woodWallHoleDiagonal_E",
           width = 256,
           height = 512
         },
         {
           id = 5,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHoleDiagonal_N.png",
+          image = "woodWallHoleDiagonal_N",
           width = 256,
           height = 512
         },
         {
           id = 6,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHoleDiagonal_S.png",
+          image = "woodWallHoleDiagonal_S",
           width = 256,
           height = 512
         },
         {
           id = 7,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHoleDiagonal_W.png",
+          image = "woodWallHoleDiagonal_W",
           width = 256,
           height = 512
         },
         {
           id = 8,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallRoofLeft_E.png",
+          image = "woodWallRoofLeft_E",
           width = 256,
           height = 512
         },
         {
           id = 9,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallRoofLeft_N.png",
+          image = "woodWallRoofLeft_N",
           width = 256,
           height = 512
         },
         {
           id = 10,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallRoofLeft_S.png",
+          image = "woodWallRoofLeft_S",
           width = 256,
           height = 512
         },
         {
           id = 11,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallRoofLeft_W.png",
+          image = "woodWallRoofLeft_W",
           width = 256,
           height = 512
         },
         {
           id = 12,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallRoofRight_E.png",
+          image = "woodWallRoofRight_E",
           width = 256,
           height = 512
         },
         {
           id = 13,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallRoofRight_N.png",
+          image = "woodWallRoofRight_N",
           width = 256,
           height = 512
         },
         {
           id = 14,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallRoofRight_S.png",
+          image = "woodWallRoofRight_S",
           width = 256,
           height = 512
         },
         {
           id = 15,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallRoofRight_W.png",
+          image = "woodWallRoofRight_W",
           width = 256,
           height = 512
         },
         {
           id = 16,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallSupport_E.png",
+          image = "woodWallSupport_E",
           width = 256,
           height = 512
         },
         {
           id = 17,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallSupport_N.png",
+          image = "woodWallSupport_N",
           width = 256,
           height = 512
         },
         {
           id = 18,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallSupport_S.png",
+          image = "woodWallSupport_S",
           width = 256,
           height = 512
         },
         {
           id = 19,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallSupport_W.png",
+          image = "woodWallSupport_W",
           width = 256,
           height = 512
         },
         {
           id = 20,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallWindow_E.png",
+          image = "woodWallWindow_E",
           width = 256,
           height = 512
         },
         {
           id = 21,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallWindow_N.png",
+          image = "woodWallWindow_N",
           width = 256,
           height = 512
         },
         {
           id = 22,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallWindow_S.png",
+          image = "woodWallWindow_S",
           width = 256,
           height = 512
         },
         {
           id = 23,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallWindow_W.png",
+          image = "woodWallWindow_W",
           width = 256,
           height = 512
         },
         {
           id = 24,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallWindowGlass_E.png",
+          image = "woodWallWindowGlass_E",
           width = 256,
           height = 512
         },
         {
           id = 25,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallWindowGlass_N.png",
+          image = "woodWallWindowGlass_N",
           width = 256,
           height = 512
         },
         {
           id = 26,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallWindowGlass_S.png",
+          image = "woodWallWindowGlass_S",
           width = 256,
           height = 512
         },
         {
           id = 27,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallWindowGlass_W.png",
+          image = "woodWallWindowGlass_W",
           width = 256,
           height = 512
         },
         {
           id = 28,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/chimneyBase_E.png",
+          image = "chimneyBase_E",
           width = 256,
           height = 512
         },
         {
           id = 29,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/chimneyBase_N.png",
+          image = "chimneyBase_N",
           width = 256,
           height = 512
         },
         {
           id = 30,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/chimneyBase_S.png",
+          image = "chimneyBase_S",
           width = 256,
           height = 512
         },
         {
           id = 31,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/chimneyBase_W.png",
+          image = "chimneyBase_W",
           width = 256,
           height = 512
         },
         {
           id = 32,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/chimneyTop_E.png",
+          image = "chimneyTop_E",
           width = 256,
           height = 512
         },
         {
           id = 33,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/chimneyTop_N.png",
+          image = "chimneyTop_N",
           width = 256,
           height = 512
         },
         {
           id = 34,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/chimneyTop_S.png",
+          image = "chimneyTop_S",
           width = 256,
           height = 512
         },
         {
           id = 35,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/chimneyTop_W.png",
+          image = "chimneyTop_W",
           width = 256,
           height = 512
         },
         {
           id = 36,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/corn_E.png",
+          image = "corn_E",
           width = 256,
           height = 512
         },
         {
           id = 37,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/corn_N.png",
+          image = "corn_N",
           width = 256,
           height = 512
         },
         {
           id = 38,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/corn_S.png",
+          image = "corn_S",
           width = 256,
           height = 512
         },
         {
           id = 39,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/corn_W.png",
+          image = "corn_W",
           width = 256,
           height = 512
         },
         {
           id = 40,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornDouble_E.png",
+          image = "cornDouble_E",
           width = 256,
           height = 512
         },
         {
           id = 41,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornDouble_N.png",
+          image = "cornDouble_N",
           width = 256,
           height = 512
         },
         {
           id = 42,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornDouble_S.png",
+          image = "cornDouble_S",
           width = 256,
           height = 512
         },
         {
           id = 43,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornDouble_W.png",
+          image = "cornDouble_W",
           width = 256,
           height = 512
         },
         {
           id = 44,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornYoung_E.png",
+          image = "cornYoung_E",
           width = 256,
           height = 512
         },
         {
           id = 45,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornYoung_N.png",
+          image = "cornYoung_N",
           width = 256,
           height = 512
         },
         {
           id = 46,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornYoung_S.png",
+          image = "cornYoung_S",
           width = 256,
           height = 512
         },
         {
           id = 47,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornYoung_W.png",
+          image = "cornYoung_W",
           width = 256,
           height = 512
         },
         {
           id = 48,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornYoungDouble_E.png",
+          image = "cornYoungDouble_E",
           width = 256,
           height = 512
         },
         {
           id = 49,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornYoungDouble_N.png",
+          image = "cornYoungDouble_N",
           width = 256,
           height = 512
         },
         {
           id = 50,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornYoungDouble_S.png",
+          image = "cornYoungDouble_S",
           width = 256,
           height = 512
         },
         {
           id = 51,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/cornYoungDouble_W.png",
+          image = "cornYoungDouble_W",
           width = 256,
           height = 512
         },
         {
           id = 52,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/dirt_E.png",
+          image = "dirt_E",
           width = 256,
           height = 512
         },
         {
           id = 53,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/dirt_N.png",
+          image = "dirt_N",
           width = 256,
           height = 512
         },
         {
           id = 54,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/dirt_S.png",
+          image = "dirt_S",
           width = 256,
           height = 512
         },
         {
           id = 55,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/dirt_W.png",
+          image = "dirt_W",
           width = 256,
           height = 512
         },
         {
           id = 56,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/dirtFarmland_E.png",
+          image = "dirtFarmland_E",
           width = 256,
           height = 512
         },
         {
           id = 57,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/dirtFarmland_N.png",
+          image = "dirtFarmland_N",
           width = 256,
           height = 512
         },
         {
           id = 58,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/dirtFarmland_S.png",
+          image = "dirtFarmland_S",
           width = 256,
           height = 512
         },
         {
           id = 59,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/dirtFarmland_W.png",
+          image = "dirtFarmland_W",
           width = 256,
           height = 512
         },
         {
           id = 60,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceHigh_E.png",
+          image = "fenceHigh_E",
           width = 256,
           height = 512
         },
         {
           id = 61,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceHigh_N.png",
+          image = "fenceHigh_N",
           width = 256,
           height = 512
         },
         {
           id = 62,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceHigh_S.png",
+          image = "fenceHigh_S",
           width = 256,
           height = 512
         },
         {
           id = 63,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceHigh_W.png",
+          image = "fenceHigh_W",
           width = 256,
           height = 512
         },
         {
           id = 64,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceHighBroken_E.png",
+          image = "fenceHighBroken_E",
           width = 256,
           height = 512
         },
         {
           id = 65,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceHighBroken_N.png",
+          image = "fenceHighBroken_N",
           width = 256,
           height = 512
         },
         {
           id = 66,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceHighBroken_S.png",
+          image = "fenceHighBroken_S",
           width = 256,
           height = 512
         },
         {
           id = 67,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceHighBroken_W.png",
+          image = "fenceHighBroken_W",
           width = 256,
           height = 512
         },
         {
           id = 68,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceLow_E.png",
+          image = "fenceLow_E",
           width = 256,
           height = 512
         },
         {
           id = 69,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceLow_N.png",
+          image = "fenceLow_N",
           width = 256,
           height = 512
         },
         {
           id = 70,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceLow_S.png",
+          image = "fenceLow_S",
           width = 256,
           height = 512
         },
         {
           id = 71,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceLow_W.png",
+          image = "fenceLow_W",
           width = 256,
           height = 512
         },
         {
           id = 72,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceLowBroken_E.png",
+          image = "fenceLowBroken_E",
           width = 256,
           height = 512
         },
         {
           id = 73,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceLowBroken_N.png",
+          image = "fenceLowBroken_N",
           width = 256,
           height = 512
         },
         {
           id = 74,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceLowBroken_S.png",
+          image = "fenceLowBroken_S",
           width = 256,
           height = 512
         },
         {
           id = 75,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/fenceLowBroken_W.png",
+          image = "fenceLowBroken_W",
           width = 256,
           height = 512
         },
         {
           id = 76,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hay_E.png",
+          image = "hay_E",
           width = 256,
           height = 512
         },
         {
           id = 77,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hay_N.png",
+          image = "hay_N",
           width = 256,
           height = 512
         },
         {
           id = 78,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hay_S.png",
+          image = "hay_S",
           width = 256,
           height = 512
         },
         {
           id = 79,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hay_W.png",
+          image = "hay_W",
           width = 256,
           height = 512
         },
         {
           id = 80,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hayBales_E.png",
+          image = "hayBales_E",
           width = 256,
           height = 512
         },
         {
           id = 81,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hayBales_N.png",
+          image = "hayBales_N",
           width = 256,
           height = 512
         },
         {
           id = 82,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hayBales_S.png",
+          image = "hayBales_S",
           width = 256,
           height = 512
         },
         {
           id = 83,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hayBales_W.png",
+          image = "hayBales_W",
           width = 256,
           height = 512
         },
         {
           id = 84,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hayBalesStacked_E.png",
+          image = "hayBalesStacked_E",
           width = 256,
           height = 512
         },
         {
           id = 85,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hayBalesStacked_N.png",
+          image = "hayBalesStacked_N",
           width = 256,
           height = 512
         },
         {
           id = 86,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hayBalesStacked_S.png",
+          image = "hayBalesStacked_S",
           width = 256,
           height = 512
         },
         {
           id = 87,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/hayBalesStacked_W.png",
+          image = "hayBalesStacked_W",
           width = 256,
           height = 512
         },
         {
           id = 88,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStand_E.png",
+          image = "ladderStand_E",
           width = 256,
           height = 512
         },
         {
           id = 89,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStand_N.png",
+          image = "ladderStand_N",
           width = 256,
           height = 512
         },
         {
           id = 90,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStand_S.png",
+          image = "ladderStand_S",
           width = 256,
           height = 512
         },
         {
           id = 91,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStand_W.png",
+          image = "ladderStand_W",
           width = 256,
           height = 512
         },
         {
           id = 92,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStandBroken_E.png",
+          image = "ladderStandBroken_E",
           width = 256,
           height = 512
         },
         {
           id = 93,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStandBroken_N.png",
+          image = "ladderStandBroken_N",
           width = 256,
           height = 512
         },
         {
           id = 94,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStandBroken_S.png",
+          image = "ladderStandBroken_S",
           width = 256,
           height = 512
         },
         {
           id = 95,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStandBroken_W.png",
+          image = "ladderStandBroken_W",
           width = 256,
           height = 512
         },
         {
           id = 96,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStraight_E.png",
+          image = "ladderStraight_E",
           width = 256,
           height = 512
         },
         {
           id = 97,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStraight_N.png",
+          image = "ladderStraight_N",
           width = 256,
           height = 512
         },
         {
           id = 98,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStraight_S.png",
+          image = "ladderStraight_S",
           width = 256,
           height = 512
         },
         {
           id = 99,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/ladderStraight_W.png",
+          image = "ladderStraight_W",
           width = 256,
           height = 512
         },
         {
           id = 100,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planks_E.png",
+          image = "planks_E",
           width = 256,
           height = 512
         },
         {
           id = 101,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planks_N.png",
+          image = "planks_N",
           width = 256,
           height = 512
         },
         {
           id = 102,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planks_S.png",
+          image = "planks_S",
           width = 256,
           height = 512
         },
         {
           id = 103,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planks_W.png",
+          image = "planks_W",
           width = 256,
           height = 512
         },
         {
           id = 104,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksCornerLeft_E.png",
+          image = "planksCornerLeft_E",
           width = 256,
           height = 512
         },
         {
           id = 105,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksCornerLeft_N.png",
+          image = "planksCornerLeft_N",
           width = 256,
           height = 512
         },
         {
           id = 106,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksCornerLeft_S.png",
+          image = "planksCornerLeft_S",
           width = 256,
           height = 512
         },
         {
           id = 107,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksCornerLeft_W.png",
+          image = "planksCornerLeft_W",
           width = 256,
           height = 512
         },
         {
           id = 108,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksCornerRight_E.png",
+          image = "planksCornerRight_E",
           width = 256,
           height = 512
         },
         {
           id = 109,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksCornerRight_N.png",
+          image = "planksCornerRight_N",
           width = 256,
           height = 512
         },
         {
           id = 110,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksCornerRight_S.png",
+          image = "planksCornerRight_S",
           width = 256,
           height = 512
         },
         {
           id = 111,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksCornerRight_W.png",
+          image = "planksCornerRight_W",
           width = 256,
           height = 512
         },
         {
           id = 112,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksHole_E.png",
+          image = "planksHole_E",
           width = 256,
           height = 512
         },
         {
           id = 113,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksHole_N.png",
+          image = "planksHole_N",
           width = 256,
           height = 512
         },
         {
           id = 114,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksHole_S.png",
+          image = "planksHole_S",
           width = 256,
           height = 512
         },
         {
           id = 115,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksHole_W.png",
+          image = "planksHole_W",
           width = 256,
           height = 512
         },
         {
           id = 116,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksOld_E.png",
+          image = "planksOld_E",
           width = 256,
           height = 512
         },
         {
           id = 117,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksOld_N.png",
+          image = "planksOld_N",
           width = 256,
           height = 512
         },
         {
           id = 118,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksOld_S.png",
+          image = "planksOld_S",
           width = 256,
           height = 512
         },
         {
           id = 119,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksOld_W.png",
+          image = "planksOld_W",
           width = 256,
           height = 512
         },
         {
           id = 120,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksSide_E.png",
+          image = "planksSide_E",
           width = 256,
           height = 512
         },
         {
           id = 121,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksSide_N.png",
+          image = "planksSide_N",
           width = 256,
           height = 512
         },
         {
           id = 122,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksSide_S.png",
+          image = "planksSide_S",
           width = 256,
           height = 512
         },
         {
           id = 123,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksSide_W.png",
+          image = "planksSide_W",
           width = 256,
           height = 512
         },
         {
           id = 124,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksSideVertical_E.png",
+          image = "planksSideVertical_E",
           width = 256,
           height = 512
         },
         {
           id = 125,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksSideVertical_N.png",
+          image = "planksSideVertical_N",
           width = 256,
           height = 512
         },
         {
           id = 126,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksSideVertical_S.png",
+          image = "planksSideVertical_S",
           width = 256,
           height = 512
         },
         {
           id = 127,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/planksSideVertical_W.png",
+          image = "planksSideVertical_W",
           width = 256,
           height = 512
         },
         {
           id = 128,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roof_E.png",
+          image = "roof_E",
           width = 256,
           height = 512
         },
         {
           id = 129,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roof_N.png",
+          image = "roof_N",
           width = 256,
           height = 512
         },
         {
           id = 130,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roof_S.png",
+          image = "roof_S",
           width = 256,
           height = 512
         },
         {
           id = 131,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roof_W.png",
+          image = "roof_W",
           width = 256,
           height = 512
         },
         {
           id = 132,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofCorner_E.png",
+          image = "roofCorner_E",
           width = 256,
           height = 512
         },
         {
           id = 133,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofCorner_N.png",
+          image = "roofCorner_N",
           width = 256,
           height = 512
         },
         {
           id = 134,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofCorner_S.png",
+          image = "roofCorner_S",
           width = 256,
           height = 512
         },
         {
           id = 135,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofCorner_W.png",
+          image = "roofCorner_W",
           width = 256,
           height = 512
         },
         {
           id = 136,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofInnerCorner_E.png",
+          image = "roofInnerCorner_E",
           width = 256,
           height = 512
         },
         {
           id = 137,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofInnerCorner_N.png",
+          image = "roofInnerCorner_N",
           width = 256,
           height = 512
         },
         {
           id = 138,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofInnerCorner_S.png",
+          image = "roofInnerCorner_S",
           width = 256,
           height = 512
         },
         {
           id = 139,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofInnerCorner_W.png",
+          image = "roofInnerCorner_W",
           width = 256,
           height = 512
         },
         {
           id = 140,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofSingle_E.png",
+          image = "roofSingle_E",
           width = 256,
           height = 512
         },
         {
           id = 141,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofSingle_N.png",
+          image = "roofSingle_N",
           width = 256,
           height = 512
         },
         {
           id = 142,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofSingle_S.png",
+          image = "roofSingle_S",
           width = 256,
           height = 512
         },
         {
           id = 143,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofSingle_W.png",
+          image = "roofSingle_W",
           width = 256,
           height = 512
         },
         {
           id = 144,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofSingleWall_E.png",
+          image = "roofSingleWall_E",
           width = 256,
           height = 512
         },
         {
           id = 145,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofSingleWall_N.png",
+          image = "roofSingleWall_N",
           width = 256,
           height = 512
         },
         {
           id = 146,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofSingleWall_S.png",
+          image = "roofSingleWall_S",
           width = 256,
           height = 512
         },
         {
           id = 147,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/roofSingleWall_W.png",
+          image = "roofSingleWall_W",
           width = 256,
           height = 512
         },
         {
           id = 148,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/sack_E.png",
+          image = "sack_E",
           width = 256,
           height = 512
         },
         {
           id = 149,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/sack_N.png",
+          image = "sack_N",
           width = 256,
           height = 512
         },
         {
           id = 150,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/sack_S.png",
+          image = "sack_S",
           width = 256,
           height = 512
         },
         {
           id = 151,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/sack_W.png",
+          image = "sack_W",
           width = 256,
           height = 512
         },
         {
           id = 152,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/sacksCrate_E.png",
+          image = "sacksCrate_E",
           width = 256,
           height = 512
         },
         {
           id = 153,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/sacksCrate_N.png",
+          image = "sacksCrate_N",
           width = 256,
           height = 512
         },
         {
           id = 154,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/sacksCrate_S.png",
+          image = "sacksCrate_S",
           width = 256,
           height = 512
         },
         {
           id = 155,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/sacksCrate_W.png",
+          image = "sacksCrate_W",
           width = 256,
           height = 512
         },
         {
           id = 156,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWall_E.png",
+          image = "woodWall_E",
           width = 256,
           height = 512
         },
         {
           id = 157,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWall_N.png",
+          image = "woodWall_N",
           width = 256,
           height = 512
         },
         {
           id = 158,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWall_S.png",
+          image = "woodWall_S",
           width = 256,
           height = 512
         },
         {
           id = 159,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWall_W.png",
+          image = "woodWall_W",
           width = 256,
           height = 512
         },
         {
           id = 160,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallCorner_E.png",
+          image = "woodWallCorner_E",
           width = 256,
           height = 512
         },
         {
           id = 161,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallCorner_N.png",
+          image = "woodWallCorner_N",
           width = 256,
           height = 512
         },
         {
           id = 162,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallCorner_S.png",
+          image = "woodWallCorner_S",
           width = 256,
           height = 512
         },
         {
           id = 163,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallCorner_W.png",
+          image = "woodWallCorner_W",
           width = 256,
           height = 512
         },
         {
           id = 164,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallCross_E.png",
+          image = "woodWallCross_E",
           width = 256,
           height = 512
         },
         {
           id = 165,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallCross_N.png",
+          image = "woodWallCross_N",
           width = 256,
           height = 512
         },
         {
           id = 166,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallCross_S.png",
+          image = "woodWallCross_S",
           width = 256,
           height = 512
         },
         {
           id = 167,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallCross_W.png",
+          image = "woodWallCross_W",
           width = 256,
           height = 512
         },
         {
           id = 168,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDiagional_E.png",
+          image = "woodWallDiagional_E",
           width = 256,
           height = 512
         },
         {
           id = 169,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDiagional_N.png",
+          image = "woodWallDiagional_N",
           width = 256,
           height = 512
         },
         {
           id = 170,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDiagional_S.png",
+          image = "woodWallDiagional_S",
           width = 256,
           height = 512
         },
         {
           id = 171,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDiagional_W.png",
+          image = "woodWallDiagional_W",
           width = 256,
           height = 512
         },
         {
           id = 172,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorClosed_E.png",
+          image = "woodWallDoorClosed_E",
           width = 256,
           height = 512
         },
         {
           id = 173,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorClosed_N.png",
+          image = "woodWallDoorClosed_N",
           width = 256,
           height = 512
         },
         {
           id = 174,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorClosed_S.png",
+          image = "woodWallDoorClosed_S",
           width = 256,
           height = 512
         },
         {
           id = 175,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorClosed_W.png",
+          image = "woodWallDoorClosed_W",
           width = 256,
           height = 512
         },
         {
           id = 176,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorOpen_E.png",
+          image = "woodWallDoorOpen_E",
           width = 256,
           height = 512
         },
         {
           id = 177,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorOpen_N.png",
+          image = "woodWallDoorOpen_N",
           width = 256,
           height = 512
         },
         {
           id = 178,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorOpen_S.png",
+          image = "woodWallDoorOpen_S",
           width = 256,
           height = 512
         },
         {
           id = 179,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorOpen_W.png",
+          image = "woodWallDoorOpen_W",
           width = 256,
           height = 512
         },
         {
           id = 180,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorway_E.png",
+          image = "woodWallDoorway_E",
           width = 256,
           height = 512
         },
         {
           id = 181,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorway_N.png",
+          image = "woodWallDoorway_N",
           width = 256,
           height = 512
         },
         {
           id = 182,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorway_S.png",
+          image = "woodWallDoorway_S",
           width = 256,
           height = 512
         },
         {
           id = 183,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallDoorway_W.png",
+          image = "woodWallDoorway_W",
           width = 256,
           height = 512
         },
         {
           id = 184,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmpty_E.png",
+          image = "woodWallEmpty_E",
           width = 256,
           height = 512
         },
         {
           id = 185,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmpty_N.png",
+          image = "woodWallEmpty_N",
           width = 256,
           height = 512
         },
         {
           id = 186,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmpty_S.png",
+          image = "woodWallEmpty_S",
           width = 256,
           height = 512
         },
         {
           id = 187,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmpty_W.png",
+          image = "woodWallEmpty_W",
           width = 256,
           height = 512
         },
         {
           id = 188,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyCross_E.png",
+          image = "woodWallEmptyCross_E",
           width = 256,
           height = 512
         },
         {
           id = 189,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyCross_N.png",
+          image = "woodWallEmptyCross_N",
           width = 256,
           height = 512
         },
         {
           id = 190,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyCross_S.png",
+          image = "woodWallEmptyCross_S",
           width = 256,
           height = 512
         },
         {
           id = 191,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyCross_W.png",
+          image = "woodWallEmptyCross_W",
           width = 256,
           height = 512
         },
         {
           id = 192,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyDiagonal_E.png",
+          image = "woodWallEmptyDiagonal_E",
           width = 256,
           height = 512
         },
         {
           id = 193,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyDiagonal_N.png",
+          image = "woodWallEmptyDiagonal_N",
           width = 256,
           height = 512
         },
         {
           id = 194,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyDiagonal_S.png",
+          image = "woodWallEmptyDiagonal_S",
           width = 256,
           height = 512
         },
         {
           id = 195,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyDiagonal_W.png",
+          image = "woodWallEmptyDiagonal_W",
           width = 256,
           height = 512
         },
         {
           id = 196,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyOpen_E.png",
+          image = "woodWallEmptyOpen_E",
           width = 256,
           height = 512
         },
         {
           id = 197,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyOpen_N.png",
+          image = "woodWallEmptyOpen_N",
           width = 256,
           height = 512
         },
         {
           id = 198,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyOpen_S.png",
+          image = "woodWallEmptyOpen_S",
           width = 256,
           height = 512
         },
         {
           id = 199,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallEmptyOpen_W.png",
+          image = "woodWallEmptyOpen_W",
           width = 256,
           height = 512
         },
         {
           id = 200,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateClosed_E.png",
+          image = "woodWallGateClosed_E",
           width = 256,
           height = 512
         },
         {
           id = 201,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateClosed_N.png",
+          image = "woodWallGateClosed_N",
           width = 256,
           height = 512
         },
         {
           id = 202,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateClosed_S.png",
+          image = "woodWallGateClosed_S",
           width = 256,
           height = 512
         },
         {
           id = 203,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateClosed_W.png",
+          image = "woodWallGateClosed_W",
           width = 256,
           height = 512
         },
         {
           id = 204,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateOpen_E.png",
+          image = "woodWallGateOpen_E",
           width = 256,
           height = 512
         },
         {
           id = 205,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateOpen_N.png",
+          image = "woodWallGateOpen_N",
           width = 256,
           height = 512
         },
         {
           id = 206,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateOpen_S.png",
+          image = "woodWallGateOpen_S",
           width = 256,
           height = 512
         },
         {
           id = 207,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateOpen_W.png",
+          image = "woodWallGateOpen_W",
           width = 256,
           height = 512
         },
         {
           id = 208,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateway_E.png",
+          image = "woodWallGateway_E",
           width = 256,
           height = 512
         },
         {
           id = 209,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateway_N.png",
+          image = "woodWallGateway_N",
           width = 256,
           height = 512
         },
         {
           id = 210,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateway_S.png",
+          image = "woodWallGateway_S",
           width = 256,
           height = 512
         },
         {
           id = 211,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallGateway_W.png",
+          image = "woodWallGateway_W",
           width = 256,
           height = 512
         },
         {
           id = 212,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHole_E.png",
+          image = "woodWallHole_E",
           width = 256,
           height = 512
         },
         {
           id = 213,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHole_N.png",
+          image = "woodWallHole_N",
           width = 256,
           height = 512
         },
         {
           id = 214,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHole_S.png",
+          image = "woodWallHole_S",
           width = 256,
           height = 512
         },
         {
           id = 215,
-          image = "Kenney Isometric Assets/Farm pack/Isometric/woodWallHole_W.png",
+          image = "woodWallHole_W",
           width = 256,
           height = 512
         }
@@ -1353,385 +1353,385 @@ return {
       tiles = {
         {
           id = 0,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassStoneLarge_W.png",
+          image = "grassStoneLarge_W",
           width = 256,
           height = 512
         },
         {
           id = 1,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassStoneSmall_E.png",
+          image = "grassStoneSmall_E",
           width = 256,
           height = 512
         },
         {
           id = 2,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassStoneSmall_N.png",
+          image = "grassStoneSmall_N",
           width = 256,
           height = 512
         },
         {
           id = 3,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassStoneSmall_S.png",
+          image = "grassStoneSmall_S",
           width = 256,
           height = 512
         },
         {
           id = 4,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassStoneSmall_W.png",
+          image = "grassStoneSmall_W",
           width = 256,
           height = 512
         },
         {
           id = 5,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassTreeStump_E.png",
+          image = "grassTreeStump_E",
           width = 256,
           height = 512
         },
         {
           id = 6,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassTreeStump_N.png",
+          image = "grassTreeStump_N",
           width = 256,
           height = 512
         },
         {
           id = 7,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassTreeStump_S.png",
+          image = "grassTreeStump_S",
           width = 256,
           height = 512
         },
         {
           id = 8,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassTreeStump_W.png",
+          image = "grassTreeStump_W",
           width = 256,
           height = 512
         },
         {
           id = 9,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassTreeStumpAxe_E.png",
+          image = "grassTreeStumpAxe_E",
           width = 256,
           height = 512
         },
         {
           id = 10,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassTreeStumpAxe_N.png",
+          image = "grassTreeStumpAxe_N",
           width = 256,
           height = 512
         },
         {
           id = 11,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassTreeStumpAxe_S.png",
+          image = "grassTreeStumpAxe_S",
           width = 256,
           height = 512
         },
         {
           id = 12,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassTreeStumpAxe_W.png",
+          image = "grassTreeStumpAxe_W",
           width = 256,
           height = 512
         },
         {
           id = 13,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treeDeadLarge_E.png",
+          image = "treeDeadLarge_E",
           width = 256,
           height = 512
         },
         {
           id = 14,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treeDeadLarge_N.png",
+          image = "treeDeadLarge_N",
           width = 256,
           height = 512
         },
         {
           id = 15,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treeDeadLarge_S.png",
+          image = "treeDeadLarge_S",
           width = 256,
           height = 512
         },
         {
           id = 16,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treeDeadLarge_W.png",
+          image = "treeDeadLarge_W",
           width = 256,
           height = 512
         },
         {
           id = 17,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treeDeadSmall_E.png",
+          image = "treeDeadSmall_E",
           width = 256,
           height = 512
         },
         {
           id = 18,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treeDeadSmall_N.png",
+          image = "treeDeadSmall_N",
           width = 256,
           height = 512
         },
         {
           id = 19,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treeDeadSmall_S.png",
+          image = "treeDeadSmall_S",
           width = 256,
           height = 512
         },
         {
           id = 20,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treeDeadSmall_W.png",
+          image = "treeDeadSmall_W",
           width = 256,
           height = 512
         },
         {
           id = 21,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treePineLarge_E.png",
+          image = "treePineLarge_E",
           width = 256,
           height = 512
         },
         {
           id = 22,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treePineLarge_N.png",
+          image = "treePineLarge_N",
           width = 256,
           height = 512
         },
         {
           id = 23,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treePineLarge_S.png",
+          image = "treePineLarge_S",
           width = 256,
           height = 512
         },
         {
           id = 24,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treePineLarge_W.png",
+          image = "treePineLarge_W",
           width = 256,
           height = 512
         },
         {
           id = 25,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treePineSmall_E.png",
+          image = "treePineSmall_E",
           width = 256,
           height = 512
         },
         {
           id = 26,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treePineSmall_N.png",
+          image = "treePineSmall_N",
           width = 256,
           height = 512
         },
         {
           id = 27,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treePineSmall_S.png",
+          image = "treePineSmall_S",
           width = 256,
           height = 512
         },
         {
           id = 28,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/treePineSmall_W.png",
+          image = "treePineSmall_W",
           width = 256,
           height = 512
         },
         {
           id = 29,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grass_E.png",
+          image = "grass_E",
           width = 256,
           height = 512
         },
         {
           id = 30,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grass_N.png",
+          image = "grass_N",
           width = 256,
           height = 512
         },
         {
           id = 31,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grass_S.png",
+          image = "grass_S",
           width = 256,
           height = 512
         },
         {
           id = 32,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grass_W.png",
+          image = "grass_W",
           width = 256,
           height = 512
         },
         {
           id = 33,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassHill_E.png",
+          image = "grassHill_E",
           width = 256,
           height = 512
         },
         {
           id = 34,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassHill_N.png",
+          image = "grassHill_N",
           width = 256,
           height = 512
         },
         {
           id = 35,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassHill_S.png",
+          image = "grassHill_S",
           width = 256,
           height = 512
         },
         {
           id = 36,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassHill_W.png",
+          image = "grassHill_W",
           width = 256,
           height = 512
         },
         {
           id = 37,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassHillHigh_E.png",
+          image = "grassHillHigh_E",
           width = 256,
           height = 512
         },
         {
           id = 38,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassHillHigh_N.png",
+          image = "grassHillHigh_N",
           width = 256,
           height = 512
         },
         {
           id = 39,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassHillHigh_S.png",
+          image = "grassHillHigh_S",
           width = 256,
           height = 512
         },
         {
           id = 40,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassHillHigh_W.png",
+          image = "grassHillHigh_W",
           width = 256,
           height = 512
         },
         {
           id = 41,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCorner_E.png",
+          image = "grassPathCorner_E",
           width = 256,
           height = 512
         },
         {
           id = 42,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCorner_N.png",
+          image = "grassPathCorner_N",
           width = 256,
           height = 512
         },
         {
           id = 43,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCorner_S.png",
+          image = "grassPathCorner_S",
           width = 256,
           height = 512
         },
         {
           id = 44,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCorner_W.png",
+          image = "grassPathCorner_W",
           width = 256,
           height = 512
         },
         {
           id = 45,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCornerPlace_E.png",
+          image = "grassPathCornerPlace_E",
           width = 256,
           height = 512
         },
         {
           id = 46,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCornerPlace_N.png",
+          image = "grassPathCornerPlace_N",
           width = 256,
           height = 512
         },
         {
           id = 47,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCornerPlace_S.png",
+          image = "grassPathCornerPlace_S",
           width = 256,
           height = 512
         },
         {
           id = 48,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCornerPlace_W.png",
+          image = "grassPathCornerPlace_W",
           width = 256,
           height = 512
         },
         {
           id = 49,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCrossing_E.png",
+          image = "grassPathCrossing_E",
           width = 256,
           height = 512
         },
         {
           id = 50,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCrossing_N.png",
+          image = "grassPathCrossing_N",
           width = 256,
           height = 512
         },
         {
           id = 51,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCrossing_S.png",
+          image = "grassPathCrossing_S",
           width = 256,
           height = 512
         },
         {
           id = 52,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathCrossing_W.png",
+          image = "grassPathCrossing_W",
           width = 256,
           height = 512
         },
         {
           id = 53,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathEnd_E.png",
+          image = "grassPathEnd_E",
           width = 256,
           height = 512
         },
         {
           id = 54,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathEnd_N.png",
+          image = "grassPathEnd_N",
           width = 256,
           height = 512
         },
         {
           id = 55,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathEnd_S.png",
+          image = "grassPathEnd_S",
           width = 256,
           height = 512
         },
         {
           id = 56,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathEnd_W.png",
+          image = "grassPathEnd_W",
           width = 256,
           height = 512
         },
         {
           id = 57,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathStraight_E.png",
+          image = "grassPathStraight_E",
           width = 256,
           height = 512
         },
         {
           id = 58,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathStraight_N.png",
+          image = "grassPathStraight_N",
           width = 256,
           height = 512
         },
         {
           id = 59,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathStraight_S.png",
+          image = "grassPathStraight_S",
           width = 256,
           height = 512
         },
         {
           id = 60,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassPathStraight_W.png",
+          image = "grassPathStraight_W",
           width = 256,
           height = 512
         },
         {
           id = 61,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassStoneLarge_E.png",
+          image = "grassStoneLarge_E",
           width = 256,
           height = 512
         },
         {
           id = 62,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassStoneLarge_N.png",
+          image = "grassStoneLarge_N",
           width = 256,
           height = 512
         },
         {
           id = 63,
-          image = "Kenney Isometric Assets/Overworld pack/Isometric/grassStoneLarge_S.png",
+          image = "grassStoneLarge_S",
           width = 256,
           height = 512
         }

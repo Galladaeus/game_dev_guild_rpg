@@ -1,5 +1,6 @@
 go.property("image", hash("1"))
 
 function init(self)	
+	pprint("Hullo?")
 	msg.post("#sprite", "play_animation", { id = self.image })
 end

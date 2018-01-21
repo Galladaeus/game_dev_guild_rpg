@@ -1,3 +1,5 @@
+local animations = require "user_interfaces/animation_functions"
+
 function init(self)
 	self.check_quit_game = gui.get_node("quitGameCheck")
 	self.confirm_quit = gui.get_node("acceptQuitButton")
@@ -9,6 +11,8 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("open_quit_confirmation") then
 		msg.post(".", "acquire_input_focus")
 		gui.set_enabled(self.check_quit_game, true)
+		-- Need to change animation functions to work for all nodes
+		-- animations.anim1(self.check_quit_game, .2)
 	end
 end
 

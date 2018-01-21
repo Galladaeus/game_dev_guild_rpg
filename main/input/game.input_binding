@@ -42,3 +42,11 @@ mouse_trigger {
   input: MOUSE_BUTTON_1
   action: "mouse_press"
 }
+mouse_trigger {
+  input: MOUSE_WHEEL_UP
+  action: "mouse_wheel_up"
+}
+mouse_trigger {
+  input: MOUSE_WHEEL_DOWN
+  action: "mouse_wheel_down"
+}

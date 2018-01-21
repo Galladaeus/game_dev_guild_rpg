@@ -1,5 +1,4 @@
-local iso_ground = require "levels/town/outside/map/isometric_basic_ground"
-local farm_map = require "levels/town/outside/map/farmLand"
+local iso_ground = require "levels/town/outside/map/old_map/isometric_basic_ground"
 
 function init(self)
 

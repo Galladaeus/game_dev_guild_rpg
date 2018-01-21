@@ -1,0 +1,651 @@
+images {
+  image: "/levels/town/outside/map/images/farm_pack/chimneyBase_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/chimneyBase_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/chimneyBase_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/chimneyBase_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/chimneyTop_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/chimneyTop_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/chimneyTop_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/chimneyTop_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/corn_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/corn_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/corn_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/corn_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornDouble_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornDouble_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornDouble_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornDouble_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornYoung_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornYoung_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornYoung_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornYoung_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornYoungDouble_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornYoungDouble_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornYoungDouble_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/cornYoungDouble_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/dirt_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/dirt_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/dirt_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/dirt_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/dirtFarmland_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/dirtFarmland_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/dirtFarmland_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/dirtFarmland_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceHigh_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceHigh_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceHigh_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceHigh_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceHighBroken_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceHighBroken_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceHighBroken_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceHighBroken_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceLow_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceLow_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceLow_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceLow_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceLowBroken_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceLowBroken_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceLowBroken_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/fenceLowBroken_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hay_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hay_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hay_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hay_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hayBales_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hayBales_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hayBales_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hayBales_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hayBalesStacked_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hayBalesStacked_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hayBalesStacked_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/hayBalesStacked_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStand_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStand_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStand_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStand_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStandBroken_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStandBroken_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStandBroken_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStandBroken_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStraight_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStraight_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStraight_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/ladderStraight_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planks_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planks_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planks_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planks_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksCornerLeft_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksCornerLeft_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksCornerLeft_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksCornerLeft_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksCornerRight_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksCornerRight_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksCornerRight_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksCornerRight_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksHole_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksHole_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksHole_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksHole_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksOld_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksOld_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksOld_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksOld_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksSide_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksSide_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksSide_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksSide_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksSideVertical_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksSideVertical_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksSideVertical_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/planksSideVertical_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roof_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roof_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roof_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roof_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofCorner_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofCorner_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofCorner_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofCorner_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofInnerCorner_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofInnerCorner_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofInnerCorner_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofInnerCorner_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofSingle_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofSingle_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofSingle_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofSingle_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofSingleWall_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofSingleWall_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofSingleWall_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/roofSingleWall_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/sack_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/sack_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/sack_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/sack_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/sacksCrate_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/sacksCrate_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/sacksCrate_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/sacksCrate_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWall_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWall_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWall_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWall_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallCorner_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallCorner_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallCorner_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallCorner_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallCross_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallCross_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallCross_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallCross_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDiagional_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDiagional_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDiagional_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDiagional_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorClosed_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorClosed_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorClosed_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorClosed_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorOpen_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorOpen_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorOpen_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorOpen_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorway_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorway_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorway_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallDoorway_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmpty_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmpty_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmpty_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmpty_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyCross_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyCross_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyCross_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyCross_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyDiagonal_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyDiagonal_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyDiagonal_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyDiagonal_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyOpen_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyOpen_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyOpen_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallEmptyOpen_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateClosed_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateClosed_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateClosed_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateClosed_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateOpen_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateOpen_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateOpen_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateOpen_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateway_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateway_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateway_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallGateway_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHole_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHole_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHole_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHole_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHoleCross_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHoleCross_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHoleCross_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHoleCross_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHoleDiagonal_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHoleDiagonal_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHoleDiagonal_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallHoleDiagonal_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallRoofLeft_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallRoofLeft_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallRoofLeft_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallRoofLeft_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallRoofRight_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallRoofRight_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallRoofRight_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallRoofRight_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallSupport_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallSupport_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallSupport_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallSupport_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallWindow_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallWindow_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallWindow_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallWindow_W.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallWindowGlass_E.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallWindowGlass_N.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallWindowGlass_S.png"
+}
+images {
+  image: "/levels/town/outside/map/images/farm_pack/woodWallWindowGlass_W.png"
+}
+margin: 0
+extrude_borders: 1
+inner_padding: 0

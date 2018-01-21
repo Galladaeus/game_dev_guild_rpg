@@ -12,6 +12,9 @@ function init(self)
 	self.other_world_url.socket = "main"
 	self.other_world_url.path = hash("/controller")
 	self.other_world_url.fragment = self.other_world
+
+	-- Can enable or disable for visual debugging purposes
+	-- msg.post("#sprite", "disable")
 end
 
 function on_message(self, message_id, message, sender)

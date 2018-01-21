@@ -10,6 +10,9 @@ TODO Maybe replace self with all conversation table params, then all conversatio
 TODO check_argument_validity() in create_conversation should check type as well
 ---TODO Refactor the way it selects images, so it selects from npc_images in the shared npc images pool
 
+	Map:
+TODO Can add two sprites to the tile that the factory creates and they reference different atlases, this should probably allow all script for map generation to be placed in one script
+
 	GUI ELEMENTS:
 TODO create graphical ui elements for at least:
 	Inventory background

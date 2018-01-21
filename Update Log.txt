@@ -86,3 +86,13 @@ Jan 19 2018:
 + Added a few more borders to the test combat level
 + Fixed bug where player could attack many times before their turn ended
 + Added behavior to spawn a rat every three turns in the battle_controller.script
+
+Jan 20 2018:
++ Implemented the farm map, has two different scripts for each tileset
++ Added a new quit button confirmation image
++ Changed spawn behavior so only 3 rats appear in total
++ Added an entrance to the rat cellar to the left of the farm
+	+ TODO Still no way to exit from dungeon yet though
+	+ TODO Probably should add some sort of indicator to make it an obvious entrance
++ Added a custom render script so I could zoom the camera in and out for debugging purposes
+*** The max limit on sprites[tiles] is 16384, so if the map is altered in the future all 3 layers can not each have 100x100 tiles each or it will not work

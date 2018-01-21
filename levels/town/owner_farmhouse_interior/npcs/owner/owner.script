@@ -11,7 +11,7 @@ function init(self)
 	npc.set_has_quest(self, true)
 	npc.set_has_conversation(self, true)
 	-- TODO Change name based on go.property() input, using hashes???
-	--npc.set_name(self, go.get("#", hash("name")))
+	-- npc.set_name(self, go.get("#", hash("name")))
 end
 
 function update(self, dt)
@@ -25,6 +25,12 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("player_in_range") and npc.has_conversation(self) then
 		if npc.has_quest(self) then
 			npc.enable_quest_bubble()
+			--[[ TODO Best bet for animating the chat bubble is probably just to draw my own
+			local chat_bubble_scale = go.get_scale("#questBubble")
+			chat_bubble_scale.y = chat_bubble_scale.y + 15
+			chat_bubble_scale.x = chat_bubble_scale.x + 15
+			go.animate("#questBubble", "scale", go.PLAYBACK_ONCE_FORWARD, chat_bubble_scale, go.EASING_INOUTSINE, 2)
+			]]
 		else
 			npc.enable_chat_bubble()
 		end
