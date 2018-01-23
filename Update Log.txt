@@ -96,3 +96,10 @@ Jan 20 2018:
 	+ TODO Probably should add some sort of indicator to make it an obvious entrance
 + Added a custom render script so I could zoom the camera in and out for debugging purposes
 *** The max limit on sprites[tiles] is 16384, so if the map is altered in the future all 3 layers can not each have 100x100 tiles each or it will not work
+
+Jan 22 2018:
++ Added an exit to the north door of the combat dungeon
++ Added an exit_check to give the player a chance to change their mind about leaving combat
++ Added item rewards to the quest system
++ Added 3 health potion reward to the talk to owner quest
++ Added a sprite to the ratSpawner to help with debugging and visual purposes

@@ -94,13 +94,17 @@ local function add_quest(self, quest_table)
 	end
 	-- Quest wasn't found so add it to the quest_handler
 	self.number_of_quests = self.number_of_quests + 1
-		
+
+	-- TODO Why did I not just add the quest_table? This duplicates information and makes it confusing and makes
+	--		extra work to change anything in the base quest table
 	-- Set base information			
 	self.current_quests[self.number_of_quests] = {
 		quest_name = quest_table.quest_name,
 		quest_completer_addresss = quest_table.quest_completer_address,
+		-- TODO Changing the gold_reward name here is very bad
 		gold_reward = quest_table.monetary_reward,
 		exp_reward = quest_table.exp_reward,
+		item_reward = quest_table.item_reward,
 		-- MIGHT NOT NEED THIS BOOL
 		quest_complete = false
 	}
@@ -149,8 +153,8 @@ function on_message(self, message_id, message, sender)
 			if message[1] == v.quest_name then
 				pprint("quest_handler.script: EXP VAL: "..v.exp_reward)
 				pprint("quest_handler.script: GOLD VAL: "..v.gold_reward)
-				local player_location = msg.url(self.current_socket, "/player", "player_stats")
-				msg.post(player_location, "quest_reward", {v.gold_reward, v.exp_reward})
+				local player_stats_url = msg.url(self.current_socket, "/player", "player_stats")
+				msg.post(player_stats_url, "quest_reward", { v.gold_reward, v.exp_reward, v.item_reward })
 				remove_quest(self, i)
 			else
 				pprint("quest_handler.script: could not find quest reward for player for quest ["..message[1].."]")

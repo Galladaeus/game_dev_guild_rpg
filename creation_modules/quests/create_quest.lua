@@ -64,6 +64,11 @@ function M.get_quest_table()
 		quest_giver = 'none',
 		exp_reward = 10,
 		monetary_reward = 10,
+		item_reward = {
+			health_potion = 0,
+			damage_potion = 0,
+			throwable_item = 0
+		},
 		-- The URL of the npc you talk to to complete the quest, if none provided default is set to quest_giver's address
 		quest_completer_address -- = self_url
 	}	
@@ -96,6 +101,14 @@ function M.set_quest_reward(quest_table, exp_reward, monetary_reward)
 	
 	quest_table.exp_reward = exp_reward
 	quest_table.monetary_reward = monetary_reward
+end
+
+--[[ Set number of health potions received from quest ]]
+function M.set_health_potion_reward(quest_table, num_of_hpotions)
+	check_table_validity(quest_table, 'set_health_potion_reward')
+	check_argument_validity('set_health_potion_reward', 'number', num_of_hpotions)
+
+	quest_table.item_reward.health_potion = num_of_hpotions
 end
 
 --[[ Set quest giver, MAKE SURE that the quest givers name matches the image name

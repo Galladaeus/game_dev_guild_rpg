@@ -55,6 +55,14 @@ function on_message(self, message_id, message, sender)
 
 	elseif message_id == hash("quest_reward") then
 		pprint("player_stats.script: player received gold["..message[1].."] and exp["..message[2].."]")
+		pprint(message)
+		-- If there is an item reward, send it to the inventory
+		for i in pairs(message[3]) do
+			if message[3][i] ~= 0 then 
+				pprint("player_stats.script: Sending item to main:/inventory ["..i.."] amount: ["..message[3][i].."]")
+				msg.post("main:/inventory", "add_item", { i, message[3][i] })
+			end
+		end
 
 	elseif message_id == hash("test") then
 		pprint("player_stats.script: test message sent from battle_player.script")

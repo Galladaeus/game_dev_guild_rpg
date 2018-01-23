@@ -19,6 +19,7 @@ function on_message(self, message_id, message, sender)
 		local gold_reward = 1337
 		local exp_reward = 100
 		local npc_to_talk_to = 'Owner'	
+		local health_potion_reward = 3
 		-- TODO Make it so you dont have to complete quest from same npc
 		--------------------------------------------------------------------------------------
 		--------------[[ END The only information you need to change ]]-----------------------
@@ -31,6 +32,7 @@ function on_message(self, message_id, message, sender)
 		quest_func.set_quest_reward(self.data, exp_reward, gold_reward)
 		quest_func.set_quest_giver(self.data, quest_giver)
 		quest_func.set_quest_completer(self.data, npc.get_npc_url())
+		quest_func.set_health_potion_reward(self.data, health_potion_reward)
 
 		msg.post("#npc", "quest_data", self.data)
 		msg.post("#conversation", "quest_data", self.data)

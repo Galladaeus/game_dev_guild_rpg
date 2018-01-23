@@ -58,6 +58,7 @@ embedded_components {
   "restitution: 0.5\n"
   "group: \"battlePlayer\"\n"
   "mask: \"enemy\"\n"
+  "mask: \"trigger\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"

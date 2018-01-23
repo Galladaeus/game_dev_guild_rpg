@@ -1,4 +1,6 @@
+--TODO Maybe don't handle item stock in here, place in player_stats???
 
+--[[ Updates the item number in the item gui so player sees how many of each item they have ]]
 local function update_inventory(self, item_type)
 	if item_type == "health_potion" then
 		gui.set_text(self.num_health_potion, self.inventory_stock.health_potion)

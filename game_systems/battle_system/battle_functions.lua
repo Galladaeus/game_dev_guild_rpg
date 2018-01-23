@@ -23,7 +23,7 @@ end
 function M.cast_ray_from_self(self, distance, direction)
 	local ray_distance = distance
 	-- Add hashed groups to the table if you want to detect other collision groups
-	local collision_groups = { hash("border"), hash("enemy"), hash("battlePlayer") }
+	local collision_groups = { hash("border"), hash("enemy"), hash("battlePlayer"), hash("door") }
 
 	local from = go.get_position()
 	local to = go.get_position()

@@ -1,6 +1,6 @@
 components {
-  id: "battle_controller"
-  component: "/game_systems/battle_system/battle_controller.script"
+  id: "exitCheck"
+  component: "/game_systems/battle_system/exitCheck/exitCheck.gui"
   position {
     x: 0.0
     y: 0.0

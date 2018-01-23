@@ -1,6 +1,9 @@
 images {
   image: "/levels/battle_levels/rat_dungeon/dungeon_images/dungeonBattleMap.png"
 }
+images {
+  image: "/levels/battle_levels/rat_dungeon/dungeon_images/ratHole.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

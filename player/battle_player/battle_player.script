@@ -77,10 +77,9 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	-- For battle, can player leave? Or post a retreat message if player tries to leave door?
-	if message_id == hash("trigger_response") then
-		pprint(tostring(message.other_id).." triggered")
-		msg.post(message.other_id, "player_entered")
+	-- TODO Possibly reorder messages so the highly used are on top, trigger_response is much less common
+	if message_id == hash("ray_cast_response") and message.group == hash("door") then
+		msg.post("main:/exitCheck", "open_exit_check", { message.id }) -- Double check that player wants to leave battle 
 
 	-- Stop player from moving and ending turn if their is a border in the way
 	elseif message_id == hash("ray_cast_response") and message.group == hash("border") then
