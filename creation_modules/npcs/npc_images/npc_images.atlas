@@ -11,6 +11,9 @@ images {
   image: "/creation_modules/npcs/npc_images/Bird.png"
 }
 images {
+  image: "/creation_modules/npcs/npc_images/test_owner.png"
+}
+images {
   image: "/creation_modules/npcs/npc_images/Owner.png"
 }
 animations {

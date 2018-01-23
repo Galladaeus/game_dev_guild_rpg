@@ -1,0 +1,9 @@
+images {
+  image: "/levels/town/farmhouseInterior/images/inside_lvl1.png"
+}
+images {
+  image: "/levels/town/farmhouseInterior/images/inside_lvl2.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

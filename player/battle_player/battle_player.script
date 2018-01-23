@@ -32,11 +32,9 @@ local function update_animations(self)
 	elseif self.dir.x == -1 then
 		play_animation(self, "idleLeft")
 	elseif self.dir.y == 1 then
-		--play_animation(self, "idleUp")
-		play_animation(self, "idleRight")
+		play_animation(self, "idleUp")
 	elseif self.dir.y == -1 then
-		-- play_animation(self, "idleDown")
-		play_animation(self, "idleLeft")
+		play_animation(self, "idleDown")
 	end 
 end
 

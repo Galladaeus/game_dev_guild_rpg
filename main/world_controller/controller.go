@@ -67,7 +67,7 @@ embedded_components {
 embedded_components {
   id: "farmhouse"
   type: "collectionproxy"
-  data: "collection: \"/levels/town/owner_farmhouse_interior/farmhouse.collection\"\n"
+  data: "collection: \"/levels/town/farmhouseInterior/farmhouse.collection\"\n"
   "exclude: false\n"
   ""
   position {

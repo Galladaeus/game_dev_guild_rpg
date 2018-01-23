@@ -103,3 +103,9 @@ Jan 22 2018:
 + Added item rewards to the quest system
 + Added 3 health potion reward to the talk to owner quest
 + Added a sprite to the ratSpawner to help with debugging and visual purposes
+Addt work:
++ Reduced image sizes of player and owner images and added them to game
++ Added different movement animations and idles, not fully complete
++ Resized a few game objects, still need to resize the owner sprite again
++ Adjusted movement of player to match the isometric map
++ In the battle you now see the cat adjust properly before moving

@@ -34,30 +34,45 @@ local function play_animation(self, animation)
 end
 
 -- [[ Sets animation based on action ]]
--- Way too clunky, should to be updated
+-- Way too clunky, how to do better?
 local function update_animations(self)
+	--pprint(self.dir)
 	if (self.vel.x == 0 and self.vel.y == 0) and self.dir.x == 1 then
 		play_animation(self, "idleRight")
 	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x == -1 then
 		play_animation(self, "idleLeft")
-	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x < 0 then
+	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.y == 1 then
+		play_animation(self, "idleUp")
+	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.y == -1 then
+		play_animation(self, "idleDown")
+	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x < 0 and self.dir.y < 0 then
+		-- idleDownLeft
 		play_animation(self, "idleLeft")
-	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x > 0 then
+	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x > 0 and self.dir.y < 0 then
+		-- idelDownRight
 		play_animation(self, "idleRight")
-	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x == 0 then
+	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x > 0 and self.dir.y > 0 then
+		-- idelupRight
+		play_animation(self, "idleRight")
+	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x < 0 and self.dir.y < 0 then
+		-- idelDownRight
 		play_animation(self, "idleRight")
 	elseif self.vel.x > 0 and self.vel.y > 0 then
-		play_animation(self, "walkRight")
+		play_animation(self, "upRightWalk")
 	elseif self.vel.x < 0 and self.vel.y > 0 then
-		play_animation(self, "walkLeft")
+		play_animation(self, "upLeftWalk")
+	elseif self.vel.x > 0 and self.vel.y < 0 then
+		play_animation(self, "downRightWalk")
+	elseif self.vel.x < 0 and self.vel.y < 0 then 
+		play_animation(self, "downLeftWalk")
 	elseif self.vel.x > 0 then
 		play_animation(self, "walkRight")
 	elseif self.vel.x < 0 then
 		play_animation(self, "walkLeft")
 	elseif self.vel.y > 0 then
-		play_animation(self, "walkRight")
+		play_animation(self, "upWalk")
 	elseif self.vel.y < 0 then
-		play_animation(self, "walkRight")
+		play_animation(self, "downWalk")
 	end
 end
 
@@ -83,7 +98,13 @@ end
 
 
 function update(self, dt)
-	-- msg.post("camera", "look_at") Camera is childed to player, this can be used as part of persp camera
+	-- msg.post("camera", "look_at") Camera is currently attached to the go and has focus
+
+	-- Adjust y velocity to match the grid movement
+	if self.vel.x ~= 0 then 
+		self.vel.y = self.vel.y * .60
+	end
+	
 	local pos = go.get_position() 
 	pos = pos + self.vel * dt 
 	go.set_position(pos) 

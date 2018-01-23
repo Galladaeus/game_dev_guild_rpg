@@ -44,8 +44,8 @@ embedded_components {
   "  shapes {\n"
   "    shape_type: TYPE_SPHERE\n"
   "    position {\n"
-  "      x: 6734.236\n"
-  "      y: 3643.123\n"
+  "      x: 1338.236\n"
+  "      y: 750.123\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -60,8 +60,8 @@ embedded_components {
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"
   "    position {\n"
-  "      x: 6491.034\n"
-  "      y: 3228.221\n"
+  "      x: 1289.034\n"
+  "      y: 664.221\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -76,8 +76,8 @@ embedded_components {
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"
   "    position {\n"
-  "      x: 6210.811\n"
-  "      y: 3688.699\n"
+  "      x: 1235.811\n"
+  "      y: 752.699\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -89,12 +89,12 @@ embedded_components {
   "    index: 4\n"
   "    count: 3\n"
   "  }\n"
-  "  data: 228.314\n"
-  "  data: 311.8265\n"
-  "  data: 229.9925\n"
+  "  data: 48.1975\n"
+  "  data: 68.735\n"
+  "  data: 54.222\n"
   "  data: 10.0\n"
-  "  data: 213.644\n"
-  "  data: 226.636\n"
+  "  data: 38.5595\n"
+  "  data: 48.1895\n"
   "  data: 10.0\n"
   "}\n"
   "linear_damping: 0.0\n"
@@ -122,8 +122,8 @@ embedded_components {
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
   position {
-    x: 6454.0
-    y: 3444.0
+    x: 1284.0
+    y: 705.0
     z: 0.0
   }
   rotation {

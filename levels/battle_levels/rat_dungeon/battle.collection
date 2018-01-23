@@ -15,17 +15,17 @@ instances {
     w: 1.0
   }
   scale3 {
-    x: 0.1
-    y: 0.1
-    z: 1.0
+    x: 0.5
+    y: 0.5
+    z: 0.1
   }
 }
 instances {
   id: "camera"
   prototype: "/player/camera/camera.go"
   position {
-    x: -6850.0
-    y: -2980.0
+    x: -1206.0
+    y: -673.0
     z: 0.0
   }
   rotation {

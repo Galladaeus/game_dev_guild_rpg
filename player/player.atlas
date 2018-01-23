@@ -1,28 +1,28 @@
 animations {
   id: "walkRight"
   images {
-    image: "/player/player_images/Walk_Side00.png"
+    image: "/player/player_images/rightWalk (1).png"
   }
   images {
-    image: "/player/player_images/Walk_Side01.png"
+    image: "/player/player_images/rightWalk (2).png"
   }
   images {
-    image: "/player/player_images/Walk_Side02.png"
+    image: "/player/player_images/rightWalk (3).png"
   }
   images {
-    image: "/player/player_images/Walk_Side03.png"
+    image: "/player/player_images/rightWalk (4).png"
   }
   images {
-    image: "/player/player_images/Walk_Side04.png"
+    image: "/player/player_images/rightWalk (5).png"
   }
   images {
-    image: "/player/player_images/Walk_Side05.png"
+    image: "/player/player_images/rightWalk (6).png"
   }
   images {
-    image: "/player/player_images/Walk_Side06.png"
+    image: "/player/player_images/rightWalk (7).png"
   }
   images {
-    image: "/player/player_images/Walk_Side07.png"
+    image: "/player/player_images/rightWalk (8).png"
   }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 6
@@ -32,28 +32,28 @@ animations {
 animations {
   id: "walkLeft"
   images {
-    image: "/player/player_images/Walk_Side00.png"
+    image: "/player/player_images/rightWalk (1).png"
   }
   images {
-    image: "/player/player_images/Walk_Side01.png"
+    image: "/player/player_images/rightWalk (2).png"
   }
   images {
-    image: "/player/player_images/Walk_Side02.png"
+    image: "/player/player_images/rightWalk (3).png"
   }
   images {
-    image: "/player/player_images/Walk_Side03.png"
+    image: "/player/player_images/rightWalk (4).png"
   }
   images {
-    image: "/player/player_images/Walk_Side04.png"
+    image: "/player/player_images/rightWalk (5).png"
   }
   images {
-    image: "/player/player_images/Walk_Side05.png"
+    image: "/player/player_images/rightWalk (6).png"
   }
   images {
-    image: "/player/player_images/Walk_Side06.png"
+    image: "/player/player_images/rightWalk (7).png"
   }
   images {
-    image: "/player/player_images/Walk_Side07.png"
+    image: "/player/player_images/rightWalk (8).png"
   }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 6
@@ -63,43 +63,61 @@ animations {
 animations {
   id: "idleRight"
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (1).png"
   }
   images {
-    image: "/player/player_images/Blink_Side01.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side02.png"
+    image: "/player/player_images/rightBlink (3).png"
   }
   images {
-    image: "/player/player_images/Blink_Side03.png"
+    image: "/player/player_images/rightBlink (4).png"
   }
   images {
-    image: "/player/player_images/Blink_Side04.png"
+    image: "/player/player_images/rightBlink (5).png"
   }
   images {
-    image: "/player/player_images/Blink_Side05.png"
+    image: "/player/player_images/rightBlink (6).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (7).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
   }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 8
@@ -109,40 +127,61 @@ animations {
 animations {
   id: "idleLeft"
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (5).png"
   }
   images {
-    image: "/player/player_images/Blink_Side01.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side02.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side03.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side04.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side05.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (7).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (6).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
   }
   images {
-    image: "/player/player_images/Blink_Side00.png"
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (3).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (4).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (1).png"
+  }
+  images {
+    image: "/player/player_images/rightBlink (2).png"
   }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 8
@@ -152,28 +191,231 @@ animations {
 animations {
   id: "attackRight"
   images {
-    image: "/player/player_images/Walk_Side01.png"
+    image: "/player/player_images/rightWalk (1).png"
   }
   images {
-    image: "/player/player_images/Walk_Side02.png"
+    image: "/player/player_images/rightWalk (2).png"
   }
   images {
-    image: "/player/player_images/Walk_Side03.png"
+    image: "/player/player_images/rightWalk (3).png"
   }
   images {
-    image: "/player/player_images/Walk_Side04.png"
+    image: "/player/player_images/rightWalk (4).png"
   }
   images {
-    image: "/player/player_images/Walk_Side05.png"
+    image: "/player/player_images/rightWalk (5).png"
   }
   images {
-    image: "/player/player_images/Walk_Side06.png"
+    image: "/player/player_images/rightWalk (6).png"
   }
   images {
-    image: "/player/player_images/Walk_Side07.png"
+    image: "/player/player_images/rightWalk (7).png"
+  }
+  images {
+    image: "/player/player_images/rightWalk (8).png"
   }
   playback: PLAYBACK_ONCE_FORWARD
   fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "upRightWalk"
+  images {
+    image: "/player/player_images/upRightWalk (1).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (2).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (3).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (4).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (5).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (6).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (7).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (8).png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "upLeftWalk"
+  images {
+    image: "/player/player_images/upRightWalk (1).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (2).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (3).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (4).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (5).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (6).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (7).png"
+  }
+  images {
+    image: "/player/player_images/upRightWalk (8).png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "downWalk"
+  images {
+    image: "/player/player_images/downWalk (1).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (2).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (3).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (4).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (5).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (6).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (7).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (8).png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "upWalk"
+  images {
+    image: "/player/player_images/upWalk (1).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (2).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (3).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (4).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (5).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (6).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (7).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (8).png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "downRightWalk"
+  images {
+    image: "/player/player_images/downRightWalk (1).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (2).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (3).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (4).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (5).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (6).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (7).png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "downLeftWalk"
+  images {
+    image: "/player/player_images/downRightWalk (1).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (2).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (3).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (4).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (5).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (6).png"
+  }
+  images {
+    image: "/player/player_images/downRightWalk (7).png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "idleDown"
+  images {
+    image: "/player/player_images/downWalk (2).png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "idleUp"
+  images {
+    image: "/player/player_images/upWalk (2).png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 1
   flip_horizontal: 0
   flip_vertical: 0
 }
