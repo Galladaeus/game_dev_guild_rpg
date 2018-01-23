@@ -95,7 +95,7 @@ embedded_components {
 embedded_components {
   id: "npc_sprite"
   type: "sprite"
-  data: "tile_set: \"/creation_modules/npc/npc_images/shared_npc_images.atlas\"\n"
+  data: "tile_set: \"/creation_modules/npcs/npc_images/npc_images.atlas\"\n"
   "default_animation: \"no_sprite_sign\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
@@ -115,7 +115,7 @@ embedded_components {
 embedded_components {
   id: "chat_bubble"
   type: "sprite"
-  data: "tile_set: \"/creation_modules/npc/npc_images/shared_npc_images.atlas\"\n"
+  data: "tile_set: \"/creation_modules/npcs/npc_images/npc_images.atlas\"\n"
   "default_animation: \"chat_bubble\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
@@ -135,7 +135,7 @@ embedded_components {
 embedded_components {
   id: "quest_bubble"
   type: "sprite"
-  data: "tile_set: \"/creation_modules/npc/npc_images/shared_npc_images.atlas\"\n"
+  data: "tile_set: \"/creation_modules/npcs/npc_images/npc_images.atlas\"\n"
   "default_animation: \"quest_bubble\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
