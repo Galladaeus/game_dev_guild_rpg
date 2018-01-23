@@ -8,7 +8,9 @@ TODO make it so that all text appears in main text box, buttons are just for con
 TODO Maybe replace self with all conversation table params, then all conversation tables have to be named the same thing but it will make it simpler, easier to copy and paste conversations
 ---TODO npc picture needs to change based on who player is talking to
 TODO check_argument_validity() in create_conversation should check type as well
----TODO Refactor the way it selects images, so it selects from npc_images in the shared npc images pool
+---TODO Refactor the way it selects images, so it selects from npc_images in the shared npc images pool TODO May want to revert behavior
+TODO Completely refactor gui element, base element should not have any transformations applied to it, to prevent the parent inheritance nightmare,
+	also needs to look way better, and npc images should be handled better
 
 	Map:
 TODO Can add two sprites to the tile that the factory creates and they reference different atlases, this should probably allow all script for map generation to be placed in one script

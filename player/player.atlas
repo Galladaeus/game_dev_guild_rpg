@@ -419,6 +419,139 @@ animations {
   flip_horizontal: 0
   flip_vertical: 0
 }
+animations {
+  id: "idleDownRight"
+  images {
+    image: "/player/player_images/downRightWalk (2).png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "idleDownLeft"
+  images {
+    image: "/player/player_images/downRightWalk (2).png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 1
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "idleUpRight"
+  images {
+    image: "/player/player_images/upRightWalk (2).png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "idleUpLeft"
+  images {
+    image: "/player/player_images/upRightWalk (2).png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 1
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "attackLeft"
+  images {
+    image: "/player/player_images/rightWalk (1).png"
+  }
+  images {
+    image: "/player/player_images/rightWalk (2).png"
+  }
+  images {
+    image: "/player/player_images/rightWalk (3).png"
+  }
+  images {
+    image: "/player/player_images/rightWalk (4).png"
+  }
+  images {
+    image: "/player/player_images/rightWalk (5).png"
+  }
+  images {
+    image: "/player/player_images/rightWalk (6).png"
+  }
+  images {
+    image: "/player/player_images/rightWalk (7).png"
+  }
+  images {
+    image: "/player/player_images/rightWalk (8).png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 4
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "attackUp"
+  images {
+    image: "/player/player_images/upWalk (1).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (2).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (3).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (4).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (5).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (6).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (7).png"
+  }
+  images {
+    image: "/player/player_images/upWalk (8).png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "attackDown"
+  images {
+    image: "/player/player_images/downWalk (1).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (2).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (3).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (4).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (5).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (6).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (7).png"
+  }
+  images {
+    image: "/player/player_images/downWalk (8).png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

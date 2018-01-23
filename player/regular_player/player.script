@@ -46,17 +46,13 @@ local function update_animations(self)
 	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.y == -1 then
 		play_animation(self, "idleDown")
 	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x < 0 and self.dir.y < 0 then
-		-- idleDownLeft
-		play_animation(self, "idleLeft")
+		play_animation(self, "idleDownLeft")
 	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x > 0 and self.dir.y < 0 then
-		-- idelDownRight
-		play_animation(self, "idleRight")
+		play_animation(self, "idleDownRight")
 	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x > 0 and self.dir.y > 0 then
-		-- idelupRight
-		play_animation(self, "idleRight")
-	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x < 0 and self.dir.y < 0 then
-		-- idelDownRight
-		play_animation(self, "idleRight")
+		play_animation(self, "idleUpRight")
+	elseif (self.vel.x == 0 and self.vel.y == 0) and self.dir.x < 0 and self.dir.y > 0 then
+		play_animation(self, "idleUpLeft")
 	elseif self.vel.x > 0 and self.vel.y > 0 then
 		play_animation(self, "upRightWalk")
 	elseif self.vel.x < 0 and self.vel.y > 0 then

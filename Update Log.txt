@@ -109,3 +109,12 @@ Addt work:
 + Resized a few game objects, still need to resize the owner sprite again
 + Adjusted movement of player to match the isometric map
 + In the battle you now see the cat adjust properly before moving
+
+Jan 23 2018:
++ Resized owner image again, will need to resize again because it is too low res in conversations
++ Added idles for each direction to player
++ Added "attack" animations for each cardinal direction (just the walk loop playing once in whatever direction player attacks)
++ Added inventory cat face, that opens when you hover over it
++ Added inventory background of upper and lower teeth and dark grey background
++ Changed farmhouse interior to new image, had to resize it through script and since it is only one piece, the player walks above it
+	+ Would be helpful if it was resized to double and split into walls and floors

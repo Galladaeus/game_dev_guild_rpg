@@ -58,6 +58,18 @@ images {
 images {
   image: "/user_interfaces/ui_images/button_images/pixel_quit_check.png"
 }
+images {
+  image: "/user_interfaces/ui_images/inventory_images/catFace.png"
+}
+images {
+  image: "/user_interfaces/ui_images/inventory_images/catFaceOpen.png"
+}
+images {
+  image: "/user_interfaces/ui_images/inventory_images/lowerJaw.png"
+}
+images {
+  image: "/user_interfaces/ui_images/inventory_images/upperJaw.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

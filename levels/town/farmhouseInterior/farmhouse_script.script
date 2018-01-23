@@ -1,0 +1,4 @@
+-- TODO this should not be a thing, should export map to same size as before
+function init(self)
+	go.set_scale(vmath.vector3(2, 2, 1), "#sprite")
+end

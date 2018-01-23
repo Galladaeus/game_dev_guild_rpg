@@ -41,7 +41,17 @@ end
 -- Function for when player attacks by moving into an enemy
 local function attack(self, enemy)
 	self.is_turn = false
-	play_animation(self, "attackRight")
+
+	if self.dir.x == 1 then
+		play_animation(self, "attackRight")
+	elseif self.dir.x == -1 then
+		play_animation(self, "attackLeft")
+	elseif self.dir.y == 1 then
+		play_animation(self, "attackUp")
+	elseif self.dir.y == -1 then
+		play_animation(self, "attackDown")
+	end 
+
 	msg.post(enemy, "player_attack", { self.player_damage })
 	-- End turn moved to animation_done message
 	--battle.end_turn(self)
@@ -98,9 +108,12 @@ function on_message(self, message_id, message, sender)
 		msg.post("#player_stats", "damage_player", message)
 
 	-- Sets player back to correct idle after attack animation and ends player turn
-	elseif message_id == hash("animation_done") and message.id == hash("attackRight") then 
-		update_animations(self)
-		battle.end_turn(self)
+	elseif message_id == hash("animation_done") then 
+		if message.id == hash("attackRight") or message.id == hash("attackLeft") or
+					message.id == hash("attackUp") or message.id == hash("attackDown") then
+			update_animations(self)
+			battle.end_turn(self)
+		end
 
 	elseif message_id == hash("enemy_turn_over") then
 		battle.start_turn(self)

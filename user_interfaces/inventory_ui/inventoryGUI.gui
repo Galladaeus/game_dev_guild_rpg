@@ -69,8 +69,8 @@ nodes {
 }
 nodes {
   position {
-    x: 340.0
-    y: 462.0
+    x: 461.0
+    y: 346.0
     z: 0.0
     w: 1.0
   }
@@ -107,7 +107,7 @@ nodes {
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   parent: "inventory"
-  layer: ""
+  layer: "notBackground"
   inherit_alpha: false
   slice9 {
     x: 0.0
@@ -124,8 +124,8 @@ nodes {
 }
 nodes {
   position {
-    x: 940.0
-    y: 462.0
+    x: 815.0
+    y: 346.0
     z: 0.0
     w: 1.0
   }
@@ -162,7 +162,7 @@ nodes {
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   parent: "inventory"
-  layer: ""
+  layer: "notBackground"
   inherit_alpha: false
   slice9 {
     x: 0.0
@@ -179,8 +179,8 @@ nodes {
 }
 nodes {
   position {
-    x: 340.0
-    y: 383.0
+    x: 461.0
+    y: 267.0
     z: 0.0
     w: 1.0
   }
@@ -232,7 +232,7 @@ nodes {
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
   parent: "inventory"
-  layer: ""
+  layer: "notBackground"
   inherit_alpha: false
   alpha: 1.0
   outline_alpha: 1.0
@@ -244,7 +244,7 @@ nodes {
 nodes {
   position {
     x: 640.0
-    y: 383.0
+    y: 267.0
     z: 0.0
     w: 1.0
   }
@@ -296,7 +296,7 @@ nodes {
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
   parent: "inventory"
-  layer: ""
+  layer: "notBackground"
   inherit_alpha: false
   alpha: 1.0
   outline_alpha: 1.0
@@ -307,8 +307,8 @@ nodes {
 }
 nodes {
   position {
-    x: 940.0
-    y: 383.0
+    x: 815.0
+    y: 267.0
     z: 0.0
     w: 1.0
   }
@@ -360,7 +360,7 @@ nodes {
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
   parent: "inventory"
-  layer: ""
+  layer: "notBackground"
   inherit_alpha: false
   alpha: 1.0
   outline_alpha: 1.0
@@ -372,7 +372,7 @@ nodes {
 nodes {
   position {
     x: 640.0
-    y: 462.0
+    y: 346.0
     z: 0.0
     w: 1.0
   }
@@ -409,7 +409,7 @@ nodes {
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   parent: "inventory"
-  layer: ""
+  layer: "notBackground"
   inherit_alpha: false
   slice9 {
     x: 0.0
@@ -427,7 +427,7 @@ nodes {
 nodes {
   position {
     x: 642.0
-    y: 590.0
+    y: 474.0
     z: 0.0
     w: 1.0
   }
@@ -464,7 +464,7 @@ nodes {
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   parent: "inventory"
-  layer: ""
+  layer: "notBackground"
   inherit_alpha: false
   slice9 {
     x: 0.0
@@ -478,6 +478,175 @@ nodes {
   alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 640.0
+    y: 360.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 1280.0
+    y: 720.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "ui_graphics/upperJaw"
+  id: "upperJaw"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "inventory"
+  layer: "notBackground"
+  inherit_alpha: false
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 640.0
+    y: 331.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 1115.0
+    y: 628.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "ui_graphics/lowerJaw"
+  id: "lowerJaw"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "inventory"
+  layer: "notBackground"
+  inherit_alpha: false
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 642.0
+    y: 373.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 4.363
+    y: 8.346
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 0.101960786
+    y: 0.101960786
+    z: 0.101960786
+    w: 1.0
+  }
+  type: TYPE_PIE
+  blend_mode: BLEND_MODE_ALPHA
+  texture: ""
+  id: "inventoryBackground"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "inventory"
+  layer: "background"
+  inherit_alpha: false
+  outerBounds: PIEBOUNDS_ELLIPSE
+  innerRadius: 0.0
+  perimeterVertices: 15
+  pieFillAngle: 360.0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
+}
+layers {
+  name: "background"
+}
+layers {
+  name: "notBackground"
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

@@ -15,7 +15,7 @@ background_color {
 }
 nodes {
   position {
-    x: 1209.036
+    x: 1182.036
     y: 684.927
     z: 0.0
     w: 1.0
@@ -139,8 +139,8 @@ nodes {
 }
 nodes {
   position {
-    x: 1213.645
-    y: 63.11
+    x: 1150.0
+    y: 72.0
     z: 0.0
     w: 1.0
   }
@@ -151,14 +151,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.2
-    y: 0.2
+    x: 0.4
+    y: 0.4
     z: 1.0
     w: 1.0
   }
   size {
-    x: 512.0
-    y: 512.0
+    x: 640.0
+    y: 360.0
     z: 0.0
     w: 1.0
   }
@@ -170,7 +170,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "ui_graphics/pixel_inventory_icon"
+  texture: "ui_graphics/catFace"
   id: "inventoryButton"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -911,15 +911,15 @@ nodes {
   "\n"
   "WASD to Move around\n"
   "\n"
-  "F1 to damage yourself\n"
-  "\n"
   "ESC or click on MENU to\n"
   "open the main menu\n"
   "\n"
   "INV is not yet implemented\n"
   "\n"
   "Walk into the block in the upper right to\n"
-  "go inside the farmhouse"
+  "go inside the farmhouse\n"
+  "\n"
+  "Combat is in the shed to the left of the farmhouse"
   font: "system_font"
   id: "tempInstructions"
   xanchor: XANCHOR_NONE
@@ -947,6 +947,60 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+}
+nodes {
+  position {
+    x: 1150.0
+    y: 72.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.4
+    y: 0.4
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 640.0
+    y: 360.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "ui_graphics/catFaceOpen"
+  id: "inventoryButtonHover"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
 }
 layers {
   name: "lower"
